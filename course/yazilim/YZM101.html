@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 1. yarıyıl</div>
+ <h1 class="text-2xl font-bold">YZM101 · Programlamaya Giriş I</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 2+2+0 · Kredi 3 · AKTS 6 (müfredatta 6) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376970&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376970&amp;lang=tr</a> · toplandı 13.11.2026 01:29</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 41</span><span class="pill st-fail">kaldı: 1</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">93.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #24 · 13.11 15:44 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">92<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #25 · 13.11 15:44 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-3xl score mt-1">91.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #80 · 13.11 16:22 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (1)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2004 (22 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Konuların derinliği, Lisans 1. yarıyıl bir dersin gerektirdiği temel seviye ile uyumlu görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konulara göre ne gereğinden geniş ne de dar görünmektedir; temel programlama konularını kapsamaktadır.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların, dersin adı ve amacının kapsamı dışında bir konu içerdiği gözlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, amaç, içerik ve haftalık konular arasında belirgin bir uyumsuzluk gözlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin amaçlarında belirtilen temel kavramlar, algoritma tasarlama, programlama becerileri ve dil kullanımı, haftalık konular boyunca işlenmektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla tam olarak örtüşmemektedir; bazı çıktıların kapsamı sınırlıdır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, amaçta belirtilen &#39;Problemleri analiz edip çözebilmek için temel algoritma tasarlama becerileri kazanmak&#39; amacını tam olarak yansıtmamaktadır.</div><div class="text-xs text-slate-500 mt-1">Çıktılar daha çok &#39;kullanma&#39; ve &#39;açıklama&#39; becerilerine odaklanmış olup, &#39;tasarlama&#39; becerisinin derinliğini tam olarak ölçmekte yetersiz kalmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:2</code> “Bir problemi analiz eder, çözüm yolları üretir ve algoritma geliştir.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktılarına, &#39;tasarlama&#39; becerisini daha güçlü yansıtacak, örneğin &#39;karmaşık bir problemi tasarlayarak çözüme ulaştırır&#39; gibi bir ifade eklenmesi önerilir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %80 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Dersin amaçları (temel kavramları anlamak, program yazmak, algoritma tasarlamak, dili kullanmak) çıktı 1&#39;den 5&#39;e kadar olan maddelerle kapsanmaktadır. Tüm çıktılar, dersin temel hedeflerine doğrudan hizmet etmektedir.<br>
+  Bloom dağılımı: analiz 2, anlama 1, uygulama 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Programlamanın temel kavramlarını açıklar ve kullanır.<div class="text-xs text-amber-700">belirsiz: açıklar, kullanır</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1</td>
+ <td class="text-blue-800">Programlamanın temel kavramlarını tanımlar ve bu kavramları kullanarak basit bir programın yapısını açıklar.</td></tr>
+ <tr><td>2</td><td>Bir problemi analiz eder, çözüm yolları üretir ve algoritma geliştir.</td><td>analiz</td>
+ <td><span class="pill st-pass">evet</span></td><td>2</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Verilen bir problemin çözümünü sağlayacak programı bir programlama dilinde yazar.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>5, 6, 7, 8, 9, 10, 11, 12, 13, 14</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Programlama ile ilgili koşul, döngü deyimlerini, fonksiyonları, dizileri, yapıları ve pointerları kullanır.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>6, 7, 8, 9, 10, 11, 12, 13, 14</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Verilen bir algoritmayı analiz edip çalışma mantığını açıklar.</td><td>analiz</td>
+ <td><span class="pill st-pass">evet</span></td><td>2</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 91.7</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Programming from the Ground Up, Bartlett, 2004<div class="text-xs text-slate-500">Programlamaya giriş ve temel kavramları doğrudan ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Programming with GNU Software, Loukides and Oram, 1997.<div class="text-xs text-slate-500">C programlama ve yazılım geliştirme konularını kapsamaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>C Programming: A Modern Approach, King, 1996.<div class="text-xs text-slate-500">C programlama diline odaklanarak temel programlama becerilerini desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Computer Systems: A Programmer&#39;s Perspective, Randal E. Bryant and David R. O&#39;Hallaron, Prentice-Hall 2003.<div class="text-xs text-slate-500">Daha çok sistem perspektifine odaklanmakla birlikte, programlama temellerine dolaylı katkı sağlayabilir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr><tr><td>-C Programlama Dili, Şerafettin ARIKAN, Seçkin Bilgisayar,7. baskı<div class="text-xs text-slate-500">C programlama diline giriş ve temel konuları içermektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>-Öğretim elemanı ders notları<div class="text-xs text-slate-500">Öğretim elemanının ders içeriğini destekleyen materyaldir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">ders notu</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Programlamanın temel kavramlarını açıklar ve kullanır.">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Temel kavramları anlamak (Amaç) ve kaynaklar (1, 2, 3, 5) bu bilgiyi sağlamaktadır.</td></tr><tr><td title="Programlamanın temel kavramlarını açıklar ve kullanır.">Ö1</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">3</td><td class="text-xs text-slate-600">Temel kavramları anlamak (Amaç) ve C programlama konuları (icerik) doğrudan yazılım geliştirme temellerini kapsar.</td></tr><tr><td title="Bir problemi analiz eder, çözüm yolları üretir ve algoritma geliştir.">Ö2</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Algoritma hazırlama ve problem çözme (Amaç) doğrudan Po:2&#39;nin gerektirdiği analiz ve formüle etme becerisine katkı sağlar.</td></tr><tr><td title="Bir problemi analiz eder, çözüm yolları üretir ve algoritma geliştir.">Ö2</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Algoritma geliştirme (Amaç) ve problem çözme (Amaç) ile bilişim teknolojilerini kullanma becerisi ilişkilidir.</td></tr><tr><td title="Verilen bir problemin çözümünü sağlayacak programı bir programlama dilinde yazar.">Ö3</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">4</td><td class="text-xs text-slate-600">Program yazma (Amaç) ve C programlama konuları (icerik) doğrudan yazılım geliştirme becerisini hedefler.</td></tr><tr><td title="Programlama ile ilgili koşul, döngü deyimlerini, fonksiyonları, dizileri, yapıları ve pointerları kullanır.">Ö4</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">5</td><td class="text-xs text-slate-600">Koşul, döngü, fonksiyon, dizi, pointer gibi yapıları kullanma (icerik) doğrudan karmaşık yazılım geliştirme becerisini temsil eder.</td></tr><tr><td title="Verilen bir algoritmayı analiz edip çalışma mantığını açıklar.">Ö5</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Algoritma analizi (Amaç) ve akış diyagramları (hafta:2) ile problem çözme (Amaç) becerisi ilişkilidir.</td></tr></tbody></table></div>
+ </div></div>
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">6 kaynak · 4 tanesinde yıl var · en yeni 2004 (22 yıl önce) · 10 yıldan eski 4</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2004</td><td>Programming from the Ground Up, Bartlett, 2004</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">1997</td><td>Programming with GNU Software, Loukides and Oram, 1997.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">1996</td><td>C Programming: A Modern Approach, King, 1996.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2003</td><td>Computer Systems: A Programmer&#39;s Perspective, Randal E. Bryant and David R. O&#39;Hallaron, Prentice-Hall 2003.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>-C Programlama Dili, Şerafettin ARIKAN, Seçkin Bilgisayar,7. baskı</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">—</td><td>-Öğretim elemanı ders notları</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu örtüşmesi adayları (Modül B)</h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM392">YZM392 Haskel Programlama</a> · 6. yarıyıl · 1 benzer konu (en yüksek 0.891)</div></div>
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/yazilim/YZM101">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/yazilim/YZM101/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Programlamaya Giriş I</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">-Temel programlama kavramlarını anlamak.
+-Bilgisayar programları yazmak ve temel programlama becerilerini kazanmak.
+-Problemleri analiz edip çözebilmek için temel algoritma tasarlama becerileri kazanmak.
+-Bir programlama dilini etkili bir şekilde kullanabilmek.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Programlamaya giriş ve temel kavramlar, Algoritma hazırlama ve örnek algoritmalar, Problem çözümünde izlenmesi gereken adımlar. Akış diyagramları ve örnek algoritmik mantıklar, koşullu işlem yapan algoritmalar, algoritmalarda döngü kullanımı ve örnek uygulamalar, C programlama diline giriş ve C derleyicisini tanıma, ilk programı yazma. C programlama dilinde koşul deyimleri, döngü deyimleri ve kullanımı. Diziler. Fonksiyonlar. Göstergeler (Pointer). Fonksiyonlara değer ve referans olarak parametre gönderimi. Özyinelemeli (Recursive) fonksiyonlar. Yapılar ve birlikler. Text ve Binary dosyalar üzerinde işlemler.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">Dersin teorik kısmı ders notları ve slaytlardan yararlanılarak anlatım, soru-cevap yöntemi ile gerçekleştirilir. Uygulama kısmı ise bilgisayar ortamında gösterip yapma ve uygulama yöntemleri ile gerçekleştirilir.</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Programlamanın temel kavramlarını açıklar ve kullanır.</li><li>Bir problemi analiz eder, çözüm yolları üretir ve algoritma geliştir.</li><li>Verilen bir problemin çözümünü sağlayacak programı bir programlama dilinde yazar.</li><li>Programlama ile ilgili koşul, döngü deyimlerini, fonksiyonları, dizileri, yapıları ve pointerları kullanır.</li><li>Verilen bir algoritmayı analiz edip çalışma mantığını açıklar.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%30</td></tr><tr><td>Ödev</td><td>2</td><td>%20</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%50</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (178 saat → tabloda 6 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Ödevler</td><td>10 × 4</td><td>40 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 2</td><td>2 saat</td></tr><tr><td>Laboratuvar</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Proje</td><td>1 × 20</td><td>20 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 4</td><td>4 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Programlamaya giriş ve temel kavramlar. Program, derleyici, yorumlayıcı, programlama, programcı kavramları ve program yazarken çıkması muhtemel hata tipleri.</td></tr><tr><td class="w-10">2</td><td>Algoritma hazırlama, Akış diyagramı çizme ve örnek algoritma ve akış diyagramlarının incelenmesi.</td></tr><tr><td class="w-10">3</td><td>Kontrol Yapıları, Örnek algoritmaların incelenmesi.</td></tr><tr><td class="w-10">4</td><td>Tekrarlama Yapıları ve örnek algoritmalar.</td></tr><tr><td class="w-10">5</td><td>C programlama diline giriş ve C derleyicisini tanıma, ilk programı yazma. Değişkenler, sabitler, veri Tipleri ve operatörler.</td></tr><tr><td class="w-10">6</td><td>If deyimi, if-else deyimi, blok kullanımı. Switch-Case yapısı. Örnek C kodlarının incelenmesi.</td></tr><tr><td class="w-10">7</td><td>Döngüler: For, While, Do..While döngüleri ve örnek algoritmalar.</td></tr><tr><td class="w-10">8</td><td>Dizi kullanımı ve örnek uygulamalar.</td></tr><tr><td class="w-10">9</td><td>Dizi kullanarak C programlama dili ile bir problemi çözen kod geliştirme. Fonksiyonlar ve kullanımı.</td></tr><tr><td class="w-10">10</td><td>Fonksiyonlar ve uygulama örnekleri.</td></tr><tr><td class="w-10">11</td><td>Özyinelemeli Fonksiyonlar. Göstergeler ve kullanımı.</td></tr><tr><td class="w-10">12</td><td>Gösterge, Fonksiyon ve Dizilerle ilgili örnek C kodlarının incelenmesi.</td></tr><tr><td class="w-10">13</td><td>Yapılar ve Birlikler.</td></tr><tr><td class="w-10">14</td><td>Text ve Binary dosya işlemleri.</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

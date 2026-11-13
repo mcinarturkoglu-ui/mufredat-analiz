@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 2. yarıyıl</div>
+ <h1 class="text-2xl font-bold">MÜH102 · Mühendislikte Sosyal Konular</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 2+0+0 · Kredi 2 · AKTS 2 (müfredatta 2) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376726&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376726&amp;lang=tr</a> · toplandı 13.11.2026 01:27</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 34</span><span class="pill st-fail">kaldı: 8</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">76.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #4 · 13.11 09:46 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">86.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #42 · 13.11 15:57 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-3xl score mt-1">37.5<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #101 · 13.11 17:31 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (8)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">week_numbering · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Hafta numaraları ardışık değil (atlanan ya da tekrarlanan hafta var).</td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 17</td><td>1..15 ardışık</td><td class="text-slate-600">Hafta numaralarını 1&#39;den başlayarak ardışık olacak şekilde düzeltin.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">duplicate_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Aynı konu metni birden fazla haftada birebir tekrarlanıyor.</td><td>1 tekrar: &#39;proje yönetimi&#39; x2</td><td>en çok 0 tekrar</td><td class="text-slate-600">Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.</td></tr><tr><td class="whitespace-nowrap">R4 AKTS–iş yükü<div class="text-xs text-slate-500">workload_ects_matches · tr</div></td><td>workload.ects</td>
+<td><span class="pill s-high">yüksek</span></td><td>İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.</td><td>6</td><td>2</td><td class="text-slate-600">İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.</td></tr><tr><td class="whitespace-nowrap">R4 AKTS–iş yükü<div class="text-xs text-slate-500">hours_per_ects · tr</div></td><td>workload.total</td>
+<td><span class="pill s-high">yüksek</span></td><td>Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.</td><td>189 saat / 2 AKTS = 94.5 saat/AKTS</td><td>25-30 saat/AKTS (50-60 saat)</td><td class="text-slate-600">İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2011 (15 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">bibliographic_form · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Bazı kaynak satırları künye olamayacak kadar kısa (yazar, eser adı, yıl eksik).</td><td>1 yetersiz künye: [&#39;Ders Notları&#39;]</td><td>0 yetersiz künye</td><td class="text-slate-600">Kaynakları yazar, eser adı, yayınevi ve yıl içerecek şekilde yazın.</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Belirtilen bilgilerle konuların derinliğinin dersin yarıyılı ve düzeyiyle uyumlu olup olmadığı hakkında bir değerlendirme yapılamamıştır.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konuların kapsamını gereğinden dar veya geniş göstermemektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı dersin adı ve amacının genel kapsamı dahilindedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (&#39;Mühendislikte Sosyal Konular&#39;) ile içerik ve haftalık konular arasında bazı uyumsuzluklar bulunmaktadır. Amaçta belirtilen &#39;proje, risk, değişim yönetimi, girişimcilik, sürdürülebilirlik&#39; gibi konuların tamamı haftalık konulara yansıtılmamıştır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacında belirtilen tüm konuların haftalık konularda işlendiği gözlenmemektedir. Örneğin, &#39;proje&#39; ve &#39;risk&#39; yönetimi konuları haftalık konulara yerleştirilmiş olsa da, &#39;değişim yönetimi&#39; ve &#39;girişimcilik&#39; konularının kapsamı sınırlı kalmıştır.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla tam bir örtüşme göstermemektedir. Özellikle &#39;proje, risk, değişim yönetimi&#39; gibi konuların çıktıya yansıtılma biçimi zayıftır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı (&#39;Mühendislikte Sosyal Konular&#39;) ile haftalık konular arasında, amaçta belirtilen bazı konuların (örneğin, &#39;proje, risk, değişim yönetimi&#39;) haftalık konulara yeterince yansıtılamaması.</div><div class="text-xs text-slate-500 mt-1">Amaçta belirtilen &#39;proje, risk, değişim yönetimi&#39; gibi konuların, haftalık konuların sadece &#39;Proje Yönetimi&#39; (hafta:6, hafta:7) ve &#39;Risk Yönetimi&#39; (hafta:9) başlıklarıyla sınırlı kalması, genel bir örtüşme eksikliği yaratmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Mühendislikte Sosyal Konular”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Mühendislik Disiplinleri”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders içeriği ve haftalık konuların, amaçta belirtilen tüm alt başlıkları (özellikle değişim yönetimi ve girişimcilik gibi) kapsayacak şekilde detaylandırılması önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amacında belirtilen &#39;değişim yönetimi&#39; ve &#39;girişimcilik&#39; konularının, haftalık konular arasında yeterli bir yer tutmaması.</div><div class="text-xs text-slate-500 mt-1">Amaçta yer alan &#39;değişim yönetimi&#39; ve &#39;girişimcilik&#39; konuları, haftalık konulara &#39;Değişiklik Yönetimi&#39; (hafta:10) ve &#39;Yenilikçilik / Girişimcilik&#39; (hafta:11) olarak yansıtılmış olsa da, bu konuların kapsamının amaçtaki derinliği yansıtıp yansıtmadığı belgede gösterilememektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “proje, risk, değişim yönetimi, girişimcilik, sürdürülebilirlik”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:10</code> “Değişiklik Yönetimi”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:11</code> “Yenilikçilik / Girişimcilik”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Değişim yönetimi ve girişimcilik konularının, amaçta belirtilen kapsamı karşılayacak şekilde daha fazla haftalık zaman ayrılması veya alt başlıklarla zenginleştirilmesi gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, amaçta belirtilen &#39;proje, risk, değişim yönetimi&#39; gibi konuların tamamını doğrudan ve dengeli bir şekilde kapsamamaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaçta yer alan &#39;proje, risk, değişim yönetimi&#39; konuları, çıktı 5&#39;te birleştirilmiş olsa da, bu konuların her birinin ayrı bir çıktı olarak daha belirginleştirilmesi, amaçla daha güçlü bir bağ kuracaktır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “proje, risk, değişim yönetimi, girişimcilik, sürdürülebilirlik”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:5</code> “Proje, risk ve değişiklik yönetimi uygulamaları hakkında bilgi.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Proje, risk ve değişim yönetimi konuları için ayrı ayrı öğrenme çıktıları oluşturulması veya mevcut çıktıların daha detaylı hale getirilmesi önerilir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %67 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Çıktılar, dersin amaçlarında belirtilen &#39;bilgi sahibi olma&#39; ve &#39;beceri kazanma&#39; hedeflerinin çoğunu kapsayan, ölçülebilir hale getirilmiş eylemler içermektedir. Eksiklikler (örn. &#39;farkındalık&#39; gibi soyut ifadeler) yeniden yazım önerileriyle giderilmiştir.<br>
+  Bloom dağılımı: anlama 7, uygulama 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Çok disiplinli takımlarda etkin biçimde çalışabilme becerisi</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3, 4</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>2</td><td>Yaşam boyu öğrenmenin gerekliliği konusunda farkındalık<div class="text-xs text-amber-700">belirsiz: farkındalık</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>5</td>
+ <td class="text-blue-800">Yaşam boyu öğrenmenin gerekliliğini açıklayabilme.</td></tr>
+ <tr><td>3</td><td>Mühendislik uygulamalarında etik ilkelere uygun davranma, mesleki ve etik sorumluluk bilgisi</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>12</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Farklı mühendislik disiplinleri ve kullanılan standartlar hakkında bilgi.</td><td>anlama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Proje, risk ve değişiklik yönetimi uygulamaları hakkında bilgi.</td><td>anlama</td>
+ <td><span class="pill st-pass">evet</span></td><td>6, 7, 9, 10</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>6</td><td>Girişimcilik ve yenilikçilik hakkında farkındalık.<div class="text-xs text-amber-700">belirsiz: farkındalık</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>11</td>
+ <td class="text-blue-800">Girişimcilik ve yenilikçilik kavramlarını tanımlayabilme.</td></tr>
+ <tr><td>7</td><td>Sürdürülebilir kalkınma hakkında bilgi</td><td>anlama</td>
+ <td><span class="pill st-pass">evet</span></td><td>13</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>8</td><td>Mühendislik uygulamalarının evrensel ve toplumsal boyutlarda sağlık, çevre ve güvenlik üzerindeki etkileri hakkında bilgi.</td><td>anlama</td>
+ <td><span class="pill st-pass">evet</span></td><td>14</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>9</td><td>Mühendislik çözümlerinin yasal sonuçları hakkında farkındalık.<div class="text-xs text-amber-700">belirsiz: farkındalık</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>12</td>
+ <td class="text-blue-800">Mühendislik çözümlerinin yasal sonuçlarını örneklerle açıklayabilme.</td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 37.5</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>H. A. Eiselt ve Vladimir Marianov, Foundations of Location Analysis, Springer Science+Business Media 2011, ISBN 978-1-4419-7571-3 e-ISBN 978-1-4419-7572-0<div class="text-xs text-slate-500">Kitap, lokasyon analizi üzerine olup, mühendislik disiplinleri ile kısmen ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr><tr><td>J.A. Tompkins, J.A. White, Y.A. Bozer ve J.M.A. Tanchoco, Facilities planning, Wiley NY, 2002.<div class="text-xs text-slate-500">Kitap, tesis planlaması ile ilgilidir ve mühendislik konularıyla kısmen ilişkilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr><tr><td>Reza Zanjirani ve Farahani Masoud Hekmatfar, Facility Location Concepts, Models, Algorithms and Case Studies, Springer-Verlag Berlin Heidelberg 2009, ISBN 978-3-7908-2150-5 e-ISBN 978-3-7908-2151-2.<div class="text-xs text-slate-500">Kitap, tesis lokasyon kavramları ile ilgilidir ve mühendislik konularıyla kısmen ilişkilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr><tr><td>Ders Notları<div class="text-xs text-slate-500">Satır künye olamayacak kadar kısa (kod denetimi).</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Çok disiplinli takımlarda etkin biçimde çalışabilme becerisi">Ö1</td><td title="Disiplin içi ve çok disiplinli takımlarda etkin biçimde çalışma becerisi; bireysel çalışma becerisi.">P6</td><td class="score">3</td><td class="text-xs text-slate-600">Hafta 1, 2, 3&#39;teki disiplinler arası konular ve genel ders amacı, çok disiplinli çalışma becerisine katkı sağlar.</td></tr><tr><td title="Çok disiplinli takımlarda etkin biçimde çalışabilme becerisi">Ö1</td><td title="Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.">P10</td><td class="score">2</td><td class="text-xs text-slate-600">Proje yönetimi (Hafta 6, 7) ve disiplinler arası konular, proje bazlı çalışmayı gerektirerek katkı sağlayabilir.</td></tr><tr><td title="Yaşam boyu öğrenmenin gerekliliği konusunda farkındalık">Ö2</td><td title="Yaşam boyu öğrenmenin gerekliliği bilinci; bilgiye erişebilme, bilim ve teknolojideki gelişmeleri izleme ve kendini sürekli yenileme becerisi.">P8</td><td class="score">3</td><td class="text-xs text-slate-600">Hafta 5&#39;teki &#39;Yaşam boyu öğrenme&#39; konusu doğrudan bu çıktıyı desteklemektedir.</td></tr><tr><td title="Mühendislik uygulamalarında etik ilkelere uygun davranma, mesleki ve etik sorumluluk bilgisi">Ö3</td><td title="Etik ilkelerine uygun davranma, mesleki ve etik sorumluluk bilinci; mühendislik uygulamalarında kullanılan standartlar hakkında bilgi">P9</td><td class="score">3</td><td class="text-xs text-slate-600">Hafta 12&#39;deki &#39;Mühendislik Etiği&#39; konusu, etik sorumluluk ve standart bilgisine doğrudan katkı sağlamaktadır.</td></tr><tr><td title="Farklı mühendislik disiplinleri ve kullanılan standartlar hakkında bilgi.">Ö4</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">2</td><td class="text-xs text-slate-600">Hafta 1, 2, 3&#39;teki disiplinler ve standartlar, farklı mühendislik bilgisi edinilmesine katkı sağlar.</td></tr><tr><td title="Farklı mühendislik disiplinleri ve kullanılan standartlar hakkında bilgi.">Ö4</td><td title="Etik ilkelerine uygun davranma, mesleki ve etik sorumluluk bilinci; mühendislik uygulamalarında kullanılan standartlar hakkında bilgi">P9</td><td class="score">2</td><td class="text-xs text-slate-600">Hafta 1, 2, 3&#39;teki disiplinler ve standartlar, standartlar hakkında bilgi edinmeye katkı sağlar.</td></tr><tr><td title="Proje, risk ve değişiklik yönetimi uygulamaları hakkında bilgi.">Ö5</td><td title="Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.">P10</td><td class="score">3</td><td class="text-xs text-slate-600">Hafta 6, 7 (Proje Yönetimi), Hafta 9 (Risk Yönetimi) ve Hafta 10 (Değişiklik Yönetimi) bu çıktıyı doğrudan desteklemektedir.</td></tr><tr><td title="Girişimcilik ve yenilikçilik hakkında farkındalık.">Ö6</td><td title="Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.">P10</td><td class="score">3</td><td class="text-xs text-slate-600">Hafta 11&#39;deki &#39;Yenilikçilik / Girişimcilik&#39; konusu bu çıktıyı doğrudan desteklemektedir.</td></tr><tr><td title="Sürdürülebilir kalkınma hakkında bilgi">Ö7</td><td title="Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.">P10</td><td class="score">3</td><td class="text-xs text-slate-600">Hafta 13&#39;teki &#39;Sürdürülebilirlik ve Sürdürülebilir kalkınma&#39; konusu bu çıktıyı doğrudan desteklemektedir.</td></tr><tr><td title="Mühendislik uygulamalarının evrensel ve toplumsal boyutlarda sağlık, çevre ve güvenlik üzerindeki etkileri hakkında bilgi.">Ö8</td><td title="Mühendislik uygulamalarının evrensel ve toplumsal boyutlarda sağlık, çevre ve güvenlik üzerindeki etkileri ve çağın mühendislik alanına yansıyan sorunları hakkında bilgi; mühendislik çözümlerinin hukuksal sonuçları konusunda farkındalık.">P11</td><td class="score">3</td><td class="text-xs text-slate-600">Hafta 14&#39;teki &#39;Sağlık, Çevre ve Güvenlik Üzerindeki Etkileri&#39; konusu bu çıktıyı doğrudan desteklemektedir.</td></tr><tr><td title="Mühendislik çözümlerinin yasal sonuçları hakkında farkındalık.">Ö9</td><td title="Mühendislik uygulamalarının evrensel ve toplumsal boyutlarda sağlık, çevre ve güvenlik üzerindeki etkileri ve çağın mühendislik alanına yansıyan sorunları hakkında bilgi; mühendislik çözümlerinin hukuksal sonuçları konusunda farkındalık.">P11</td><td class="score">3</td><td class="text-xs text-slate-600">Hafta 12&#39;deki &#39;Hukuki Sonuçları&#39; konusu bu çıktıyı doğrudan desteklemektedir.</td></tr></tbody></table></div>
+ </div></div>
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">4 kaynak · 3 tanesinde yıl var · en yeni 2011 (15 yıl önce) · 10 yıldan eski 3</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2011</td><td>H. A. Eiselt ve Vladimir Marianov, Foundations of Location Analysis, Springer Science+Business Media 2011, ISBN 978-1-4419-7571-3 e-ISBN 978-1-4419-7572-0</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2002</td><td>J.A. Tompkins, J.A. White, Y.A. Bozer ve J.M.A. Tanchoco, Facilities planning, Wiley NY, 2002.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2009</td><td>Reza Zanjirani ve Farahani Masoud Hekmatfar, Facility Location Concepts, Models, Algorithms and Case Studies, Springer-Verlag Berlin Heidelberg 2009, ISBN 978-3-7908-2150-5 e-ISBN 978-3-7908-2151-2.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Ders Notları</td><td class="text-xs text-slate-500">kaynaklar</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu örtüşmesi adayları (Modül B)</h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM397">YZM397 Yazılım Proje Yönetimi</a> · 5. yarıyıl · 2 benzer konu (en yüksek 1.0)</div></div>
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/yazilim/MÜH102">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/yazilim/MÜH102/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Mühendislikte Sosyal Konular</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Öğrencilerin mühendislik disiplinleri ve standartları, etik sorumluluk, proje, risk, değişim yönetimi, girişimcilik, sürdürülebilirlik, mühendislik uygulamalarının sağlık, çevre ve güvenlik üzerindeki etkileri gibi konularda bilgi sahibi olması ve çok disiplinli takımlarda çalışabilme becerisi kazanmaları amaçlanmaktadır.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Mühendislik Disiplinleri</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Çok disiplinli takımlarda etkin biçimde çalışabilme becerisi</li><li>Yaşam boyu öğrenmenin gerekliliği konusunda farkındalık</li><li>Mühendislik uygulamalarında etik ilkelere uygun davranma, mesleki ve etik sorumluluk bilgisi</li><li>Farklı mühendislik disiplinleri ve kullanılan standartlar hakkında bilgi.</li><li>Proje, risk ve değişiklik yönetimi uygulamaları hakkında bilgi.</li><li>Girişimcilik ve yenilikçilik hakkında farkındalık.</li><li>Sürdürülebilir kalkınma hakkında bilgi</li><li>Mühendislik uygulamalarının evrensel ve toplumsal boyutlarda sağlık, çevre ve güvenlik üzerindeki etkileri hakkında bilgi.</li><li>Mühendislik çözümlerinin yasal sonuçları hakkında farkındalık.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%20</td></tr><tr><td>Ödev</td><td>5</td><td>%20</td></tr><tr><td>Proje</td><td>1</td><td>%20</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%40</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (189 saat → tabloda 6 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>11 × 6</td><td>66 saat</td></tr><tr><td>Ödevler</td><td>5 × 5</td><td>25 saat</td></tr><tr><td>Sunum/Seminer Hazırlama</td><td>1 × 30</td><td>30 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 12</td><td>12 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 14</td><td>14 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Mühendislik Disiplinleri_Endüstri Mühendisliği ve Standartları</td></tr><tr><td class="w-10">2</td><td>Mühendislik Disiplinleri_Elektrik Elektronik Mühendisliği ve Standartları</td></tr><tr><td class="w-10">3</td><td>Mühendislik Disiplinleri_İnşaat Mühendisliği ve Standartları</td></tr><tr><td class="w-10">4</td><td>Ders Projesi tasarımı</td></tr><tr><td class="w-10">5</td><td>Yaşam boyu öğrenme</td></tr><tr><td class="w-10">6</td><td>Proje Yönetimi</td></tr><tr><td class="w-10">7</td><td>Proje Yönetimi</td></tr><tr><td class="w-10">8</td><td>ARA SINAV</td></tr><tr><td class="w-10">9</td><td>Risk Yönetimi</td></tr><tr><td class="w-10">10</td><td>Değişiklik Yönetimi</td></tr><tr><td class="w-10">11</td><td>Yenilikçilik / Girişimcilik</td></tr><tr><td class="w-10">12</td><td>Mühendislik Etiği ve Mühendislik Çözümlerinin Hukuki Sonuçları</td></tr><tr><td class="w-10">13</td><td>Sürdürülebilirlik ve Sürdürülebilir kalkınma</td></tr><tr><td class="w-10">14</td><td>Mühendislik Çözümlerinin Sağlık, Çevre ve Güvenlik Üzerindeki Etkileri</td></tr><tr><td class="w-10">17</td><td>Final Sınavı</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

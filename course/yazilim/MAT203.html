@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 3. yarıyıl</div>
+ <h1 class="text-2xl font-bold">MAT203 · Lineer Cebir</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 3+0+0 · Kredi 3 · AKTS 4 (müfredatta 4) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376985&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376985&amp;lang=tr</a> · toplandı 13.11.2026 01:26</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 39</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">76.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #51 · 13.11 16:04 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">86.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #52 · 13.11 16:05 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #109 · 13.11 18:03 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (3)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2011 (15 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin içeriği ve konuları, bir lisans düzeyindeki zorunlu lineer cebir dersi için uygun bir derinlikte görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı (Lineer Cebir), işlenen konuların kapsamını (matrisler, denklem sistemleri, vektörler, uzaylar, özdeğerler) tam olarak yansıtmaktadır.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin amacı ve içeriği dahilinde yer almaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (Lineer Cebir) ve amaç ile içerik genel olarak uyumlu olsa da, haftalık konuların bazı başlıkları (örneğin, &#39;Cayley-Hamilton Teoremi&#39; veya &#39;Simetrik Matrisler ve Ortogonal Köşegenleştirme&#39;) dersin ana içeriğinde (icerik) açıkça belirtilmemiştir, bu da bir tutarsızlık yaratmaktadır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacında belirtilen &#39;lineer operatörler&#39; konusu, haftalık konular arasında &#39;Lineer Dönüşümler, Bir Lineer Dönüşümün Çekirdeği, Görüntüsü ve Rankı, Geçiş Matrisleri&#39; (hafta:15) ile kısmen ele alınmış, ancak amaçta belirtilen &#39;vektör uzayları ve lineer operatörler&#39; kavramlarının tamamının konulara tam olarak yansıtıldığı söylenemez.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla genel olarak uyumlu olsa da, amaçta belirtilen &#39;analitik ve soyut düşünme yeteneklerini geliştirmek&#39; gibi bilişsel beceriler, çıktıların somut beceri odaklı olması nedeniyle doğrudan ölçülememektedir.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders içeriğinde belirtilen bazı konular, haftalık konular başlıklarında açıkça yer almamaktadır.</div><div class="text-xs text-slate-500 mt-1">Ders içeriğinde &#39;Cayley-Hamilton Teoremi&#39; ve &#39;Simetrik Matrisler ve Ortogonal Köşegenleştirme&#39; gibi konular varken, bu başlıklar haftalık konular listesinde ayrı bir başlık olarak geçmemektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “-Özdeğer ve Özvektörler:Bir kare matrisin özdeğerleri ve özvektörlerinin hesaplanması”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:13</code> “Cayley-Hamilton Teoremi yardımı ile bir kare matrisin tersinin ve kuvvetinin hesaplanması”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konular listesi, ders içeriğinde yer alan tüm spesifik konuları (örneğin, Cayley-Hamilton Teoremi) içerecek şekilde güncellenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders amacında belirtilen &#39;lineer operatörler&#39; kavramı, haftalık konuların tamamında doğrudan ve yeterli bir şekilde işlenmemiştir.</div><div class="text-xs text-slate-500 mt-1">Amaçta geçen &#39;lineer operatörler&#39; kavramı, haftalık konuların sonunda &#39;Lineer Dönüşümler&#39; ile kısmen ele alınmış, ancak bu kavramın kapsamı tam olarak kapsanmamıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Öğrenciler, lineer denklem sistemlerinin çözümü, matrisler ve matris işlemleri, determinant, rank, özdeğerler ve özvektörler, vektör uzayları ve lineer operatörler gibi konuları öğrenerek, bu bilgileri mühendislik problemlerinin modellenmesi ve çözümünde etkin bir şekilde kullanabileceklerdir.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:15</code> “Lineer Dönüşümler, Bir Lineer Dönüşümün Çekirdeği, Görüntüsü ve Rankı, Geçiş Matrisleri”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Lineer operatörler konusunun kapsamını netleştiren ve bu konuyu daha derinlemesine ele alan ek haftalık konular eklenmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, dersin amacında belirtilen &#39;analitik ve soyut düşünme yeteneklerini geliştirme&#39; gibi üst düzey bilişsel becerileri doğrudan ölçememektedir.</div><div class="text-xs text-slate-500 mt-1">Çıktılar, &#39;yapabilme&#39; ve &#39;bilme&#39; gibi daha alt düzey becerilere odaklanmıştır, bu da amacın tamamını kapsayamamaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Bu dersin amacı, mühendislik öğrencilerine lineer cebirin temel kavramlarını ve yöntemlerini kazandırarak, analitik ve soyut düşünme yeteneklerini geliştirmektir.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Matris işlemlerini yapabilir ve matris cebirinin satır (sütun) elementer işlemler gibi temel tekniklerini uygulayabilir.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktılarına, öğrencilerin bu bilgileri kullanarak karmaşık mühendislik problemlerini modelleme ve analiz etme becerisini yansıtan daha üst düzey çıktılar eklenmelidir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %67 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Tüm çıktılar, dersin temel konuları olan matris işlemleri, denklem çözümü, determinant, vektör uzayları ve özdeğer/özvektörler gibi ana başlıkları kapsamakta ve bu konuları uygulamaya yönelik becerilerle ilişkilendirmektedir.<br>
+  Bloom dağılımı: anlama 2, uygulama 4</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Matris işlemlerini yapabilir ve matris cebirinin satır (sütun) elementer işlemler gibi temel tekniklerini uygulayabilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>2</td><td>Lineer denklem sistemlerini Gauss ve Gauss-Jordan yöntemi ile çözebilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>3, 4, 7</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Bir matrisin determinantını çeşitli yöntemlerle hesaplayabilir ve determinant uygulamalarını yapabilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>5, 6, 7</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Vektör uzayları ile alt vektör uzaylarını bilir ve vektörlerin lineer bağımlılığını (bağımsızlığını) inceleyebilir.<div class="text-xs text-amber-700">belirsiz: bilir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>10, 11</td>
+ <td class="text-blue-800">Vektör uzayları ile alt vektör uzaylarını tanımlayabilir ve vektörlerin lineer bağımlılığını (bağımsızlığını) inceleyebilir.</td></tr>
+ <tr><td>5</td><td>Vektör cebirinde baz ve boyut kavramlarını bilir ve baz değişimini inceleyebilir.<div class="text-xs text-amber-700">belirsiz: bilir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>15</td>
+ <td class="text-blue-800">Vektör uzaylarında baz ve boyut kavramlarını tanımlayabilir ve geçiş matrislerini inceleyebilir.</td></tr>
+ <tr><td>6</td><td>Bir kare matrisin özdeğer ve özvektörlerini bulabilir ve matrisi köşegenleştirebilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>12, 13, 14</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>1. Ron Larson, David C. Falvo, Elementary Linear Algebra, 6th Edition, Houghton Mifflin Harcourt Publishing Company, 2009.<div class="text-xs text-slate-500">Kitap, lineer cebir konularını doğrudan ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>2. Erwin Kreyszig, Advanced Engineering Mathematics, 10th Edition, John, Wiley\&amp; Sons Inc. , 2011.<div class="text-xs text-slate-500">Kitap, ileri matematik konularını kapsayarak lineer cebirle ilgili konuları desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Matris işlemlerini yapabilir ve matris cebirinin satır (sütun) elementer işlemler gibi temel tekniklerini uygulayabilir.">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Temel matris işlemleri, mühendislikte kullanılan temel matematiksel araçlardır.</td></tr><tr><td title="Matris işlemlerini yapabilir ve matris cebirinin satır (sütun) elementer işlemler gibi temel tekniklerini uygulayabilir.">Ö1</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">2</td><td class="text-xs text-slate-600">Matris cebiri, mühendislik problemlerini formüle etme sürecinin temelini oluşturur.</td></tr><tr><td title="Lineer denklem sistemlerini Gauss ve Gauss-Jordan yöntemi ile çözebilir.">Ö2</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Lineer denklem sistemlerini çözmek, mühendislik modellemesinin kritik bir parçasıdır.</td></tr><tr><td title="Bir matrisin determinantını çeşitli yöntemlerle hesaplayabilir ve determinant uygulamalarını yapabilir.">Ö3</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Determinant hesaplama ve uygulamaları, sistemlerin çözülebilirliğini anlamada kullanılır.</td></tr><tr><td title="Vektör uzayları ile alt vektör uzaylarını bilir ve vektörlerin lineer bağımlılığını (bağımsızlığını) inceleyebilir.">Ö4</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Vektör uzayı kavramları, mühendislik sistemlerinin soyutlanmasında ve analizinde kullanılır.</td></tr><tr><td title="Vektör cebirinde baz ve boyut kavramlarını bilir ve baz değişimini inceleyebilir.">Ö5</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">2</td><td class="text-xs text-slate-600">Baz ve boyut kavramları, sistemlerin boyutunu ve gerekliliklerini belirlemede rol oynar.</td></tr><tr><td title="Bir kare matrisin özdeğer ve özvektörlerini bulabilir ve matrisi köşegenleştirebilir.">Ö6</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Özdeğer/özvektör analizi, dinamik sistemlerin ve titreşim analizlerinin temelidir.</td></tr></tbody></table></div>
+ </div></div>
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">2 kaynak · 2 tanesinde yıl var · en yeni 2011 (15 yıl önce) · 10 yıldan eski 2</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2009</td><td>1. Ron Larson, David C. Falvo, Elementary Linear Algebra, 6th Edition, Houghton Mifflin Harcourt Publishing Company, 2009.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2011</td><td>2. Erwin Kreyszig, Advanced Engineering Mathematics, 10th Edition, John, Wiley\&amp; Sons Inc. , 2011.</td><td class="text-xs text-slate-500">kaynaklar</td></tr></tbody></table></div>
+
+
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/yazilim/MAT203">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/yazilim/MAT203/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Lineer Cebir</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Bu dersin amacı, mühendislik öğrencilerine lineer cebirin temel kavramlarını ve yöntemlerini kazandırarak, analitik ve soyut düşünme yeteneklerini geliştirmektir. Öğrenciler, lineer denklem sistemlerinin çözümü, matrisler ve matris işlemleri, determinant, rank, özdeğerler ve özvektörler, vektör uzayları ve lineer operatörler gibi konuları öğrenerek, bu bilgileri mühendislik problemlerinin modellenmesi ve çözümünde etkin bir şekilde kullanabileceklerdir.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Matris tanımı, matris çeşitleri, matrislerin eşitliği, matrislerin toplamı ve farkı, bir skalerle bir matrisin çarpımı, matrislerin toplamı ve skalerle çarpımı ile ilgili özellikler, matrislerin çarpımı ve bunlara ait
+özellikler, matrisin transpozu ve özellikleri, matrislerde elementer satır ve sütün işlemleri, bir matrisin satırca indirgenmiş (eşolon) formu, bir kare
+matrisin tersi
+-Determinantlar: Bir kare matrisin determinantı, Laplace açılımı, determinant özellikleri -Sarrus kuralı, Ek matris, bir matrisin tersinin ek matris yardımı ile hesaplanması,
+-Lineer Denklem Sistemleri: Lineer denklem sistemlerinin denk matrisler yardımı ile çözümü, Lineer homojen denklem sistemleri, -Cramer yöntemi, Katsayılar matrisinin yardımı ile çözüm
+-Vektörler: Vektör tanımı, vektörlerin toplamı, farkı,
+vektörlerin analitik ifadesi, vektörlerin skaler çarpımı, skaler çarpıma ait özellikler. Vektörel çarpım ve özellikleri, Karışık çarpım ve özellikleri, İki kat vektörel çarpım ve özellikleri
+-Vektör Uzayları: Vektör uzayları
+tanımı ve ilgili teoremler, Alt vektör uzayı, Germe kavramı ve temel teoremler. Vektörlerin lineer bağımlılığı ve lineer bağımsızlığı ve konu ile ilgili teoremler, -Taban ve boyut kavramı ve temel teoremler.
+Koordinatlar ve geçiş matrislerinin tanımı ve konu ile ilgili teoremler.
+-Özdeğer ve Özvektörler:Bir kare matrisin özdeğerleri ve özvektörlerinin hesaplanması</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Matris işlemlerini yapabilir ve matris cebirinin satır (sütun) elementer işlemler gibi temel tekniklerini uygulayabilir.</li><li>Lineer denklem sistemlerini Gauss ve Gauss-Jordan yöntemi ile çözebilir.</li><li>Bir matrisin determinantını çeşitli yöntemlerle hesaplayabilir ve determinant uygulamalarını yapabilir.</li><li>Vektör uzayları ile alt vektör uzaylarını bilir ve vektörlerin lineer bağımlılığını (bağımsızlığını) inceleyebilir.</li><li>Vektör cebirinde baz ve boyut kavramlarını bilir ve baz değişimini inceleyebilir.</li><li>Bir kare matrisin özdeğer ve özvektörlerini bulabilir ve matrisi köşegenleştirebilir.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%40</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (112 saat → tabloda 4 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>10 × 3</td><td>30 saat</td></tr><tr><td>Ödevler</td><td>10 × 3</td><td>30 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 2</td><td>2 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 2</td><td>2 saat</td></tr><tr><td>Ara Sınava Hazırlık</td><td>1 × 3</td><td>3 saat</td></tr><tr><td>Finale Hazırlık</td><td>1 × 3</td><td>3 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Matris tanımı, matris çeşitleri, matrislerin eşitliği, matrislerin toplamı ve skalerle çarpımı ve ilgili özellikleri, matrislerin çarpımı ve bunlara ait özellikler, matrisin transpozu ve özellikleri</td></tr><tr><td class="w-10">2</td><td>Bazı özel matrisler ve matris cebiri uygulamaları</td></tr><tr><td class="w-10">3</td><td>Matrislerde elementer satır ve sütün işlemleri, denk matrisler, bir matrisin satırca indirgenmiş (eşolon) formu, bir kare matrisin tersi ve uygulamaları</td></tr><tr><td class="w-10">4</td><td>Lineer denklem sistemlerinin denk matrisler yardımı ile çözümü, homojen lineer denklem sistemleri</td></tr><tr><td class="w-10">5</td><td>Bir kare matrisin determinantı, Laplace açılımı, determinant özellikleri</td></tr><tr><td class="w-10">6</td><td>Sarrus kuralı, adjoint (ek) matris, bir matrisin tersinin ek matris yardımı ile hesaplanması, konuyla ilgili uygulamalar.</td></tr><tr><td class="w-10">7</td><td>Cramer yöntemi, katsayılar matrisinin tersi yardımı ile lineer denklem sistemi çözme</td></tr><tr><td class="w-10">8</td><td>Vektör tanımı, vektörlerle işlemler, vektör cebirinin bazı özellikleri</td></tr><tr><td class="w-10">9</td><td>Ara sınav</td></tr><tr><td class="w-10">10</td><td>Vektör uzayları tanımı ve ilgili teoremler. Alt vektör uzayı ve alt vektör uzayı olma koşulu</td></tr><tr><td class="w-10">11</td><td>Vektörlerin lineer bağımlılığı ve lineer bağımsızlığı, bir uzayı geren küme</td></tr><tr><td class="w-10">12</td><td>Özdeğerler ve özvektörler, Bir kare matrisin özdeğer ve özvektörlerinin hesaplanması</td></tr><tr><td class="w-10">13</td><td>Cayley-Hamilton Teoremi yardımı ile bir kare matrisin tersinin ve kuvvetinin hesaplanması</td></tr><tr><td class="w-10">14</td><td>Köşegenleştirme, Simetrik Matrisler ve Ortogonal Köşegenleştirme</td></tr><tr><td class="w-10">15</td><td>Lineer Dönüşümler, Bir Lineer Dönüşümün Çekirdeği, Görüntüsü ve Rankı, Geçiş Matrisleri</td></tr><tr><td class="w-10">16</td><td>Final Sınavı</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

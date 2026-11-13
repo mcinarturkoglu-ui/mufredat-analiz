@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 bg-slate-800 text-white">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+
+<h1 class="text-2xl font-bold">YZ Analiz Merkezi</h1>
+<div class="grid lg:grid-cols-3 gap-4">
+ <div class="card"><h3 class="font-semibold mb-2">Model bağlantısı</h3>
+  <span class="pill s-info">Analizler yerel sunucuda üretildi</span>
+  <dl class="text-sm mt-3 grid grid-cols-2 gap-y-1"><dt class="text-slate-500">Etkin model</dt><dd><b>gemma4:e4b</b></dd>
+  <dt class="text-slate-500">Sıcaklık / seed</dt><dd>0.0 / 42</dd><dt class="text-slate-500">Bağlam</dt><dd>16384 token</dd>
+  <dt class="text-slate-500">Yeniden deneme</dt><dd>2</dd></dl>
+  <p class="text-xs text-slate-500 mt-2">Kurulu modeller: gemma4:12b, gemma4:e4b, qwen2.5:7b-instruct, bge-m3:latest</p>
+  <p class="text-xs text-slate-500 mt-1">Model değiştirmek için <code>programs.toml [llm].model</code> ya da <code>MUFREDAT_LLM_MODEL</code>.</p></div>
+ 
+ 
+</div>
+<div class="grid lg:grid-cols-3 gap-4">
+ <div class="card"><h3 class="font-semibold mb-2">İstatistik</h3><table class="tbl w-full text-sm"><thead><tr><th>Analiz</th><th>Durum</th><th>Adet</th><th>Ort. deneme</th></tr></thead><tbody>
+ <tr><td>learning_outcomes</td><td>failed</td><td>4</td><td>3</td></tr><tr><td>semantic_consistency</td><td>failed</td><td>2</td><td>3</td></tr><tr><td>content_alignment</td><td>done</td><td>47</td><td>1.31915</td></tr><tr><td>semantic_consistency</td><td>done</td><td>31</td><td>1.16129</td></tr><tr><td>learning_outcomes</td><td>done</td><td>37</td><td>1.13514</td></tr><tr><td>topic_overlap</td><td>done</td><td>1</td><td>1</td></tr></tbody></table>
+ <p class="text-sm mt-2">Kanıt doğrulama: 265/278 alıntı kaynak metinde bulundu.</p></div>
+ <div class="card lg:col-span-2"><h3 class="font-semibold mb-2">Son işler</h3><div class="max-h-96 overflow-auto"><table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Ders</th><th>Analiz</th><th>Durum</th><th>Puan</th><th>Deneme</th><th>Bitiş</th></tr></thead><tbody>
+ <tr><td>122</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM209">YZM209</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 18:09</td></tr><tr><td>121</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM207">YZM207</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 18:09</td></tr><tr><td>120</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM303">YZM303</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">61.3</td><td>3</td><td class="text-xs">13.11 18:10</td></tr><tr><td>119</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM205">YZM205</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 18:08</td></tr><tr><td>118</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM303">YZM303</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">85</td><td>1</td><td class="text-xs">13.11 18:07</td></tr><tr><td>117</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM203">YZM203</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 18:07</td></tr><tr><td>116</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM201">YZM201</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">75</td><td>2</td><td class="text-xs">13.11 18:06</td></tr><tr><td>115</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM301">YZM301</a></td><td>learning_outcomes</td>
+ <td><span class="pill st-fail" title="3 denemede geçerli çıktı alınamadı.">başarısız</span></td><td class="score">—</td><td>3</td><td class="text-xs">13.11 18:07</td></tr><tr><td>114</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM301">YZM301</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 18:04</td></tr><tr><td>113</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/OYDİ201">OYDİ201</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>2</td><td class="text-xs">13.11 18:05</td></tr><tr><td>112</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/OYDİ301">OYDİ301</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">86.7</td><td>1</td><td class="text-xs">13.11 18:04</td></tr><tr><td>111</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/OBDE201">OBDE201</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 18:04</td></tr><tr><td>110</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/OYDİ301">OYDİ301</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">80</td><td>1</td><td class="text-xs">13.11 18:03</td></tr><tr><td>109</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/MAT203">MAT203</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 18:03</td></tr><tr><td>108</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM104">YZM104</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 18:02</td></tr><tr><td>107</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/MAT301">MAT301</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">100</td><td>2</td><td class="text-xs">13.11 18:03</td></tr><tr><td>106</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM102">YZM102</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">50</td><td>1</td><td class="text-xs">13.11 18:02</td></tr><tr><td>105</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/MAT301">MAT301</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 18:02</td></tr><tr><td>104</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YDİ102">YDİ102</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 18:01</td></tr><tr><td>103</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM210">YZM210</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">85</td><td>1</td><td class="text-xs">13.11 18:01</td></tr><tr><td>102</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/TDI102">TDI102</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">75</td><td>1</td><td class="text-xs">13.11 17:56</td></tr><tr><td>101</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/MÜH102">MÜH102</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">37.5</td><td>1</td><td class="text-xs">13.11 17:31</td></tr><tr><td>100</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM210">YZM210</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">93.3</td><td>2</td><td class="text-xs">13.11 17:45</td></tr><tr><td>99</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/MAT104">MAT104</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 17:17</td></tr><tr><td>98</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM208">YZM208</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 16:41</td></tr><tr><td>97</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM208">YZM208</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">81.7</td><td>1</td><td class="text-xs">13.11 16:31</td></tr><tr><td>96</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM206">YZM206</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">93.3</td><td>1</td><td class="text-xs">13.11 16:29</td></tr><tr><td>95</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/MAT102">MAT102</a></td><td>semantic_consistency</td>
+ <td><span class="pill st-fail" title="3 denemede geçerli çıktı alınamadı.">başarısız</span></td><td class="score">—</td><td>3</td><td class="text-xs">13.11 16:31</td></tr><tr><td>94</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM204">YZM204</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 16:29</td></tr><tr><td>93</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/İSG112">İSG112</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">0</td><td>1</td><td class="text-xs">13.11 16:28</td></tr><tr><td>92</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM204">YZM204</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">80</td><td>1</td><td class="text-xs">13.11 16:28</td></tr><tr><td>91</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM202">YZM202</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">90</td><td>1</td><td class="text-xs">13.11 16:27</td></tr><tr><td>90</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/FİZ102">FİZ102</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>2</td><td class="text-xs">13.11 16:27</td></tr><tr><td>89</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM202">YZM202</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 16:26</td></tr><tr><td>88</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/ATI102">ATI102</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 16:26</td></tr><tr><td>87</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/STJ100">STJ100</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">53.3</td><td>1</td><td class="text-xs">13.11 16:26</td></tr><tr><td>86</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM107">YZM107</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">66.7</td><td>1</td><td class="text-xs">13.11 16:25</td></tr><tr><td>85</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/STJ100">STJ100</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">90</td><td>1</td><td class="text-xs">13.11 16:25</td></tr><tr><td>84</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM105">YZM105</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">91.7</td><td>1</td><td class="text-xs">13.11 16:24</td></tr><tr><td>83</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/OYDİ202">OYDİ202</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">86.7</td><td>1</td><td class="text-xs">13.11 16:24</td></tr><tr><td>82</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM103">YZM103</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 16:24</td></tr><tr><td>81</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/OYDİ202">OYDİ202</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">80</td><td>1</td><td class="text-xs">13.11 16:23</td></tr><tr><td>80</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM101">YZM101</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">91.7</td><td>1</td><td class="text-xs">13.11 16:22</td></tr><tr><td>79</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/MAT204">MAT204</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">84</td><td>1</td><td class="text-xs">13.11 16:21</td></tr><tr><td>78</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/MAT204">MAT204</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 16:20</td></tr><tr><td>77</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YDİ101">YDİ101</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>2</td><td class="text-xs">13.11 16:21</td></tr><tr><td>76</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM209">YZM209</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">76</td><td>1</td><td class="text-xs">13.11 16:20</td></tr><tr><td>75</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/TDI101">TDI101</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">50</td><td>1</td><td class="text-xs">13.11 16:19</td></tr><tr><td>74</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM209">YZM209</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 16:19</td></tr><tr><td>73</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/MAT101">MAT101</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 16:19</td></tr><tr><td>72</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/İSG111">İSG111</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">0</td><td>1</td><td class="text-xs">13.11 16:18</td></tr><tr><td>71</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM207">YZM207</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">100</td><td>2</td><td class="text-xs">13.11 16:18</td></tr><tr><td>70</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM207">YZM207</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 16:17</td></tr><tr><td>69</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM205">YZM205</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">90</td><td>1</td><td class="text-xs">13.11 16:16</td></tr><tr><td>68</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/FİZ101">FİZ101</a></td><td>semantic_consistency</td>
+ <td><span class="pill st-fail" title="3 denemede geçerli çıktı alınamadı.">başarısız</span></td><td class="score">—</td><td>3</td><td class="text-xs">13.11 16:17</td></tr><tr><td>67</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM205">YZM205</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">88.3</td><td>1</td><td class="text-xs">13.11 16:15</td></tr><tr><td>66</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/ATI101">ATI101</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">100</td><td>1</td><td class="text-xs">13.11 16:14</td></tr><tr><td>65</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM203">YZM203</a></td><td>learning_outcomes</td>
+ <td>puanlandı</td><td class="score">63.3</td><td>1</td><td class="text-xs">13.11 16:14</td></tr><tr><td>64</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/MAT204">MAT204</a></td><td>semantic_consistency</td>
+ <td>puanlandı</td><td class="score">50</td><td>1</td><td class="text-xs">13.11 16:13</td></tr><tr><td>63</td><td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM203">YZM203</a></td><td>content_alignment</td>
+ <td>puanlandı</td><td class="score">73.3</td><td>2</td><td class="text-xs">13.11 16:13</td></tr>
+ </tbody></table></div></div>
+</div>
+
+ </main>
+</div>
+</body>
+</html>

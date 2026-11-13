@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 5. yarıyıl</div>
+ <h1 class="text-2xl font-bold">YZM303 · Bilgisayar Ağları ve Veri İletişimi</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 1+2+0 · Kredi 2 · AKTS 3 (müfredatta 3) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376850&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376850&amp;lang=tr</a> · toplandı 13.11.2026 01:30</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 42</span><span class="pill st-fail">kaldı: 0</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">85<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #118 · 13.11 18:07 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">61.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #120 · 13.11 18:10 · 3 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (0)</h3>
+<p class="text-sm">Tüm kontroller geçti.</p></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Konuların derinliği, Lisans seviyesi ve 5. yarıyıl için uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konulara göre ne gereğinden geniş ne de dar görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı dersin genel kapsamı dahilindedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, içerik ve haftalık konular arasında belirgin bir uyum gözlenmemektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacında belirtilen bazı konuların (örneğin, &#39;kısmi ağ güvenliği&#39;) haftalık konularda yeterince detaylı işlenmediği görülmektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla tam bir örtüşme göstermemektedir; bazı çıktıların kapsamı dar kalmaktadır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders amacında belirtilen &#39;kısmi ağ güvenliği&#39; konusu, haftalık konuların genel akışında yeterince derinlemesine ele alınmamıştır.</div><div class="text-xs text-slate-500 mt-1">Amaçta belirtilen &#39;kısmi ağ güvenliği&#39; kavramı, haftalık konuların çoğunda doğrudan bir başlık olarak yer almamakta, sadece hafta 14&#39;te genel bir başlık altında geçmektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Öğrenciler dersin sonunda, bilgisayar ağlarının temel prensipleri, iletişim protokol yapısı ve işlevleri, protokol katmanları ve aralarındaki ilişkileri ve kısmi ağ güvenliği hakkında bilgi sahibi olacaktır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “Bilgisayar ağlarına giriş, Ağ ve İnternetin Hayatımızdaki yeri, Haberleşme bileşenleri”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ağ güvenliği konularının, amaçta belirtilen &#39;kısmi ağ güvenliği&#39; kapsamını daha iyi yansıtacak şekilde, daha fazla haftaya dağıtılması veya derinleştirilmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, amaçta belirtilen &#39;iletişim protokol yapısı ve işlevleri&#39; gibi daha geniş konuları kapsamakta yetersiz kalmaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaç, protokol yapısını ve işlevlerini kapsarken, çıktılar daha çok &#39;tanımak&#39; veya &#39;açıklayabilmek&#39; gibi daha temel düzeyde kalmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Öğrenciler dersin sonunda, bilgisayar ağlarının temel prensipleri, iletişim protokol yapısı ve işlevleri, protokol katmanları ve aralarındaki ilişkileri ve kısmi ağ güvenliği hakkında bilgi sahibi olacaktır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:2</code> “Ağ yönetim protokollerini tanımak.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktıları, sadece &#39;tanımak&#39; yerine, amaçta belirtilen &#39;işlevleri&#39; ve &#39;ilişkileri&#39; gibi daha analitik becerileri de içerecek şekilde revize edilmelidir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %20 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Çıktılar, dersin genel amacını (temel kavramları tanıtmak ve uygulamak) kapsasa da, bazı çıktıların ölçülemez olması (özellikle &#39;tanımak&#39; fiili) bütünsel uyumu düşürmektedir. Ancak, kapsanan konular (katmanlar, güvenlik, alt ağ) ders içeriğiyle doğrudan ilişkilidir.<br>
+  Bloom dağılımı: anlama 5</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Bilgisayar ağlarını tanımak.<div class="text-xs text-amber-700">belirsiz: tanımak</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1</td>
+ <td class="text-blue-800">Bilgisayar ağlarının temel prensiplerini açıklayabilmek.</td></tr>
+ <tr><td>2</td><td>Ağ yönetim protokollerini tanımak.<div class="text-xs text-amber-700">belirsiz: tanımak</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>4, 5, 6</td>
+ <td class="text-blue-800">Ağ yönetim protokollerinin işlevlerini ve türlerini listeleyebilmek.</td></tr>
+ <tr><td>3</td><td>Ağ katmanları hakkında bilgi edinmek ve ayırt etmek.<div class="text-xs text-amber-700">belirsiz: bilgi edinmek ve ayırt etmek</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>3, 5, 6</td>
+ <td class="text-blue-800">Farklı ağ katmanlarının görevlerini ve birbirlerinden farklarını karşılaştırabilmek.</td></tr>
+ <tr><td>4</td><td>Ağ güvenliğinde kullanılan teknolojileri açıklayabilmek.</td><td>anlama</td>
+ <td><span class="pill st-pass">evet</span></td><td>14</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Bilgisayar ağının alt ağı karakteristiğini açıklayabilmek.<div class="text-xs text-amber-700">belirsiz: açıklayabilmek</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>6</td>
+ <td class="text-blue-800">Alt ağ oluşturma sürecini ve alt ağ karakteristiğini adım adım anlatabilmek.</td></tr>
+ </tbody></table>
+</div>
+
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">2 kaynak · 2 tanesinde yıl var · en yeni 2021 (5 yıl önce) · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2019</td><td>R.Kara, Bilgisayar Ağları, Nobel Yayıncılık 2019, Ankara</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2021</td><td>1.Computer Networking A Top-Down Approach, Eighth Edition by James F. Kurose and Keith W. Ross, Pearson, 2021.., Computer Networks 4/E, Andrew S. Tanenbaum, Pearson Education Inc., 2006., Stallings, W., Case, T. (2012). 2.Business Data Communications- Infrastructure, Networking and Security, Prentice Hall., Routing &amp; Switching: Time of convergence, Puzmanova. 3.Bilgisayar Ağları ve İnternet Mühendisliği / Toros Rifat Çölkesen / Papatya Yayınları / 2019. Cisco Networking Academy</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/yazilim/YZM303">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/yazilim/YZM303/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Bilgisayar Ağları ve Veri İletişimi</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Bu dersin amacı, bilgisayar ağları ve iletişimi ile ilgili temel kavramları tanıtmak ve uygulamaktır.
+Öğrenciler dersin sonunda, bilgisayar ağlarının temel prensipleri, iletişim protokol yapısı ve işlevleri, protokol katmanları ve aralarındaki ilişkileri ve kısmi ağ güvenliği hakkında bilgi sahibi olacaktır.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Bilgisayar ağları temel prensipleri, uygulama katmanı ve çok kullanılan ağ uygulamaları, gönderim katmanı,
+UDP ve TCP servisleri, ağ katmanı, IPv4 adresleme, yönlendirme ve iletme, veri-bağlantı katmanı, MAC adresleri, hat öbekleri, hat-anahtarları, fiziksel katman özellikleri ve standartlar.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">Sınıf dersleri, ödev, arasınav, final, sınıf-içi aktiviteler</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Bilgisayar ağlarını tanımak.</li><li>Ağ yönetim protokollerini tanımak.</li><li>Ağ katmanları hakkında bilgi edinmek ve ayırt etmek.</li><li>Ağ güvenliğinde kullanılan teknolojileri açıklayabilmek.</li><li>Bilgisayar ağının alt ağı karakteristiğini açıklayabilmek.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%30</td></tr><tr><td>Proje</td><td>2</td><td>%30</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%40</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (90 saat → tabloda 3 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>14 × 1</td><td>14 saat</td></tr><tr><td>Ödevler</td><td>4 × 2</td><td>8 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 14</td><td>14 saat</td></tr><tr><td>Laboratuvar</td><td>4 × 2</td><td>8 saat</td></tr><tr><td>Proje</td><td>1 × 4</td><td>4 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 14</td><td>14 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Bilgisayar ağlarına giriş, Ağ ve İnternetin Hayatımızdaki yeri, Haberleşme bileşenleri</td></tr><tr><td class="w-10">2</td><td>Ağ kavramları ve tanımlamr, anahtarlama yöntemleri, çoğullama</td></tr><tr><td class="w-10">3</td><td>Bilgisayar Ağlarının katmanlı yapısı, OSI modeli, TCP/IP modeli, katmanlar arası iletişim</td></tr><tr><td class="w-10">4</td><td>Uygulama katmanı, uygulama katmanının görevleri, uygulama katmanı yazılımları , uygulama katmanı protokolleri</td></tr><tr><td class="w-10">5</td><td>Aktarım katmanı, aktarım katmanının görevleri, servis adresleme, altarım katmanı protokolleri</td></tr><tr><td class="w-10">6</td><td>Ağ katmanı, ağ katmanının görevleri , ağ katmanı protokolleri, paket oluşturma, alt ağ oluşturma</td></tr><tr><td class="w-10">7</td><td>Veri bağı katmanı, veri bağı katmanının görevleri, ağ topolojileri, Ethernet, MAC adreslerini çözümleme</td></tr><tr><td class="w-10">8</td><td>Ara sınav</td></tr><tr><td class="w-10">9</td><td>Fiziksel Katman, fiziksel katmanın görevleri, fiziksel katman standartları,Sinyallarin kodlanması,</td></tr><tr><td class="w-10">10</td><td>Fiziksel ortam türleri, fiziksel sınırlar, UTP kablolama, fiber kablolama, koaksiyel kablo</td></tr><tr><td class="w-10">11</td><td>Geniş alan ağ teknolojileri, temel kavramlar, WAN bağlantı teknolojileri,</td></tr><tr><td class="w-10">12</td><td>Bilgisayar ağını planlama, modern ağ mimarisi özellikleri,</td></tr><tr><td class="w-10">13</td><td>Ağ cihazlarının seçimi, yerel ağ kablolama,</td></tr><tr><td class="w-10">14</td><td>Bilgisayar ağlarında güvenlik, güvenlik için kullanılan teknoljiler, modern ağ güvenliği tehditleri, Güvenli bir ağın temel prensipleri</td></tr><tr><td class="w-10">15</td><td>Final Sınavı</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 5. yarıyıl</div>
+ <h1 class="text-2xl font-bold">YZM301 · Yazılım Gerçekleme ve Test</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 2+1+0 · Kredi 3 · AKTS 3 (müfredatta 3) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376849&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376849&amp;lang=tr</a> · toplandı 13.11.2026 01:30</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 38</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #114 · 13.11 18:04 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-sm text-red-700 mt-2">Başarısız: 3 denemede geçerli çıktı alınamadı.</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (3)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/1 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Konuların derinliği, Lisans seviyesi ve 5. yarıyıl için uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konulara göre ne gereğinden geniş ne de dar görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık planda dersin adı ve amacının kapsamı dışında konu gözlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, amaç ve içerik arasında belirgin bir uyum bulunmaktadır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin amaçlarında belirtilen konuların tamamı haftalık konularda işlenmektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla tutarlıdır.</td></tr></tbody></table>
+ 
+</div>
+
+
+
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">1 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Yazılım Mühendisliği - Ian Sommerville</td><td class="text-xs text-slate-500">kaynaklar</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu örtüşmesi adayları (Modül B)</h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM103">YZM103 Yazılım Mühendisliğine Giriş</a> · 1. yarıyıl · 2 benzer konu (en yüksek 0.899)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM201">YZM201 Yazılım Tasarımı ve Modelleme</a> · 3. yarıyıl · 1 benzer konu (en yüksek 0.858)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM364">YZM364 Robot Programlama</a> · 6. yarıyıl · 1 benzer konu (en yüksek 0.849)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM397">YZM397 Yazılım Proje Yönetimi</a> · 5. yarıyıl · 1 benzer konu (en yüksek 0.847)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM374">YZM374 Yazılım Mimarisi ve Tasarım Kalıpları</a> · 6. yarıyıl · 1 benzer konu (en yüksek 0.842)</div></div>
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/yazilim/YZM301">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/yazilim/YZM301/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Yazılım Gerçekleme ve Test</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Yazılım Gerçekleme ve Test dersi, öğrencilere yazılım geliştirme sürecinin temel adımlarını anlamaları ve uygulamaları için bir çerçeve sunar. Bu ders, yazılım mühendisliği disiplini içinde yazılım üretimi ve kalitesini sağlama süreçlerini kavramak, tasarım prensiplerini öğrenmek ve yazılım testlerinin önemini vurgulamak amacıyla tasarlanmıştır. Öğrencilerin yazılım geliştirme sürecinin farklı aşamalarını anlamaları, yazılım mimarisi ve tasarımını kavramaları, yazılım testlerinin temel kavramlarını öğrenmeleri ve yazılımın sürdürülebilirliği için bakım süreçlerinin önemini kavramaları hedeflenir. Ayrıca, etkili iletişim ve işbirliği becerilerinin vurgulandığı bu ders, öğrencilere endüstri standartlarına uygun yazılım geliştirme becerilerini geliştirme fırsatı sunar.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Yazılım Gerçekleme ve Test dersi, genellikle yazılım geliştirme süreci ve modelleri, yazılım mimarisi ve tasarımı, yazılım gerçekleme araçları ve platformları, yazılım testleri ve doğrulama, yazılım bakımı ve güncelleme, takım çalışması ve proje yönetimi gibi konuları içerir. Bu ders, öğrencilere yazılım geliştirme sürecinde gereksinim analizi, tasarım, gerçekleme, test ve bakım gibi adımları anlamaları için temel bir çerçeve sunar. Ayrıca, yazılımın kalitesini sağlamak için çeşitli test teknikleri ve stratejileri öğretilirken, yazılımın sürdürülebilirliği ve güvenilirliği için bakım süreçleri de vurgulanır. Takım çalışması ve proje yönetimi becerilerinin geliştirilmesi, öğrencilerin etkili iletişim ve işbirliği içinde kompleks projeler üzerinde çalışmalarını sağlar. Bu ders, öğrencilere endüstri standartlarına uygun yazılım üretme ve kalite kontrolü yapma yeteneklerini kazandırmayı amaçlar.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Öğrenciler, yazılım geliştirme sürecinin farklı aşamalarını tanımlayabilir, gereksinim analizi, tasarım, gerçekleme, test ve bakım süreçlerinin önemini kavrayabilirler.</li><li>Öğrenciler, modüler ve ölçeklenebilir yazılım sistemlerini tasarlamak için gerekli temel prensipleri anlayabilir ve uygulayabilirler.</li><li>Öğrenciler, yazılım kalitesini sağlamak için çeşitli test tekniklerini ve stratejilerini kullanabilir, birim testleri, entegrasyon testleri ve sistem testleri gibi farklı test türlerini uygulayabilirler.</li><li>Öğrenciler, mevcut yazılım sistemlerini güncelleme, yeniden yapılandırma ve iyileştirme becerilerini geliştirebilirler, yazılımın sürdürülebilirliğini ve güvenilirliğini artırabilirler.</li><li>Öğrenciler, yazılım geliştirme projelerinde etkili iletişim kurabilir, işbirliği yapabilir ve takım içinde sorunları çözebilirler, grup projelerinde liderlik yapabilir ve katkı sağlayabilirler.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%40</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (90 saat → tabloda 3 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>13 × 2</td><td>26 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>4 × 4</td><td>16 saat</td></tr><tr><td>Ödevler</td><td>5 × 5</td><td>25 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 1</td><td>1 saat</td></tr><tr><td>Uygulama</td><td>11 × 1</td><td>11 saat</td></tr><tr><td>Proje</td><td>1 × 10</td><td>10 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 1</td><td>1 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Yazılım Geliştirme Süreci ve Aşamaları</td></tr><tr><td class="w-10">2</td><td>Yazılım Geliştirme Modelleri</td></tr><tr><td class="w-10">3</td><td>Yazılım Mimarisi Temelleri</td></tr><tr><td class="w-10">4</td><td>Modüler Tasarım ve Ölçeklenebilirlik</td></tr><tr><td class="w-10">5</td><td>Programlama Dilleri ve Araçlar</td></tr><tr><td class="w-10">6</td><td>Entegrasyon Araçları ve Platformlar</td></tr><tr><td class="w-10">7</td><td>Ara Sınav</td></tr><tr><td class="w-10">8</td><td>Yazılım Testlerinin Temelleri</td></tr><tr><td class="w-10">9</td><td>Birim Testleri, Entegrasyon Testleri, Sistem Testleri</td></tr><tr><td class="w-10">10</td><td>Yazılım Bakımının Önemi ve Süreçleri</td></tr><tr><td class="w-10">11</td><td>Güncelleme ve Yeniden Yapılandırma Stratejileri</td></tr><tr><td class="w-10">12</td><td>Etkili Takım Çalışması ve İletişim Becerileri</td></tr><tr><td class="w-10">13</td><td>Proje Yönetimi Prensipleri</td></tr><tr><td class="w-10">14</td><td>Proje Sunumu</td></tr><tr><td class="w-10">15</td><td>Dönem Sonu Sınavı</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

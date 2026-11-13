@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 bg-slate-800 text-white">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div><h1 class="text-2xl font-bold">Konu Örtüşmeleri · Yazılım Mühendisliği</h1>
+<p class="text-sm text-slate-500">Modül B ön sürüm: haftalık konular yerel <b>bge-m3</b> embedding modeliyle karşılaştırıldı (eşik 0.82; 1521 konu). Sınav/tekrar haftaları hariç. İki seçmeli havuz dersi arasındaki çiftler gösterilmez.
+Bu liste <b>aday</b>dır: farklı yarıyıldaki örtüşme derinleşme ya da ön koşul ilişkisi olabilir; karar uzmana aittir.</p></div>
+
+
+<details class="card" open>
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM310">YZM310</a></b> Bitirme Projesi I <span class="text-slate-500">(6. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM401">YZM401</a></b> Bitirme Projesi II <span class="text-slate-500">(7. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">67 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM310</th><th>YZM401</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>1. hf · Danışman yönetiminde alanıyla ilgili bir konu belirlenmesi.</td><td>1. hf · Danışman yönetiminde alanıyla ilgili bir konu belirlenmesi.</td></tr><tr><td class="score">1.0</td><td>2. hf · Çalışma kapsamı, hedefler, kullanılacak yöntemlerin belirlenmesi ve ayrıntılı bir çalışma planı hazırlanması.</td><td>2. hf · Çalışma kapsamı, hedefler, kullanılacak yöntemlerin belirlenmesi ve ayrıntılı bir çalışma planı hazırlanması.</td></tr><tr><td class="score">1.0</td><td>3. hf · Planlanan çalışmaların yapılması.</td><td>3. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>3. hf · Planlanan çalışmaların yapılması.</td><td>4. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>3. hf · Planlanan çalışmaların yapılması.</td><td>5. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>3. hf · Planlanan çalışmaların yapılması.</td><td>6. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>3. hf · Planlanan çalışmaların yapılması.</td><td>7. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>3. hf · Planlanan çalışmaların yapılması.</td><td>8. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>3. hf · Planlanan çalışmaların yapılması.</td><td>9. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>4. hf · Planlanan çalışmaların yapılması.</td><td>3. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>4. hf · Planlanan çalışmaların yapılması.</td><td>4. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>4. hf · Planlanan çalışmaların yapılması.</td><td>5. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>4. hf · Planlanan çalışmaların yapılması.</td><td>6. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>4. hf · Planlanan çalışmaların yapılması.</td><td>7. hf · Planlanan çalışmaların yapılması.</td></tr><tr><td class="score">1.0</td><td>4. hf · Planlanan çalışmaların yapılması.</td><td>8. hf · Planlanan çalışmaların yapılması.</td></tr>
+ </tbody></table><p class="text-xs text-slate-500 mt-1">+52 çift daha</p>
+</details>
+
+<details class="card" open>
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD118">OSD118</a></b> İş Sağlığı ve Güvenliği I <span class="text-slate-500">(5. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/İSG111">İSG111</a></b> İş Sağlığı ve Güvenliği I <span class="text-slate-500">(1. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">13 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD118</th><th>İSG111</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>2. hf · Güvenlik Kültürü</td><td>2. hf · Güvenlik Kültürü</td></tr><tr><td class="score">1.0</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td></tr><tr><td class="score">1.0</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td></tr><tr><td class="score">1.0</td><td>7. hf · Acil Durum Planı ve Tatbikat</td><td>7. hf · Acil Durum Planı ve Tatbikat</td></tr><tr><td class="score">1.0</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td></tr><tr><td class="score">1.0</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td></tr><tr><td class="score">1.0</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td></tr><tr><td class="score">1.0</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td></tr><tr><td class="score">1.0</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" open>
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD118">OSD118</a></b> İş Sağlığı ve Güvenliği I <span class="text-slate-500">(5. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/İSG112">İSG112</a></b> İş Sağlığı ve Güvenliği II <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">13 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD118</th><th>İSG112</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>2. hf · Güvenlik Kültürü</td><td>2. hf · Güvenlik Kültürü</td></tr><tr><td class="score">1.0</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td></tr><tr><td class="score">1.0</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td></tr><tr><td class="score">1.0</td><td>7. hf · Acil Durum Planı ve Tatbikat</td><td>7. hf · Acil Durum Planı ve Tatbikat</td></tr><tr><td class="score">1.0</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td></tr><tr><td class="score">1.0</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td></tr><tr><td class="score">1.0</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td></tr><tr><td class="score">1.0</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td></tr><tr><td class="score">1.0</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD119">OSD119</a></b> İş Sağlığı Ve Güvenliği II <span class="text-slate-500">(5. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/İSG111">İSG111</a></b> İş Sağlığı ve Güvenliği I <span class="text-slate-500">(1. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">13 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD119</th><th>İSG111</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>2. hf · Güvenlik Kültürü</td><td>2. hf · Güvenlik Kültürü</td></tr><tr><td class="score">1.0</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td></tr><tr><td class="score">1.0</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td></tr><tr><td class="score">1.0</td><td>7. hf · Acil Durum Planı ve Tatbikat</td><td>7. hf · Acil Durum Planı ve Tatbikat</td></tr><tr><td class="score">1.0</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td></tr><tr><td class="score">1.0</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td></tr><tr><td class="score">1.0</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td></tr><tr><td class="score">1.0</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td></tr><tr><td class="score">1.0</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD119">OSD119</a></b> İş Sağlığı Ve Güvenliği II <span class="text-slate-500">(5. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/İSG112">İSG112</a></b> İş Sağlığı ve Güvenliği II <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">13 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD119</th><th>İSG112</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>2. hf · Güvenlik Kültürü</td><td>2. hf · Güvenlik Kültürü</td></tr><tr><td class="score">1.0</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td></tr><tr><td class="score">1.0</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td></tr><tr><td class="score">1.0</td><td>7. hf · Acil Durum Planı ve Tatbikat</td><td>7. hf · Acil Durum Planı ve Tatbikat</td></tr><tr><td class="score">1.0</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td></tr><tr><td class="score">1.0</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td></tr><tr><td class="score">1.0</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td></tr><tr><td class="score">1.0</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td></tr><tr><td class="score">1.0</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/İSG111">İSG111</a></b> İş Sağlığı ve Güvenliği I <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/İSG112">İSG112</a></b> İş Sağlığı ve Güvenliği II <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">13 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İSG111</th><th>İSG112</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>2. hf · Güvenlik Kültürü</td><td>2. hf · Güvenlik Kültürü</td></tr><tr><td class="score">1.0</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td></tr><tr><td class="score">1.0</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td></tr><tr><td class="score">1.0</td><td>7. hf · Acil Durum Planı ve Tatbikat</td><td>7. hf · Acil Durum Planı ve Tatbikat</td></tr><tr><td class="score">1.0</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td></tr><tr><td class="score">1.0</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td></tr><tr><td class="score">1.0</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td></tr><tr><td class="score">1.0</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td></tr><tr><td class="score">1.0</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/OYDİ202">OYDİ202</a></b> Akademik İngilizce II <span class="text-slate-500">(4. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YDİ101">YDİ101</a></b> Yabancı Dil I <span class="text-slate-500">(1. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">10 konu çifti · en yüksek 0.834</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OYDİ202</th><th>YDİ101</th></tr></thead><tbody>
+ <tr><td class="score">0.834</td><td>11. hf · Unit 6 : Places</td><td>6. hf · UNIT 3 – Places</td></tr><tr><td class="score">0.834</td><td>11. hf · Unit 6 : Places</td><td>7. hf · UNIT 3 – Places</td></tr><tr><td class="score">0.834</td><td>12. hf · Unit 6 : Places</td><td>6. hf · UNIT 3 – Places</td></tr><tr><td class="score">0.834</td><td>12. hf · Unit 6 : Places</td><td>7. hf · UNIT 3 – Places</td></tr><tr><td class="score">0.834</td><td>13. hf · Unit 6 : Places</td><td>6. hf · UNIT 3 – Places</td></tr><tr><td class="score">0.834</td><td>13. hf · Unit 6 : Places</td><td>7. hf · UNIT 3 – Places</td></tr><tr><td class="score">0.834</td><td>14. hf · Unit 6 : Places</td><td>6. hf · UNIT 3 – Places</td></tr><tr><td class="score">0.834</td><td>14. hf · Unit 6 : Places</td><td>7. hf · UNIT 3 – Places</td></tr><tr><td class="score">0.834</td><td>15. hf · Unit 6 : Places</td><td>6. hf · UNIT 3 – Places</td></tr><tr><td class="score">0.834</td><td>15. hf · Unit 6 : Places</td><td>7. hf · UNIT 3 – Places</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/OYDİ201">OYDİ201</a></b> Akademik İngilizce I <span class="text-slate-500">(3. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YDİ101">YDİ101</a></b> Yabancı Dil I <span class="text-slate-500">(1. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">10 konu çifti · en yüksek 0.825</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OYDİ201</th><th>YDİ101</th></tr></thead><tbody>
+ <tr><td class="score">0.825</td><td>1. hf · Unit 1 : Identity</td><td>3. hf · UNIT 1 - Self</td></tr><tr><td class="score">0.825</td><td>2. hf · Unit 1 : Identity</td><td>3. hf · UNIT 1 - Self</td></tr><tr><td class="score">0.825</td><td>3. hf · Unit 1 : Identity</td><td>3. hf · UNIT 1 - Self</td></tr><tr><td class="score">0.825</td><td>4. hf · Unit 1 : Identity</td><td>3. hf · UNIT 1 - Self</td></tr><tr><td class="score">0.825</td><td>5. hf · Unit 1 : Identity</td><td>3. hf · UNIT 1 - Self</td></tr><tr><td class="score">0.821</td><td>1. hf · Unit 1 : Identity</td><td>2. hf · UNIT 1 – Self</td></tr><tr><td class="score">0.821</td><td>2. hf · Unit 1 : Identity</td><td>2. hf · UNIT 1 – Self</td></tr><tr><td class="score">0.821</td><td>3. hf · Unit 1 : Identity</td><td>2. hf · UNIT 1 – Self</td></tr><tr><td class="score">0.821</td><td>4. hf · Unit 1 : Identity</td><td>2. hf · UNIT 1 – Self</td></tr><tr><td class="score">0.821</td><td>5. hf · Unit 1 : Identity</td><td>2. hf · UNIT 1 – Self</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/FİZ101">FİZ101</a></b> Fizik I <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/FİZ102">FİZ102</a></b> Fizik II <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">7 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>FİZ101</th><th>FİZ102</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>4. hf · Uygulama 1</td><td>4. hf · Uygulama 1</td></tr><tr><td class="score">1.0</td><td>7. hf · Uygulama 2</td><td>7. hf · Uygulama 2</td></tr><tr><td class="score">1.0</td><td>14. hf · Uygulama 3</td><td>14. hf · Uygulama 3</td></tr><tr><td class="score">0.846</td><td>7. hf · Uygulama 2</td><td>14. hf · Uygulama 3</td></tr><tr><td class="score">0.846</td><td>14. hf · Uygulama 3</td><td>7. hf · Uygulama 2</td></tr><tr><td class="score">0.835</td><td>4. hf · Uygulama 1</td><td>7. hf · Uygulama 2</td></tr><tr><td class="score">0.835</td><td>7. hf · Uygulama 2</td><td>4. hf · Uygulama 1</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM202">YZM202</a></b> Veri Yapıları ve Algoritmalar <span class="text-slate-500">(4. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM204">YZM204</a></b> Veri Yapıları ve Algoritmalar Lab. <span class="text-slate-500">(4. yy)</span>
+  <span class="pill s-high">aynı yarıyıl: olası tekrar</span>
+  <span class="pill s-info">7 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM202</th><th>YZM204</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>5. hf · Bağlı listeler</td><td>4. hf · Bağlı listeler</td></tr><tr><td class="score">1.0</td><td>8. hf · Arama ve sıralama algoritmaları</td><td>12. hf · Arama ve sıralama algoritmaları</td></tr><tr><td class="score">1.0</td><td>9. hf · Yığın ve kuyruk veri yapıları</td><td>6. hf · Yığın ve kuyruk veri yapıları</td></tr><tr><td class="score">1.0</td><td>10. hf · Rekürsif algoritmalar</td><td>8. hf · Rekürsif algoritmalar</td></tr><tr><td class="score">1.0</td><td>11. hf · Ağaç veri yapıları</td><td>9. hf · Ağaç veri yapıları</td></tr><tr><td class="score">0.945</td><td>12. hf · İkili arama ağaçları</td><td>10. hf · İkili Arama Ağaçları</td></tr><tr><td class="score">0.846</td><td>6. hf · Çift bağlı listeler</td><td>5. hf · Çift Bağlı Liste</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/MÜH102">MÜH102</a></b> Mühendislikte Sosyal Konular <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM397">YZM397</a></b> Yazılım Proje Yönetimi <span class="text-slate-500">(5. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">2 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>MÜH102</th><th>YZM397</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>9. hf · Risk Yönetimi</td><td>6. hf · Risk Yönetimi</td></tr><tr><td class="score">1.0</td><td>10. hf · Değişiklik Yönetimi</td><td>7. hf · Değişiklik Yönetimi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM203">YZM203</a></b> Nesne Yönelimli Programlama <span class="text-slate-500">(3. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM205">YZM205</a></b> Nesne Yönelimli Programlama Lab. <span class="text-slate-500">(3. yy)</span>
+  <span class="pill s-high">aynı yarıyıl: olası tekrar</span>
+  <span class="pill s-info">2 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM203</th><th>YZM205</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>14. hf · Nesne tabanlı uygulamalar</td><td>12. hf · Nesne tabanlı uygulamalar</td></tr><tr><td class="score">1.0</td><td>14. hf · Nesne tabanlı uygulamalar</td><td>13. hf · Nesne tabanlı uygulamalar</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM103">YZM103</a></b> Yazılım Mühendisliğine Giriş <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM301">YZM301</a></b> Yazılım Gerçekleme ve Test <span class="text-slate-500">(5. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">2 konu çifti · en yüksek 0.899</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM103</th><th>YZM301</th></tr></thead><tbody>
+ <tr><td class="score">0.899</td><td>4. hf · Yazılım geliştirme modelleri</td><td>2. hf · Yazılım Geliştirme Modelleri</td></tr><tr><td class="score">0.826</td><td>10. hf · Yazılım güvenliği testleri</td><td>8. hf · Yazılım Testlerinin Temelleri</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM201">YZM201</a></b> Yazılım Tasarımı ve Modelleme <span class="text-slate-500">(3. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM374">YZM374</a></b> Yazılım Mimarisi ve Tasarım Kalıpları <span class="text-slate-500">(6. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">2 konu çifti · en yüksek 0.859</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM201</th><th>YZM374</th></tr></thead><tbody>
+ <tr><td class="score">0.859</td><td>13. hf · Yazılım Mimari Kalıpları</td><td>2. hf · Yazılım Mimarisi Stilleri</td></tr><tr><td class="score">0.821</td><td>13. hf · Yazılım Mimari Kalıpları</td><td>1. hf · Yazılım Mimarisi Prensipleri ve Önemi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM102">YZM102</a></b> Programlamaya Giriş II <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM379">YZM379</a></b> Ruby Programlama <span class="text-slate-500">(5. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">2 konu çifti · en yüksek 0.822</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM102</th><th>YZM379</th></tr></thead><tbody>
+ <tr><td class="score">0.822</td><td>11. hf · Nesne yönelimli programlama: Sınıflar ve nesneler</td><td>3. hf · Sınıflar ve nesneler</td></tr><tr><td class="score">0.822</td><td>12. hf · Nesne yönelimli programlama: Sınıflar ve nesneler</td><td>3. hf · Sınıflar ve nesneler</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM104">YZM104</a></b> Bilgisayar Mimarisi ve Organizasyonu <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM207">YZM207</a></b> Mantık Devreleri <span class="text-slate-500">(3. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM104</th><th>YZM207</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>11. hf · Bellek Hiyerarşisi: Ana ve Önbellek Bellekler</td><td>10. hf · Bellek Hiyerarşisi: Ana ve Önbellek Bellekler</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM104">YZM104</a></b> Bilgisayar Mimarisi ve Organizasyonu <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM302">YZM302</a></b> Mikroişlemciler ve Programlama <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM104</th><th>YZM302</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>11. hf · Bellek Hiyerarşisi: Ana ve Önbellek Bellekler</td><td>11. hf · Bellek Hiyerarşisi: Ana ve Önbellek Bellekler</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM203">YZM203</a></b> Nesne Yönelimli Programlama <span class="text-slate-500">(3. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM204">YZM204</a></b> Veri Yapıları ve Algoritmalar Lab. <span class="text-slate-500">(4. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM203</th><th>YZM204</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>10. hf · Koleksiyonlar</td><td>3. hf · Koleksiyonlar</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM207">YZM207</a></b> Mantık Devreleri <span class="text-slate-500">(3. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM302">YZM302</a></b> Mikroişlemciler ve Programlama <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM207</th><th>YZM302</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>10. hf · Bellek Hiyerarşisi: Ana ve Önbellek Bellekler</td><td>11. hf · Bellek Hiyerarşisi: Ana ve Önbellek Bellekler</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM309">YZM309</a></b> Web Programlama <span class="text-slate-500">(5. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM373">YZM373</a></b> Optimizasyon Teknikleri <span class="text-slate-500">(5. yy, seçmeli)</span>
+  <span class="pill s-high">aynı yarıyıl: olası tekrar</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM309</th><th>YZM373</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>1. hf · Giriş ve Temel Kavramlar</td><td>1. hf · Giriş ve Temel Kavramlar</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM205">YZM205</a></b> Nesne Yönelimli Programlama Lab. <span class="text-slate-500">(3. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM353">YZM353</a></b> İleri Python Programlama <span class="text-slate-500">(5. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.984</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM205</th><th>YZM353</th></tr></thead><tbody>
+ <tr><td class="score">0.984</td><td>3. hf · Kalıtım ve polimorfizm</td><td>4. hf · Kalıtım ve Polimorfizm</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM101">YZM101</a></b> Programlamaya Giriş I <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM392">YZM392</a></b> Haskel Programlama <span class="text-slate-500">(6. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.891</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM101</th><th>YZM392</th></tr></thead><tbody>
+ <tr><td class="score">0.891</td><td>11. hf · Özyinelemeli Fonksiyonlar. Göstergeler ve kullanımı.</td><td>7. hf · Özyinelemeli Fonksiyonlar</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD125">OSD125</a></b> Psikososyal Yaşam Becerileri <span class="text-slate-500">(1. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM210">YZM210</a></b> Araştırma Yöntemleri ve Etik <span class="text-slate-500">(4. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.868</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD125</th><th>YZM210</th></tr></thead><tbody>
+ <tr><td class="score">0.868</td><td>1. hf · Giriş-Dersin tanıtımı</td><td>1. hf · Giriş: Dersin kapsam ve içeriğinin tanıtılması</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM201">YZM201</a></b> Yazılım Tasarımı ve Modelleme <span class="text-slate-500">(3. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM397">YZM397</a></b> Yazılım Proje Yönetimi <span class="text-slate-500">(5. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.859</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM201</th><th>YZM397</th></tr></thead><tbody>
+ <tr><td class="score">0.859</td><td>13. hf · Yazılım Mimari Kalıpları</td><td>3. hf · Yazılım Mimarisi ve Tasarım</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM201">YZM201</a></b> Yazılım Tasarımı ve Modelleme <span class="text-slate-500">(3. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM301">YZM301</a></b> Yazılım Gerçekleme ve Test <span class="text-slate-500">(5. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.858</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM201</th><th>YZM301</th></tr></thead><tbody>
+ <tr><td class="score">0.858</td><td>13. hf · Yazılım Mimari Kalıpları</td><td>3. hf · Yazılım Mimarisi Temelleri</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM210">YZM210</a></b> Araştırma Yöntemleri ve Etik <span class="text-slate-500">(4. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM397">YZM397</a></b> Yazılım Proje Yönetimi <span class="text-slate-500">(5. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.857</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM210</th><th>YZM397</th></tr></thead><tbody>
+ <tr><td class="score">0.857</td><td>1. hf · Giriş: Dersin kapsam ve içeriğinin tanıtılması</td><td>1. hf · Giriş: Dersin Tanıtımı ve Amaçları</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM301">YZM301</a></b> Yazılım Gerçekleme ve Test <span class="text-slate-500">(5. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM364">YZM364</a></b> Robot Programlama <span class="text-slate-500">(6. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.849</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM301</th><th>YZM364</th></tr></thead><tbody>
+ <tr><td class="score">0.849</td><td>5. hf · Programlama Dilleri ve Araçlar</td><td>2. hf · Robot Programlama Dilleri ve Araçları</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM301">YZM301</a></b> Yazılım Gerçekleme ve Test <span class="text-slate-500">(5. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM397">YZM397</a></b> Yazılım Proje Yönetimi <span class="text-slate-500">(5. yy, seçmeli)</span>
+  <span class="pill s-high">aynı yarıyıl: olası tekrar</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.847</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM301</th><th>YZM397</th></tr></thead><tbody>
+ <tr><td class="score">0.847</td><td>3. hf · Yazılım Mimarisi Temelleri</td><td>3. hf · Yazılım Mimarisi ve Tasarım</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM301">YZM301</a></b> Yazılım Gerçekleme ve Test <span class="text-slate-500">(5. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM374">YZM374</a></b> Yazılım Mimarisi ve Tasarım Kalıpları <span class="text-slate-500">(6. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.842</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM301</th><th>YZM374</th></tr></thead><tbody>
+ <tr><td class="score">0.842</td><td>3. hf · Yazılım Mimarisi Temelleri</td><td>1. hf · Yazılım Mimarisi Prensipleri ve Önemi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM102">YZM102</a></b> Programlamaya Giriş II <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM398">YZM398</a></b> Ruby Programlama <span class="text-slate-500">(6. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.836</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM102</th><th>YZM398</th></tr></thead><tbody>
+ <tr><td class="score">0.836</td><td>3. hf · Kontrol Yapıları (Koşul İfadeleri, Döngüler)</td><td>2. hf · Kontrol Yapıları ve Döngüler</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD111">OSD111</a></b> Yapay Zeka <span class="text-slate-500">(5. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM308">YZM308</a></b> Yapay Zeka <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.829</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD111</th><th>YZM308</th></tr></thead><tbody>
+ <tr><td class="score">0.829</td><td>11. hf · Uzman Sistemler</td><td>7. hf · Uzman sistemler, Üretim sistemleri.</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/MAT301">MAT301</a></b> Numerik Yöntemler <span class="text-slate-500">(5. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM373">YZM373</a></b> Optimizasyon Teknikleri <span class="text-slate-500">(5. yy, seçmeli)</span>
+  <span class="pill s-high">aynı yarıyıl: olası tekrar</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.825</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>MAT301</th><th>YZM373</th></tr></thead><tbody>
+ <tr><td class="score">0.825</td><td>8. hf · Sayısal Optimizasyon</td><td>6. hf · Doğrusal Optimizasyon</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM306">YZM306</a></b> İşletim Sistemleri <span class="text-slate-500">(6. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM361">YZM361</a></b> Bulut Bilişim <span class="text-slate-500">(5. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.822</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>YZM306</th><th>YZM361</th></tr></thead><tbody>
+ <tr><td class="score">0.822</td><td>11. hf · Sanallaştırma ve Bulut Bilişim</td><td>9. hf · Big Data ve Bulut Bilişim</td></tr>
+ </tbody></table>
+</details>
+
+
+ </main>
+</div>
+</body>
+</html>

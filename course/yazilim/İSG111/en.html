@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 1. yarıyıl</div>
+ <h1 class="text-2xl font-bold">İSG111 · İş Sağlığı ve Güvenliği I</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 2+0+0 · Kredi 2 · AKTS 2 (müfredatta 2) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376793&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376793&amp;lang=en</a> · toplandı 13.11.2026 01:33</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 35</span><span class="pill st-fail">kaldı: 6</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">76.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #16 · 13.11 15:41 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">83.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #17 · 13.11 15:41 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-3xl score mt-1">0<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #72 · 13.11 16:18 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (6)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">duplicate_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Aynı konu metni birden fazla haftada birebir tekrarlanıyor.</td><td>1 tekrar: &#39;vaka i̇ncelemesi&#39; x2</td><td>en çok 0 tekrar</td><td class="text-slate-600">Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.</td></tr><tr><td class="whitespace-nowrap">R4 AKTS–iş yükü<div class="text-xs text-slate-500">workload_ects_matches · tr</div></td><td>workload.ects</td>
+<td><span class="pill s-high">yüksek</span></td><td>İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.</td><td>3</td><td>2</td><td class="text-slate-600">İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.</td></tr><tr><td class="whitespace-nowrap">R4 AKTS–iş yükü<div class="text-xs text-slate-500">hours_per_ects · tr</div></td><td>workload.total</td>
+<td><span class="pill s-high">yüksek</span></td><td>Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.</td><td>80 saat / 2 AKTS = 40.0 saat/AKTS</td><td>25-30 saat/AKTS (50-60 saat)</td><td class="text-slate-600">İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/2 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin içeriği, lisans düzeyinde bir giriş dersi için uygun bir derinlikte konuları ele almaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı ve içerik, lisans düzeyinde bir giriş dersi için uygun bir kapsam sunmaktadır.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin genel amacı ve içeriği ile uyumlu görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı, amaç ve içerik arasında bazı konuların (örneğin, &#39;Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik&#39; gibi spesifik konuların) dersin genel kapsamına tam olarak yansıtıramadığı görülmektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Amaçta belirtilen &#39;kanun ve yönetmelikler&#39; konusu, haftalık konuların tamamında yeterince derinlemesine işlenmediği izlenimi vermektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, içerikteki bazı spesifik konuları (örneğin, &#39;Ekranlı araçlarla çalışma&#39;nın detaylı bir çıktıda yer almaması) kapsayamamaktadır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders içeriğinde yer alan bazı spesifik konular, dersin genel başlığı ile tam olarak örtüşmemektedir.</div><div class="text-xs text-slate-500 mt-1">Dersin genel başlığı &#39;İş Sağlığı ve Güvenliği I&#39; iken, haftalık konular arasında &#39;Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik&#39; gibi çok spesifik konular bulunmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Ekranlı araçlarla çalışma,
+elle kaldırma taşıma,
+KKD; Gemi/tersane ve kapalı alan çalışmalarında iş güvenliği”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:12</code> “Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders içeriğindeki çok spesifik konuların, dersin genel amacına uygun bir şekilde daha geniş bir çerçevede ele alınması veya dersin kapsamının bu spesifik konuları içerecek şekilde yeniden tanımlanması önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Amaçta belirtilen &#39;kanun ve yönetmelikler&#39; konusu, haftalık konuların tamamında yeterince derinlemesine işlenmemektedir.</div><div class="text-xs text-slate-500 mt-1">Amaçta &#39;kanun ve yönetmelikler&#39;den bahsedilmesine rağmen, haftalık konuların büyük bir kısmı (örneğin, risk değerlendirmesi, yangın, vaka incelemesi) bu yasal çerçeveye odaklanmaktan ziyade uygulamaya kaymaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Genel olarak iş sağlığı ve güvenliği, güvenlik kültürü, kanun ve yönetmelikler, iş kazası ve meslek hastalıklarının önemi ve etkileri, iş ortamındaki tehlikeler ve riskler hakkında bilgilendirmek.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:5</code> “Risk Değerlendirmesi”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Kanun ve yönetmeliklere ayrılan haftaların (örneğin hafta:3) içeriğinin, bu konunun sadece bir girişten öte, yasal gereklilikleri kapsayacak şekilde zenginleştirilmesi gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, içerikteki bazı spesifik konuları (örneğin, &#39;Ekranlı araçlarla çalışma&#39;nın detaylı bir çıktıda yer almaması) kapsayamamaktadır.</div><div class="text-xs text-slate-500 mt-1">İçerikte detaylıca ele alınan &#39;Ekranlı araçlarla çalışma&#39; konusu, öğrenme çıktıları arasında ayrı bir çıktı olarak yer almamaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Ekranlı araçlarla çalışma,”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Genel olarak iş sağlığı ve güvenliği bilincinin oluşturulması”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ekranlı araçlarla çalışma, elle kaldırma taşıma gibi spesifik konular için, bu konuların ele alındığını gösteren daha detaylı bir öğrenme çıktısı eklenmesi önerilir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %75 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Dersin genel amacı bilgilendirme odaklıdır. Çıktılar bu bilgilendirme amacını ölçülebilir hale getirmeye çalışsa da, bazıları (özellikle Cikti 1) hala bilişsel düzey olarak zayıf kalmaktadır. Ancak, genel olarak içerik ile uyum sağlamaktadır.<br>
+  Bloom dağılımı: anlama 1, uygulama 2, değerlendirme 1</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Genel olarak iş sağlığı ve güvenliği bilincinin oluşturulması<div class="text-xs text-amber-700">belirsiz: bilincinin oluşturulması</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1</td>
+ <td class="text-blue-800">İş sağlığı ve güvenliğine dair temel kavramları açıklayabilme</td></tr>
+ <tr><td>2</td><td>İş kazası ve meslek hastalıklarının önem ve etkilerinin değerlendirilmesi</td><td>değerlendirme</td>
+ <td><span class="pill st-pass">evet</span></td><td>4</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>İş ortamındaki tehlike, risk ve acil durumların belirlenmesi, güvenlik önlemlerinin alınması</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>5, 6, 7, 9, 10, 11</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Tersane ve sanayi sektöründe yapılan çalışmalarda alınacak güvenlik önlemlerinin belirlenmesi</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>11</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 0</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Yürütücü tarafından temin edilecek<div class="text-xs text-slate-500">Kaynak türü belirtilmemiş, ancak dersin genel konularıyla ilgili olabileceği varsayılmıştır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr><tr><td>Yürütücü tarafından temin edilecek<div class="text-xs text-slate-500">Kaynak türü belirtilmemiş, ancak dersin genel konularıyla ilgili olabileceği varsayılmıştır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Genel olarak iş sağlığı ve güvenliği bilincinin oluşturulması">Ö1</td><td title="Mühendislik uygulamalarının evrensel ve toplumsal boyutlarda sağlık, çevre ve güvenlik üzerindeki etkileri ve çağın mühendislik alanına yansıyan sorunları hakkında bilgi; mühendislik çözümlerinin hukuksal sonuçları konusunda farkındalık.">P11</td><td class="score">3</td><td class="text-xs text-slate-600">İSG konuları, mühendislik uygulamalarının sağlık ve güvenlik üzerindeki etkileri ile doğrudan ilişkilidir.</td></tr><tr><td title="Genel olarak iş sağlığı ve güvenliği bilincinin oluşturulması">Ö1</td><td title="Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.">P10</td><td class="score">2</td><td class="text-xs text-slate-600">İSG, risk yönetimi ve iş hayatındaki uygulamalarla ilgilidir.</td></tr><tr><td title="İş kazası ve meslek hastalıklarının önem ve etkilerinin değerlendirilmesi">Ö2</td><td title="Mühendislik uygulamalarının evrensel ve toplumsal boyutlarda sağlık, çevre ve güvenlik üzerindeki etkileri ve çağın mühendislik alanına yansıyan sorunları hakkında bilgi; mühendislik çözümlerinin hukuksal sonuçları konusunda farkındalık.">P11</td><td class="score">3</td><td class="text-xs text-slate-600">İş kazası ve meslek hastalıkları, mühendislik uygulamalarının sağlık üzerindeki etkileriyle doğrudan ilgilidir.</td></tr><tr><td title="İş ortamındaki tehlike, risk ve acil durumların belirlenmesi, güvenlik önlemlerinin alınması">Ö3</td><td title="Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.">P10</td><td class="score">4</td><td class="text-xs text-slate-600">Tehlike ve risk değerlendirmesi, risk yönetimi becerisi gerektirir.</td></tr><tr><td title="Tersane ve sanayi sektöründe yapılan çalışmalarda alınacak güvenlik önlemlerinin belirlenmesi">Ö4</td><td title="Mühendislik uygulamalarının evrensel ve toplumsal boyutlarda sağlık, çevre ve güvenlik üzerindeki etkileri ve çağın mühendislik alanına yansıyan sorunları hakkında bilgi; mühendislik çözümlerinin hukuksal sonuçları konusunda farkındalık.">P11</td><td class="score">3</td><td class="text-xs text-slate-600">Tersane ve sanayi güvenliği, mühendislik çözümlerinin toplumsal ve güvenlik boyutlarıyla ilgilidir.</td></tr></tbody></table></div>
+ </div></div>
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">2 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Yürütücü tarafından temin edilecek</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Yürütücü tarafından temin edilecek</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu örtüşmesi adayları (Modül B)</h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD118">OSD118 İş Sağlığı ve Güvenliği I</a> · 5. yarıyıl · 13 benzer konu (en yüksek 1.0)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD119">OSD119 İş Sağlığı Ve Güvenliği II</a> · 5. yarıyıl · 13 benzer konu (en yüksek 1.0)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/İSG112">İSG112 İş Sağlığı ve Güvenliği II</a> · 2. yarıyıl · 13 benzer konu (en yüksek 1.0)</div></div>
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/yazilim/İSG111">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/yazilim/İSG111/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Occupational Health And Safetty-I</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">To inform about occupational health and safety in general, safety culture, laws and regulations, importance and effects of occupational accidents and occupational diseases, hazards and risks in the workplace.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Occupational Health and safety overview;
+Information about laws and regulations;
+The significance and effects of occupational accidents and diseases;
+Basic hazards and risk assessment in the workplace;
+Fire and safety precautions;
+Risk factors;
+Working with screens,
+manual lifting, carrying,
+Occupational Safety in ship/shipyard and enclosed area works</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>In general, Occupational Health and safety awareness</li><li>Evaluation of the importance and effects of occupational accidents and diseases</li><li>Determination of hazards, risks and emergencies in the workplace, taking security measures</li><li>Determination of security measures to be taken in the work done in the shipyard and industrial sector</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Mid-terms</td><td>1</td><td>%40</td></tr><tr><td>Final examination</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (80 saat → tabloda 3 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>10 × 5</td><td>50 saat</td></tr><tr><td>Mid-terms</td><td>1 × 1</td><td>1 saat</td></tr><tr><td>Final examination</td><td>1 × 1</td><td>1 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Occupational Health and safety overview</td></tr><tr><td class="w-10">2</td><td>Security Culture</td></tr><tr><td class="w-10">3</td><td>Occupational health and safety law No. 6331</td></tr><tr><td class="w-10">4</td><td>Occupational accident and occupational illness</td></tr><tr><td class="w-10">5</td><td>Risk Assessment</td></tr><tr><td class="w-10">6</td><td>Fire</td></tr><tr><td class="w-10">7</td><td>Emergency Plan and exercise</td></tr><tr><td class="w-10">8</td><td>Mid-Term Break</td></tr><tr><td class="w-10">9</td><td>Emergency Plan and Risk Factors for Exercise Health and safety</td></tr><tr><td class="w-10">10</td><td>Working with Screen tools-manual lifting-Health and safety signs</td></tr><tr><td class="w-10">11</td><td>Occupational Safety in ship, Shipyard and Industry, Safety in indoor areas</td></tr><tr><td class="w-10">12</td><td>Safety studies in welding and electricity</td></tr><tr><td class="w-10">13</td><td>Safe Use Of Work Equipment, Working High</td></tr><tr><td class="w-10">14</td><td>case study</td></tr><tr><td class="w-10">15</td><td>case study</td></tr><tr><td class="w-10">16</td><td>Final Exam</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

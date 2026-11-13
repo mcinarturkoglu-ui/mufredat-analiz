@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 bg-slate-800 text-white">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div><h1 class="text-2xl font-bold">Yazılım Mühendisliği</h1>
+<p class="text-sm text-slate-500">2023 ( 2023 Yazılım Mühendisliği Müfredatı) · Bilgisayar ve Bilişim Bilimleri Fakültesi</p></div>
+
+<div class="grid lg:grid-cols-3 gap-4">
+ <div class="card"><h3 class="font-semibold mb-2">Program çıktıları (12)</h3>
+  <ol class="text-sm space-y-1 max-h-64 overflow-auto"><li><b>P1</b> Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.</li><li><b>P2</b> Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.</li><li><b>P3</b> Karmaşık bir sistemi, süreci, cihazı veya ürünü gerçekçi kısıtlar ve koşullar altında, belirli gereksinimleri karşılayacak şekilde tasarlama becerisi; bu amaçla modern tasarım yöntemlerini uygulama becerisi.</li><li><b>P4</b> Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.</li><li><b>P5</b> Karmaşık mühendislik problemlerinin veya disipline özgü araştırma konularının incelenmesi için deney tasarlama, deney yapma, veri toplama, sonuçları analiz etme ve yorumlama becerisi.</li><li><b>P6</b> Disiplin içi ve çok disiplinli takımlarda etkin biçimde çalışma becerisi; bireysel çalışma becerisi.</li><li><b>P7</b> Türkçe sözlü ve yazılı etkin iletişim kurma becerisi; en az bir yabancı dil bilgisi; etkili rapor yazma ve yazılı raporları anlama, tasarım ve üretim raporları hazırlayabilme, etkin sunum yapabilme, açık ve anlaşılır talimat verme, alma becerisi.</li><li><b>P8</b> Yaşam boyu öğrenmenin gerekliliği bilinci; bilgiye erişebilme, bilim ve teknolojideki gelişmeleri izleme ve kendini sürekli yenileme becerisi.</li><li><b>P9</b> Etik ilkelerine uygun davranma, mesleki ve etik sorumluluk bilinci; mühendislik uygulamalarında kullanılan standartlar hakkında bilgi</li><li><b>P10</b> Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.</li><li><b>P11</b> Mühendislik uygulamalarının evrensel ve toplumsal boyutlarda sağlık, çevre ve güvenlik üzerindeki etkileri ve çağın mühendislik alanına yansıyan sorunları hakkında bilgi; mühendislik çözümlerinin hukuksal sonuçları konusunda farkındalık.</li><li><b>P12</b> Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.</li></ol>
+  <p class="text-xs text-slate-500 mt-2">Ders–PÇ matrisinde değer girilmiş ders: 7</p></div>
+ <div class="card"><h3 class="font-semibold mb-2">Yarıyıl AKTS denetimi (R8)</h3>
+  <ul class="text-sm space-y-2">
+   <li><span class="pill s-high">yüksek</span> 1. yarıyıl: 36 AKTS (zorunlu 36 + seçmeli 0) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-high">yüksek</span> 2. yarıyıl: 36 AKTS (zorunlu 36 + seçmeli 0) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-high">yüksek</span> 4. yarıyıl: 40 AKTS (zorunlu 40 + seçmeli 0) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-medium">orta</span> 5. yarıyıl: havuz 0 AKTS; üyeler 2, 3, 4 AKTS <span class="text-slate-500">(beklenen tüm üyeler havuzun AKTS değerinde)</span></li>
+   <li><span class="pill s-high">yüksek</span> 6. yarıyıl: 34 AKTS (zorunlu 28 + seçmeli 6) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-medium">orta</span> 6. yarıyıl: havuz 0 AKTS; üyeler 2, 3, 4 AKTS <span class="text-slate-500">(beklenen tüm üyeler havuzun AKTS değerinde)</span></li>
+   <li><span class="pill s-high">yüksek</span> 7. yarıyıl: 12 AKTS (zorunlu 6 + seçmeli 6) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-high">yüksek</span> 8. yarıyıl: 36 AKTS (zorunlu 30 + seçmeli 6) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-high">yüksek</span> Müfredat: 254 AKTS <span class="text-slate-500">(beklenen 240 AKTS)</span></li></ul>
+  </div>
+ <div class="card"><h3 class="font-semibold mb-2">Konu örtüşmesi adayları (33)</h3>
+  <ul class="text-sm space-y-1"><li>YZM310 ↔ YZM401 · 67 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>OSD118 ↔ İSG111 · 13 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>OSD118 ↔ İSG112 · 13 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>OSD119 ↔ İSG111 · 13 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>OSD119 ↔ İSG112 · 13 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>İSG111 ↔ İSG112 · 13 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>OYDİ202 ↔ YDİ101 · 10 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>OYDİ201 ↔ YDİ101 · 10 konu · <span class="text-slate-500">farklı yarıyıl</span></li></ul>
+  <a class="lnk text-sm" href="/mufredat-analiz/program/yazilim/overlap">Tümünü gör →</a></div>
+</div>
+
+<div class="card">
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+  <h3 class="font-semibold">Müfredat</h3>
+  
+ </div>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">1. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L</th><th>AKTS</th><th>Kural (Y/O/D)</th><th>A</th><th>C</th><th>E</th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/ATI101">ATI101</a></td><td>Atatürk İlkeleri ve İnkılap Tarihi I </td>
+  <td>2+0+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="score">76.7</td>
+  <td class="score">33.3</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/FİZ101">FİZ101</a></td><td>Fizik I </td>
+  <td>3+0+0</td><td>5</td>
+  <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">91.7</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/İSG111">İSG111</a></td><td>İş Sağlığı ve Güvenliği I </td>
+  <td>2+0+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">76.7</td>
+  <td class="score">83.3</td>
+  <td class="score">0</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/MAT101">MAT101</a></td><td>Matematik I </td>
+  <td>3+2+0</td><td>6</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td>
+  <td class="score">100</td>
+  <td class="score">80</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/TDI101">TDI101</a></td><td>Türk Dili I </td>
+  <td>2+0+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="score">76.7</td>
+  <td class="score">53.3</td>
+  <td class="score">50</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YDİ101">YDİ101</a></td><td>Yabancı Dil I </td>
+  <td>2+0+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">100</td>
+  <td class="score">73.3</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM101">YZM101</a></td><td>Programlamaya Giriş I </td>
+  <td>2+2+0</td><td>6</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td>
+  <td class="score">93.3</td>
+  <td class="score">92</td>
+  <td class="score">91.7</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM103">YZM103</a></td><td>Yazılım Mühendisliğine Giriş </td>
+  <td>2+0+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">93.3</td>
+  <td class="score">100</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM105">YZM105</a></td><td>Algoritma Tasarımı </td>
+  <td>2+0+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">70</td>
+  <td class="score">80</td>
+  <td class="score">91.7</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM107">YZM107</a></td><td>Bilgisayar Bilimlerine Giriş </td>
+  <td>2+0+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">70</td>
+  <td class="score">85.3</td>
+  <td class="score">66.7</td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">2. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L</th><th>AKTS</th><th>Kural (Y/O/D)</th><th>A</th><th>C</th><th>E</th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/ATI102">ATI102</a></td><td>Atatürk İlkeleri ve İnkılap Tarihi II </td>
+  <td>2+0+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="score">81.7</td>
+  <td class="score">80</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/FİZ102">FİZ102</a></td><td>Fizik II </td>
+  <td>3+0+0</td><td>5</td>
+  <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">75.6</td>
+  <td class="score">100</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/İSG112">İSG112</a></td><td>İş Sağlığı ve Güvenliği II </td>
+  <td>2+0+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">76.7</td>
+  <td class="score">83.3</td>
+  <td class="score">0</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/MAT102">MAT102</a></td><td>Matematik II </td>
+  <td>3+2+0</td><td>6</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">100</td>
+  <td class="score">100</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/MAT104">MAT104</a></td><td>Ayrık Matematik </td>
+  <td>3+0+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">73.3</td>
+  <td class="score">100</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/MÜH102">MÜH102</a></td><td>Mühendislikte Sosyal Konular </td>
+  <td>2+0+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">5</span></td>
+  <td class="score">76.7</td>
+  <td class="score">86.7</td>
+  <td class="score">37.5</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/TDI102">TDI102</a></td><td>Türk Dili II </td>
+  <td>2+0+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="score">73.3</td>
+  <td class="score">—</td>
+  <td class="score">75</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YDİ102">YDİ102</a></td><td>Yabancı Dil II </td>
+  <td>2+0+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td>
+  <td class="score">76.7</td>
+  <td class="score">66.7</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM102">YZM102</a></td><td>Programlamaya Giriş II </td>
+  <td>2+2+0</td><td>6</td>
+  <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">1</span></td>
+  <td class="score">73.3</td>
+  <td class="score">92</td>
+  <td class="score">50</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM104">YZM104</a></td><td>Bilgisayar Mimarisi ve Organizasyonu </td>
+  <td>3+0+0</td><td>5</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">100</td>
+  <td class="score">—</td>
+  <td class="score">100</td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">3. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L</th><th>AKTS</th><th>Kural (Y/O/D)</th><th>A</th><th>C</th><th>E</th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/MAT203">MAT203</a></td><td>Lineer Cebir </td>
+  <td>3+0+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">76.7</td>
+  <td class="score">86.7</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/OBDE201">OBDE201</a></td><td>Bilimin Doğası ve Eleştirel Düşünce </td>
+  <td>2+0+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">100</td>
+  <td class="score">76</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/OYDİ201">OYDİ201</a></td><td>Akademik İngilizce I </td>
+  <td>2+0+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">81.7</td>
+  <td class="score">86.7</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM201">YZM201</a></td><td>Yazılım Tasarımı ve Modelleme </td>
+  <td>2+2+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">100</td>
+  <td class="score">53.3</td>
+  <td class="score">75</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM203">YZM203</a></td><td>Nesne Yönelimli Programlama </td>
+  <td>3+0+0</td><td>5</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">73.3</td>
+  <td class="score">63.3</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM205">YZM205</a></td><td>Nesne Yönelimli Programlama Lab. <span class="pill s-info">practice_only</span></td>
+  <td>0+2+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">88.3</td>
+  <td class="score">90</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM207">YZM207</a></td><td>Mantık Devreleri </td>
+  <td>3+2+0</td><td>5</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">100</td>
+  <td class="score">100</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM209">YZM209</a></td><td>Sayısal Görüntü İşleme </td>
+  <td>3+0+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">1</span></td>
+  <td class="score">100</td>
+  <td class="score">76</td>
+  <td class="score">100</td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">4. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L</th><th>AKTS</th><th>Kural (Y/O/D)</th><th>A</th><th>C</th><th>E</th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/MAT204">MAT204</a></td><td>Diferansiyel Denklemler </td>
+  <td>4+0+0</td><td>6</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">100</td>
+  <td class="score">84</td>
+  <td class="score">50</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/OYDİ202">OYDİ202</a></td><td>Akademik İngilizce II </td>
+  <td>2+0+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">80</td>
+  <td class="score">86.7</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/STJ100">STJ100</a></td><td>Staj I <span class="pill s-info">internship</span></td>
+  <td>0+0+0</td><td>10</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td>
+  <td class="score">90</td>
+  <td class="score">53.3</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM202">YZM202</a></td><td>Veri Yapıları ve Algoritmalar </td>
+  <td>2+0+0</td><td>5</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">100</td>
+  <td class="score">90</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM204">YZM204</a></td><td>Veri Yapıları ve Algoritmalar Lab. <span class="pill s-info">practice_only</span></td>
+  <td>0+2+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">80</td>
+  <td class="score">100</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM206">YZM206</a></td><td>Olasılık ve İstatistik </td>
+  <td>2+0+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">76.7</td>
+  <td class="score">93.3</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM208">YZM208</a></td><td>Grafik Arayüz Tasarımı </td>
+  <td>2+2+0</td><td>6</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">81.7</td>
+  <td class="score">100</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM210">YZM210</a></td><td>Araştırma Yöntemleri ve Etik </td>
+  <td>3+0+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td>
+  <td class="score">93.3</td>
+  <td class="score">85</td>
+  <td class="score">—</td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">5. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L</th><th>AKTS</th><th>Kural (Y/O/D)</th><th>A</th><th>C</th><th>E</th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/MAT301">MAT301</a></td><td>Numerik Yöntemler </td>
+  <td>3+0+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">100</td>
+  <td class="score">100</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/OYDİ301">OYDİ301</a></td><td>Akademik İngilizce III </td>
+  <td>2+0+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">80</td>
+  <td class="score">86.7</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM301">YZM301</a></td><td>Yazılım Gerçekleme ve Test </td>
+  <td>2+1+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td>
+  <td class="score">100</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM303">YZM303</a></td><td>Bilgisayar Ağları ve Veri İletişimi </td>
+  <td>1+2+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td>
+  <td class="score">85</td>
+  <td class="score">61.3</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM305">YZM305</a></td><td>Veri Tabanı ve Yönetim Sistemleri Lab. <span class="pill s-info">practice_only</span></td>
+  <td>0+2+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM307">YZM307</a></td><td>Veri Tabanı ve Yönetim Sistemleri </td>
+  <td>2+0+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">1</span></td>
+  <td class="score">100</td>
+  <td class="score">100</td>
+  <td class="score">100</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM309">YZM309</a></td><td>Web Programlama </td>
+  <td>2+2+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">1</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">6. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L</th><th>AKTS</th><th>Kural (Y/O/D)</th><th>A</th><th>C</th><th>E</th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/OYDİ302">OYDİ302</a></td><td>Akademik İngilizce IV </td>
+  <td>2+0+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/STJ200">STJ200</a></td><td>Staj II <span class="pill s-info">internship</span></td>
+  <td>0+0+0</td><td>10</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM302">YZM302</a></td><td>Mikroişlemciler ve Programlama </td>
+  <td>1+2+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM304">YZM304</a></td><td>Mobil Uygulama Geliştirme </td>
+  <td>1+2+0</td><td>4</td>
+  <td><span class="pill s-high mr-1">4</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM306">YZM306</a></td><td>İşletim Sistemleri </td>
+  <td>1+2+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM308">YZM308</a></td><td>Yapay Zeka </td>
+  <td>1+2+0</td><td>3</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">1</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM310">YZM310</a></td><td>Bitirme Projesi I <span class="pill s-info">graduation_project</span></td>
+  <td>0+2+0</td><td>2</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">7. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L</th><th>AKTS</th><th>Kural (Y/O/D)</th><th>A</th><th>C</th><th>E</th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM401">YZM401</a></td><td>Bitirme Projesi II <span class="pill s-info">graduation_project</span></td>
+  <td>0+2+0</td><td>6</td>
+  <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">8. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L</th><th>AKTS</th><th>Kural (Y/O/D)</th><th>A</th><th>C</th><th>E</th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/yazilim/YZM402">YZM402</a></td><td>İşletmede Mesleki Eğitim </td>
+  <td>5+20+0</td><td>30</td>
+  <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td>
+  <td class="score">—</td>
+  <td class="score">—</td>
+  <td class="score">—</td></tr>
+ </tbody></table>
+ 
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">5. yarıyıl seçmeli havuzu: OSD301 — ORTAK SEÇMELİ DERS HAVUZU (0 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD101">OSD101</a></td><td>Finansal Okuryazarlık</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD102">OSD102</a></td><td>Uygarlık Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD103">OSD103</a></td><td>Kozmolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD104">OSD104</a></td><td>Kent Kültürü</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD105">OSD105</a></td><td>Demokrasi Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD106">OSD106</a></td><td>Kültürel Çalışmalar</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD107">OSD107</a></td><td>Düşünce Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD108">OSD108</a></td><td>İslam Bilim Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD109">OSD109</a></td><td>İslam Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD110">OSD110</a></td><td>Sanat Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD111">OSD111</a></td><td>Yapay Zeka</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD112">OSD112</a></td><td>Sağlıklı Yaşam, Beslenme ve Spor</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD113">OSD113</a></td><td>Değerler Eğitimi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">3</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD114">OSD114</a></td><td>Ahlak Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD115">OSD115</a></td><td>Sanat Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD116">OSD116</a></td><td>Gönüllülük Dersi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">4</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD117">OSD117</a></td><td>Kariyer Planlama</td><td>2 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD118">OSD118</a></td><td>İş Sağlığı ve Güvenliği I</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD119">OSD119</a></td><td>İş Sağlığı Ve Güvenliği II</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD120">OSD120</a></td><td>Küreselleşme</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD121">OSD121</a></td><td>Arkeolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD122">OSD122</a></td><td>İnovasyon</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD123">OSD123</a></td><td>Toplumsal Duyarlılık Projeleri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD124">OSD124</a></td><td>Hukuk ve Etik</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD125">OSD125</a></td><td>Psikososyal Yaşam Becerileri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">5. yarıyıl seçmeli havuzu: YZMSEÇ005 — Mesleki Seçmeli Ders Havuzu (6 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM351">YZM351</a></td><td>Güvenli Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM353">YZM353</a></td><td>İleri Python Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM355">YZM355</a></td><td>Kuantum Bilgi İşleme</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM357">YZM357</a></td><td>Siber Güvenlik</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">1</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM359">YZM359</a></td><td>Gömülü Sistemler</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM361">YZM361</a></td><td>Bulut Bilişim</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM363">YZM363</a></td><td>Blokzincirin Temelleri</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM365">YZM365</a></td><td>Adli Bilişim</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM367">YZM367</a></td><td>Paralel Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM369">YZM369</a></td><td>Bulanık Mantık</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM371">YZM371</a></td><td>Makine Öğrenmesi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM373">YZM373</a></td><td>Optimizasyon Teknikleri</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM375">YZM375</a></td><td>Bilgisayar Grafikleri</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM377">YZM377</a></td><td>Matlab Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM379">YZM379</a></td><td>Ruby Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM381">YZM381</a></td><td>Deneyim Mühendisliği</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM383">YZM383</a></td><td>Fonksiyonel Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM385">YZM385</a></td><td>Reaktif Programlama ve Sistemler</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM387">YZM387</a></td><td>Veri Madenciliği ve Bilgi Keşfi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM389">YZM389</a></td><td>Sosyal Ağ Analizi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM391">YZM391</a></td><td>Derleyici Tasarımı</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM393">YZM393</a></td><td>Yapay Sinir Ağları</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM395">YZM395</a></td><td>Mühendislik Ekonomisi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM397">YZM397</a></td><td>Yazılım Proje Yönetimi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM399">YZM399</a></td><td>Sanal ve Artırılmış Gerçeklik</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">6. yarıyıl seçmeli havuzu: OSD302 — ORTAK SEÇMELİ DERS HAVUZU (0 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD101">OSD101</a></td><td>Finansal Okuryazarlık</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD102">OSD102</a></td><td>Uygarlık Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD103">OSD103</a></td><td>Kozmolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD104">OSD104</a></td><td>Kent Kültürü</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD105">OSD105</a></td><td>Demokrasi Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD106">OSD106</a></td><td>Kültürel Çalışmalar</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD107">OSD107</a></td><td>Düşünce Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD108">OSD108</a></td><td>İslam Bilim Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD109">OSD109</a></td><td>İslam Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD110">OSD110</a></td><td>Sanat Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD111">OSD111</a></td><td>Yapay Zeka</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD112">OSD112</a></td><td>Sağlıklı Yaşam, Beslenme ve Spor</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD113">OSD113</a></td><td>Değerler Eğitimi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">3</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD114">OSD114</a></td><td>Ahlak Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD115">OSD115</a></td><td>Sanat Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD116">OSD116</a></td><td>Gönüllülük Dersi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">4</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD117">OSD117</a></td><td>Kariyer Planlama</td><td>2 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD118">OSD118</a></td><td>İş Sağlığı ve Güvenliği I</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD119">OSD119</a></td><td>İş Sağlığı Ve Güvenliği II</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD120">OSD120</a></td><td>Küreselleşme</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD121">OSD121</a></td><td>Arkeolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD122">OSD122</a></td><td>İnovasyon</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD123">OSD123</a></td><td>Toplumsal Duyarlılık Projeleri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD124">OSD124</a></td><td>Hukuk ve Etik</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD125">OSD125</a></td><td>Psikososyal Yaşam Becerileri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">6. yarıyıl seçmeli havuzu: YZMSEÇ006 — Mesleki Seçmeli Ders Havuzu (6 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM350">YZM350</a></td><td>İleri Java Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM352">YZM352</a></td><td>Oyun Tasarımı ve Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM354">YZM354</a></td><td>Büyük Veri</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">1</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM356">YZM356</a></td><td>Kuantum Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM358">YZM358</a></td><td>Doğal Dil İşleme</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM360">YZM360</a></td><td>Ağ ve Bilgi Güvenliği</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM362">YZM362</a></td><td>Derin Öğrenme</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM364">YZM364</a></td><td>Robot Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM366">YZM366</a></td><td>Sistem Modelleme ve Simülasyon</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM368">YZM368</a></td><td>Prompt Mühendisliği</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM370">YZM370</a></td><td>Ruby on Rails Uygulama Geliştirme</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM372">YZM372</a></td><td>Nesnelerin İnterneti</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM374">YZM374</a></td><td>Yazılım Mimarisi ve Tasarım Kalıpları</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM376">YZM376</a></td><td>Kriptografi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM378">YZM378</a></td><td>Algoritma Analizi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">4</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM380">YZM380</a></td><td>İnsan Bilgisayar Etkileşimi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM382">YZM382</a></td><td>Linux Sistem Yönetimi ve Kabuk Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM384">YZM384</a></td><td>Kablosuz İletişim Ağları</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM386">YZM386</a></td><td>Sanal Gerçeklik</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM388">YZM388</a></td><td>Biyometrik Tanıma Sistemleri</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM390">YZM390</a></td><td>Çoklu Ortam Yazılım Geliştirme</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM392">YZM392</a></td><td>Haskel Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM394">YZM394</a></td><td>Otomata Teorisi ve Biçimsel Diller</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM396">YZM396</a></td><td>Grafik Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM398">YZM398</a></td><td>Ruby Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">7. yarıyıl seçmeli havuzu: YZMSEÇ007 — Mesleki Seçmeli Ders Havuzu (6 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM351">YZM351</a></td><td>Güvenli Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM353">YZM353</a></td><td>İleri Python Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM355">YZM355</a></td><td>Kuantum Bilgi İşleme</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM357">YZM357</a></td><td>Siber Güvenlik</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">1</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM359">YZM359</a></td><td>Gömülü Sistemler</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM361">YZM361</a></td><td>Bulut Bilişim</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM363">YZM363</a></td><td>Blokzincirin Temelleri</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM365">YZM365</a></td><td>Adli Bilişim</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM367">YZM367</a></td><td>Paralel Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM369">YZM369</a></td><td>Bulanık Mantık</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM371">YZM371</a></td><td>Makine Öğrenmesi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM373">YZM373</a></td><td>Optimizasyon Teknikleri</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM375">YZM375</a></td><td>Bilgisayar Grafikleri</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM377">YZM377</a></td><td>Matlab Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM379">YZM379</a></td><td>Ruby Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM381">YZM381</a></td><td>Deneyim Mühendisliği</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM383">YZM383</a></td><td>Fonksiyonel Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM385">YZM385</a></td><td>Reaktif Programlama ve Sistemler</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM387">YZM387</a></td><td>Veri Madenciliği ve Bilgi Keşfi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM389">YZM389</a></td><td>Sosyal Ağ Analizi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM391">YZM391</a></td><td>Derleyici Tasarımı</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM393">YZM393</a></td><td>Yapay Sinir Ağları</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM395">YZM395</a></td><td>Mühendislik Ekonomisi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM397">YZM397</a></td><td>Yazılım Proje Yönetimi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM399">YZM399</a></td><td>Sanal ve Artırılmış Gerçeklik</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">8. yarıyıl seçmeli havuzu: YZMSEÇ008 — Mesleki Seçmeli Ders Havuzu (6 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM350">YZM350</a></td><td>İleri Java Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM352">YZM352</a></td><td>Oyun Tasarımı ve Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM354">YZM354</a></td><td>Büyük Veri</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">1</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM356">YZM356</a></td><td>Kuantum Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM358">YZM358</a></td><td>Doğal Dil İşleme</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM360">YZM360</a></td><td>Ağ ve Bilgi Güvenliği</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM362">YZM362</a></td><td>Derin Öğrenme</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM364">YZM364</a></td><td>Robot Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM366">YZM366</a></td><td>Sistem Modelleme ve Simülasyon</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM368">YZM368</a></td><td>Prompt Mühendisliği</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM370">YZM370</a></td><td>Ruby on Rails Uygulama Geliştirme</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM372">YZM372</a></td><td>Nesnelerin İnterneti</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM374">YZM374</a></td><td>Yazılım Mimarisi ve Tasarım Kalıpları</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM376">YZM376</a></td><td>Kriptografi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM378">YZM378</a></td><td>Algoritma Analizi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">4</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM380">YZM380</a></td><td>İnsan Bilgisayar Etkileşimi</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM382">YZM382</a></td><td>Linux Sistem Yönetimi ve Kabuk Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM384">YZM384</a></td><td>Kablosuz İletişim Ağları</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM386">YZM386</a></td><td>Sanal Gerçeklik</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM388">YZM388</a></td><td>Biyometrik Tanıma Sistemleri</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM390">YZM390</a></td><td>Çoklu Ortam Yazılım Geliştirme</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM392">YZM392</a></td><td>Haskel Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM394">YZM394</a></td><td>Otomata Teorisi ve Biçimsel Diller</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM396">YZM396</a></td><td>Grafik Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM398">YZM398</a></td><td>Ruby Programlama</td><td>6 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr></tbody></table></details>
+ 
+</div>
+
+ </main>
+</div>
+</body>
+</html>

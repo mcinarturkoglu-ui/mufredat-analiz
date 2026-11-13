@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 2. yarıyıl</div>
+ <h1 class="text-2xl font-bold">YZM102 · Programlamaya Giriş II</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 2+2+0 · Kredi 3 · AKTS 6 (müfredatta 6) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376724&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376724&amp;lang=tr</a> · toplandı 13.11.2026 01:29</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 39</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">73.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #47 · 13.11 16:02 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">92<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #48 · 13.11 16:02 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-3xl score mt-1">50<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #106 · 13.11 18:02 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (3)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">duplicate_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Aynı konu metni birden fazla haftada birebir tekrarlanıyor.</td><td>2 tekrar: &#39;nesne yönelimli programlama: sınıflar ve nesneler&#39; x2; &#39;python ortamında gui programlama (pyqt) ve veritabanı i̇şlem&#39; x2</td><td>en çok 0 tekrar</td><td class="text-slate-600">Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.</td></tr><tr><td class="whitespace-nowrap">R3 Değerlendirme %100<div class="text-xs text-slate-500">weights_sum · tr</div></td><td>assessment</td>
+<td><span class="pill s-high">yüksek</span></td><td>Değerlendirme ağırlıklarının toplamı %100 değil.</td><td>%80</td><td>%100</td><td class="text-slate-600">Katkı yüzdelerini toplamı %100 olacak şekilde düzeltin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2004 (22 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin &#39;Lisans&#39; ve &#39;2. Yarıyıl&#39; seviyesinde olması beklenirken, içerikteki bazı konular (örneğin, &#39;Pandas&#39; ve &#39;Nesne yönelimli programlama&#39;) bu seviye için yeterli derinliği sunup sunmadığı belgede net olarak belirtilmemektedir; bu durum, konuların derinliğinin tam olarak değerlendirilememesine yol açmaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı (&#39;Programlamaya Giriş II&#39;) ve içerik (temellerden OOP, Pandas, GUI&#39;ye kadar geniş bir yelpaze sunması) arasında, dersin seviyesi (Lisans 2. Yarıyıl) göz önüne alındığında, kapsamın dar veya geniş olduğu söylenemez; genel bir giriş/orta seviye programlama dersi olarak kabul edilebilir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Belirtilen haftalık konuların tamamı, dersin genel amacı ve içeriği dahilinde görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (&#39;Programlamaya Giriş II&#39;) ve amaç, genel olarak içerikle örtüşse de, içerikteki bazı konuların (örneğin, &#39;Pandas&#39; ve &#39;Veri tabanı işlemleri&#39;) dersin genel başlığına göre daha ileri düzeyde veya spesifik bir alt dala odaklandığı görülmektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacı, &#39;problem çözme yeteneklerini geliştirmeleri, algoritmik düşünceyi kavramaları ve basit projeler geliştirebilmeleri&#39; gibi genel hedefler içerirken, haftalık konular bu hedefleri doğrudan kapsayan spesifik bir yapı sunmamaktadır; daha çok araçları listelemektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve içerik arasında bir uyumsuzluk bulunmaktadır. Örneğin, amaç &#39;algoritmik düşünceyi kavramayı&#39; hedeflerken, çıktılar bu kavramı doğrudan ölçülebilir bir beceri olarak yansıtmamaktadır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı ve amaç, içerikteki bazı spesifik kütüphane/konularla tam olarak örtüşmemektedir.</div><div class="text-xs text-slate-500 mt-1">Dersin amacı genel programlama prensiplerini öğretmek iken, içerik &#39;Pandas&#39; ve &#39;Python ile arayüz geliştirme&#39; gibi çok spesifik kütüphane odaklı konuları içermektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Programlamaya Giriş II”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Pandas, Python ile arayüz geliştirme ve görsel programlama”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders adının, içerikte ele alınan spesifik kütüphaneleri (örneğin, &#39;Veri Odaklı Programlama&#39; gibi) yansıtacak şekilde revize edilmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amaçlarında belirtilen &#39;algoritmik düşünceyi kavramaları&#39; hedefi, haftalık konuların listelenme biçiminde doğrudan ele alınmamaktadır.</div><div class="text-xs text-slate-500 mt-1">Haftalık konular, belirli bir konunun (örneğin, &#39;String Üzerinde İşlemler&#39;) işlenmesine odaklanmış olup, algoritmik düşünceyi geliştirmeye yönelik sistematik bir ilerleme gösterilmemektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “algoritmik düşünceyi kavramaları”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:3</code> “Kontrol Yapıları (Koşul İfadeleri, Döngüler)”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Algoritmik düşünceyi destekleyecek, problem çözme odaklı haftalık konular eklenmeli veya mevcut konular bu bağlamda yeniden çerçevelenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, amaçta belirtilen &#39;algoritmik düşünceyi kavramaları&#39; hedefine karşılık gelen ölçülebilir bir çıktı içermemektedir.</div><div class="text-xs text-slate-500 mt-1">Amaç, algoritmik düşünceyi kavramayı hedeflerken, çıktılar daha çok &#39;sözdizimi&#39;, &#39;veri yapıları&#39; veya &#39;uygulama&#39; gibi daha teknik becerilere odaklanmıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “algoritmik düşünceyi kavramaları”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:2</code> “Temel veri yapıları ve algoritmaları kullanarak programlar yazabilir.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Algoritmik düşünceyi ölçen, örneğin &#39;Verilen bir problemi en verimli algoritma ile çözme&#39; gibi bir çıktı eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin seviyesi (Lisans 2. Yarıyıl) ile içerikteki konuların derinliği arasında, belgede yeterli kanıt bulunamamıştır.</div><div class="text-xs text-slate-500 mt-1">Belgede, konuların (örneğin, OOP veya Pandas) bu seviye için yeterli derinlikte işlenip işlenmediğine dair bir bilgi veya değerlendirme sunulmamaktadır.</div>
+  <div class="text-xs mt-1">✗ <code class="bg-slate-100 px-1 rounded">[Düzey]</code> “Lisans”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Python ile nesne yönelimli programlama, Python ile arayüz geliştirme ve görsel programlama”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin seviyesine uygun olarak, her bir konunun (özellikle Pandas ve OOP gibi konuların) hangi derinlikte ele alınacağı (temel, orta, ileri) belirtilmelidir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %80 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Dersin amacı temel prensipleri öğretmek, pratik beceri kazandırmak ve problem çözme yeteneği geliştirmektir. Çıktılar (özellikle 2, 3, 4 ve 5) bu hedefleri ölçülebilir eylem fiilleriyle yakalamaktadır. (Değerlendirme çıktıları ise öğrenme çıktısı değildir.)<br>
+  Bloom dağılımı: anlama 1, yaratma 1, uygulama 3</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Python programlama dilinin temel özelliklerini ve sözdizimini anlayabilir.<div class="text-xs text-amber-700">belirsiz: anlayabilir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1</td>
+ <td class="text-blue-800">Python programlama dilinin temel özelliklerini ve sözdizimini kullanarak basit programlar yazabilir.</td></tr>
+ <tr><td>2</td><td>Temel veri yapıları ve algoritmaları kullanarak programlar yazabilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>3, 4, 5, 6, 7, 8, 9, 10</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Nesne yönelimli programlama (OOP) prensiplerini anlayabilir ve uygulayabilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>11, 12</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Python&#39;da dosya, veritabanı işlemleri ve hata yönetimi yapabilme.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>8, 9, 10, 13, 14</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Uygulamalı projeler geliştirerek gerçek dünya problemlerine çözümler üretebilir.</td><td>yaratma</td>
+ <td><span class="pill st-pass">evet</span></td><td>13, 14</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 50</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Programming from the Ground Up, Bartlett, 2004<div class="text-xs text-slate-500">Kitap, genel programlama temellerine değinmekle dersin amacına kısmen uyuyor.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr><tr><td>Programming with GNU Software, Loukides and Oram, 1997.<div class="text-xs text-slate-500">Kitap, genel programlama temellerine değinmekle dersin amacına kısmen uyuyor.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr><tr><td>C Programming: A Modern Approach, King, 1996.<div class="text-xs text-slate-500">C dili odaklıdır, dersin Python odaklı olması nedeniyle ilgisi düşüktür.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">ilgisiz</span></td></tr><tr><td>Computer Systems: A Programmer&#39;s Perspective, Randal E. Bryant and David R. O&#39;Hallaron, Prentice-Hall 2003.<div class="text-xs text-slate-500">Sistemler perspektifi sunar, doğrudan Python programlama temelleriyle ilgili değildir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">ilgisiz</span></td></tr><tr><td>• Öğretim elemanı ders notları ve uygulamaları (https://github.com/akaraci/Programlamaya-Giris -- 2)<div class="text-xs text-slate-500">Öğretim elemanı notlarıdır ve dersin içeriğini doğrudan desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">ders notu</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>• David Amos, Dan Bader, Joanna Jablonski, Fletcher Heisler, Python Basics: A Practical Introduction to Python 3, Revised and Updated 4th Edition.<div class="text-xs text-slate-500">Kitap, Python temellerini ve pratik uygulamaları doğrudan ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Python programlama dilinin temel özelliklerini ve sözdizimini anlayabilir.">Ö1</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">3</td><td class="text-xs text-slate-600">Temel sözdizimi ve prensiplerin anlaşılması, yazılım geliştirmenin ilk adımıdır.</td></tr><tr><td title="Python programlama dilinin temel özelliklerini ve sözdizimini anlayabilir.">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">2</td><td class="text-xs text-slate-600">Temel kavramların (veri tipleri, kontrol yapıları) bilinmesi, bilişim teknolojilerini kullanma becerisinin başlangıcıdır.</td></tr><tr><td title="Temel veri yapıları ve algoritmaları kullanarak programlar yazabilir.">Ö2</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">4</td><td class="text-xs text-slate-600">Veri yapıları (List, Sözlük, Pandas) ve algoritmik düşünce, yazılım geliştirmenin çekirdeğidir.</td></tr><tr><td title="Temel veri yapıları ve algoritmaları kullanarak programlar yazabilir.">Ö2</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Temel veri yapıları ile program yazmak, modern araçları (Pandas gibi) kullanma becerisine katkı sağlar.</td></tr><tr><td title="Nesne yönelimli programlama (OOP) prensiplerini anlayabilir ve uygulayabilir.">Ö3</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">5</td><td class="text-xs text-slate-600">OOP, karmaşık yazılım sistemleri geliştirme becerisinin doğrudan bir parçasıdır.</td></tr><tr><td title="Python&#39;da dosya, veritabanı işlemleri ve hata yönetimi yapabilme.">Ö4</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">4</td><td class="text-xs text-slate-600">Dosya, DB ve hata yönetimi, yazılımın sağlamlığını (robustness) gösteren kritik bileşenlerdir.</td></tr><tr><td title="Uygulamalı projeler geliştirerek gerçek dünya problemlerine çözümler üretebilir.">Ö5</td><td title="Karmaşık bir sistemi, süreci, cihazı veya ürünü gerçekçi kısıtlar ve koşullar altında, belirli gereksinimleri karşılayacak şekilde tasarlama becerisi; bu amaçla modern tasarım yöntemlerini uygulama becerisi.">P3</td><td class="score">4</td><td class="text-xs text-slate-600">Uygulamalı projeler, sistem tasarımı ve gereksinimleri karşılama becerisini geliştirir.</td></tr></tbody></table></div>
+ </div></div>
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">6 kaynak · 4 tanesinde yıl var · en yeni 2004 (22 yıl önce) · 10 yıldan eski 4</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2004</td><td>Programming from the Ground Up, Bartlett, 2004</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">1997</td><td>Programming with GNU Software, Loukides and Oram, 1997.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">1996</td><td>C Programming: A Modern Approach, King, 1996.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2003</td><td>Computer Systems: A Programmer&#39;s Perspective, Randal E. Bryant and David R. O&#39;Hallaron, Prentice-Hall 2003.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>• Öğretim elemanı ders notları ve uygulamaları (https://github.com/akaraci/Programlamaya-Giris -- 2)</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">—</td><td>• David Amos, Dan Bader, Joanna Jablonski, Fletcher Heisler, Python Basics: A Practical Introduction to Python 3, Revised and Updated 4th Edition.</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu örtüşmesi adayları (Modül B)</h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM379">YZM379 Ruby Programlama</a> · 5. yarıyıl · 2 benzer konu (en yüksek 0.822)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM398">YZM398 Ruby Programlama</a> · 6. yarıyıl · 1 benzer konu (en yüksek 0.836)</div></div>
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/yazilim/YZM102">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/yazilim/YZM102/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Programlamaya Giriş II</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Bu dersin amacı, öğrencilere temel programlama prensiplerini öğreterek, Python programlama dilini anlamalarını ve kullanabilmelerini sağlamaktır. Ders Python dilinin sözdizimini öğretmeyi ve pratik beceriler kazandırmayı hedefler. Ayrıca, öğrencilerin problem çözme yeteneklerini geliştirmeleri, algoritmik düşünceyi kavramaları ve basit projeler geliştirebilmeleri amaçlanır.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Python Temelleri: Değişkenler, veri tipleri, Koşullu ifadeler ve döngüler, Fonksiyonlar ve modüller, istisnalar, Listeler ve Tupple, Lambda kullanımı, Liste kavraması ve örnekler, Dosya işlemleri, Sözlük veri tipi, Pandas, Python ile nesne yönelimli programlama, Python ile arayüz geliştirme ve görsel programlama, Python ile veri tabanı işlemleri ve örnek uygulamalar.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">Çoğunlukla laboratuvarda ders notlarından yararlanılarak ders anlatım yöntemi ile gerçekleştirilir Bunun yanı sıra bilgisayar ortamında öğrencilerle eş zamanlı olarak kodlama işlemi gerçekleştirilerek sonuçlar değerlendirilir. Düz Anlatımı, Uygulamalı Laboratuvar Çalışmaları, Projeler</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Python programlama dilinin temel özelliklerini ve sözdizimini anlayabilir.</li><li>Temel veri yapıları ve algoritmaları kullanarak programlar yazabilir.</li><li>Nesne yönelimli programlama (OOP) prensiplerini anlayabilir ve uygulayabilir.</li><li>Python&#39;da dosya, veritabanı işlemleri ve hata yönetimi yapabilme.</li><li>Uygulamalı projeler geliştirerek gerçek dünya problemlerine çözümler üretebilir.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%30</td></tr><tr><td>Ödev</td><td>2</td><td>%10</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%40</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (180 saat → tabloda 6 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>11 × 4</td><td>44 saat</td></tr><tr><td>Ödevler</td><td>3 × 4</td><td>12 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 2</td><td>2 saat</td></tr><tr><td>Laboratuvar</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Proje</td><td>1 × 40</td><td>40 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 3</td><td>3 saat</td></tr><tr><td>Ara Sınava Hazırlık</td><td>1 × 11</td><td>11 saat</td></tr><tr><td>Finale Hazırlık</td><td>1 × 12</td><td>12 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Python&#39;a Giriş, Temel Kavramlar</td></tr><tr><td class="w-10">2</td><td>Python Kurulumu ve Temel Araçlar: Python İndirme ve Kurulumu Python IDE&#39;leri (PyCharm, VSCode, Jupyter Notebook)</td></tr><tr><td class="w-10">3</td><td>Kontrol Yapıları (Koşul İfadeleri, Döngüler)</td></tr><tr><td class="w-10">4</td><td>String Üzerinde İşlemler, Fonksiyonlar</td></tr><tr><td class="w-10">5</td><td>Listeler ve Tupple</td></tr><tr><td class="w-10">6</td><td>Lambda Kullanımı, Liste Kavraması</td></tr><tr><td class="w-10">7</td><td>İstisnalar, Modüller,</td></tr><tr><td class="w-10">8</td><td>Dosya İşlemleri, Sözlükler</td></tr><tr><td class="w-10">9</td><td>Sözlükler, “Pandas, Data Frame</td></tr><tr><td class="w-10">10</td><td>Pandas, Data Frame</td></tr><tr><td class="w-10">11</td><td>Nesne yönelimli programlama: Sınıflar ve nesneler</td></tr><tr><td class="w-10">12</td><td>Nesne yönelimli programlama: Sınıflar ve nesneler</td></tr><tr><td class="w-10">13</td><td>Python ortamında GUI Programlama (PyQt) ve Veritabanı İşlemleri</td></tr><tr><td class="w-10">14</td><td>Python ortamında GUI Programlama (PyQt) ve Veritabanı İşlemleri</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / seçmeli havuz</div>
+ <h1 class="text-2xl font-bold">YZM354 · Büyük Veri</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 3+0+0 · Kredi 3 · AKTS 6 (müfredatta 6) · Seçmeli · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376884&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376884&amp;lang=tr</a> · toplandı 13.11.2026 01:30</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 40</span><span class="pill st-fail">kaldı: 1</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (1)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/3 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
+</tbody></table></div>
+
+
+
+
+
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">3 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Big Data For Dummies - Judith S. Hurwitz (Author), Alan Nugent (Author), Fern Halper (Author), Marcia Kaufman (Author)</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>1-Big Data: A Revolution That Will Transform How We Live, Work, and Think by V. Mayer-Schönberger and K. Cukier Analytics in a Big Data World: The Essential Guide to Data Science and its Applications, by B. Baesens. 2-Big Data For Dummies - Judith S. Hurwitz (Author), Alan Nugent (Author), Fern Halper (Author), Marcia Kaufman (Author).</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">—</td><td>3- “Büyük Veri Mimarisi ve Teknolojileri” Özgür Umut Vurgun, Ensar Erdoğan, Veysel Yüksel, Zekeriya Beşiroğlu.</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/yazilim/YZM354">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/yazilim/YZM354/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Büyük Veri</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Büyük Veri dersi, öğrencilere büyük veri alanında geniş bir anlayış sağlayarak, büyük veri sistemlerini etkili bir şekilde tasarlama, uygulama ve yönetme becerilerini geliştirir.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Öğrencilere büyük veri kavramlarını, teknolojilerini ve analiz yöntemlerini tanıtarak bu alandaki temel bilgi ve becerileri kazandırmayı amaçlar. Ders kapsamında öncelikle büyük veri kavramına ve veri biliminin temel ilkelerine giriş yapılır. İlişkisel veri tabanları ve veri modelleme konularıyla yapısal verilerin nasıl organize edildiği öğretilir.
+Veri ambarı ve entegrasyonu ile büyük veri kaynaklarının nasıl birleştirileceği ele alınır. Hadoop ve paralel veri tabanı sistemleri ile büyük veri işleme altyapıları tanıtılır. MapReduce ve Spark gibi dağıtık işleme teknolojileri incelenir.
+Veri görselleştirme yöntemleri ile analiz sonuçlarının etkili sunumu öğretilir. Makine öğrenmesi temellerine giriş yapılır ve sınıflandırma, regresyon, kümeleme gibi temel algoritmalar işlenir. Doğal dil işleme ve bilgi erişimi gibi özel büyük veri uygulama alanları ele alınır. Ayrıca, sosyal ağ verilerinin analizi ve projelerin sunumları ile</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">Sınıf içi ders anlatımı, ödevler, sınavlar ve okumalar</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Büyük verinin önemini ve farklı alanlarda nasıl kullanıldığını kavrayabileceklerdir.</li><li>Verilerin Tableau, Power BI gibi araçlar ile grafiksel gösterimini yapabileceklerdir.</li><li>Hadoop, Spark, Hive, Pig gibi popüler büyük veri araçlarını kullanabileceklerdir.</li><li>NoSQL veritabanlarını ve büyük veri ile veri depolama ve sorgulama tekniklerini anlayabileceklerdir.</li><li>Büyük veri kümelerini işlemek ve analiz etmek için gerekli teknikleri ve algoritmaları kullanabileceklerdir.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%30</td></tr><tr><td>Ödev</td><td>2</td><td>%30</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%40</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (180 saat → tabloda 6 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>15 × 3</td><td>45 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>15 × 3</td><td>45 saat</td></tr><tr><td>Ödevler</td><td>2 × 15</td><td>30 saat</td></tr><tr><td>Ara Sınavlar</td><td>2 × 15</td><td>30 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>2 × 15</td><td>30 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Veri Bilimi ve Büyük Veri Analizine Giriş</td></tr><tr><td class="w-10">2</td><td>İlişkisel Veri Tabanları ve Veri Modelleme</td></tr><tr><td class="w-10">3</td><td>Veri Ambarı ve Entegrasyonu</td></tr><tr><td class="w-10">4</td><td>Paralel Veri Tabanları / Hadoop</td></tr><tr><td class="w-10">5</td><td>Mapreduce / Spark</td></tr><tr><td class="w-10">6</td><td>Veri Görselleştirme</td></tr><tr><td class="w-10">7</td><td>Ara Sınav</td></tr><tr><td class="w-10">8</td><td>Makine Öğrenmeye Giriş</td></tr><tr><td class="w-10">9</td><td>Sınıflandırma ve Regresyon</td></tr><tr><td class="w-10">10</td><td>Kümeleme</td></tr><tr><td class="w-10">11</td><td>Doğal Dil İşlemeye Giriş</td></tr><tr><td class="w-10">12</td><td>Bilgi Erişimine Giriş</td></tr><tr><td class="w-10">13</td><td>Ağ Analizi</td></tr><tr><td class="w-10">14</td><td>Proje Sunumları</td></tr><tr><td class="w-10">15</td><td>Final Sınavı</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

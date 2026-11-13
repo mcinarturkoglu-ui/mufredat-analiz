@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 3. yarıyıl</div>
+ <h1 class="text-2xl font-bold">YZM209 · Sayısal Görüntü İşleme</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 3+0+0 · Kredi 3 · AKTS 3 (müfredatta 3) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376735&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376735&amp;lang=en</a> · toplandı 13.11.2026 01:29</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 41</span><span class="pill st-fail">kaldı: 1</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #74 · 13.11 16:19 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">76<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #76 · 13.11 16:20 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #122 · 13.11 18:09 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (1)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>1/4 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Konuların derinliği, Lisans düzeyinde bir dersin gerektirdiği kapsamla uyumlu görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konuların kapsamına uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konular, dersin genel kapsamı dışında bir konu içermemektedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, içerik ve haftalık konular arasında belirgin bir uyum bulunmaktadır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin amaçlarında belirtilen temel kavramlar, teknikler ve beceriler haftalık konular boyunca ele alınmaktadır.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Öğrenme çıktıları, dersin amaçları ve işlenen konularla tutarlıdır.</td></tr></tbody></table>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %40 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Dersin amacı &#39;gerçek dünya problemlerine çözüm geliştirmeleri&#39; ve &#39;mühendislik problemlerinde görüntü verisiyle çalışabilme becerisi kazanmaları&#39;dır. Cıktı 5 bu amaca doğrudan hizmet ederken, Cıktı 4 ve Cıktı 3 bu becerinin temelini oluşturan teknik uygulamaları ölçülebilir hale getirmiştir. Cıktı 1 ve 2 ise temel bilgi düzeyini ölçmektedir.<br>
+  Bloom dağılımı: analiz 1, anlama 1, yaratma 1, uygulama 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Dijital görüntülerin yapısını ve temel işleme tekniklerini açıklar.<div class="text-xs text-amber-700">belirsiz: açıklar</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 4, 5, 6, 7</td>
+ <td class="text-blue-800">Dijital görüntülerin yapısını ve temel işleme tekniklerini tanımlar ve örneklerle gösterir.</td></tr>
+ <tr><td>2</td><td>Görüntü filtreleme, kenar belirleme ve segmentasyon yöntemlerini karşılaştırır.<div class="text-xs text-amber-700">belirsiz: karşılaştırır</div></td><td>analiz</td>
+ <td><span class="pill st-fail">hayır</span></td><td>4, 5, 7</td>
+ <td class="text-blue-800">Görüntü filtreleme, kenar belirleme ve segmentasyon yöntemlerinin avantajlarını ve dezavantajlarını karşılaştırır.</td></tr>
+ <tr><td>3</td><td>Frekans alanında görüntü işlemesi yapar ve sonuçları analiz eder.<div class="text-xs text-amber-700">belirsiz: yapar, analiz eder</div></td><td>uygulama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>9, 10</td>
+ <td class="text-blue-800">Fourier dönüşümünü kullanarak görüntü işlemesi gerçekleştirir ve elde edilen sonuçları yorumlar.</td></tr>
+ <tr><td>4</td><td>Görüntü işleme araçlarını kullanarak uygulamalı analizler gerçekleştirir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>4, 5, 6, 7, 11, 12, 13</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Gerçek dünya problemleri için uygun görüntü işleme çözümleri geliştirir ve değerlendirir.</td><td>yaratma</td>
+ <td><span class="pill st-pass">evet</span></td><td>13, 14</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Digital Image Processing 4th Edition, Rafael C. Gonzalez, Richard E. Woods, Addison Wesley, 2017<div class="text-xs text-slate-500">Klasik ve temel bir görüntü işleme ders kitabıdır, konuyu doğrudan destekler.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Rafael C. Gonzalez &amp; Richard E. Woods, Digital Image Processing, Pearson<div class="text-xs text-slate-500">Temel görüntü işleme konularını kapsayan bir ders kitabıdır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Szeliski, Richard, Computer Vision: Algorithms and Applications<div class="text-xs text-slate-500">Bilgisayarlı görü ve algoritmalarla ilgili olup, ileri konuları destekler.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>OpenCV ve Scikit-Image Dokümanları<div class="text-xs text-slate-500">Uygulamalı kütüphaneler (OpenCV, skimage) hakkında bilgi verdiği için içeriğe doğrudan katkı sağlar.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">web/belge</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Dijital görüntülerin yapısını ve temel işleme tekniklerini açıklar.">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Temel kavramlar ve teknikler (piksel, renk, filtreleme) dersin ana konusudur ve PO1&#39;in bilgi birikimi gereksinimini karşılar.</td></tr><tr><td title="Dijital görüntülerin yapısını ve temel işleme tekniklerini açıklar.">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Temel tekniklerin (filtreleme, histogram) uygulamalı olarak öğretilmesi, PO4&#39;ün araçları kullanma becerisine katkı sağlar.</td></tr><tr><td title="Görüntü filtreleme, kenar belirleme ve segmentasyon yöntemlerini karşılaştırır.">Ö2</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Filtreleme, kenar ve segmentasyon yöntemlerinin karşılaştırılması, problem çözme ve modelleme becerisi (PO2) gerektirir.</td></tr><tr><td title="Görüntü filtreleme, kenar belirleme ve segmentasyon yöntemlerini karşılaştırır.">Ö2</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">4</td><td class="text-xs text-slate-600">Bu yöntemlerin (Sobel, Canny, Eşikleme) Python ile uygulanması, PO4&#39;ün araçları kullanma becerisini doğrudan destekler.</td></tr><tr><td title="Frekans alanında görüntü işlemesi yapar ve sonuçları analiz eder.">Ö3</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Fourier dönüşümü ve frekans analizi, karmaşık bir matematiksel/mühendislik problemi çözme (PO2) becerisi gerektirir.</td></tr><tr><td title="Frekans alanında görüntü işlemesi yapar ve sonuçları analiz eder.">Ö3</td><td title="Karmaşık mühendislik problemlerinin veya disipline özgü araştırma konularının incelenmesi için deney tasarlama, deney yapma, veri toplama, sonuçları analiz etme ve yorumlama becerisi.">P5</td><td class="score">4</td><td class="text-xs text-slate-600">Frekans alanında gürültü giderme ve restorasyon, veri analizi ve yorumlama (PO5) becerisini gerektirir.</td></tr><tr><td title="Görüntü işleme araçlarını kullanarak uygulamalı analizler gerçekleştirir.">Ö4</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">OpenCV ve skimage gibi araçların kullanılması, PO4&#39;ün bilişim teknolojilerini etkin kullanma becerisine doğrudan karşılık gelir.</td></tr><tr><td title="Gerçek dünya problemleri için uygun görüntü işleme çözümleri geliştirir ve değerlendirir.">Ö5</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">5</td><td class="text-xs text-slate-600">Gerçek dünya problemlerine çözüm geliştirme, en üst düzeyde problem formüle etme ve çözme (PO2) becerisi gerektirir.</td></tr><tr><td title="Gerçek dünya problemleri için uygun görüntü işleme çözümleri geliştirir ve değerlendirir.">Ö5</td><td title="Karmaşık bir sistemi, süreci, cihazı veya ürünü gerçekçi kısıtlar ve koşullar altında, belirli gereksinimleri karşılayacak şekilde tasarlama becerisi; bu amaçla modern tasarım yöntemlerini uygulama becerisi.">P3</td><td class="score">5</td><td class="text-xs text-slate-600">Proje çalışması ile bir sistemi (görüntü işleme sistemi) gereksinimlere uygun tasarlama (PO3) becerisi hedeflenmektedir.</td></tr></tbody></table></div>
+ </div></div>
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">4 kaynak · 1 tanesinde yıl var · en yeni 2017 (9 yıl önce) · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2017</td><td>Digital Image Processing 4th Edition, Rafael C. Gonzalez, Richard E. Woods, Addison Wesley, 2017</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Rafael C. Gonzalez &amp; Richard E. Woods, Digital Image Processing, Pearson</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">—</td><td>Szeliski, Richard, Computer Vision: Algorithms and Applications</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">—</td><td>OpenCV ve Scikit-Image Dokümanları</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM209">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/yazilim/YZM209/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Digital Image Processing</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">The aim of this course is to enable students to learn the basic concepts of digital image processing, to develop solutions to real-world problems by applying different image processing techniques, and to gain the ability to work with image data in engineering problems.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">The Image Processing course aims to teach the processes of obtaining, processing, analyzing and interpreting digital images theoretically and practically. First, the basic concepts of digital images, pixel-based structure, color spaces, gray level and histogram analysis are introduced in the course. Then, image enhancement techniques (filtering, contrast enhancement, histogram equalization), edge detection algorithms (Sobel, Canny, Laplacian), morphological operations and image segmentation are discussed in detail. Advanced topics such as Fourier transform, frequency domain filtering, denoising and image restoration are also covered. Students develop practical assignments using OpenCV, skimage and similar libraries with the Python programming language. At the end of the semester, a project is carried out that solves a real-world image processing problem and the learned techniques are put into practice.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">Theoretical explanation
+Practical laboratory studies
+Visual analysis and project-based applications
+Coding studies
+Presentation and discussion</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Explains the structure of digital images and basic processing techniques.</li><li>Compares image filtering, edge detection and segmentation methods.</li><li>Performs image processing in the frequency domain and analyzes the results.</li><li>Performs applied analysis using image processing tools.</li><li>Develops and evaluates appropriate image processing solutions for real-world problems.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Assignment</td><td>1</td><td>%40</td></tr><tr><td>Final examination</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (90 saat → tabloda 3 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Assignments</td><td>1 × 14</td><td>14 saat</td></tr><tr><td>Mid-terms</td><td>1 × 10</td><td>10 saat</td></tr><tr><td>Final examination</td><td>1 × 10</td><td>10 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Introduction to digital imaging, basic concepts</td></tr><tr><td class="w-10">2</td><td>Image representation, resolution and color models</td></tr><tr><td class="w-10">3</td><td>Pixel operations and image histograms</td></tr><tr><td class="w-10">4</td><td>Image enhancement: Filtering, convolution, noise</td></tr><tr><td class="w-10">5</td><td>Edge detection: Sobel, Prewitt, Laplacian, Canny</td></tr><tr><td class="w-10">6</td><td>Morphological processes: Erosion, dilatation, opening-closing</td></tr><tr><td class="w-10">7</td><td>Image segmentation: Thresholding and region-based methods</td></tr><tr><td class="w-10">8</td><td>Project proposal presentations</td></tr><tr><td class="w-10">9</td><td>Operations in the frequency domain: Fourier transform</td></tr><tr><td class="w-10">10</td><td>Noise removal and image restoration</td></tr><tr><td class="w-10">11</td><td>Object recognition and contour analysis</td></tr><tr><td class="w-10">12</td><td>Feature extraction and image comparison</td></tr><tr><td class="w-10">13</td><td>Application examples: Medical, industrial, security</td></tr><tr><td class="w-10">14</td><td>Project presentations and overall evaluation</td></tr><tr><td class="w-10">15</td><td>Final Exams</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

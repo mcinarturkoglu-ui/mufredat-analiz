@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 bg-slate-800 text-white">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-end justify-between gap-3">
+ <div><h1 class="text-2xl font-bold">Genel Bakış</h1>
+ <p class="text-sm text-slate-500">Kaynak: Samsun Üniversitesi Bologna Bilgi Paketi · tüm değerler veritabanındaki gerçek kayıtlardan</p></div>
+ <div class="text-sm">Model: <span class="pill s-info">gemma4:e4b (yerel)</span></div>
+</div>
+
+<section class="space-y-4">
+ <h2 class="text-lg font-semibold"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> <span class="text-slate-500 font-normal text-sm">· 2023 ( 2023 Yazılım Mühendisliği Müfredatı)</span></h2>
+ <div class="grid grid-cols-2 lg:grid-cols-7 gap-3">
+  
+  <div class="card"><div class="text-xs text-slate-500">Ders</div><div class="text-2xl font-bold mt-1">127</div><div class="text-xs text-slate-500 mt-1">52 zorunlu</div></div>
+  
+  <div class="card"><div class="text-xs text-slate-500">Yüksek önemli kural ihlali olan ders</div><div class="text-2xl font-bold mt-1">37</div><div class="text-xs text-slate-500 mt-1">/ 127</div></div>
+  
+  <div class="card"><div class="text-xs text-slate-500">Kural ihlali (yüksek)</div><div class="text-2xl font-bold mt-1">65</div><div class="text-xs text-slate-500 mt-1">orta 96 · düşük 348</div></div>
+  
+  <div class="card"><div class="text-xs text-slate-500">Modül A analizi</div><div class="text-2xl font-bold mt-1">42</div><div class="text-xs text-slate-500 mt-1">ort. puan 86.0881</div></div>
+  
+  <div class="card"><div class="text-xs text-slate-500">Modül C analizi</div><div class="text-2xl font-bold mt-1">37</div><div class="text-xs text-slate-500 mt-1">ort. puan 82.7432</div></div>
+  
+  <div class="card"><div class="text-xs text-slate-500">Modül E analizi</div><div class="text-2xl font-bold mt-1">30</div><div class="text-xs text-slate-500 mt-1">ort. puan 82.92</div></div>
+  
+  <div class="card"><div class="text-xs text-slate-500">Kural çalıştırması</div><div class="text-2xl font-bold mt-1">#1</div><div class="text-xs text-slate-500 mt-1">2026-11-13</div></div>
+  
+ </div>
+ <div class="grid lg:grid-cols-3 gap-4">
+  <div class="card lg:col-span-2">
+   <h3 class="font-semibold mb-3">En çok sorunlu dersler <span class="text-xs text-slate-500 font-normal">(risk = 3×yüksek + 2×orta + 1×düşük kural ihlali)</span></h3>
+   <table class="tbl w-full text-sm"><thead><tr><th>Ders</th><th>Yy</th><th>Yüksek</th><th>Orta</th><th>Düşük</th><th>Risk</th><th>A</th><th>C</th></tr></thead><tbody>
+   <tr>
+    <td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM304">YZM304</a> <span class="text-slate-500">Mobil Uygulama Geliştirme</span></td>
+    <td>6</td><td>4</td><td>2</td><td>3</td>
+    <td class="score">19</td><td class="score">—</td><td class="score">—</td></tr><tr>
+    <td><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD116">OSD116</a> <span class="text-slate-500">Gönüllülük Dersi</span></td>
+    <td>S</td><td>2</td><td>4</td><td>3</td>
+    <td class="score">17</td><td class="score">—</td><td class="score">—</td></tr><tr>
+    <td><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM378">YZM378</a> <span class="text-slate-500">Algoritma Analizi</span></td>
+    <td>S</td><td>4</td><td>1</td><td>3</td>
+    <td class="score">17</td><td class="score">—</td><td class="score">—</td></tr><tr>
+    <td><a class="lnk" href="/mufredat-analiz/course/yazilim/MÜH102">MÜH102</a> <span class="text-slate-500">Mühendislikte Sosyal Konular</span></td>
+    <td>2</td><td>2</td><td>1</td><td>5</td>
+    <td class="score">13</td><td class="score">76.7</td><td class="score">86.7</td></tr><tr>
+    <td><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD113">OSD113</a> <span class="text-slate-500">Değerler Eğitimi</span></td>
+    <td>S</td><td>1</td><td>3</td><td>4</td>
+    <td class="score">13</td><td class="score">—</td><td class="score">—</td></tr><tr>
+    <td><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD114">OSD114</a> <span class="text-slate-500">Ahlak Felsefesi</span></td>
+    <td>S</td><td>2</td><td>1</td><td>4</td>
+    <td class="score">12</td><td class="score">—</td><td class="score">—</td></tr><tr>
+    <td><a class="lnk" href="/mufredat-analiz/course/yazilim/ATI102">ATI102</a> <span class="text-slate-500">Atatürk İlkeleri ve İnkılap Tarihi II</span></td>
+    <td>2</td><td>2</td><td>1</td><td>3</td>
+    <td class="score">11</td><td class="score">81.7</td><td class="score">80</td></tr><tr>
+    <td><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD104">OSD104</a> <span class="text-slate-500">Kent Kültürü</span></td>
+    <td>S</td><td>2</td><td>1</td><td>3</td>
+    <td class="score">11</td><td class="score">—</td><td class="score">—</td></tr><tr>
+    <td><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD107">OSD107</a> <span class="text-slate-500">Düşünce Tarihi</span></td>
+    <td>S</td><td>2</td><td>1</td><td>2</td>
+    <td class="score">10</td><td class="score">—</td><td class="score">—</td></tr><tr>
+    <td><a class="lnk" href="/mufredat-analiz/course/yazilim/OSD121">OSD121</a> <span class="text-slate-500">Arkeolojiye Giriş</span></td>
+    <td>S</td><td>1</td><td>2</td><td>3</td>
+    <td class="score">10</td><td class="score">—</td><td class="score">—</td></tr>
+   </tbody></table>
+  </div>
+  <div class="card">
+   <h3 class="font-semibold mb-3">Kurala göre ihlaller</h3>
+   
+   
+    <div class="mb-2"><div class="flex justify-between text-sm"><span>R1 · Zorunlu alanlar</span><span class="score">220</span></div>
+    <div class="h-2 bg-slate-100 rounded"><div class="h-2 rounded bg-blue-600" style="width:100.0%"></div></div></div>
+   
+    <div class="mb-2"><div class="flex justify-between text-sm"><span>R2 · Haftalık plan</span><span class="score">49</span></div>
+    <div class="h-2 bg-slate-100 rounded"><div class="h-2 rounded bg-blue-600" style="width:22.0%"></div></div></div>
+   
+    <div class="mb-2"><div class="flex justify-between text-sm"><span>R3 · Değerlendirme %100</span><span class="score">1</span></div>
+    <div class="h-2 bg-slate-100 rounded"><div class="h-2 rounded bg-blue-600" style="width:0.0%"></div></div></div>
+   
+    <div class="mb-2"><div class="flex justify-between text-sm"><span>R4 · AKTS–iş yükü</span><span class="score">51</span></div>
+    <div class="h-2 bg-slate-100 rounded"><div class="h-2 rounded bg-blue-600" style="width:23.0%"></div></div></div>
+   
+    <div class="mb-2"><div class="flex justify-between text-sm"><span>R5 · TR/EN uyumu</span><span class="score">41</span></div>
+    <div class="h-2 bg-slate-100 rounded"><div class="h-2 rounded bg-blue-600" style="width:19.0%"></div></div></div>
+   
+    <div class="mb-2"><div class="flex justify-between text-sm"><span>R7 · Kaynaklar</span><span class="score">138</span></div>
+    <div class="h-2 bg-slate-100 rounded"><div class="h-2 rounded bg-blue-600" style="width:63.0%"></div></div></div>
+   
+    <div class="mb-2"><div class="flex justify-between text-sm"><span>R8 · Yarıyıl AKTS</span><span class="score">9</span></div>
+    <div class="h-2 bg-slate-100 rounded"><div class="h-2 rounded bg-blue-600" style="width:4.0%"></div></div></div>
+   
+  </div>
+ </div>
+</section>
+
+
+ </main>
+</div>
+</body>
+</html>

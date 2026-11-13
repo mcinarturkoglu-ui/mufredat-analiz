@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 3. yarıyıl</div>
+ <h1 class="text-2xl font-bold">YZM203 · Nesne Yönelimli Programlama</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 3+0+0 · Kredi 3 · AKTS 5 (müfredatta 5) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376732&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376732&amp;lang=en</a> · toplandı 13.11.2026 01:29</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 37</span><span class="pill st-fail">kaldı: 4</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">73.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #63 · 13.11 16:13 · 2 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">63.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #65 · 13.11 16:14 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #117 · 13.11 18:07 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (4)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">duplicate_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Aynı konu metni birden fazla haftada birebir tekrarlanıyor.</td><td>3 tekrar: &#39;nesne yönelimli programlamaya giriş&#39; x2; &#39;kalıtım&#39; x2; &#39;basit api uygulamaları&#39; x2</td><td>en çok 0 tekrar</td><td class="text-slate-600">Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/4 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin 3. yarıyıl Lisans düzeyi olması göz önüne alındığında, &#39;Basit API uygulamaları&#39; gibi konuların yer alması, temel prensiplerin yeterince sağlamlaştırılmadan ileri seviye konulara geçildiğini düşündürmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı (&#39;Nesne Yönelimli Programlama&#39;) ve içerik (&#39;Nesne tabanlı programlama temelleri, Sınıf ve nesne kavramı, Miras alma ve çok biçimlilik, Kapsülleme ve soyutlama&#39;) işlenen konular (API, EF) ile genel olarak uyumludur.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin genel kapsamı olan nesne tabanlı programlama ve C# ekosistemi ile ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı ve içerik genel olarak uyumlu olsa da, haftalık konuların bazıları (Entity Framework, Basit API uygulamaları) dersin temel odak noktası olan &#39;Nesne Yönelimli Programlama temelleri, Sınıf ve nesne kavramı, Miras alma ve çok biçimlilik, Kapsülleme ve soyutlama&#39;dan daha spesifik ve uygulama odaklıdır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacı nesne tabanlı programlama prensiplerini anlamak ve bu prensipleri kullanarak yazılım geliştirebilmek iken, haftalık konuların bir kısmı (Entity Framework, API uygulamaları) bu temel prensiplerin ötesinde spesifik teknolojilere odaklanmaktadır.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları (özellikle Cikti:1 ve Cikti:2), nesneye yönelik modelleme ve UML ile belgelemeyi içerirken, ders içeriği bu çıktıları destekleyecek kadar derinlemesine bir modelleme sürecini haftalık konular içinde yeterince vurgulamamaktadır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders içeriği, temel OOP prensiplerinin ötesine geçerek spesifik teknolojilere (EF, API) odaklanmaktadır.</div><div class="text-xs text-slate-500 mt-1">Ders içeriği &#39;Nesne tabanlı programlama temelleri, Sınıf ve nesne kavramı, Miras alma ve çok biçimlilik, Kapsülleme ve soyutlama&#39; iken, haftalık konular &#39;Entity Framework&#39; ve &#39;Basit API uygulamaları&#39; gibi daha uygulama odaklı konuları içermektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Nesne tabanlı programlama temelleri, Sınıf ve nesne kavramı, Miras alma ve çok biçimlilik, Kapsülleme ve soyutlama”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:11</code> “Entity Framework”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konuların, temel OOP prensiplerinin derinlemesine işlenmesine daha fazla zaman ayırarak, uygulama odaklı konuların (EF, API) yerini daha temel OOP konularına vermesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amacı temel prensipleri anlamak iken, haftalık konuların bir kısmı bu temel prensiplerin ötesinde spesifik kütüphane/teknoloji kullanımına odaklanmaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaç &#39;nesne tabanlı programlama paradigmalarını anlamalarını ve bu prensipleri kullanarak yazılım geliştirebilmelerini sağlamaktır&#39; derken, haftalık konular &#39;Entity Framework&#39; ve &#39;Basit API uygulamaları&#39; gibi spesifik araçları içermektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Nesne tabanlı programlama dersinin temel amacı, öğrencilere nesne tabanlı programlama paradigmalarını anlamalarını ve bu prensipleri kullanarak yazılım geliştirebilmelerini sağlamaktır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:11</code> “Entity Framework”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin amacına daha uygun olarak, haftalık konuların &#39;Entity Framework&#39; gibi spesifik kütüphane konularından ziyade, OOP prensiplerinin daha derinlemesine ele alınmasına odaklanması gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, nesneye yönelik modelleme ve UML ile belgelemeyi gerektirirken, haftalık konular bu modelleme sürecini yeterince desteklememektedir.</div><div class="text-xs text-slate-500 mt-1">Çıktı:2&#39;de &#39;UML sınıf ve sıralama şemaları ile belgeleyebilme&#39; yeteneği varken, haftalık konuların içeriğinde bu çıktıya doğrudan odaklanan bir bölüm bulunmamaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:2</code> “Öğrenciler tasarımlarını UML sınıf ve sıralama şemaları ile belgeleyebilme yeteneği kazanırlar”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “.NET Framework Core&#39;a Giriş”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktıları ile uyum sağlamak için, haftalık konulara UML modelleme ve tasarım desenlerinin entegrasyonu konuları eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin 3. yarıyıl Lisans düzeyi için, temel OOP konularının yeterince sağlamlaştırılmadan ileri seviye uygulama konularına geçilmesi bir derinlik uyumsuzluğuna işaret etmektedir.</div><div class="text-xs text-slate-500 mt-1">Dersin 3. yarıyıl Lisans seviyesinde olması, temel prensiplerin (Kapsülleme, Soyutlama) sağlam bir şekilde oturtulmasını gerektirirken, haftalık konuların ilerleyen kısımlarında (hafta:11, hafta:12) spesifik teknoloji uygulamalarına geçilmesi, temel yeterliliğin tam oturmadığı izlenimini vermektedir.</div>
+  <div class="text-xs mt-1">✗ <code class="bg-slate-100 px-1 rounded">Düzey</code> “Lisans”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:11</code> “Entity Framework”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin ilerleyen haftalarında, &#39;Entity Framework&#39; gibi konulara geçilmeden önce, &#39;Kapsülleme ve soyutlama&#39; gibi temel prensiplerin daha derinlemesine ve teorik/pratik olarak pekiştirilmesi gerekmektedir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %25 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Çıktılar, nesne tabanlı programlama prensiplerini (modelleme, kodlama, UML) kapsayarak dersin amacına büyük ölçüde hizmet etmektedir. Ancak, çıktılar genel yetenek kazanımından ziyade spesifik beceri gösterimine odaklanmadığı için tam uyum (3) sağlanamamıştır.<br>
+  Bloom dağılımı: uygulama 4</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Öğrenciler bilgi sistemlerinin iş mantığı katmanının tasarımı için nesneye yönelik modelleme yapabilme yeteneği kazanırlar<div class="text-xs text-amber-700">belirsiz: yeteneği kazanırlar</div></td><td>uygulama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 4, 5, 6, 8, 9, 10, 14</td>
+ <td class="text-blue-800">Öğrenciler, bilgi sistemlerinin iş mantığı katmanının tasarımı için nesneye yönelik modeller oluşturabilirler.</td></tr>
+ <tr><td>2</td><td>Öğrenciler tasarımlarını UML sınıf ve sıralama şemaları ile belgeleyebilme yeteneği kazanırlar<div class="text-xs text-amber-700">belirsiz: yeteneği kazanırlar</div></td><td>uygulama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>4, 5, 6, 8, 14</td>
+ <td class="text-blue-800">Öğrenciler, tasarımlarını UML sınıf ve sıralama şemaları ile belgeleyebilirler.</td></tr>
+ <tr><td>3</td><td>Öğrenciler komut satırından çalışan C# programları yazabilme yeteneği kazanırlar</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>2, 3, 14</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Öğrenciler güncel IDE programlarının temel özelliklerini kullanabilme yeteneği kazanırlar<div class="text-xs text-amber-700">belirsiz: yeteneği kazanırlar</div></td><td>uygulama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3</td>
+ <td class="text-blue-800">Öğrenciler, güncel IDE programlarının temel özelliklerini kullanarak belirli görevleri yerine getirebilirler.</td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Beginning C# Object-Oriented Programming - Dan Clark<div class="text-xs text-slate-500">Kitap, C# ve Nesne Yönelimli Programlama temellerini doğrudan ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Professional C# 7 and .Net Core 2.0 - Christian Nagel<div class="text-xs text-slate-500">Kitap, .Net Core ve C# konularını kapsayarak dersin içeriğiyle doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Beginning C# Object-Oriented Programming - Dan Clark<div class="text-xs text-slate-500">Kaynak 1 ile aynı içeriğe sahip olup, dersin konularını desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Professional C# 7 and .Net Core 2.0 - Christian Nagel<div class="text-xs text-slate-500">Kaynak 2 ile aynı içeriğe sahip olup, dersin konularını desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Öğrenciler bilgi sistemlerinin iş mantığı katmanının tasarımı için nesneye yönelik modelleme yapabilme yeteneği kazanırlar">Ö1</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Nesne modelleme, karmaşık problemleri formüle etme ve analiz etme becerisine katkı sağlar.</td></tr><tr><td title="Öğrenciler bilgi sistemlerinin iş mantığı katmanının tasarımı için nesneye yönelik modelleme yapabilme yeteneği kazanırlar">Ö1</td><td title="Karmaşık bir sistemi, süreci, cihazı veya ürünü gerçekçi kısıtlar ve koşullar altında, belirli gereksinimleri karşılayacak şekilde tasarlama becerisi; bu amaçla modern tasarım yöntemlerini uygulama becerisi.">P3</td><td class="score">3</td><td class="text-xs text-slate-600">Nesne tabanlı tasarım prensipleri, sistem tasarlama becerisine doğrudan katkı sağlar.</td></tr><tr><td title="Öğrenciler tasarımlarını UML sınıf ve sıralama şemaları ile belgeleyebilme yeteneği kazanırlar">Ö2</td><td title="Karmaşık bir sistemi, süreci, cihazı veya ürünü gerçekçi kısıtlar ve koşullar altında, belirli gereksinimleri karşılayacak şekilde tasarlama becerisi; bu amaçla modern tasarım yöntemlerini uygulama becerisi.">P3</td><td class="score">3</td><td class="text-xs text-slate-600">UML şemaları ile belgeleme, modern tasarım yöntemlerini uygulama becerisine katkı sağlar.</td></tr><tr><td title="Öğrenciler komut satırından çalışan C# programları yazabilme yeteneği kazanırlar">Ö3</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">4</td><td class="text-xs text-slate-600">C# ile program yazma, karmaşık yazılım sistemleri geliştirme becerisinin temelini oluşturur.</td></tr><tr><td title="Öğrenciler güncel IDE programlarının temel özelliklerini kullanabilme yeteneği kazanırlar">Ö4</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">IDE kullanımı, bilişim teknolojilerini etkin kullanma becerisine katkı sağlar.</td></tr></tbody></table></div>
+ </div></div>
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">4 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Beginning C# Object-Oriented Programming - Dan Clark</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Professional C# 7 and .Net Core 2.0 - Christian Nagel</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Beginning C# Object-Oriented Programming - Dan Clark</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">—</td><td>Professional C# 7 and .Net Core 2.0 - Christian Nagel</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu örtüşmesi adayları (Modül B)</h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM205">YZM205 Nesne Yönelimli Programlama Lab.</a> · 3. yarıyıl · 2 benzer konu (en yüksek 1.0)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM204">YZM204 Veri Yapıları ve Algoritmalar Lab.</a> · 4. yarıyıl · 1 benzer konu (en yüksek 1.0)</div></div>
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM203">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/yazilim/YZM203/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Object Oriented Programming</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">The main purpose of the object-oriented programming course is to help students understand object-oriented programming paradigms and develop software using these principles.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Object-oriented programming fundamentals, Concept of class and object, Inheritance and polymorphism, Encapsulation and abstraction</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Students gain the ability to perform object-oriented modeling for the design of the business logic layer of information systems.</li><li>Students gain the ability to document their designs with UML class and sequence diagrams</li><li>Students gain the ability to write C# programs that run from the command line</li><li>Students gain the ability to use the basic features of current IDE programs</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Mid-terms</td><td>1</td><td>%40</td></tr><tr><td>Final examination</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (150 saat → tabloda 5 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Mid-terms</td><td>1 × 18</td><td>18 saat</td></tr><tr><td>Practice</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Final examination</td><td>1 × 20</td><td>20 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Introduction to .NET Framework Core</td></tr><tr><td class="w-10">2</td><td>Introduction to Object Oriented Programming</td></tr><tr><td class="w-10">3</td><td>Introduction to Object Oriented Programming</td></tr><tr><td class="w-10">4</td><td>Inheritance</td></tr><tr><td class="w-10">5</td><td>Inheritance</td></tr><tr><td class="w-10">6</td><td>Abstraction</td></tr><tr><td class="w-10">7</td><td>Midterm Exam</td></tr><tr><td class="w-10">8</td><td>Polymorphism and Interfaces</td></tr><tr><td class="w-10">9</td><td>Generic</td></tr><tr><td class="w-10">10</td><td>Collection</td></tr><tr><td class="w-10">11</td><td>Entity Framework</td></tr><tr><td class="w-10">12</td><td>Simple API applications</td></tr><tr><td class="w-10">13</td><td>Simple API applications</td></tr><tr><td class="w-10">14</td><td>Object-oriented applications</td></tr><tr><td class="w-10">15</td><td>Final Exams</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

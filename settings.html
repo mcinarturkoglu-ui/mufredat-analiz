@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 bg-slate-800 text-white">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<style>
+ .inp{width:100%;border:1px solid #d1d5db;border-radius:.5rem;padding:.45rem .7rem;font-size:.875rem;background:#fff}
+ .inp:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+ .tgl{appearance:none;width:2.6rem;height:1.45rem;border-radius:9999px;background:#cbd5e1;position:relative;cursor:pointer;transition:.15s;flex-shrink:0}
+ .tgl:before{content:"";position:absolute;width:1.15rem;height:1.15rem;border-radius:9999px;background:#fff;top:.15rem;left:.15rem;transition:.15s;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+ .tgl:checked{background:#2563eb}.tgl:checked:before{left:1.3rem}
+ .chip{display:inline-flex;align-items:center;gap:.4rem;border:1px solid #e2e8f0;border-radius:9999px;padding:.3rem .8rem;font-size:.82rem;cursor:pointer;user-select:none;background:#fff}
+ .chip:has(input:checked){background:#eff6ff;border-color:#93c5fd;color:#1e40af}
+ .chip input{display:none}
+ .chip:before{content:"";width:.8rem;height:.8rem;border:1.5px solid #94a3b8;border-radius:.2rem}
+ .chip:has(input:checked):before{background:#2563eb;border-color:#2563eb}
+ .seg label{flex:1;text-align:center;padding:.45rem .3rem;font-size:.82rem;cursor:pointer;border-right:1px solid #e2e8f0}
+ .seg label:last-child{border-right:0}
+ .seg input{display:none}
+ .seg label:has(input:checked){font-weight:600}
+ .seg .s-info:has(input:checked){background:#f1f5f9}.seg .s-low:has(input:checked){background:#e0f2fe;color:#075985}
+ .seg .s-medium:has(input:checked){background:#fef3c7;color:#92400e}.seg .s-high:has(input:checked),.seg .s-critical:has(input:checked){background:#fee2e2;color:#991b1b}
+ .seg label.s-info,.seg label.s-low,.seg label.s-medium,.seg label.s-high,.seg label.s-critical{background:#fff;color:#334155;border-radius:0}
+ .panel{display:none}.panel.active{display:block}
+ .side a.active{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06);color:#0f172a}
+ .step{width:1.6rem;height:1.6rem;border-radius:9999px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:.8rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+</style>
+
+<form method="post" action="/mufredat-analiz/settings/rules" id="f"><fieldset disabled>
+<div class="flex flex-wrap items-center justify-between gap-3">
+ <div><h1 class="text-2xl font-bold">Kural Ayarları</h1>
+  <p class="text-sm text-slate-500">Analizde kullanılan eşikler ve istisnalar (salt okunur).</p></div>
+ <div class="flex gap-2 hidden">
+  <button name="action" value="save" class="btn btn-ghost">Kaydet</button>
+  <button name="action" value="save_run" class="btn">Kaydet ve sonuçları güncelle</button>
+ </div>
+</div>
+
+
+
+<div class="grid lg:grid-cols-[16rem_1fr] gap-6 items-start">
+ <nav class="side space-y-1 lg:sticky lg:top-6">
+  <div class="px-3 pb-1 text-xs uppercase tracking-wide text-slate-400">Kurallar</div>
+  
+  <a href="#R1_required_fields" data-panel="R1_required_fields" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-white">
+   <span class="w-2 h-2 rounded-full bg-green-500"></span>
+   <span><span class="text-slate-400 text-xs mr-1">R1</span>Zorunlu alanlar</span></a>
+  
+  <a href="#R2_weekly_plan" data-panel="R2_weekly_plan" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-white">
+   <span class="w-2 h-2 rounded-full bg-green-500"></span>
+   <span><span class="text-slate-400 text-xs mr-1">R2</span>Haftalık plan</span></a>
+  
+  <a href="#R3_assessment_total" data-panel="R3_assessment_total" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-white">
+   <span class="w-2 h-2 rounded-full bg-green-500"></span>
+   <span><span class="text-slate-400 text-xs mr-1">R3</span>Değerlendirme toplamı</span></a>
+  
+  <a href="#R4_ects_workload" data-panel="R4_ects_workload" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-white">
+   <span class="w-2 h-2 rounded-full bg-green-500"></span>
+   <span><span class="text-slate-400 text-xs mr-1">R4</span>AKTS ve iş yükü</span></a>
+  
+  <a href="#R5_tr_en_parity" data-panel="R5_tr_en_parity" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-white">
+   <span class="w-2 h-2 rounded-full bg-green-500"></span>
+   <span><span class="text-slate-400 text-xs mr-1">R5</span>Türkçe / İngilizce</span></a>
+  
+  <a href="#R6_update_date" data-panel="R6_update_date" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-white">
+   <span class="w-2 h-2 rounded-full bg-green-500"></span>
+   <span><span class="text-slate-400 text-xs mr-1">R6</span>Güncelleme tarihi</span></a>
+  
+  <a href="#R7_references" data-panel="R7_references" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-white">
+   <span class="w-2 h-2 rounded-full bg-green-500"></span>
+   <span><span class="text-slate-400 text-xs mr-1">R7</span>Kaynaklar</span></a>
+  
+  <a href="#R8_semester_ects" data-panel="R8_semester_ects" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-white">
+   <span class="w-2 h-2 rounded-full bg-green-500"></span>
+   <span><span class="text-slate-400 text-xs mr-1">R8</span>Yarıyıl AKTS</span></a>
+  
+  <div class="px-3 pt-4 pb-1 text-xs uppercase tracking-wide text-slate-400">Diğer</div>
+  <a href="#kategoriler" data-panel="kategoriler" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-white">Ders kategorileri</a>
+  <a href="#gecmis" data-panel="gecmis" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-white">Kayıt geçmişi</a>
+ </nav>
+
+ <div class="min-w-0">
+ 
+  <section id="p-R1_required_fields" class="panel card !p-0 overflow-hidden">
+   <div class="p-6 border-b border-slate-100 flex flex-wrap items-start justify-between gap-4">
+    <div><div class="text-xs font-semibold text-blue-700">R1</div><h2 class="text-xl font-bold">Zorunlu alanlar</h2>
+     <p class="text-sm text-slate-600 mt-1 max-w-2xl">Bilgi paketinin her iki dil sürümünde temel alanların dolu olup olmadığını denetler.</p></div>
+    <label class="flex items-center gap-3 text-sm font-medium bg-slate-50 rounded-lg px-3 py-2"><input type="checkbox" class="tgl" name="R1_required_fields.enabled" checked> Kural açık</label>
+   </div>
+
+   <div class="p-6 space-y-8">
+    <div class="flex gap-4"><span class="step">1</span><div class="flex-1">
+     <h3 class="font-semibold">Ölçüt</h3><p class="text-xs text-slate-500 mb-3">Bu koşul sağlanmazsa ders için ihlal kaydedilir.</p>
+     <div class="space-y-3">
+     <p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">Amaç ve içerik metni 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R1_required_fields.min_text_chars" value="20" inputmode="decimal" required title="Amaç/içerik için en kısa metin"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ karakterden kısaysa boş sayılır.</p>
+     
+      <div class="bg-slate-50 rounded-lg px-4 py-3"><div class="text-sm mb-2">Denetlenecek alanlar:</div><div class="flex flex-wrap gap-2">
+       <label class="chip"><input type="checkbox" name="R1_required_fields.fields.name" checked>Ders adı</label><label class="chip"><input type="checkbox" name="R1_required_fields.fields.objective" checked>Amaç</label><label class="chip"><input type="checkbox" name="R1_required_fields.fields.content" checked>İçerik</label><label class="chip"><input type="checkbox" name="R1_required_fields.fields.learning_outcomes" checked>Öğrenme çıktıları</label><label class="chip"><input type="checkbox" name="R1_required_fields.fields.weekly_topics" checked>Haftalık konular</label><label class="chip"><input type="checkbox" name="R1_required_fields.fields.assessment" checked>Değerlendirme</label><label class="chip"><input type="checkbox" name="R1_required_fields.fields.workload" checked>İş yükü</label><label class="chip"><input type="checkbox" name="R1_required_fields.fields.references" checked>Kaynaklar</label><label class="chip"><input type="checkbox" name="R1_required_fields.fields.teaching_methods" checked>Yöntem ve teknikler</label></div></div>
+      
+     
+     </div></div></div>
+
+    <div class="flex gap-4"><span class="step">2</span><div class="flex-1">
+     <h3 class="font-semibold">İhlalin önemi</h3><p class="text-xs text-slate-500 mb-3">Raporlarda ve risk sıralamasında bu derece kullanılır.</p>
+     <div class="seg flex border border-slate-200 rounded-lg overflow-hidden max-w-xl">
+      <label class="s-info"><input type="radio" name="R1_required_fields.severity" value="info" >Bilgi</label><label class="s-low"><input type="radio" name="R1_required_fields.severity" value="low" >Düşük</label><label class="s-medium"><input type="radio" name="R1_required_fields.severity" value="medium" >Orta</label><label class="s-high"><input type="radio" name="R1_required_fields.severity" value="high" checked>Yüksek</label><label class="s-critical"><input type="radio" name="R1_required_fields.severity" value="critical" >Kritik</label></div></div></div>
+
+    
+    <div class="flex gap-4"><span class="step">3</span><div class="flex-1">
+     <h3 class="font-semibold">İstisnalar</h3><p class="text-xs text-slate-500 mb-3">Bazı ders türleri bu kurala tam olarak uymak zorunda değildir.</p>
+     <div class="space-y-3">
+     
+      <div class="border border-slate-200 rounded-lg px-4 py-3">
+       <div class="flex flex-wrap items-center justify-between gap-3"><div class="font-medium text-sm">Staj dersleri</div>
+        </div>
+       <div class="mt-2 text-xs text-slate-500">Denetlenmeyecek alanlar:</div>
+        <div class="flex flex-wrap gap-2 mt-1"><label class="chip"><input type="checkbox" name="R1_required_fields.exc.internship.name" >Ders adı</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.internship.objective" >Amaç</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.internship.content" >İçerik</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.internship.learning_outcomes" >Öğrenme çıktıları</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.internship.weekly_topics" checked>Haftalık konular</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.internship.assessment" >Değerlendirme</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.internship.workload" >İş yükü</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.internship.references" checked>Kaynaklar</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.internship.teaching_methods" checked>Yöntem ve teknikler</label></div>
+      </div>
+     
+      <div class="border border-slate-200 rounded-lg px-4 py-3">
+       <div class="flex flex-wrap items-center justify-between gap-3"><div class="font-medium text-sm">Bitirme projesi dersleri</div>
+        </div>
+       <div class="mt-2 text-xs text-slate-500">Denetlenmeyecek alanlar:</div>
+        <div class="flex flex-wrap gap-2 mt-1"><label class="chip"><input type="checkbox" name="R1_required_fields.exc.graduation_project.name" >Ders adı</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.graduation_project.objective" >Amaç</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.graduation_project.content" >İçerik</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.graduation_project.learning_outcomes" >Öğrenme çıktıları</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.graduation_project.weekly_topics" >Haftalık konular</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.graduation_project.assessment" >Değerlendirme</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.graduation_project.workload" >İş yükü</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.graduation_project.references" checked>Kaynaklar</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.graduation_project.teaching_methods" >Yöntem ve teknikler</label></div>
+      </div>
+     
+      <div class="border border-slate-200 rounded-lg px-4 py-3">
+       <div class="flex flex-wrap items-center justify-between gap-3"><div class="font-medium text-sm">Yalnız uygulama / laboratuvar dersleri</div>
+        </div>
+       <div class="mt-2 text-xs text-slate-500">Denetlenmeyecek alanlar:</div>
+        <div class="flex flex-wrap gap-2 mt-1"><label class="chip"><input type="checkbox" name="R1_required_fields.exc.practice_only.name" >Ders adı</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.practice_only.objective" >Amaç</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.practice_only.content" >İçerik</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.practice_only.learning_outcomes" >Öğrenme çıktıları</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.practice_only.weekly_topics" >Haftalık konular</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.practice_only.assessment" >Değerlendirme</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.practice_only.workload" >İş yükü</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.practice_only.references" >Kaynaklar</label><label class="chip"><input type="checkbox" name="R1_required_fields.exc.practice_only.teaching_methods" >Yöntem ve teknikler</label></div>
+      </div>
+     
+     </div>
+     <p class="text-xs text-slate-500 mt-2">Bir dersin hangi türe girdiği <a href="#kategoriler" data-panel="kategoriler" class="lnk">Ders kategorileri</a> bölümünden ayarlanır.</p></div></div>
+    
+
+    
+    <details class="group border-t border-slate-100 pt-4">
+     <summary class="cursor-pointer text-sm text-slate-500 hover:text-slate-800 select-none">Gelişmiş ayarlar <span class="group-open:hidden">▸</span><span class="hidden group-open:inline">▾</span></summary>
+     <div class="grid md:grid-cols-2 gap-4 mt-4">
+     
+      <label class="block md:col-span-2"><span class="text-sm font-medium">Boş sayılan ifadeler</span><input name="R1_required_fields.empty_markers" value="-, ., .., ..., yok, none, n/a" class="inp mt-1">
+       <span class="text-xs text-slate-500">Alan yalnızca bunlardan biriyse boş kabul edilir. Değerleri virgülle ayırın.</span></label>
+      
+     
+      <div class="md:col-span-2"><div class="text-sm font-medium">Alana özel önem derecesi</div><div class="text-xs text-slate-500 mb-2">Boş bırakılan alanlar kuralın genel önem derecesini kullanır.</div>
+       <div class="grid sm:grid-cols-3 gap-2"><label class="text-xs text-slate-600">Ders adı<select name="R1_required_fields.field_severity.name" class="inp mt-0.5 !py-1">
+        <option value="">Kuralın derecesi (yüksek)</option><option value="info" >Bilgi</option><option value="low" >Düşük</option><option value="medium" >Orta</option><option value="high" >Yüksek</option><option value="critical" >Kritik</option></select></label><label class="text-xs text-slate-600">Amaç<select name="R1_required_fields.field_severity.objective" class="inp mt-0.5 !py-1">
+        <option value="">Kuralın derecesi (yüksek)</option><option value="info" >Bilgi</option><option value="low" >Düşük</option><option value="medium" >Orta</option><option value="high" >Yüksek</option><option value="critical" >Kritik</option></select></label><label class="text-xs text-slate-600">İçerik<select name="R1_required_fields.field_severity.content" class="inp mt-0.5 !py-1">
+        <option value="">Kuralın derecesi (yüksek)</option><option value="info" >Bilgi</option><option value="low" >Düşük</option><option value="medium" >Orta</option><option value="high" >Yüksek</option><option value="critical" >Kritik</option></select></label><label class="text-xs text-slate-600">Öğrenme çıktıları<select name="R1_required_fields.field_severity.learning_outcomes" class="inp mt-0.5 !py-1">
+        <option value="">Kuralın derecesi (yüksek)</option><option value="info" >Bilgi</option><option value="low" >Düşük</option><option value="medium" >Orta</option><option value="high" >Yüksek</option><option value="critical" >Kritik</option></select></label><label class="text-xs text-slate-600">Haftalık konular<select name="R1_required_fields.field_severity.weekly_topics" class="inp mt-0.5 !py-1">
+        <option value="">Kuralın derecesi (yüksek)</option><option value="info" >Bilgi</option><option value="low" >Düşük</option><option value="medium" >Orta</option><option value="high" >Yüksek</option><option value="critical" >Kritik</option></select></label><label class="text-xs text-slate-600">Değerlendirme<select name="R1_required_fields.field_severity.assessment" class="inp mt-0.5 !py-1">
+        <option value="">Kuralın derecesi (yüksek)</option><option value="info" >Bilgi</option><option value="low" >Düşük</option><option value="medium" >Orta</option><option value="high" >Yüksek</option><option value="critical" >Kritik</option></select></label><label class="text-xs text-slate-600">İş yükü<select name="R1_required_fields.field_severity.workload" class="inp mt-0.5 !py-1">
+        <option value="">Kuralın derecesi (yüksek)</option><option value="info" >Bilgi</option><option value="low" >Düşük</option><option value="medium" >Orta</option><option value="high" >Yüksek</option><option value="critical" >Kritik</option></select></label><label class="text-xs text-slate-600">Kaynaklar<select name="R1_required_fields.field_severity.references" class="inp mt-0.5 !py-1">
+        <option value="">Kuralın derecesi (yüksek)</option><option value="info" >Bilgi</option><option value="low" >Düşük</option><option value="medium" selected>Orta</option><option value="high" >Yüksek</option><option value="critical" >Kritik</option></select></label><label class="text-xs text-slate-600">Yöntem ve teknikler<select name="R1_required_fields.field_severity.teaching_methods" class="inp mt-0.5 !py-1">
+        <option value="">Kuralın derecesi (yüksek)</option><option value="info" >Bilgi</option><option value="low" selected>Düşük</option><option value="medium" >Orta</option><option value="high" >Yüksek</option><option value="critical" >Kritik</option></select></label></div></div>
+      
+     
+     </div>
+    </details>
+    
+   </div>
+  </section>
+ 
+  <section id="p-R2_weekly_plan" class="panel card !p-0 overflow-hidden">
+   <div class="p-6 border-b border-slate-100 flex flex-wrap items-start justify-between gap-4">
+    <div><div class="text-xs font-semibold text-blue-700">R2</div><h2 class="text-xl font-bold">Haftalık plan</h2>
+     <p class="text-sm text-slate-600 mt-1 max-w-2xl">Hafta sayısını, numaralandırmayı, boş ve tekrarlanan konuları denetler.</p></div>
+    <label class="flex items-center gap-3 text-sm font-medium bg-slate-50 rounded-lg px-3 py-2"><input type="checkbox" class="tgl" name="R2_weekly_plan.enabled" checked> Kural açık</label>
+   </div>
+
+   <div class="p-6 space-y-8">
+    <div class="flex gap-4"><span class="step">1</span><div class="flex-1">
+     <h3 class="font-semibold">Ölçüt</h3><p class="text-xs text-slate-500 mb-3">Bu koşul sağlanmazsa ders için ihlal kaydedilir.</p>
+     <div class="space-y-3">
+     <p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">Haftalık plan en az 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R2_weekly_plan.min_weeks" value="14" inputmode="decimal" required title="En az hafta"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+, en çok 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R2_weekly_plan.max_weeks" value="16" inputmode="decimal" required title="En çok hafta"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ hafta olmalı.</p><p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">Bir haftanın konusu en az 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R2_weekly_plan.min_topic_chars" value="3" inputmode="decimal" required title="Konu için en kısa metin"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ karakter olmalı.</p><p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">Aynı konu en fazla 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R2_weekly_plan.max_duplicate_topics" value="0" inputmode="decimal" required title="İzin verilen tekrar sayısı"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ kez tekrarlanabilir.</p>
+     
+     </div></div></div>
+
+    <div class="flex gap-4"><span class="step">2</span><div class="flex-1">
+     <h3 class="font-semibold">İhlalin önemi</h3><p class="text-xs text-slate-500 mb-3">Raporlarda ve risk sıralamasında bu derece kullanılır.</p>
+     <div class="seg flex border border-slate-200 rounded-lg overflow-hidden max-w-xl">
+      <label class="s-info"><input type="radio" name="R2_weekly_plan.severity" value="info" >Bilgi</label><label class="s-low"><input type="radio" name="R2_weekly_plan.severity" value="low" >Düşük</label><label class="s-medium"><input type="radio" name="R2_weekly_plan.severity" value="medium" checked>Orta</label><label class="s-high"><input type="radio" name="R2_weekly_plan.severity" value="high" >Yüksek</label><label class="s-critical"><input type="radio" name="R2_weekly_plan.severity" value="critical" >Kritik</label></div></div></div>
+
+    
+    <div class="flex gap-4"><span class="step">3</span><div class="flex-1">
+     <h3 class="font-semibold">İstisnalar</h3><p class="text-xs text-slate-500 mb-3">Bazı ders türleri bu kurala tam olarak uymak zorunda değildir.</p>
+     <div class="space-y-3">
+     
+      <div class="border border-slate-200 rounded-lg px-4 py-3">
+       <div class="flex flex-wrap items-center justify-between gap-3"><div class="font-medium text-sm">Staj dersleri</div>
+        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="tgl" name="R2_weekly_plan.exc.internship.skip" checked> Bu kuraldan tamamen muaf</label></div>
+       <div class="mt-2 text-xs text-slate-500">Ya da yalnızca şu kontroller yapılmasın:</div>
+        <div class="flex flex-wrap gap-2 mt-1"><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.internship.week_count" >Hafta sayısı</label><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.internship.week_numbering" >Hafta numaralandırma</label><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.internship.empty_topics" >Boş konu</label><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.internship.duplicate_topics" >Tekrarlanan konu</label></div>
+      </div>
+     
+      <div class="border border-slate-200 rounded-lg px-4 py-3">
+       <div class="flex flex-wrap items-center justify-between gap-3"><div class="font-medium text-sm">Bitirme projesi dersleri</div>
+        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="tgl" name="R2_weekly_plan.exc.graduation_project.skip" > Bu kuraldan tamamen muaf</label></div>
+       <div class="mt-2 text-xs text-slate-500">Ya da yalnızca şu kontroller yapılmasın:</div>
+        <div class="flex flex-wrap gap-2 mt-1"><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.graduation_project.week_count" >Hafta sayısı</label><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.graduation_project.week_numbering" >Hafta numaralandırma</label><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.graduation_project.empty_topics" >Boş konu</label><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.graduation_project.duplicate_topics" checked>Tekrarlanan konu</label></div>
+      </div>
+     
+      <div class="border border-slate-200 rounded-lg px-4 py-3">
+       <div class="flex flex-wrap items-center justify-between gap-3"><div class="font-medium text-sm">Yalnız uygulama / laboratuvar dersleri</div>
+        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="tgl" name="R2_weekly_plan.exc.practice_only.skip" > Bu kuraldan tamamen muaf</label></div>
+       <div class="mt-2 text-xs text-slate-500">Ya da yalnızca şu kontroller yapılmasın:</div>
+        <div class="flex flex-wrap gap-2 mt-1"><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.practice_only.week_count" >Hafta sayısı</label><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.practice_only.week_numbering" >Hafta numaralandırma</label><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.practice_only.empty_topics" >Boş konu</label><label class="chip"><input type="checkbox" name="R2_weekly_plan.exc.practice_only.duplicate_topics" >Tekrarlanan konu</label></div>
+      </div>
+     
+     </div>
+     <p class="text-xs text-slate-500 mt-2">Bir dersin hangi türe girdiği <a href="#kategoriler" data-panel="kategoriler" class="lnk">Ders kategorileri</a> bölümünden ayarlanır.</p></div></div>
+    
+
+    
+    <details class="group border-t border-slate-100 pt-4">
+     <summary class="cursor-pointer text-sm text-slate-500 hover:text-slate-800 select-none">Gelişmiş ayarlar <span class="group-open:hidden">▸</span><span class="hidden group-open:inline">▾</span></summary>
+     <div class="grid md:grid-cols-2 gap-4 mt-4">
+     
+      <label class="block md:col-span-2"><span class="text-sm font-medium">Tekrar sayılmayan haftalar</span><input name="R2_weekly_plan.ignore_duplicates_matching" value="sınav, sinav, exam, tekrar, review, değerlendirme, sunum, tatil, holiday" class="inp mt-1">
+       <span class="text-xs text-slate-500">Bu ifadeleri içeren haftalar (sınav, tekrar vb.) tekrar sayımına girmez. Değerleri virgülle ayırın.</span></label>
+      
+     
+     </div>
+    </details>
+    
+   </div>
+  </section>
+ 
+  <section id="p-R3_assessment_total" class="panel card !p-0 overflow-hidden">
+   <div class="p-6 border-b border-slate-100 flex flex-wrap items-start justify-between gap-4">
+    <div><div class="text-xs font-semibold text-blue-700">R3</div><h2 class="text-xl font-bold">Değerlendirme toplamı</h2>
+     <p class="text-sm text-slate-600 mt-1 max-w-2xl">Değerlendirme etkinliklerinin katkı yüzdeleri toplamını denetler.</p></div>
+    <label class="flex items-center gap-3 text-sm font-medium bg-slate-50 rounded-lg px-3 py-2"><input type="checkbox" class="tgl" name="R3_assessment_total.enabled" checked> Kural açık</label>
+   </div>
+
+   <div class="p-6 space-y-8">
+    <div class="flex gap-4"><span class="step">1</span><div class="flex-1">
+     <h3 class="font-semibold">Ölçüt</h3><p class="text-xs text-slate-500 mb-3">Bu koşul sağlanmazsa ders için ihlal kaydedilir.</p>
+     <div class="space-y-3">
+     <p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">Değerlendirme yüzdelerinin toplamı 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R3_assessment_total.expected_total" value="100" inputmode="decimal" required title="Beklenen toplam"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ olmalı (± 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R3_assessment_total.tolerance" value="0.01" inputmode="decimal" required title="Tolerans"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ puan tolerans).</p>
+     
+     </div></div></div>
+
+    <div class="flex gap-4"><span class="step">2</span><div class="flex-1">
+     <h3 class="font-semibold">İhlalin önemi</h3><p class="text-xs text-slate-500 mb-3">Raporlarda ve risk sıralamasında bu derece kullanılır.</p>
+     <div class="seg flex border border-slate-200 rounded-lg overflow-hidden max-w-xl">
+      <label class="s-info"><input type="radio" name="R3_assessment_total.severity" value="info" >Bilgi</label><label class="s-low"><input type="radio" name="R3_assessment_total.severity" value="low" >Düşük</label><label class="s-medium"><input type="radio" name="R3_assessment_total.severity" value="medium" >Orta</label><label class="s-high"><input type="radio" name="R3_assessment_total.severity" value="high" checked>Yüksek</label><label class="s-critical"><input type="radio" name="R3_assessment_total.severity" value="critical" >Kritik</label></div></div></div>
+
+    
+
+    
+   </div>
+  </section>
+ 
+  <section id="p-R4_ects_workload" class="panel card !p-0 overflow-hidden">
+   <div class="p-6 border-b border-slate-100 flex flex-wrap items-start justify-between gap-4">
+    <div><div class="text-xs font-semibold text-blue-700">R4</div><h2 class="text-xl font-bold">AKTS ve iş yükü</h2>
+     <p class="text-sm text-slate-600 mt-1 max-w-2xl">Ders sayfası, müfredat ve iş yükü tablosundaki AKTS değerlerini ve saat/AKTS oranını denetler.</p></div>
+    <label class="flex items-center gap-3 text-sm font-medium bg-slate-50 rounded-lg px-3 py-2"><input type="checkbox" class="tgl" name="R4_ects_workload.enabled" checked> Kural açık</label>
+   </div>
+
+   <div class="p-6 space-y-8">
+    <div class="flex gap-4"><span class="step">1</span><div class="flex-1">
+     <h3 class="font-semibold">Ölçüt</h3><p class="text-xs text-slate-500 mb-3">Bu koşul sağlanmazsa ders için ihlal kaydedilir.</p>
+     <div class="space-y-3">
+     <p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">1 AKTS, 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R4_ects_workload.hours_per_ects_min" value="25" inputmode="decimal" required title="1 AKTS için en az"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ ile 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R4_ects_workload.hours_per_ects_max" value="30" inputmode="decimal" required title="1 AKTS için en çok"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ saat öğrenci iş yüküne karşılık gelmeli.</p>
+     
+     </div></div></div>
+
+    <div class="flex gap-4"><span class="step">2</span><div class="flex-1">
+     <h3 class="font-semibold">İhlalin önemi</h3><p class="text-xs text-slate-500 mb-3">Raporlarda ve risk sıralamasında bu derece kullanılır.</p>
+     <div class="seg flex border border-slate-200 rounded-lg overflow-hidden max-w-xl">
+      <label class="s-info"><input type="radio" name="R4_ects_workload.severity" value="info" >Bilgi</label><label class="s-low"><input type="radio" name="R4_ects_workload.severity" value="low" >Düşük</label><label class="s-medium"><input type="radio" name="R4_ects_workload.severity" value="medium" >Orta</label><label class="s-high"><input type="radio" name="R4_ects_workload.severity" value="high" checked>Yüksek</label><label class="s-critical"><input type="radio" name="R4_ects_workload.severity" value="critical" >Kritik</label></div></div></div>
+
+    
+
+    
+   </div>
+  </section>
+ 
+  <section id="p-R5_tr_en_parity" class="panel card !p-0 overflow-hidden">
+   <div class="p-6 border-b border-slate-100 flex flex-wrap items-start justify-between gap-4">
+    <div><div class="text-xs font-semibold text-blue-700">R5</div><h2 class="text-xl font-bold">Türkçe / İngilizce</h2>
+     <p class="text-sm text-slate-600 mt-1 max-w-2xl">İki dil sürümünün yapısal olarak aynı olup olmadığını ve İngilizce metnin çevrilip çevrilmediğini denetler.</p></div>
+    <label class="flex items-center gap-3 text-sm font-medium bg-slate-50 rounded-lg px-3 py-2"><input type="checkbox" class="tgl" name="R5_tr_en_parity.enabled" checked> Kural açık</label>
+   </div>
+
+   <div class="p-6 space-y-8">
+    <div class="flex gap-4"><span class="step">1</span><div class="flex-1">
+     <h3 class="font-semibold">Ölçüt</h3><p class="text-xs text-slate-500 mb-3">Bu koşul sağlanmazsa ders için ihlal kaydedilir.</p>
+     <div class="space-y-3">
+     <p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">İngilizce metinlerin 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R5_tr_en_parity.untranslated_ratio_threshold" value="50" inputmode="decimal" required title="Çevrilmemiş sayılma eşiği"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"><span class="ml-0.5 text-blue-800 font-semibold">%</span></span>
+ veya fazlası Türkçe ile birebir aynıysa çeviri yapılmamış sayılır.</p>
+     
+      <div class="bg-slate-50 rounded-lg px-4 py-3"><div class="text-sm mb-2">İngilizcede dolu olması gereken alanlar:</div><div class="flex flex-wrap gap-2">
+       <label class="chip"><input type="checkbox" name="R5_tr_en_parity.required_en_fields.name" checked>Ders adı</label><label class="chip"><input type="checkbox" name="R5_tr_en_parity.required_en_fields.objective" checked>Amaç</label><label class="chip"><input type="checkbox" name="R5_tr_en_parity.required_en_fields.content" checked>İçerik</label></div></div>
+      
+     
+     </div></div></div>
+
+    <div class="flex gap-4"><span class="step">2</span><div class="flex-1">
+     <h3 class="font-semibold">İhlalin önemi</h3><p class="text-xs text-slate-500 mb-3">Raporlarda ve risk sıralamasında bu derece kullanılır.</p>
+     <div class="seg flex border border-slate-200 rounded-lg overflow-hidden max-w-xl">
+      <label class="s-info"><input type="radio" name="R5_tr_en_parity.severity" value="info" >Bilgi</label><label class="s-low"><input type="radio" name="R5_tr_en_parity.severity" value="low" >Düşük</label><label class="s-medium"><input type="radio" name="R5_tr_en_parity.severity" value="medium" checked>Orta</label><label class="s-high"><input type="radio" name="R5_tr_en_parity.severity" value="high" >Yüksek</label><label class="s-critical"><input type="radio" name="R5_tr_en_parity.severity" value="critical" >Kritik</label></div></div></div>
+
+    
+
+    
+    <details class="group border-t border-slate-100 pt-4">
+     <summary class="cursor-pointer text-sm text-slate-500 hover:text-slate-800 select-none">Gelişmiş ayarlar <span class="group-open:hidden">▸</span><span class="hidden group-open:inline">▾</span></summary>
+     <div class="grid md:grid-cols-2 gap-4 mt-4">
+     
+      <label class="block md:col-span-2"><span class="text-sm font-medium">Çeviri denetiminden muaf öğretim dilleri</span><input name="R5_tr_en_parity.skip_untranslated_if_instruction_language" value="ingilizce, english" class="inp mt-1">
+       <span class="text-xs text-slate-500"> Değerleri virgülle ayırın.</span></label>
+      
+     
+     </div>
+    </details>
+    
+   </div>
+  </section>
+ 
+  <section id="p-R6_update_date" class="panel card !p-0 overflow-hidden">
+   <div class="p-6 border-b border-slate-100 flex flex-wrap items-start justify-between gap-4">
+    <div><div class="text-xs font-semibold text-blue-700">R6</div><h2 class="text-xl font-bold">Güncelleme tarihi</h2>
+     <p class="text-sm text-slate-600 mt-1 max-w-2xl">Bilgi paketinin sitede en son ne zaman güncellendiğini denetler.</p></div>
+    <label class="flex items-center gap-3 text-sm font-medium bg-slate-50 rounded-lg px-3 py-2"><input type="checkbox" class="tgl" name="R6_update_date.enabled" checked> Kural açık</label>
+   </div>
+
+   <div class="p-6 space-y-8">
+    <div class="flex gap-4"><span class="step">1</span><div class="flex-1">
+     <h3 class="font-semibold">Ölçüt</h3><p class="text-xs text-slate-500 mb-3">Bu koşul sağlanmazsa ders için ihlal kaydedilir.</p>
+     <div class="space-y-3">
+     <p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">Bilgi paketi son 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R6_update_date.max_age_months" value="24" inputmode="decimal" required title="En fazla geçen süre"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ ay içinde güncellenmiş olmalı.</p>
+     
+     </div></div></div>
+
+    <div class="flex gap-4"><span class="step">2</span><div class="flex-1">
+     <h3 class="font-semibold">İhlalin önemi</h3><p class="text-xs text-slate-500 mb-3">Raporlarda ve risk sıralamasında bu derece kullanılır.</p>
+     <div class="seg flex border border-slate-200 rounded-lg overflow-hidden max-w-xl">
+      <label class="s-info"><input type="radio" name="R6_update_date.severity" value="info" >Bilgi</label><label class="s-low"><input type="radio" name="R6_update_date.severity" value="low" >Düşük</label><label class="s-medium"><input type="radio" name="R6_update_date.severity" value="medium" checked>Orta</label><label class="s-high"><input type="radio" name="R6_update_date.severity" value="high" >Yüksek</label><label class="s-critical"><input type="radio" name="R6_update_date.severity" value="critical" >Kritik</label></div></div></div>
+
+    
+
+    
+   </div>
+  </section>
+ 
+  <section id="p-R7_references" class="panel card !p-0 overflow-hidden">
+   <div class="p-6 border-b border-slate-100 flex flex-wrap items-start justify-between gap-4">
+    <div><div class="text-xs font-semibold text-blue-700">R7</div><h2 class="text-xl font-bold">Kaynaklar</h2>
+     <p class="text-sm text-slate-600 mt-1 max-w-2xl">Kaynak sayısını, yayın yılı bulunup bulunmadığını, en yeni kaynağın yaşını ve künye biçimini denetler.</p></div>
+    <label class="flex items-center gap-3 text-sm font-medium bg-slate-50 rounded-lg px-3 py-2"><input type="checkbox" class="tgl" name="R7_references.enabled" checked> Kural açık</label>
+   </div>
+
+   <div class="p-6 space-y-8">
+    <div class="flex gap-4"><span class="step">1</span><div class="flex-1">
+     <h3 class="font-semibold">Ölçüt</h3><p class="text-xs text-slate-500 mb-3">Bu koşul sağlanmazsa ders için ihlal kaydedilir.</p>
+     <div class="space-y-3">
+     <p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">Derste en az 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R7_references.min_count" value="1" inputmode="decimal" required title="En az kaynak"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ kaynak olmalı.</p><p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">En yeni kaynak en fazla 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R7_references.max_newest_age_years" value="10" inputmode="decimal" required title="En yeni kaynağın en fazla yaşı"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ yıl önce yayımlanmış olmalı.</p><p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">Kaynakların en az 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R7_references.min_year_ratio" value="50" inputmode="decimal" required title="Yılı belirtilmiş kaynak oranı (en az)"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"><span class="ml-0.5 text-blue-800 font-semibold">%</span></span>
+ kadarında yayın yılı yazmalı.</p><p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R7_references.min_reference_chars" value="15" inputmode="decimal" required title="Künye için en kısa metin"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ karakterden kısa kaynak satırı eksik künye sayılır.</p>
+     
+     </div></div></div>
+
+    <div class="flex gap-4"><span class="step">2</span><div class="flex-1">
+     <h3 class="font-semibold">İhlalin önemi</h3><p class="text-xs text-slate-500 mb-3">Raporlarda ve risk sıralamasında bu derece kullanılır.</p>
+     <div class="seg flex border border-slate-200 rounded-lg overflow-hidden max-w-xl">
+      <label class="s-info"><input type="radio" name="R7_references.severity" value="info" >Bilgi</label><label class="s-low"><input type="radio" name="R7_references.severity" value="low" >Düşük</label><label class="s-medium"><input type="radio" name="R7_references.severity" value="medium" checked>Orta</label><label class="s-high"><input type="radio" name="R7_references.severity" value="high" >Yüksek</label><label class="s-critical"><input type="radio" name="R7_references.severity" value="critical" >Kritik</label></div></div></div>
+
+    
+    <div class="flex gap-4"><span class="step">3</span><div class="flex-1">
+     <h3 class="font-semibold">İstisnalar</h3><p class="text-xs text-slate-500 mb-3">Bazı ders türleri bu kurala tam olarak uymak zorunda değildir.</p>
+     <div class="space-y-3">
+     
+      <div class="border border-slate-200 rounded-lg px-4 py-3">
+       <div class="flex flex-wrap items-center justify-between gap-3"><div class="font-medium text-sm">Staj dersleri</div>
+        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="tgl" name="R7_references.exc.internship.skip" checked> Bu kuraldan tamamen muaf</label></div>
+       
+      </div>
+     
+      <div class="border border-slate-200 rounded-lg px-4 py-3">
+       <div class="flex flex-wrap items-center justify-between gap-3"><div class="font-medium text-sm">Bitirme projesi dersleri</div>
+        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="tgl" name="R7_references.exc.graduation_project.skip" checked> Bu kuraldan tamamen muaf</label></div>
+       
+      </div>
+     
+      <div class="border border-slate-200 rounded-lg px-4 py-3">
+       <div class="flex flex-wrap items-center justify-between gap-3"><div class="font-medium text-sm">Yalnız uygulama / laboratuvar dersleri</div>
+        <label class="flex items-center gap-2 text-sm"><input type="checkbox" class="tgl" name="R7_references.exc.practice_only.skip" > Bu kuraldan tamamen muaf</label></div>
+       
+      </div>
+     
+     </div>
+     <p class="text-xs text-slate-500 mt-2">Bir dersin hangi türe girdiği <a href="#kategoriler" data-panel="kategoriler" class="lnk">Ders kategorileri</a> bölümünden ayarlanır.</p></div></div>
+    
+
+    
+   </div>
+  </section>
+ 
+  <section id="p-R8_semester_ects" class="panel card !p-0 overflow-hidden">
+   <div class="p-6 border-b border-slate-100 flex flex-wrap items-start justify-between gap-4">
+    <div><div class="text-xs font-semibold text-blue-700">R8</div><h2 class="text-xl font-bold">Yarıyıl AKTS</h2>
+     <p class="text-sm text-slate-600 mt-1 max-w-2xl">Yarıyıl toplamlarını, seçmeli havuz AKTS tutarlılığını ve müfredat toplamını denetler.</p></div>
+    <label class="flex items-center gap-3 text-sm font-medium bg-slate-50 rounded-lg px-3 py-2"><input type="checkbox" class="tgl" name="R8_semester_ects.enabled" checked> Kural açık</label>
+   </div>
+
+   <div class="p-6 space-y-8">
+    <div class="flex gap-4"><span class="step">1</span><div class="flex-1">
+     <h3 class="font-semibold">Ölçüt</h3><p class="text-xs text-slate-500 mb-3">Bu koşul sağlanmazsa ders için ihlal kaydedilir.</p>
+     <div class="space-y-3">
+     <p class="text-[15px] leading-9 bg-slate-50 rounded-lg px-4 py-2">Her yarıyılın toplamı 
+ 
+ <span class="inline-flex items-center align-baseline mx-1"><input name="R8_semester_ects.expected_per_semester" value="30" inputmode="decimal" required title="Yarıyıl başına beklenen"
+  class="w-16 text-center font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-md py-0.5 tabular-nums focus:outline-none focus:ring-2 focus:ring-blue-300"></span>
+ AKTS olmalı.</p>
+     
+      <div class="bg-slate-50 rounded-lg px-4 py-3"><div class="text-sm mb-2">Programın toplam AKTS'si şu kadar olmalı:</div><div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+       <label class="text-sm">Ön lisans<input name="R8_semester_ects.expected_total_by_level.myo" value="120" placeholder="tanımsız" class="inp mt-1 text-center tabular-nums"></label><label class="text-sm">Lisans<input name="R8_semester_ects.expected_total_by_level.lis" value="240" placeholder="tanımsız" class="inp mt-1 text-center tabular-nums"></label><label class="text-sm">Yüksek lisans<input name="R8_semester_ects.expected_total_by_level.yls" value="" placeholder="tanımsız" class="inp mt-1 text-center tabular-nums"></label><label class="text-sm">Doktora<input name="R8_semester_ects.expected_total_by_level.dok" value="" placeholder="tanımsız" class="inp mt-1 text-center tabular-nums"></label></div>
+       <p class="text-xs text-slate-500 mt-2">Boş bırakılan düzeyde toplam denetlenmez.</p></div>
+     
+     </div></div></div>
+
+    <div class="flex gap-4"><span class="step">2</span><div class="flex-1">
+     <h3 class="font-semibold">İhlalin önemi</h3><p class="text-xs text-slate-500 mb-3">Raporlarda ve risk sıralamasında bu derece kullanılır.</p>
+     <div class="seg flex border border-slate-200 rounded-lg overflow-hidden max-w-xl">
+      <label class="s-info"><input type="radio" name="R8_semester_ects.severity" value="info" >Bilgi</label><label class="s-low"><input type="radio" name="R8_semester_ects.severity" value="low" >Düşük</label><label class="s-medium"><input type="radio" name="R8_semester_ects.severity" value="medium" >Orta</label><label class="s-high"><input type="radio" name="R8_semester_ects.severity" value="high" checked>Yüksek</label><label class="s-critical"><input type="radio" name="R8_semester_ects.severity" value="critical" >Kritik</label></div></div></div>
+
+    
+
+    
+   </div>
+  </section>
+ 
+
+  <section id="p-kategoriler" class="panel card">
+   <h2 class="text-xl font-bold">Ders kategorileri</h2>
+   <p class="text-sm text-slate-600 mt-1 max-w-2xl">İstisnalar bu türlere göre uygulanır. Bir ders aşağıdaki sıraya göre <b>ilk uyduğu</b> türe girer; hiçbirine uymayan ders "Diğer dersler" sayılır.</p>
+   <div class="mt-5 space-y-3">
+   
+    <div class="rounded-lg border border-slate-200 p-4">
+     <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+      <div class="font-semibold">Staj dersleri <span class="text-xs font-mono text-slate-400 ml-1">internship</span></div><input type="hidden" name="cat.0.name" value="internship">
+       <label class="flex items-center gap-1 text-xs text-red-700"><input type="checkbox" name="cat.0.delete" class="accent-red-600"> Bu türü sil</label>
+      
+     </div>
+     <div class="text-xs text-slate-500 mb-2">Bir ders şu durumlardan birinde bu türe girer:</div>
+     <div class="grid md:grid-cols-3 gap-3">
+      <label class="text-sm">Ders kodu şununla başlıyorsa<input name="cat.0.code_prefixes" value="STJ" placeholder="ör. STJ" class="inp mt-1"></label>
+      <label class="text-sm">Ders adında şu geçiyorsa<input name="cat.0.name_keywords" value="staj, internship, işyeri eğitimi" placeholder="ör. staj, internship" class="inp mt-1"></label>
+      <label class="flex items-center gap-2 text-sm md:pt-6"><input type="checkbox" class="tgl" name="cat.0.theory_hours_zero" > Teorik ders saati 0 ise</label>
+     </div>
+    </div>
+   
+    <div class="rounded-lg border border-slate-200 p-4">
+     <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+      <div class="font-semibold">Bitirme projesi dersleri <span class="text-xs font-mono text-slate-400 ml-1">graduation_project</span></div><input type="hidden" name="cat.1.name" value="graduation_project">
+       <label class="flex items-center gap-1 text-xs text-red-700"><input type="checkbox" name="cat.1.delete" class="accent-red-600"> Bu türü sil</label>
+      
+     </div>
+     <div class="text-xs text-slate-500 mb-2">Bir ders şu durumlardan birinde bu türe girer:</div>
+     <div class="grid md:grid-cols-3 gap-3">
+      <label class="text-sm">Ders kodu şununla başlıyorsa<input name="cat.1.code_prefixes" value="" placeholder="ör. STJ" class="inp mt-1"></label>
+      <label class="text-sm">Ders adında şu geçiyorsa<input name="cat.1.name_keywords" value="bitirme projesi, bitirme çalışması, bitirme ödevi, graduation project, tasarım projesi" placeholder="ör. staj, internship" class="inp mt-1"></label>
+      <label class="flex items-center gap-2 text-sm md:pt-6"><input type="checkbox" class="tgl" name="cat.1.theory_hours_zero" > Teorik ders saati 0 ise</label>
+     </div>
+    </div>
+   
+    <div class="rounded-lg border border-slate-200 p-4">
+     <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+      <div class="font-semibold">Yalnız uygulama / laboratuvar dersleri <span class="text-xs font-mono text-slate-400 ml-1">practice_only</span></div><input type="hidden" name="cat.2.name" value="practice_only">
+       <label class="flex items-center gap-1 text-xs text-red-700"><input type="checkbox" name="cat.2.delete" class="accent-red-600"> Bu türü sil</label>
+      
+     </div>
+     <div class="text-xs text-slate-500 mb-2">Bir ders şu durumlardan birinde bu türe girer:</div>
+     <div class="grid md:grid-cols-3 gap-3">
+      <label class="text-sm">Ders kodu şununla başlıyorsa<input name="cat.2.code_prefixes" value="" placeholder="ör. STJ" class="inp mt-1"></label>
+      <label class="text-sm">Ders adında şu geçiyorsa<input name="cat.2.name_keywords" value="" placeholder="ör. staj, internship" class="inp mt-1"></label>
+      <label class="flex items-center gap-2 text-sm md:pt-6"><input type="checkbox" class="tgl" name="cat.2.theory_hours_zero" checked> Teorik ders saati 0 ise</label>
+     </div>
+    </div>
+   
+    <div class="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-4">
+     <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+      <label class="text-sm font-semibold">+ Yeni tür ekle <input name="cat.3.name" value="" placeholder="kısa ad, ör. lab_dersi" class="inp mt-1 font-mono !w-64"></label>
+     </div>
+     <div class="text-xs text-slate-500 mb-2">Bir ders şu durumlardan birinde bu türe girer:</div>
+     <div class="grid md:grid-cols-3 gap-3">
+      <label class="text-sm">Ders kodu şununla başlıyorsa<input name="cat.3.code_prefixes" value="" placeholder="ör. STJ" class="inp mt-1"></label>
+      <label class="text-sm">Ders adında şu geçiyorsa<input name="cat.3.name_keywords" value="" placeholder="ör. staj, internship" class="inp mt-1"></label>
+      <label class="flex items-center gap-2 text-sm md:pt-6"><input type="checkbox" class="tgl" name="cat.3.theory_hours_zero" > Teorik ders saati 0 ise</label>
+     </div>
+    </div>
+   
+   </div>
+   <p class="text-xs text-slate-500 mt-3">Birden çok değeri virgülle ayırın. Yeni tür kaydedildikten sonra kuralların istisna bölümünde görünür.</p>
+  </section>
+
+  <section id="p-gecmis" class="panel card">
+   <h2 class="text-xl font-bold">Kayıt geçmişi</h2>
+   <p class="text-sm text-slate-600 mt-1">Her kayıttan önce ayarların önceki hâli saklanır. Yanlış bir değişiklikte eski hâline dönebilirsiniz.</p>
+   <div class="mt-4 divide-y divide-slate-100 border border-slate-200 rounded-lg">
+    <div class="flex items-center justify-between px-4 py-2.5 text-sm"><span>13.11.2026 · 16:02:13 öncesindeki ayarlar</span>
+     <button hidden formaction="/mufredat-analiz/settings/restore/rules_20261113_160213.toml" formnovalidate onclick="return confirm('Ayarlar bu sürüme döndürülsün mü?')" class="text-blue-700 hover:underline text-sm">Geri yükle</button></div>
+    <div class="flex items-center justify-between px-4 py-2.5 text-sm"><span>13.11.2026 · 15:55:12 öncesindeki ayarlar</span>
+     <button hidden formaction="/mufredat-analiz/settings/restore/rules_20261113_155512.toml" formnovalidate onclick="return confirm('Ayarlar bu sürüme döndürülsün mü?')" class="text-blue-700 hover:underline text-sm">Geri yükle</button></div></div>
+   
+   <h3 class="font-semibold mt-8">Model ve veritabanı <span class="text-xs font-normal text-slate-500">(bilgi amaçlı · programs.toml)</span></h3>
+   <dl class="grid grid-cols-2 md:grid-cols-4 gap-y-1 mt-2 text-sm"><dt class="text-slate-500">provider</dt><dd class="font-mono">ollama</dd><dt class="text-slate-500">base_url</dt><dd class="font-mono">http://localhost:11434</dd><dt class="text-slate-500">model</dt><dd class="font-mono">gemma4:e4b</dd><dt class="text-slate-500">temperature</dt><dd class="font-mono">0.0</dd><dt class="text-slate-500">seed</dt><dd class="font-mono">42</dd><dt class="text-slate-500">num_ctx</dt><dd class="font-mono">16384</dd><dt class="text-slate-500">max_output_tokens</dt><dd class="font-mono">3000</dd><dt class="text-slate-500">timeout_seconds</dt><dd class="font-mono">300</dd><dt class="text-slate-500">max_validation_retries</dt><dd class="font-mono">2</dd></dl>
+  </section>
+ </div>
+</div>
+</fieldset></form>
+<script>
+ function show(id){
+  if(!document.getElementById('p-'+id)) id='R1_required_fields';
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id==='p-'+id));
+  document.querySelectorAll('.side a').forEach(a=>a.classList.toggle('active', a.dataset.panel===id));
+ }
+ document.querySelectorAll('[data-panel]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();history.replaceState(null,'','#'+a.dataset.panel);show(a.dataset.panel);window.scrollTo(0,0)}));
+ show(location.hash.slice(1) || '');
+</script>
+
+ </main>
+</div>
+</body>
+</html>

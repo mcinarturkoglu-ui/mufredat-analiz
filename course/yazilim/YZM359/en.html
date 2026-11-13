@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / seçmeli havuz</div>
+ <h1 class="text-2xl font-bold">YZM359 · Gömülü Sistemler</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 3+0+0 · Kredi 3 · AKTS 6 (müfredatta 6) · Seçmeli · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376576&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376576&amp;lang=en</a> · toplandı 13.11.2026 01:30</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 38</span><span class="pill st-fail">kaldı: 4</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (4)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R5 TR/EN uyumu<div class="text-xs text-slate-500">untranslated · en</div></td><td>content</td>
+<td><span class="pill s-medium">orta</span></td><td>İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.</td><td>17/19 metin TR ile birebir aynı (%89)</td><td>%50 altında</td><td class="text-slate-600">İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2010 (16 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr>
+</tbody></table></div>
+
+
+
+
+
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">4 kaynak · 4 tanesinde yıl var · en yeni 2010 (16 yıl önce) · 10 yıldan eski 4</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2010</td><td>Han-Way Huang, &#34;An Introduction to Software and Hardware Interfacing&#34;, Delmar Cengage Learning, 2010</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2002</td><td>Frank Vahid, Tony Givargis, &#34;A Unified Hardware/Software Introduction&#34;, Wiley, 2002</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2010</td><td>Han-Way Huang, &#34;An Introduction to Software and Hardware Interfacing&#34;, Delmar Cengage Learning, 2010</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2002</td><td>Frank Vahid, Tony Givargis, &#34;A Unified Hardware/Software Introduction&#34;, Wiley, 2002</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM359">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/yazilim/YZM359/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Embedded Systems</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">To teach the definition, classification and structure of Embedded Systems. Students will learn about microprocessors, A/D, D/A converters, PWM usage, LCD screen usage, interrupt and simple infinite loop operating system usage, serial and parallel communication protocols (UART, I2C, SPI) between integrated circuits and microprocessors, which are frequently used in Embedded Systems. to learn and apply it in practice.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Introduction to Embedded Systems, Single Purpose Processors: Hardware, Finite Automata, General Purpose Processors: Software, Application Specific Processors: Miko Controllers, Interrupt Usage, Introduction to Peripherals, LCD Display Interface, Timers, Counters, Timing Interrupts, Pulse Width Modulation, Analog/ Digital Converters, Communication Protocols, I2C, SPI</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Tasarlanmış bir gömülü sistemi inceleyip sistemin nasıl çalıştığını, hangi bileşenlerden oluştuğunu tespit edebilirler.</li><li>Kendileri otomat gibi yöntemlerle tek amaçlı işlemcileri donanımsal olarak tasarlayabilirler.</li><li>Mikro denetleyicileri zamanlayıcı, analog-sayısal dönüştürücü ve çevresel birimlerle iletişimini sağlayacak I2C, SPI, SCI gibi protokolleri kullanarak programlayarak gömülü sistem tasarlayabilirler.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Mid-terms</td><td>1</td><td>%40</td></tr><tr><td>Final examination</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (180 saat → tabloda 6 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Assignments</td><td>8 × 7</td><td>56 saat</td></tr><tr><td>Mid-terms</td><td>1 × 20</td><td>20 saat</td></tr><tr><td>Final examination</td><td>1 × 20</td><td>20 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Gömülü Sistemlere Giriş</td></tr><tr><td class="w-10">2</td><td>Tek Amaçlı İşlemciler: Donanım</td></tr><tr><td class="w-10">3</td><td>Sonlu Otomatlar: Moore ve Mealy FSM</td></tr><tr><td class="w-10">4</td><td>Genel Amaçlı İşlemciler: Yazılım</td></tr><tr><td class="w-10">5</td><td>Uygulamaya Özel İşlemciler: Mikro Denetleyiciler</td></tr><tr><td class="w-10">6</td><td>Kesme Kullanımı</td></tr><tr><td class="w-10">7</td><td>Ara Sınav</td></tr><tr><td class="w-10">8</td><td>Çevre Birimlerine Giriş, LCD Ekran Arayüzü</td></tr><tr><td class="w-10">9</td><td>Zamanlayıcılar, Sayıcılar, Zamanlama Kesmeleri</td></tr><tr><td class="w-10">10</td><td>Darbe Genişliği Modülasyonu</td></tr><tr><td class="w-10">11</td><td>Analog/Sayısal Çeviriciler</td></tr><tr><td class="w-10">12</td><td>İletişim Protokolleri: UART</td></tr><tr><td class="w-10">13</td><td>I2C, SPI</td></tr><tr><td class="w-10">14</td><td>Genel Tekrar</td></tr><tr><td class="w-10">15</td><td>Yarıyıl Sonu Sınavı</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

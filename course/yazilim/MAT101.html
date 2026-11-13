@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 1. yarıyıl</div>
+ <h1 class="text-2xl font-bold">MAT101 · Matematik I</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 3+2+0 · Kredi 4 · AKTS 6 (müfredatta 6) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376722&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376722&amp;lang=tr</a> · toplandı 13.11.2026 01:12</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 42</span><span class="pill st-fail">kaldı: 0</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #18 · 13.11 15:41 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">80<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #19 · 13.11 15:41 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #73 · 13.11 16:19 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (0)</h3>
+<p class="text-sm">Tüm kontroller geçti.</p></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Konuların derinliği, Lisans düzeyinde bir Matematik I dersi için uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konulara göre ne gereğinden geniş ne de dar görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık planda, dersin adı ve amacının kapsamı dışında konu bulunmamaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, amaç ve içerik arasında belirgin bir uyumsuzluk gözlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin amaçında belirtilen temel kavramlar (fonksiyonlar, limit, türev ve türev uygulamaları) haftalık konularda işlenmektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla tutarlıdır.</td></tr></tbody></table>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %50 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Tüm çıktılar (fonksiyonlar, limit, türev ve uygulamaları) dersin ana amacını (analitik düşünme ve mühendislik problemlerini matematiksel yöntemlerle çözme becerisi kazandırmak) doğrudan desteklemektedir.<br>
+  Bloom dağılımı: anlama 3, uygulama 3</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Fonksiyon kavramını bilir ve temel özelliklerini öğrenir.<div class="text-xs text-amber-700">belirsiz: bilir, öğrenir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>2</td>
+ <td class="text-blue-800">Fonksiyon tanımını ve temel özelliklerini açıklayabilir.</td></tr>
+ <tr><td>2</td><td>Fonksiyon çeşitlerini öğrenir ve grafiklerini çizer.<div class="text-xs text-amber-700">belirsiz: öğrenir, çizer</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>2</td>
+ <td class="text-blue-800">Fonksiyon çeşitlerini tanımlayabilir ve grafiklerini çizebilir.</td></tr>
+ <tr><td>3</td><td>Limit ve süreklilik kavramını öğrenir.<div class="text-xs text-amber-700">belirsiz: öğrenir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>6, 7</td>
+ <td class="text-blue-800">Limit ve süreklilik kavramlarını tanımlayabilir.</td></tr>
+ <tr><td>4</td><td>Türev kurallarını ve tekniklerini kullanarak türev alabilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>8, 10</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Türevin geometrik yorumunu bilir, fonksiyonun değişimini inceleyerek eğriyi çizebilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>12, 13, 15</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>6</td><td>Türevin çeşitli uygulamalarını yapar ve mühendislik problemlerine uygulayabilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>14, 15</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>1. James Stewart Calculus: Early Transcendentals, 8th Edition, Cengage Learning, 2015.<div class="text-xs text-slate-500">Dersin temel konularını (Kalkülüs) kapsayan standart bir ders kitabıdır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>5. G.B., Finney, R.L . (Çev: Korkmaz, R.), Calculus ve Analitik Geometri, Cilt I, Beta Yayınları, 2001.<div class="text-xs text-slate-500">Dersin temel konularını (Kalkülüs ve Analitik Geometri) kapsayan bir kaynaktır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>2. Ron Larson, Bruce H. Edwards Calculus, 9th Edition, Brooks/Cole Cengage Learning, 2010<div class="text-xs text-slate-500">Dersin temel konularını (Kalkülüs) kapsayan standart bir ders kitabıdır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>3. G.B Thomas, R . L . Finney, M.D.Weir, F.R.Giordano, Thomas&#39; Calculus,10th Edition, Addison Wesley, 2005.<div class="text-xs text-slate-500">Dersin temel konularını (Kalkülüs) kapsayan standart bir ders kitabıdır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>4. Dennis G.Zill- Warren S.Wright, Matematik Cilt I - Calculus Early Transcendentals, Nobel Yayın Dağıtım, 2020.<div class="text-xs text-slate-500">Dersin temel konularını (Kalkülüs) kapsayan standart bir ders kitabıdır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>1. James Stewart Calculus: Early Transcendentals, 8th Edition, Cengage Learning, 2015.<div class="text-xs text-slate-500">Kaynak 1 ile aynı içeriğe sahip, dersin konularını desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>2. Ron Larson, Bruce H. Edwards Calculus, 9th Edition, Brooks/Cole Cengage Learning, 2010<div class="text-xs text-slate-500">Kaynak 3 ile aynı içeriğe sahip, dersin konularını desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>3. G.B Thomas, R . L . Finney, M.D.Weir, F.R.Giordano, Thomas&#39; Calculus,10th Edition, Addison Wesley, 2005.<div class="text-xs text-slate-500">Kaynak 4 ile aynı içeriğe sahip, dersin konularını desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>4. Dennis G.Zill- Warren S.Wright, Matematik Cilt I - Calculus Early Transcendentals, Nobel Yayın Dağıtım, 2020.<div class="text-xs text-slate-500">Kaynak 5 ile aynı içeriğe sahip, dersin konularını desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>5. G.B., Finney, R.L . (Çev: Korkmaz, R.), Calculus ve Analitik Geometri, Cilt I, Beta Yayınları, 2001.<div class="text-xs text-slate-500">Kaynak 2 ile aynı içeriğe sahip, dersin konularını desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Fonksiyon kavramını bilir ve temel özelliklerini öğrenir.">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Fonksiyon kavramı ve temel özellikleri, mühendislikte kullanılan matematiksel modellerin temelini oluşturur.</td></tr><tr><td title="Fonksiyon kavramını bilir ve temel özelliklerini öğrenir.">Ö1</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">2</td><td class="text-xs text-slate-600">Temel matematiksel araçlar (fonksiyonlar) ile problem formülasyonuna zemin hazırlar.</td></tr><tr><td title="Fonksiyon çeşitlerini öğrenir ve grafiklerini çizer.">Ö2</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Fonksiyon çeşitleri ve grafik çizimi, mühendislik sistemlerinin görsel analizi için gereklidir.</td></tr><tr><td title="Fonksiyon çeşitlerini öğrenir ve grafiklerini çizer.">Ö2</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Grafik çizimi, sistemin davranışını anlamada (analiz) bir araçtır.</td></tr><tr><td title="Limit ve süreklilik kavramını öğrenir.">Ö3</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Limit ve süreklilik, bir sistemin sınır durumlarını ve kesintisizliğini analiz etmek için kritik öneme sahiptir.</td></tr><tr><td title="Limit ve süreklilik kavramını öğrenir.">Ö3</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Bu kavramlar, mühendislik problemlerinin matematiksel olarak tanımlanmasında (formüle edilmesinde) kullanılır.</td></tr><tr><td title="Türev kurallarını ve tekniklerini kullanarak türev alabilir.">Ö4</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Türev kurallarını kullanmak, bir sistemin değişim oranını (hız, ivme vb.) hesaplamayı gerektirir.</td></tr><tr><td title="Türev kurallarını ve tekniklerini kullanarak türev alabilir.">Ö4</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Türev alma becerisi, mühendislikte kullanılan temel matematiksel araç setinin bir parçasıdır.</td></tr><tr><td title="Türevin geometrik yorumunu bilir, fonksiyonun değişimini inceleyerek eğriyi çizebilir.">Ö5</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Ekstrema ve eğri çizimi, bir sistemin en verimli/en kötü durumunu bulma (analiz) sürecidir.</td></tr><tr><td title="Türevin geometrik yorumunu bilir, fonksiyonun değişimini inceleyerek eğriyi çizebilir.">Ö5</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Geometrik yorum ve değişim analizi, mühendislik problemlerinin sezgisel olarak anlaşılmasına yardımcı olur.</td></tr><tr><td title="Türevin çeşitli uygulamalarını yapar ve mühendislik problemlerine uygulayabilir.">Ö6</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">5</td><td class="text-xs text-slate-600">Optimizasyon, mühendislik problemlerinin (maliyet, zaman vb.) en iyi çözümü bulma sürecidir.</td></tr><tr><td title="Türevin çeşitli uygulamalarını yapar ve mühendislik problemlerine uygulayabilir.">Ö6</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">4</td><td class="text-xs text-slate-600">Türev uygulamaları, mühendislikte karşılaşılan karmaşık problemleri çözmek için doğrudan bir yöntemdir.</td></tr></tbody></table></div>
+ </div></div>
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">10 kaynak · 10 tanesinde yıl var · en yeni 2020 (6 yıl önce) · 10 yıldan eski 8</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2015</td><td>1. James Stewart Calculus: Early Transcendentals, 8th Edition, Cengage Learning, 2015.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2001</td><td>5. G.B., Finney, R.L . (Çev: Korkmaz, R.), Calculus ve Analitik Geometri, Cilt I, Beta Yayınları, 2001.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2010</td><td>2. Ron Larson, Bruce H. Edwards Calculus, 9th Edition, Brooks/Cole Cengage Learning, 2010</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2005</td><td>3. G.B Thomas, R . L . Finney, M.D.Weir, F.R.Giordano, Thomas&#39; Calculus,10th Edition, Addison Wesley, 2005.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2020</td><td>4. Dennis G.Zill- Warren S.Wright, Matematik Cilt I - Calculus Early Transcendentals, Nobel Yayın Dağıtım, 2020.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2015</td><td>1. James Stewart Calculus: Early Transcendentals, 8th Edition, Cengage Learning, 2015.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2010</td><td>2. Ron Larson, Bruce H. Edwards Calculus, 9th Edition, Brooks/Cole Cengage Learning, 2010</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2005</td><td>3. G.B Thomas, R . L . Finney, M.D.Weir, F.R.Giordano, Thomas&#39; Calculus,10th Edition, Addison Wesley, 2005.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2020</td><td>4. Dennis G.Zill- Warren S.Wright, Matematik Cilt I - Calculus Early Transcendentals, Nobel Yayın Dağıtım, 2020.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2001</td><td>5. G.B., Finney, R.L . (Çev: Korkmaz, R.), Calculus ve Analitik Geometri, Cilt I, Beta Yayınları, 2001.</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/yazilim/MAT101">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/yazilim/MAT101/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Matematik I</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Bu dersin amacı mühendislik öğrencilerine fonksiyonlar, limit, türev ve türev uygulamaları gibi temel matematik kavramlarını öğreterek, analitik düşünme ve mühendislik problemlerini matematiksel yöntemlerle
+çözme becerisi kazandırmaktır.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Kümeler, Sayılar, Üslü ve köklü çokluklar, İkinci dereceden denklem ve eşitsizlikler, Doğrunun analitik incelenmesi, Çemberin analitik incelenmesi, Fonksiyon tanımı, Fonksiyonlarda işlemler, Fonksiyonlarla ilgili
+kavramlar (bire bir, örten, içine, birim, bileşke, ters, artan, azalan, tek, çift fonksiyon kavramları), Bazı Özel Fonksiyonlar ve Grafikleri (Kuvvet Fonksiyonlar, Polinom Fonksiyonlar, Rasyonel Fonksiyonlar, Mutlak
+Değer Fonksiyonu, Tam Değer Fonksiyonu, İşaret Fonksiyonu, Trigonometrik Fonksiyonlar, Ters Trigonometrik Fonksiyonlar, Üstel ve Logaritmik Fonksiyonlar, Hiperbolik Fonksiyonlar, Ters Hiperbolik
+Fonksiyonlar), Fonksiyonun Limiti, Limit Kuralları, Bir fonksiyonun sağ ve sol limiti, Sonsuzdaki limitler, Sandviç (Sıkıştırma) Teoremi, Bazı Trigonometrik Limitler, Bir fonksiyonun sürekliliği, Sağdan ve soldan
+süreklilik, Parçalı süreklilik, Süreksizlik çeşitleri (Kaldırılabilir süreksizlik, Sıçrama süreksizliği, Sonsuz süreksizlik), Sürekli fonksiyonların özellikleri, Kapalı aralıkta sürekli fonksiyonların özellikleri (Ara değer teoremi,
+Bolzano Teoremi), Türev tanımı, Sağdan ve soldan türev, Türev ve süreklilik arasındaki ilişki, Türev alma kuralları, Bileşke fonksiyonun türevi, zincir kuralı, Ters fonksiyonun türevi, Trigonometrik fonksiyonların
+türevi, Ters trigonometrik fonksiyonların türevi, Logaritma fonksiyonların türevi, Üstel fonksiyonların türevi, Logaritmik türev alma, Hiperbolik fonksiyonların türevi, Ters hiperbolik fonksiyonların türevi, Parametrik
+fonksiyonların türevi, Kapalı fonksiyonların türevi, Yüksek mertebeden türevler, Belirsiz Şekiller, Türevin Geometrik yorumu, Lineerleştirme, Diferansiyel Kavramı, Fonksiyonlarda ekstremumlar, Optimizasyon
+problemleri, Türev ile ilgili bazı teoremler, Asimptot Kavramı, Eğri Çizimleri</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">Yöntem ve teknikler, teorik anlatım, uygulamalı çalışmalar, grafik ve görselleştirme, analitik ve sayısal çözümler ile aktif katılımı içeren bir öğrenme süreciyle, öğrencilerin temel kalkülüs kavramlarını ve problemlere uygulama becerilerini geliştirmeyi amaçlar.</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Fonksiyon kavramını bilir ve temel özelliklerini öğrenir.</li><li>Fonksiyon çeşitlerini öğrenir ve grafiklerini çizer.</li><li>Limit ve süreklilik kavramını öğrenir.</li><li>Türev kurallarını ve tekniklerini kullanarak türev alabilir.</li><li>Türevin geometrik yorumunu bilir, fonksiyonun değişimini inceleyerek eğriyi çizebilir.</li><li>Türevin çeşitli uygulamalarını yapar ve mühendislik problemlerine uygulayabilir.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%40</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (180 saat → tabloda 6 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 5</td><td>70 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>14 × 4</td><td>56 saat</td></tr><tr><td>Ödevler</td><td>10 × 2</td><td>20 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 2</td><td>2 saat</td></tr><tr><td>Uygulama</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 2</td><td>2 saat</td></tr><tr><td>Ara Sınava Hazırlık</td><td>1 × 1</td><td>1 saat</td></tr><tr><td>Finale Hazırlık</td><td>1 × 1</td><td>1 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Kümeler, Sayılar, Üslü ve köklü çokluklar, İkinci dereceden denklem ve eşitsizlikler, Doğrunun analitik incelenmesi, Çemberin analitik incelenmesi</td></tr><tr><td class="w-10">2</td><td>Fonksiyon tanımı, Fonksiyonlarda işlemler, Fonksiyonlarla ilgili kavramlar</td></tr><tr><td class="w-10">3</td><td>Kuvvet Fonksiyonları, Polinom Fonksiyonlar, Rasyonel Fonksiyonlar, Mutlak Değer Fonksiyonu, Tam Değer Fonksiyonu</td></tr><tr><td class="w-10">4</td><td>İşaret Fonksiyonu, Trigonometrik Fonksiyonlar, Ters Trigonometrik Fonksiyonlar</td></tr><tr><td class="w-10">5</td><td>Üstel ve Logaritmik Fonksiyonlar, Hiperbolik Fonksiyonlar, Ters Hiperbolik Fonksiyonlar</td></tr><tr><td class="w-10">6</td><td>Fonksiyonun Limiti ve Limit hesaplama kuralları</td></tr><tr><td class="w-10">7</td><td>Bir fonksiyonun sürekliliği, Süreksizlik çeşitleri, Sürekli fonksiyonların özellikleri</td></tr><tr><td class="w-10">8</td><td>Bir fonksiyonun türevi ve Türev alma kuralları</td></tr><tr><td class="w-10">9</td><td>Ara Sınav</td></tr><tr><td class="w-10">10</td><td>Parametrik fonksiyonların türevi, Kapalı Fonksiyonların türevi, Yüksek mertebeden türevler</td></tr><tr><td class="w-10">11</td><td>Belirsiz Şekiller</td></tr><tr><td class="w-10">12</td><td>Türevin Geometrik anlamı, Lineerleştirme, Diferansiyel Kavramı</td></tr><tr><td class="w-10">13</td><td>Fonksiyonlarda ekstremumlar</td></tr><tr><td class="w-10">14</td><td>Optimizasyon problemleri, Türev ile ilgili bazı teoremler</td></tr><tr><td class="w-10">15</td><td>Asimptot Kavramı, Eğri Çizimleri</td></tr><tr><td class="w-10">16</td><td>Final Sınavı</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

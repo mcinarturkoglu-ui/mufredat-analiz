@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 4. yarıyıl</div>
+ <h1 class="text-2xl font-bold">MAT204 · Diferansiyel Denklemler</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 4+0+0 · Kredi 4 · AKTS 6 (müfredatta 6) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376799&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376799&amp;lang=tr</a> · toplandı 13.11.2026 01:27</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 37</span><span class="pill st-fail">kaldı: 4</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #78 · 13.11 16:20 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">84<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #79 · 13.11 16:21 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-3xl score mt-1">50<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #64 · 13.11 16:13 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (4)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/2 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">bibliographic_form · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Bazı kaynak satırları künye olamayacak kadar kısa (yazar, eser adı, yıl eksik).</td><td>1 yetersiz künye: [&#39;Ders Notları&#39;]</td><td>0 yetersiz künye</td><td class="text-slate-600">Kaynakları yazar, eser adı, yayınevi ve yıl içerecek şekilde yazın.</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin içeriği (Lisans, 4. Yarıyıl) göz önüne alındığında, ele alınan konuların derinliği (temelden ileri tekniklere kadar) uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı (&#39;Diferansiyel Denklemler&#39;) ve işlenen konular (temelden ileri tekniklere kadar) arasında gereksiz bir genişlik veya daralma gözlenmemektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konular, dersin genel kapsamı (temel kavramlar, çözüm teknikleri, uygulamalar) dahilindedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, içerik ve haftalık konular arasında belirgin bir uyum bulunmaktadır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin amaçlarında belirtilen temel kavramlar, çözüm teknikleri ve uygulamalar, haftalık konularda işlenmektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla tutarlıdır; her çıktı belirli bir konuyu hedeflemektedir.</td></tr></tbody></table>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %60 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Dersin amacı (temel kavramlar, çözüm teknikleri, uygulamalar) ve içeriği (denklemler, teknikler, uygulamalar) çıktı 1, 2, 3 ve 4 ile doğrudan örtüşmektedir. Çıktı 5 ise dersin genel hedeflerinden olan &#39;analitik düşünme becerilerini geliştirme&#39; amacını kapsayarak uyumu güçlendirmektedir. Bu nedenle uyum seviyesi yüksek (3).<br>
+  Bloom dağılımı: anlama 2, uygulama 3</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Öğrenciler, birinci ve ikinci dereceden diferansiyel denklemlerin temel kavramlarını anlayarak, bu denklemleri analitik yöntemlerle çözebilirler.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>2, 3, 4, 5</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>2</td><td>Öğrenciler, homojen ve homojen olmayan diferansiyel denklemler üzerinde çalışarak, lineer ve dönüşüm tekniklerini kullanarak çözüm süreçlerini kavrayabilirler.<div class="text-xs text-amber-700">belirsiz: kavrayabilirler</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>4, 5, 6</td>
+ <td class="text-blue-800">Öğrenciler, homojen ve homojen olmayan diferansiyel denklemler üzerinde çalışarak, lineer ve dönüşüm tekniklerini kullanarak çözüm süreçlerini uygulayabilirler.</td></tr>
+ <tr><td>3</td><td>Öğrenciler, değişkenlerin ayrılması, Laplace ve Fourier dönüşümleri gibi ileri düzey tekniklerle diferansiyel denklemleri çözebilirler.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>6, 9, 10</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Öğrenciler, diferansiyel denklemleri sayısal yöntemlerle çözebilir ve bu çözümleri analiz ederek gerçek dünya problemlerine uygulayabilirler.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>11, 13</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Öğrenciler, diferansiyel denklemlerin mühendislik ve bilimsel alanlardaki önemini anlayarak, matematiksel modelleme ve problem çözme yeteneklerini geliştirirler ve bu konuda daha ileri düzeyde bir anlayış geliştirirler.<div class="text-xs text-amber-700">belirsiz: anlayarak, geliştirirler, daha ileri düzeyde bir anlayış geliştirirler</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>13</td>
+ <td class="text-blue-800">Öğrenciler, diferansiyel denklemlerin mühendislik ve bilimsel alanlardaki önemini açıklayarak, matematiksel modelleme ve problem çözme yeteneklerini sergileyebilirler.</td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 50</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Diferansiyel Denklemler, Erhan Pişkin<div class="text-xs text-slate-500">Kitap, dersin ana konusu olan diferansiyel denklemler hakkında bilgi vermektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Ders Notları<div class="text-xs text-slate-500">Satır künye olamayacak kadar kısa (kod denetimi).</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Öğrenciler, birinci ve ikinci dereceden diferansiyel denklemlerin temel kavramlarını anlayarak, bu denklemleri analitik yöntemlerle çözebilirler.">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Temel kavramları anlamak ve analitik çözmek, mühendislikteki temel bilgi birikimine katkı sağlar.</td></tr><tr><td title="Öğrenciler, birinci ve ikinci dereceden diferansiyel denklemlerin temel kavramlarını anlayarak, bu denklemleri analitik yöntemlerle çözebilirler.">Ö1</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Temel denklemleri çözmek, karmaşık problemlerin formüle edilmesinde kullanılan temel araçları içerir.</td></tr><tr><td title="Öğrenciler, homojen ve homojen olmayan diferansiyel denklemler üzerinde çalışarak, lineer ve dönüşüm tekniklerini kullanarak çözüm süreçlerini kavrayabilirler.">Ö2</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Homojen/homojen olmayan denklemler ve dönüşüm teknikleri, modelleme ve çözüm becerisini doğrudan destekler.</td></tr><tr><td title="Öğrenciler, homojen ve homojen olmayan diferansiyel denklemler üzerinde çalışarak, lineer ve dönüşüm tekniklerini kullanarak çözüm süreçlerini kavrayabilirler.">Ö2</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Lineer ve dönüşüm teknikleri, modern tekniklerin seçilip uygulanması becerisine katkı sağlar.</td></tr><tr><td title="Öğrenciler, değişkenlerin ayrılması, Laplace ve Fourier dönüşümleri gibi ileri düzey tekniklerle diferansiyel denklemleri çözebilirler.">Ö3</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">4</td><td class="text-xs text-slate-600">Laplace ve Fourier gibi ileri tekniklerin öğrenilmesi, modern teknikleri geliştirme ve kullanma becerisine doğrudan katkı sağlar.</td></tr><tr><td title="Öğrenciler, diferansiyel denklemleri sayısal yöntemlerle çözebilir ve bu çözümleri analiz ederek gerçek dünya problemlerine uygulayabilirler.">Ö4</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">5</td><td class="text-xs text-slate-600">Sayısal çözümler ve gerçek dünya uygulamaları, modern teknikleri geliştirme ve kullanma becerisini en üst düzeyde destekler.</td></tr><tr><td title="Öğrenciler, diferansiyel denklemlerin mühendislik ve bilimsel alanlardaki önemini anlayarak, matematiksel modelleme ve problem çözme yeteneklerini geliştirirler ve bu konuda daha ileri düzeyde bir anlayış geliştirirler.">Ö5</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">4</td><td class="text-xs text-slate-600">Mühendislik ve bilimsel önemini anlamak, disipline özgü bilgi birikimini artırır.</td></tr><tr><td title="Öğrenciler, diferansiyel denklemlerin mühendislik ve bilimsel alanlardaki önemini anlayarak, matematiksel modelleme ve problem çözme yeteneklerini geliştirirler ve bu konuda daha ileri düzeyde bir anlayış geliştirirler.">Ö5</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Matematiksel modelleme ve problem çözme yeteneği, karmaşık problemleri formüle etme becerisine katkı sağlar.</td></tr></tbody></table></div>
+ </div></div>
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">2 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Diferansiyel Denklemler, Erhan Pişkin</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Ders Notları</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/yazilim/MAT204">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/yazilim/MAT204/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Diferansiyel Denklemler</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Diferansiyel Denklemler dersinin amacı, öğrencilere diferansiyel denklemlerin temel kavramlarını, çözüm tekniklerini ve uygulamalarını öğretmek ve analitik düşünme becerilerini geliştirmektir. Bu ders, öğrencilere diferansiyel denklemlerin matematiksel modelleme sürecindeki önemini vurgular ve mühendislik problemlerine uygulamalarını öğretir. Öğrenciler, diferansiyel denklemleri çözmek için çeşitli yöntemler ve teknikler kullanarak, gerçek dünya problemlerine matematiksel bir yaklaşım geliştirmeyi amaçlar.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Diferansiyel Denklemler dersi, birinci ve ikinci dereceden diferansiyel denklemler, homojen ve homojen olmayan denklemler, lineer denklemler, değişkenlerin ayrılması, dönüşüm ve serilerin kullanımı gibi temel konuları kapsar. Öğrenciler, diferansiyel denklemleri çözmek için analitik ve sayısal yöntemlerin yanı sıra, Laplace ve Fourier dönüşümleri gibi gelişmiş teknikleri de öğrenirler. Ders boyunca, diferansiyel denklemlerin mühendislikteki ve bilimsel uygulamalardaki önemine odaklanılır ve öğrencilere bu denklemleri pratik problemlere uygulama fırsatı verilir.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Öğrenciler, birinci ve ikinci dereceden diferansiyel denklemlerin temel kavramlarını anlayarak, bu denklemleri analitik yöntemlerle çözebilirler.</li><li>Öğrenciler, homojen ve homojen olmayan diferansiyel denklemler üzerinde çalışarak, lineer ve dönüşüm tekniklerini kullanarak çözüm süreçlerini kavrayabilirler.</li><li>Öğrenciler, değişkenlerin ayrılması, Laplace ve Fourier dönüşümleri gibi ileri düzey tekniklerle diferansiyel denklemleri çözebilirler.</li><li>Öğrenciler, diferansiyel denklemleri sayısal yöntemlerle çözebilir ve bu çözümleri analiz ederek gerçek dünya problemlerine uygulayabilirler.</li><li>Öğrenciler, diferansiyel denklemlerin mühendislik ve bilimsel alanlardaki önemini anlayarak, matematiksel modelleme ve problem çözme yeteneklerini geliştirirler ve bu konuda daha ileri düzeyde bir anlayış geliştirirler.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%30</td></tr><tr><td>Ödev</td><td>2</td><td>%20</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%50</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (180 saat → tabloda 6 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Ödevler</td><td>10 × 4</td><td>40 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 2</td><td>2 saat</td></tr><tr><td>Laboratuvar</td><td>15 × 2</td><td>30 saat</td></tr><tr><td>Proje</td><td>1 × 20</td><td>20 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 4</td><td>4 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Diferansiyel denklemlerin tanımı ve temel kavramlar</td></tr><tr><td class="w-10">2</td><td>Birinci dereceden diferansiyel denklemler ve çözüm teknikleri</td></tr><tr><td class="w-10">3</td><td>İkinci dereceden diferansiyel denklemlerin çözümü için yöntemler</td></tr><tr><td class="w-10">4</td><td>Homojen ve homojen olmayan denklemler</td></tr><tr><td class="w-10">5</td><td>Lineer diferansiyel denklemler ve çözüm teknikleri</td></tr><tr><td class="w-10">6</td><td>Dönüşüm yöntemleri ve özel çözümler</td></tr><tr><td class="w-10">7</td><td>Ara Sınav</td></tr><tr><td class="w-10">8</td><td>Değişkenlerin ayrılması yöntemi ve uygulamaları</td></tr><tr><td class="w-10">9</td><td>Laplace dönüşümü ve diferansiyel denklemlerle ilişkisi</td></tr><tr><td class="w-10">10</td><td>Fourier dönüşümü ve diferansiyel denklemler üzerindeki etkileri</td></tr><tr><td class="w-10">11</td><td>Sayısal çözümler ve uygulamaları</td></tr><tr><td class="w-10">12</td><td>Diferansiyel denklemlerle ilgili özel konular: sınır değer problemleri, salınımlar vb.</td></tr><tr><td class="w-10">13</td><td>Gerçek dünya uygulamaları ve problemler</td></tr><tr><td class="w-10">14</td><td>Dersin değerlendirilmesi ve kapanışı</td></tr><tr><td class="w-10">15</td><td>Dönem Sonu Sınavı</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

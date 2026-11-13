@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-1 text-sm">
+   
+   
+    
+     <a href="/mufredat-analiz/" class="block rounded-md px-3 py-2 hover:bg-slate-800">Genel Bakış</a>
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Programlar</div>
+     
+      <a href="/mufredat-analiz/program/yazilim" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <div class="px-3 pt-3 pb-1 text-xs uppercase tracking-wide text-slate-500">Konu Örtüşmeleri</div>
+     
+      <a href="/mufredat-analiz/program/yazilim/overlap" class="block rounded-md px-3 py-1.5 pl-5 hover:bg-slate-800">Yazılım Mühendisliği</a>
+     
+    
+   
+    
+     <a href="/mufredat-analiz/ai" class="block rounded-md px-3 py-2 hover:bg-slate-800">YZ Analiz Merkezi</a>
+    
+   
+    
+     <a href="/mufredat-analiz/data" class="block rounded-md px-3 py-2 hover:bg-slate-800">Veri Toplama</a>
+    
+   
+    
+     <a href="/mufredat-analiz/reports" class="block rounded-md px-3 py-2 hover:bg-slate-800">Raporlar</a>
+    
+   
+    
+     <a href="/mufredat-analiz/settings" class="block rounded-md px-3 py-2 hover:bg-slate-800">Ayarlar</a>
+    
+   
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 1. yarıyıl</div>
+ <h1 class="text-2xl font-bold">YZM107 · Bilgisayar Bilimlerine Giriş</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L 2+0+0 · Kredi 2 · AKTS 4 (müfredatta 4) · Zorunlu · kategori: regular · sitede son güncelleme 08.06.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376720&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376720&amp;lang=tr</a> · toplandı 13.11.2026 01:29</div></div>
+ 
+</div>
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 38</span><span class="pill st-fail">kaldı: 4</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+  <div class="text-3xl score mt-1">70<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #30 · 13.11 15:48 · 2 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+  <div class="text-3xl score mt-1">85.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #31 · 13.11 15:49 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+  <div class="text-3xl score mt-1">66.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #86 · 13.11 16:25 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (4)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>1/3 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">bibliographic_form · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Bazı kaynak satırları künye olamayacak kadar kısa (yazar, eser adı, yıl eksik).</td><td>1 yetersiz künye: [&#39;Ders notları&#39;]</td><td>0 yetersiz künye</td><td class="text-slate-600">Kaynakları yazar, eser adı, yayınevi ve yıl içerecek şekilde yazın.</td></tr>
+</tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin &#39;Lisans&#39; düzeyi olması göz önüne alındığında, haftalık konuların büyük bir kısmı (özellikle Word ve Excel&#39;in temel/orta düzey fonksiyonları) daha çok ön lisans veya lise düzeyinde beklenen becerilere odaklanmıştır. &#39;Temel Bilgisayar Donanımı&#39;nın yüzeysel ele alınması da bu durumu desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı &#39;Bilgisayar Bilimlerine Giriş&#39; iken, içerik ve konuların büyük çoğunluğu (Word, Excel, PowerPoint, Visio) pratik uygulama becerilerine odaklanmıştır. Bu, &#39;Bilgisayar Bilimleri&#39;nin teorik ve temel kavramlarını (örneğin algoritmalar, veri yapıları) kapsamadığı için ders adının kapsamına göre dar kalmaktadır.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konular, dersin amacı ve adı dahilindeki konuları (Word, Excel, PowerPoint, Temel Donanım) kapsamaktadır. Visio&#39;nun eklenmesi, amacın kapsamını biraz genişletse de, bu ekleme dersin genel yapısı içinde bir sapma olarak değerlendirilemez.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı ve amaç, donanım ve temel ofis uygulamalarına odaklanırken, haftalık konuların büyük bir kısmı bu odakla uyumlu olsa da, &#39;Temel Bilgisayar Donanımı&#39;nın kapsamı, haftalık konuların sadece bir kısmında (hafta:2) ele alınmıştır ve bu, dersin genel içeriğiyle tam bir örtüşme sağlamamaktadır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Amaçta belirtilen &#39;temel bilgisayar donanımı&#39; ve &#39;Microsoft Office uygulamaları&#39;nın tamamı haftalık konularda işlenmektedir, ancak amaçta belirtilen &#39;etkili bir şekilde kullanma becerileri&#39;nin tamamı, sadece Word, Excel ve PowerPoint&#39;e odaklanıldığı için, Visio&#39;nun eklenmesiyle bir uyumsuzluk oluşmaktadır.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla genel olarak uyumlu olsa da, amaçta belirtilen &#39;temel bilgisayar donanımı&#39; ile ilgili bir öğrenme çıktısı (donanım bilgisi kazandırma) bulunmamaktadır; çıktılar ağırlıklı olarak yazılım becerilerine odaklanmıştır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı ve amaç, donanım ve temel ofis uygulamalarına odaklanırken, haftalık konuların büyük bir kısmı bu odakla uyumlu olsa da, &#39;Temel Bilgisayar Donanımı&#39;nın kapsamı, haftalık konuların sadece bir kısmında (hafta:2) ele alınmıştır ve bu, dersin genel içeriğiyle tam bir örtüşme sağlamamaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaçta &#39;Temel bilgisayar donanımı&#39;dan bahsedilmektedir, ancak bu konu sadece hafta:2&#39;de ele alınmış, diğer haftalarda bu konuya geri dönüş olmamıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Dersin odak noktaları arasında Microsoft Office uygulamaları olan Word, Excel ve PowerPoint ile temel bilgisayar donanımı yer almaktadır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:2</code> “Bilgisayar donanım birimlerinin tanıtımı, Bilgisayar Donanım Bileşenleri Nedir? Anakart (Motherboard) Merkezi İşlem Birimi (CPU) Bellek (RAM) Sabit Disk ve SSD (HDD, SSD) Grafik Kartı (GPU) Güç Kaynağı (PSU) Giriş/Çıkış Birimleri (Mouse, Klavye, Monitör) Diğer Aksesuarlar (Webcam, Mikrofon, Yazıcı) Klavye kullanımı”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Temel donanım bileşenlerinin dersin diğer haftalarında (örneğin, donanım ve yazılım etkileşimi bağlamında) daha fazla ele alınması veya dersin adının &#39;Bilgisayar Bilimlerine Giriş&#39; yerine &#39;Temel Bilgisayar Uygulamaları&#39; gibi daha odaklı bir başlığa revize edilmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Amaçta belirtilen &#39;etkili bir şekilde kullanma becerileri&#39;nin tamamı, sadece Word, Excel ve PowerPoint&#39;e odaklanıldığı için, Visio&#39;nun eklenmesiyle bir uyumsuzluk oluşmaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaç, temel donanımı da kapsasa da, haftalık konuların büyük bir kısmı (özellikle Visio&#39;nun eklenmesi) bu temel donanım odaklı kullanım becerilerinin ötesine geçmektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Dersin odak noktaları arasında Microsoft Office uygulamaları olan Word, Excel ve PowerPoint ile temel bilgisayar donanımı yer almaktadır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:14</code> “Microsoft Visio, Giriş, Visio Arayüzü ve Temel Şekiller: Visio arayüzü, yeni diyagram oluşturma, temel şekillerin eklenmesi ve düzenlenmesi, şekil biçimlendirme. Akış şemaları oluşturma, akış şeması sembollerinin kullanımı, organizasyon şemaları oluşturma ve düzenleme.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Eğer Visio ders içeriğine dahil edilecekse, dersin amacı ve tanımı bu yazılımı da kapsayacak şekilde güncellenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Amaçta belirtilen &#39;temel bilgisayar donanımı&#39; ile ilgili bir öğrenme çıktısı (donanım bilgisi kazandırma) bulunmamaktadır; çıktılar ağırlıklı olarak yazılım becerilerine odaklanmıştır.</div><div class="text-xs text-slate-500 mt-1">Amaçta donanım bilgisi kazandırma hedefi varken, öğrenme çıktıları (cikti:1-5) tamamen yazılım uygulamalarına (Word, Excel, PowerPoint, Visio) odaklanmıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Dersin odak noktaları arasında Microsoft Office uygulamaları olan Word, Excel ve PowerPoint ile temel bilgisayar donanımı yer almaktadır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Öğrenciler, bilgisayar biliminin tarihçesini ve temel kavramlarını öğrenir.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Temel donanım bileşenleri hakkında bilgi edinme becerisini ölçen ve amaçla uyumlu bir öğrenme çıktısı eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ders adı fazla dar</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı &#39;Bilgisayar Bilimlerine Giriş&#39; iken, içerik ve konuların büyük çoğunluğu (Word, Excel, PowerPoint, Visio) pratik uygulama becerilerine odaklanmıştır. Bu, &#39;Bilgisayar Bilimleri&#39;nin teorik ve temel kavramlarını (örneğin algoritmalar, veri yapıları) kapsamadığı için ders adının kapsamına göre dar kalmaktadır.</div><div class="text-xs text-slate-500 mt-1">Dersin içeriği, &#39;Bilgisayar Bilimleri&#39;nin teorik temellerinden ziyade, belirli yazılımların kullanımına odaklanmıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Bilgisayar Bilimlerine Giriş”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Microsoft Word, Microsoft Excel, Microsoft Powerpoint, Temel Bilgisayar Donanımı”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin içeriği pratik uygulamalara odaklandığı için, ders adının &#39;Temel Bilgisayar Uygulamaları&#39; veya &#39;Ofis Teknolojileri&#39; gibi daha doğru bir başlığa değiştirilmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin &#39;Lisans&#39; düzeyi olması göz önüne alındığında, haftalık konuların büyük bir kısmı (özellikle Word ve Excel&#39;in temel/orta düzey fonksiyonları) daha çok ön lisans veya lise düzeyinde beklenen becerilere odaklanmıştır. &#39;Temel Bilgisayar Donanımı&#39;nın yüzeysel ele alınması da bu durumu desteklemektedir.</div><div class="text-xs text-slate-500 mt-1">Dersin sunduğu konuların derinliği, Lisans düzeyinde beklenen teorik derinlikten ziyade, pratik araç kullanımına odaklanmıştır.</div>
+  <div class="text-xs mt-1">✗ <code class="bg-slate-100 px-1 rounded">Düzey</code> “Lisans”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:3</code> “Microsoft Word, Giriş, Dosya, Giriş ve Ekle Menüleri: Word arayüzü, yeni belge oluşturma, açma, kaydetme, temel metin düzenleme ve biçimlendirme (kalın, italik, altı çizili), başlık ekleme, madde işaretleri ve numaralandırma, tablo, resim ve şekil ekleme.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Lisans düzeyine uygun hale getirmek için, yazılım kullanımının ötesine geçilerek, bu araçların arkasındaki bilgi işlem prensipleri (örneğin, veri yapılarının Excel&#39;deki temsili, dosya sistemlerinin temelleri) konulara eklenmelidir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %80 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Dersin amacı &#39;temel unsurları anlama ve etkili bir şekilde kullanma becerilerini kazandırmak&#39;tır. Çıktılar (2, 3, 4, 5) bu &#39;kullanma&#39; becerisini ölçülebilir eylemlerle (uygulama) ele almaktadır. Ancak, donanım bilgisi (hafta 2) ve genel &#39;anlama&#39; hedefi (cikti:1) tam olarak kapsanmadığı için tam uyum (3) sağlanamamıştır.<br>
+  Bloom dağılımı: anlama 1, uygulama 4</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Öğrenciler, bilgisayar biliminin tarihçesini ve temel kavramlarını öğrenir.<div class="text-xs text-amber-700">belirsiz: öğrenir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1</td>
+ <td class="text-blue-800">Öğrenciler, bilgisayar biliminin tarihçesini ve temel kavramlarını açıklayabilir.</td></tr>
+ <tr><td>2</td><td>Öğrenciler, Microsoft Word arayüzünü ve temel menülerini kullanarak belgeler oluşturur ve düzenler.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>3, 4, 5</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Öğrenciler, Microsoft Excel&#39;de veri girişi yapar, temel ve gelişmiş formülleri kullanır.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>6, 8, 9, 10, 11</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Öğrenciler, PowerPoint arayüzünü ve menülerini kullanarak yeni sunumlar oluşturur ve düzenler.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>12, 13</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Öğrenciler, Microsoft Visio arayüzünü kullanarak temel şekiller ve diyagramlar oluşturur.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>14</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 66.7</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Ders notları<div class="text-xs text-slate-500">Satır künye olamayacak kadar kısa (kod denetimi).</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Öğretim Üyesi ders notları<div class="text-xs text-slate-500">Dersin içeriğiyle doğrudan ilgili ek materyaldir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">ders notu</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Bilgisayar Bilimine Giriş, J. Glenn Brookshear, Dennis Brylow, Nobel Akademik Yayıncılık,2023<div class="text-xs text-slate-500">Bilgisayar Bilimine Giriş konusunu destekleyen bir akademik kaynaktır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Öğrenciler, bilgisayar biliminin tarihçesini ve temel kavramlarını öğrenir.">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Bilgisayar biliminin temel kavramları (hafta 1) PO4&#39;teki &#39;bilişim teknolojilerini etkin kullanma&#39; becerisinin başlangıcını destekler.</td></tr><tr><td title="Öğrenciler, bilgisayar biliminin tarihçesini ve temel kavramlarını öğrenir.">Ö1</td><td title="Yaşam boyu öğrenmenin gerekliliği bilinci; bilgiye erişebilme, bilim ve teknolojideki gelişmeleri izleme ve kendini sürekli yenileme becerisi.">P8</td><td class="score">3</td><td class="text-xs text-slate-600">Tarihçe ve temel kavramlar, teknolojideki gelişmeleri izleme bilincine katkı sağlar.</td></tr><tr><td title="Öğrenciler, Microsoft Word arayüzünü ve temel menülerini kullanarak belgeler oluşturur ve düzenler.">Ö2</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">4</td><td class="text-xs text-slate-600">Word kullanımı (hafta 3, 4, 5) doğrudan bilişim teknolojilerini etkin kullanma becerisini destekler.</td></tr><tr><td title="Öğrenciler, Microsoft Word arayüzünü ve temel menülerini kullanarak belgeler oluşturur ve düzenler.">Ö2</td><td title="Türkçe sözlü ve yazılı etkin iletişim kurma becerisi; en az bir yabancı dil bilgisi; etkili rapor yazma ve yazılı raporları anlama, tasarım ve üretim raporları hazırlayabilme, etkin sunum yapabilme, açık ve anlaşılır talimat verme, alma becerisi.">P7</td><td class="score">3</td><td class="text-xs text-slate-600">Belge oluşturma ve biçimlendirme, etkili rapor yazma becerisine katkı sağlar.</td></tr><tr><td title="Öğrenciler, Microsoft Excel&#39;de veri girişi yapar, temel ve gelişmiş formülleri kullanır.">Ö3</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">4</td><td class="text-xs text-slate-600">Excel ile veri analizi ve formül kullanımı, modern teknik ve araçları kullanma becerisini destekler.</td></tr><tr><td title="Öğrenciler, Microsoft Excel&#39;de veri girişi yapar, temel ve gelişmiş formülleri kullanır.">Ö3</td><td title="Türkçe sözlü ve yazılı etkin iletişim kurma becerisi; en az bir yabancı dil bilgisi; etkili rapor yazma ve yazılı raporları anlama, tasarım ve üretim raporları hazırlayabilme, etkin sunum yapabilme, açık ve anlaşılır talimat verme, alma becerisi.">P7</td><td class="score">3</td><td class="text-xs text-slate-600">Veri analizi sonuçlarının görselleştirilmesi, etkili sunum hazırlama becerisine dolaylı katkı sağlar.</td></tr><tr><td title="Öğrenciler, PowerPoint arayüzünü ve menülerini kullanarak yeni sunumlar oluşturur ve düzenler.">Ö4</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">4</td><td class="text-xs text-slate-600">PowerPoint ile sunum oluşturma ve düzenleme, bilişim teknolojilerini etkin kullanma becerisini destekler.</td></tr><tr><td title="Öğrenciler, PowerPoint arayüzünü ve menülerini kullanarak yeni sunumlar oluşturur ve düzenler.">Ö4</td><td title="Türkçe sözlü ve yazılı etkin iletişim kurma becerisi; en az bir yabancı dil bilgisi; etkili rapor yazma ve yazılı raporları anlama, tasarım ve üretim raporları hazırlayabilme, etkin sunum yapabilme, açık ve anlaşılır talimat verme, alma becerisi.">P7</td><td class="score">4</td><td class="text-xs text-slate-600">Sunum hazırlama becerisi, PO7&#39;deki &#39;etkin sunum yapabilme&#39; becerisine doğrudan katkı sağlar.</td></tr><tr><td title="Öğrenciler, Microsoft Visio arayüzünü kullanarak temel şekiller ve diyagramlar oluşturur.">Ö5</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Visio ile diyagram oluşturma, modern teknik ve araçları kullanma becerisine katkı sağlar.</td></tr></tbody></table></div>
+ </div></div>
+<div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">3 kaynak · 1 tanesinde yıl var · en yeni 2023 (3 yıl önce) · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Ders notları</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Öğretim Üyesi ders notları</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2023</td><td>Bilgisayar Bilimine Giriş, J. Glenn Brookshear, Dennis Brylow, Nobel Akademik Yayıncılık,2023</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/yazilim/YZM107">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/yazilim/YZM107/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Bilgisayar Bilimlerine Giriş</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Bu ders, öğrencilere bilgisayar teknolojisinin temel unsurlarını anlama ve etkili bir şekilde kullanma becerilerini kazandırmayı hedefler. Dersin odak noktaları arasında Microsoft Office uygulamaları olan Word, Excel ve PowerPoint ile temel bilgisayar donanımı yer almaktadır. Öğrenciler, bu uygulamaları kullanarak belge oluşturma, veri analizi yapma ve sunum hazırlama yeteneklerini geliştireceklerdir.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Microsoft Word, Microsoft Excel, Microsoft Powerpoint, Temel Bilgisayar Donanımı</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Öğrenciler, bilgisayar biliminin tarihçesini ve temel kavramlarını öğrenir.</li><li>Öğrenciler, Microsoft Word arayüzünü ve temel menülerini kullanarak belgeler oluşturur ve düzenler.</li><li>Öğrenciler, Microsoft Excel&#39;de veri girişi yapar, temel ve gelişmiş formülleri kullanır.</li><li>Öğrenciler, PowerPoint arayüzünü ve menülerini kullanarak yeni sunumlar oluşturur ve düzenler.</li><li>Öğrenciler, Microsoft Visio arayüzünü kullanarak temel şekiller ve diyagramlar oluşturur.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%28</td></tr><tr><td>Ödev</td><td>1</td><td>%30</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%42</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (120 saat → tabloda 4 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>2 × 10</td><td>20 saat</td></tr><tr><td>Ödevler</td><td>4 × 10</td><td>40 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 12</td><td>12 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 20</td><td>20 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Bilgisayar bilimlerine giriş, bilgisayar biliminin tarihçesi</td></tr><tr><td class="w-10">2</td><td>Bilgisayar donanım birimlerinin tanıtımı, Bilgisayar Donanım Bileşenleri Nedir? Anakart (Motherboard) Merkezi İşlem Birimi (CPU) Bellek (RAM) Sabit Disk ve SSD (HDD, SSD) Grafik Kartı (GPU) Güç Kaynağı (PSU) Giriş/Çıkış Birimleri (Mouse, Klavye, Monitör) Diğer Aksesuarlar (Webcam, Mikrofon, Yazıcı) Klavye kullanımı</td></tr><tr><td class="w-10">3</td><td>Microsoft Word, Giriş, Dosya, Giriş ve Ekle Menüleri: Word arayüzü, yeni belge oluşturma, açma, kaydetme, temel metin düzenleme ve biçimlendirme (kalın, italik, altı çizili), başlık ekleme, madde işaretleri ve numaralandırma, tablo, resim ve şekil ekleme.</td></tr><tr><td class="w-10">4</td><td>Microsoft Word, Düzen ve Tasarım Menüleri: Sayfa düzeni ayarları (kenar boşlukları, yönlendirme, boyut), sütunlar, arka planlar, temalar ve stiller</td></tr><tr><td class="w-10">5</td><td>Microsoft Word, Referanslar ve Postalar Menüleri: İçindekiler tablosu oluşturma, dipnot ve son not ekleme, alıntılar ve kaynakça ekleme, mektup birleştirme. Gözden Geçir ve Görünüm Menüleri: Belgeyi gözden geçirme, yorum ekleme, düzenlemeleri izleme, farklı görünümler arasında geçiş yapma, belgeleri paylaşma ve koruma.</td></tr><tr><td class="w-10">6</td><td>Microsoft Excel, Giriş, Ana Menü ve Veri Girişi: Excel arayüzü, hücre biçimlendirme, veri girişi, temel formüller (Topla, Ortalama, Min, Max)</td></tr><tr><td class="w-10">7</td><td>Ara sınav</td></tr><tr><td class="w-10">8</td><td>Microsoft Excel, Veri Analizi ve Fonksiyonlar: Veri sıralama, filtreleme, gelişmiş fonksiyonlar (VLOOKUP, HLOOKUP, IF, COUNTIF, SUMIF)</td></tr><tr><td class="w-10">9</td><td>Microsoft Excel, Grafikler ve Görselleştirme: Grafik türleri (çizgi grafik, pasta grafik, çubuk grafik), grafik biçimlendirme, veri görselleştirme</td></tr><tr><td class="w-10">10</td><td>Microsoft Excel , Makrolar ve VBA: Makro kaydı, temel VBA kodlama, otomasyon görevleri</td></tr><tr><td class="w-10">11</td><td>Microsoft Excel, Uygulamalı Projeler ve İleri Düzey Kullanım: Proje geliştirme, gerçek hayat problemleri üzerine çözümler üretme, ileri düzey fonksiyonlar ve VBA kullanımı</td></tr><tr><td class="w-10">12</td><td>Microsoft Powerpoint, Giriş, Dosya, Giriş ve Ekle Menüleri: PowerPoint arayüzü, yeni sunum oluşturma, slayt ekleme ve düzenleme, metin kutuları ve temel biçimlendirme, görseller, şekiller ve grafikler ekleme.</td></tr><tr><td class="w-10">13</td><td>Microsoft Powerpoint, Tasarım, Geçişler, Animasyonlar ve Slayt Gösterisi Menüleri: Slayt düzeni ve tasarım temaları, geçiş efektleri, animasyonlar, slayt gösterisi ayarları, sunumların prova edilmesi ve paylaşılması.</td></tr><tr><td class="w-10">14</td><td>Microsoft Visio, Giriş, Visio Arayüzü ve Temel Şekiller: Visio arayüzü, yeni diyagram oluşturma, temel şekillerin eklenmesi ve düzenlenmesi, şekil biçimlendirme. Akış şemaları oluşturma, akış şeması sembollerinin kullanımı, organizasyon şemaları oluşturma ve düzenleme.</td></tr><tr><td class="w-10">15</td><td>Final sınavı</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>
