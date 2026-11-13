@@ -67,7 +67,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 6. yarıyıl</div>
@@ -83,13 +83,19 @@
   <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 32</span><span class="pill st-fail">kaldı: 9</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">85<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #144 · 13.11 18:19 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">77.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #146 · 13.11 18:20 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #156 · 13.11 19:23 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
 </div>
 
@@ -107,12 +113,67 @@
 <td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2015 (11 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr>
 </tbody></table></div>
 
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Konuların derinliği, dersin Lisans düzeyi ve 6. yarıyıl bilgisiyle uyumlu görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konulara göre gereğinden geniş ya da dar bulunmamıştır.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların dersin adı ve amacının kapsamı dışında bir konu içerdiği tespit edilmemiştir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, amaç ve haftalık konular arasında belirgin bir uyumsuzluk gözlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacında belirtilen tüm konuların haftalık konularda tam olarak işlendiği görülmemektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla tam bir örtüşme göstermemektedir.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Amaçta belirtilen &#39;sensörler&#39; konusu, haftalık konularda açıkça yer almamaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaçta &#39;sensörler&#39;dan bahsedilmesine rağmen, haftalık konular arasında bu konuya doğrudan değinen bir başlık bulunmamaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “sensörler, emülatörler, ses, resim ve video, harita servisleri ve veritabanlarını içeren uygulamalar geliştirebilmelerini sağlamaktır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “Mobil programlama temelleri”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Amaçta belirtilen &#39;sensörler&#39; konusunun haftalık konulara eklenmesi veya bu konunun ders içeriğinde ele alınması gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, amaçta belirtilen &#39;sensörler&#39; ve &#39;emülatörler&#39; gibi bazı unsurları kapsamamaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaçta geçen &#39;sensörler&#39; ve &#39;emülatörler&#39; kavramları, öğrenme çıktıları arasında doğrudan bir beceri olarak ifade edilmemiştir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “sensörler, emülatörler, ses, resim ve video, harita servisleri ve veritabanlarını içeren uygulamalar geliştirebilmelerini sağlamaktır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Mobil programlamaya ait temel kavramları açıklayabilme;”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktılarına, amaçta belirtilen &#39;sensörler&#39; ve &#39;emülatörler&#39; ile ilgili becerileri eklemek gerekmektedir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %60 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Dersin amacı &#39;bilgi sahibi olmak&#39; ve &#39;uygulamalar geliştirebilmek&#39; ikisi arasında bir denge kurmaktadır. Çıktılar bu iki boyutu da (temel kavramlar ve uygulama becerileri) ele almaktadır, ancak &#39;tasarım yapabilme&#39; çıktısı (cikti:5) yeterince ölçülebilir değildir.<br>
+  Bloom dağılımı: analiz 1, anlama 1, yaratma 1, uygulama 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Mobil programlamaya ait temel kavramları açıklayabilme;<div class="text-xs text-amber-700">belirsiz: açıklayabilme</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1</td>
+ <td class="text-blue-800">Mobil programlamaya ait temel kavramları tanımlayabilme</td></tr>
+ <tr><td>2</td><td>Mobil işletim sistemlerini ve özelliklerini ayırt etme;</td><td>analiz</td>
+ <td><span class="pill st-pass">evet</span></td><td>2</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Mobil uygulama geliştirme araçlarını kullanabilme;</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>3</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Mobil programlamada ses, resim, video, veritabanı ve konum kullanabilme;</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>6, 7, 10, 11</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Mobil programlama ile farklı tasarımlar yapabilme;<div class="text-xs text-amber-700">belirsiz: farklı tasarımlar yapabilme</div></td><td>yaratma</td>
+ <td><span class="pill st-fail">hayır</span></td><td>4, 5</td>
+ <td class="text-blue-800">Mobil programlama prensiplerini kullanarak belirli bir arayüz taslağı oluşturabilme</td></tr>
+ </tbody></table>
+</div>
 
 
-
-
-
-
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Ayan, B. (2015). Appinventor ile mobil uygulama geliştirme. Abaküs Yayınevi.<div class="text-xs text-slate-500">Kitap, mobil uygulama geliştirme konusuna doğrudan odaklanmaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Walter, D., &amp; Sherman, M. (2014). Learning MIT app inventor: A hands-on guide to building your own android apps. Pearson Education.<div class="text-xs text-slate-500">Kitap, Android uygulaması geliştirme ve mobil uygulama konularını ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Mobil programlamaya ait temel kavramları açıklayabilme;">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Temel kavramlar, modern teknikleri kullanma becerisinin başlangıcıdır.</td></tr><tr><td title="Mobil programlamaya ait temel kavramları açıklayabilme;">Ö1</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">3</td><td class="text-xs text-slate-600">Temel kavramlar, yazılım sistemleri geliştirmenin ön koşuludur.</td></tr><tr><td title="Mobil işletim sistemlerini ve özelliklerini ayırt etme;">Ö2</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">İşletim sistemlerini ayırt etmek, bilişim teknolojilerini etkin kullanma becerisine katkı sağlar.</td></tr><tr><td title="Mobil işletim sistemlerini ve özelliklerini ayırt etme;">Ö2</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">3</td><td class="text-xs text-slate-600">İşletim sistemleri bilgisi, yazılım geliştirme sürecinin temelini oluşturur.</td></tr><tr><td title="Mobil uygulama geliştirme araçlarını kullanabilme;">Ö3</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">4</td><td class="text-xs text-slate-600">Geliştirme araçlarını kullanabilmek, modern teknikleri kullanma becerisini doğrudan destekler.</td></tr><tr><td title="Mobil uygulama geliştirme araçlarını kullanabilme;">Ö3</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">4</td><td class="text-xs text-slate-600">Araçları kullanma becerisi, karmaşık yazılım sistemleri geliştirme yeteneğinin bir parçasıdır.</td></tr><tr><td title="Mobil programlamada ses, resim, video, veritabanı ve konum kullanabilme;">Ö4</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">5</td><td class="text-xs text-slate-600">Sensör, veritabanı gibi bileşenleri kullanmak, karmaşık problemler için gerekli araçları kullanma becerisini en üst düzeyde destekler.</td></tr><tr><td title="Mobil programlamada ses, resim, video, veritabanı ve konum kullanabilme;">Ö4</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">5</td><td class="text-xs text-slate-600">Bu bileşenleri entegre etmek, karmaşık yazılım sistemleri geliştirme becerisinin zirvesidir.</td></tr><tr><td title="Mobil programlama ile farklı tasarımlar yapabilme;">Ö5</td><td title="Karmaşık bir sistemi, süreci, cihazı veya ürünü gerçekçi kısıtlar ve koşullar altında, belirli gereksinimleri karşılayacak şekilde tasarlama becerisi; bu amaçla modern tasarım yöntemlerini uygulama becerisi.">P3</td><td class="score">4</td><td class="text-xs text-slate-600">Farklı tasarımlar yapabilmek, gerçekçi kısıtlar altında sistem tasarlama becerisine katkı sağlar.</td></tr><tr><td title="Mobil programlama ile farklı tasarımlar yapabilme;">Ö5</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">4</td><td class="text-xs text-slate-600">Farklı tasarımlar yapmak, yazılım sistemlerini geliştirme sürecinin bir parçasıdır.</td></tr></tbody></table></div>
+ </div></div>
 <div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">2 kaynak · 2 tanesinde yıl var · en yeni 2015 (11 yıl önce) · 10 yıldan eski 2</div>

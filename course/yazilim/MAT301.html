@@ -67,7 +67,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 5. yarıyıl</div>
@@ -93,7 +93,9 @@
   </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">50<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #135 · 13.11 18:15 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
 </div>
 
@@ -144,7 +146,19 @@
 </div>
 
 
-
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 50</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Mühendisler İçin Sayısal Yöntemler Yazılım Ve Programlama Uygulamalarıyla - Steven C. Chapra, Raymond P. Canale<div class="text-xs text-slate-500">Kitap, nümerik yöntemler ve uygulamalar konusunu doğrudan ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Ders Notları<div class="text-xs text-slate-500">Satır künye olamayacak kadar kısa (kod denetimi).</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Diferansiyel ve integral denklemleri nümerik yöntemlerle çözebilme becerisi kazanır.">Ö1</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Diferansiyel denklemlerin çözümü, karmaşık problemleri formüle etme ve çözme becerisine katkı sağlar.</td></tr><tr><td title="Diferansiyel ve integral denklemleri nümerik yöntemlerle çözebilme becerisi kazanır.">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Nümerik yöntemlerin uygulanması, modern teknikleri kullanma becerisine katkı sağlar.</td></tr><tr><td title="Lineer cebir prensiplerini kullanarak sayısal hesaplama yöntemlerini anlayabilir ve uygulayabilir.">Ö2</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Lineer cebir bilgisi, mühendislik disiplinine özgü bilgi birikimine katkı sağlar.</td></tr><tr><td title="Lineer cebir prensiplerini kullanarak sayısal hesaplama yöntemlerini anlayabilir ve uygulayabilir.">Ö2</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Sayısal hesaplama yöntemlerinin uygulanması, modern araçları kullanma becerisine katkı sağlar.</td></tr><tr><td title="Nümerik analizde hata analizi yapabilme ve yakınsama tekniklerini uygulayabilme yeteneği geliştirir.">Ö3</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Hata analizi ve yakınsama teknikleri, karmaşık problemlerin analizi için gerekli teknikleri kapsar.</td></tr><tr><td title="Sayısal optimizasyon, interpolasyon ve regresyon gibi temel sayısal teknikleri kavrayabilir ve uygulayabilir.">Ö4</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Optimizasyon ve interpolasyon gibi teknikler, problem modelleme ve çözme becerisine katkı sağlar.</td></tr><tr><td title="Sayısal optimizasyon, interpolasyon ve regresyon gibi temel sayısal teknikleri kavrayabilir ve uygulayabilir.">Ö4</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Temel sayısal tekniklerin kavranması, modern teknikleri kullanma becerisine katkı sağlar.</td></tr><tr><td title="MATLAB veya benzeri bilimsel hesaplama yazılımlarını kullanarak nümerik yöntemleri pratik uygulamalara dönüştürebilme yeteneği geliştirir.">Ö5</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">4</td><td class="text-xs text-slate-600">MATLAB kullanımı, bilişim teknolojilerini etkin kullanma becerisine doğrudan katkı sağlar.</td></tr></tbody></table></div>
+ </div></div>
 <div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">2 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>

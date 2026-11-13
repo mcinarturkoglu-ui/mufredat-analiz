@@ -67,7 +67,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 4. yarıyıl</div>
@@ -93,7 +93,9 @@
   </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">50<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #123 · 13.11 18:10 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
 </div>
 
@@ -145,7 +147,23 @@
 </div>
 
 
-
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 50</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Staj yapılan kurumun sağladığı kaynaklar<div class="text-xs text-slate-500">Staj yapılan kurumun sağladığı kaynaklar, stajın uygulamalı kısmıyla doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>SAMÜ staj yönergesi<div class="text-xs text-slate-500">Staj yönergesi, stajın kurumsal çerçevesini belirterek dolaylı olarak mesleki bilgiye katkı sağlar.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Staj yapılan kurumun sağladığı kaynaklar<div class="text-xs text-slate-500">Staj yapılan kurumun sağladığı kaynaklar, stajın uygulamalı kısmıyla doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>SAMÜ staj yönergesi<div class="text-xs text-slate-500">Staj yönergesi, stajın kurumsal çerçevesini belirterek dolaylı olarak mesleki bilgiye katkı sağlar.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Mesleki teknik bilince sahip olmak">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Staj, uygulamalı bilgi edinimi sunduğu için Po1&#39;e katkı sağlayabilir.</td></tr><tr><td title="Mesleki teknik bilince sahip olmak">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Staj, gerçek bir ortamda teknik araçlar kullanma fırsatı sunduğu için Po4&#39;e katkı sağlayabilir.</td></tr><tr><td title="İş güvenliği hakkında bilgi sahibi olmak">Ö2</td><td title="Mühendislik uygulamalarının evrensel ve toplumsal boyutlarda sağlık, çevre ve güvenlik üzerindeki etkileri ve çağın mühendislik alanına yansıyan sorunları hakkında bilgi; mühendislik çözümlerinin hukuksal sonuçları konusunda farkındalık.">P11</td><td class="score">2</td><td class="text-xs text-slate-600">Staj, iş güvenliği konularının ele alınma ihtimali nedeniyle Po11&#39;e dolaylı katkı sunabilir.</td></tr><tr><td title="Mesleki etiğe sahip olmak">Ö3</td><td title="Etik ilkelerine uygun davranma, mesleki ve etik sorumluluk bilinci; mühendislik uygulamalarında kullanılan standartlar hakkında bilgi">P9</td><td class="score">3</td><td class="text-xs text-slate-600">Staj, kurumsal kurallar ve etik davranış gerektirdiği için Po9&#39;a katkı sağlayabilir.</td></tr></tbody></table></div>
+ </div></div>
 <div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">4 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>

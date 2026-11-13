@@ -67,7 +67,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 6. yarıyıl</div>
@@ -83,13 +83,19 @@
   <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 32</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 7</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">81.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #155 · 13.11 19:16 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">84<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #157 · 13.11 19:32 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #162 · 13.11 20:11 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
 </div>
 
@@ -101,12 +107,80 @@
 <td><span class="pill s-medium">orta</span></td><td>İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.</td><td>19/21 metin TR ile birebir aynı (%90)</td><td>%50 altında</td><td class="text-slate-600">İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.</td></tr>
 </tbody></table></div>
 
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin &#39;Lisans&#39; ve &#39;6. Yarıyıl&#39; seviyesinde olması beklenirken, haftalık konuların büyük çoğunluğu (&#39;Planlanan çalışmaların yapılması&#39;) çok genel kalmaktadır ve derinlikten bahsetmemektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı (&#39;Bitirme Projesi I&#39;) ve içerik, işlenen konularla (proje aşamaları) uyumlu, ne gereğinden geniş ne de dar görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konular, dersin genel kapsamı (proje süreci) dahilinde ilerlemektedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, içerik ve haftalık konular arasında belirgin bir uyumsuzluk gözlenmemiştir; hepsi bir proje sürecini kapsamaktadır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacı &#39;teorik ve uygulama becerisi kazandırmak&#39; derken, haftalık konular daha çok &#39;planlama ve uygulama&#39; aşamalarına odaklanmıştır, teorik derinlikten bahsedilmemektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları (örn. &#39;Literatür araştırması yapar&#39;) ile dersin genel amacı (&#39;teorik ve uygulama becerisi kazandırmak&#39;) arasında, çıktıların sadece süreç odaklı olması nedeniyle bir zayıflık bulunmaktadır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amacında belirtilen &#39;teorik beceri&#39; kazanımı, haftalık konuların genel ilerleme adımları ile tam olarak örtüşmemektedir.</div><div class="text-xs text-slate-500 mt-1">Amaç, hem teorik hem de uygulama becerisi kazandırmayı hedeflerken, haftalık konuların çoğu sadece &#39;Planlanan çalışmaların yapılması&#39; gibi genel bir eylem ifadesidir ve teorik bir derinlik sunmamaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Bu dersin amacı öğrencilere belirli konularda detaylı olarak teorik ve uygulama becerisi kazandırmaktır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:3</code> “Planlanan çalışmaların yapılması.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konulara, belirlenen araştırma konularının teorik çerçevesini ele alan spesifik konular (örn. &#39;Seçilen konunun teorik arka planı ve literatür incelemesi&#39;) eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, sürecin tamamını kapsamakla birlikte, amaçta vurgulanan &#39;teorik beceri&#39;nin çıktıya yansıtılmadığı görülmektedir.</div><div class="text-xs text-slate-500 mt-1">Çıktılar daha çok &#39;yapma&#39; (planlama, araştırma, yazma) eylemlerine odaklanmıştır; bu durum, amaçta belirtilen &#39;teorik beceri&#39;nin ölçülebilir bir çıktıya dönüşmediğini göstermektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Bu dersin amacı öğrencilere belirli konularda detaylı olarak teorik ve uygulama becerisi kazandırmaktır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:4</code> “Literatür araştırması yapar”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktılarına, araştırma konusunun teorik çerçevesini analiz etme veya eleştirel değerlendirme gibi teorik becerileri ölçen maddeler eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin 6. yarıyıl Lisans düzeyi için beklenen konuların derinliği, haftalık konuların genel ve süreç odaklı ilerlemesi nedeniyle yetersiz kalmaktadır.</div><div class="text-xs text-slate-500 mt-1">Haftalık konuların büyük çoğunluğu (&#39;Planlanan çalışmaların yapılması&#39;) bir eylemden ibarettir ve bu durum, bir lisans projesinin gerektirdiği akademik derinliği yansıtmamaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:3</code> “Planlanan çalışmaların yapılması.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:4</code> “Planlanan çalışmaların yapılması.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konular, sadece &#39;yapılması&#39; yerine, o hafta ele alınması gereken spesifik teorik veya metodolojik konuları içerecek şekilde detaylandırılmalıdır.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %60 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Tüm çıktılar (araştırma konusu belirleme, planlama, yöntem belirleme, araştırma yapma, tez yazma/sunma) dersin amacında belirtilen &#39;teorik ve uygulama becerisi kazandırma&#39; hedefine doğrudan hizmet etmektedir.<br>
+  Bloom dağılımı: anlama 2, yaratma 1, uygulama 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Alanı ile ilgili araştırma konularını bilir.<div class="text-xs text-amber-700">belirsiz: bilir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1</td>
+ <td class="text-blue-800">Alanla ilgili araştırma konularını listeleyebilir.</td></tr>
+ <tr><td>2</td><td>Konuyla ilgili çalışma planı yapar.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>2</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Konu ile ilgili hedefleri belirler ve yöntem seçimini bilir.<div class="text-xs text-amber-700">belirsiz: bilir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>2</td>
+ <td class="text-blue-800">Konuyla ilgili hedefleri belirler ve yöntem seçimini gerekçelendirir.</td></tr>
+ <tr><td>4</td><td>Literatür araştırması yapar</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>3, 4, 5, 6, 7, 8, 9</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Tezi yazar ve sunar.</td><td>yaratma</td>
+ <td><span class="pill st-pass">evet</span></td><td>10, 11, 12, 13, 14</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
 
 
-
-
-
-
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Ian Sommerville, &#34;Yazılım Mühendisliği&#34;, Nobel Akademik Yayıncılık, 2018<div class="text-xs text-slate-500">Dersin konusu olan yazılım mühendisliği ile doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Barbara Gastel,&#34;Bilimsel Bir Makale Nasıl Yazılır ve Yayımlanır?&#34;, Gazi Kitabevi, 2019<div class="text-xs text-slate-500">Tez yazma süreci ve bilimsel raporlama ile ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Timur Karaçay, Aybar Karaçay, Deniz Karaçay,&#34;YAzılım Mühendisliğine Giriş&#34;, Abaküs Kitap, 2016<div class="text-xs text-slate-500">Dersin ana konusu olan yazılım mühendisliğine giriş niteliğindedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Ian Sommerville, &#34;Yazılım Mühendisliği&#34;, Nobel Akademik Yayıncılık, 2018<div class="text-xs text-slate-500">Kaynak 1 ile aynı içeriğe sahip olup, dersin konusuyla ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Barbara Gastel,&#34;Bilimsel Bir Makale Nasıl Yazılır ve Yayımlanır?&#34;, Gazi Kitabevi, 2019<div class="text-xs text-slate-500">Kaynak 2 ile aynı içeriğe sahip olup, dersin konusuyla ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Timur Karaçay, Aybar Karaçay, Deniz Karaçay,&#34;YAzılım Mühendisliğine Giriş&#34;, Abaküs Kitap, 2016<div class="text-xs text-slate-500">Kaynak 3 ile aynı içeriğe sahip olup, dersin konusuyla ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Alanı ile ilgili araştırma konularını bilir.">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Araştırma konuları belirleme süreci, mühendislik bilgisi gerektirir.</td></tr><tr><td title="Alanı ile ilgili araştırma konularını bilir.">Ö1</td><td title="Yaşam boyu öğrenmenin gerekliliği bilinci; bilgiye erişebilme, bilim ve teknolojideki gelişmeleri izleme ve kendini sürekli yenileme becerisi.">P8</td><td class="score">2</td><td class="text-xs text-slate-600">Konu seçimi, sürekli bilgi yenileme gerekliliğini yansıtabilir.</td></tr><tr><td title="Konuyla ilgili çalışma planı yapar.">Ö2</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Çalışma planı yapma, problem formülasyonu ve yöntem seçimi ile ilişkilidir.</td></tr><tr><td title="Konuyla ilgili çalışma planı yapar.">Ö2</td><td title="Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.">P10</td><td class="score">2</td><td class="text-xs text-slate-600">Proje yönetimi becerisi, çalışma planı hazırlamayı kapsar.</td></tr><tr><td title="Konu ile ilgili hedefleri belirler ve yöntem seçimini bilir.">Ö3</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Hedef belirleme ve yöntem seçimi, problem çözme becerisinin bir parçasıdır.</td></tr><tr><td title="Konu ile ilgili hedefleri belirler ve yöntem seçimini bilir.">Ö3</td><td title="Karmaşık mühendislik problemlerinin veya disipline özgü araştırma konularının incelenmesi için deney tasarlama, deney yapma, veri toplama, sonuçları analiz etme ve yorumlama becerisi.">P5</td><td class="score">3</td><td class="text-xs text-slate-600">Yöntem seçimi ve deney tasarlama becerisi örtüşmektedir.</td></tr><tr><td title="Literatür araştırması yapar">Ö4</td><td title="Karmaşık mühendislik problemlerinin veya disipline özgü araştırma konularının incelenmesi için deney tasarlama, deney yapma, veri toplama, sonuçları analiz etme ve yorumlama becerisi.">P5</td><td class="score">3</td><td class="text-xs text-slate-600">Literatür araştırması, deney tasarlama ve veri toplama sürecinin ön koşuludur.</td></tr><tr><td title="Tezi yazar ve sunar.">Ö5</td><td title="Türkçe sözlü ve yazılı etkin iletişim kurma becerisi; en az bir yabancı dil bilgisi; etkili rapor yazma ve yazılı raporları anlama, tasarım ve üretim raporları hazırlayabilme, etkin sunum yapabilme, açık ve anlaşılır talimat verme, alma becerisi.">P7</td><td class="score">3</td><td class="text-xs text-slate-600">Tez yazma ve sunma, etkin iletişim becerisi gerektirir.</td></tr><tr><td title="Tezi yazar ve sunar.">Ö5</td><td title="Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.">P10</td><td class="score">3</td><td class="text-xs text-slate-600">Tez yazma ve sunma, proje çıktılarını tamamlamayı içerir.</td></tr></tbody></table></div>
+ </div></div>
 <div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">6 kaynak · 6 tanesinde yıl var · en yeni 2019 (7 yıl önce) · 10 yıldan eski 0</div>

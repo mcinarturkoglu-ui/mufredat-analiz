@@ -67,7 +67,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 8. yarıyıl</div>
@@ -83,13 +83,19 @@
   <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 35</span><span class="pill st-fail">kaldı: 6</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">76.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #163 · 13.11 20:13 · 2 deneme · uzman incelemesi gerekli</div>
+  </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">53.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #166 · 13.11 20:14 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">0<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #165 · 13.11 20:13 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
 </div>
 
@@ -104,12 +110,69 @@
 <td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/2 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
 </tbody></table></div>
 
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin düzeyi ve yarıyılına uygun bir derinlik gözlemlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı ve işlenen konuların kapsamı birbirine uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı dersin genel kapsamı dahilindedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı ve içerik genel olarak uyumlu görünse de, haftalık konuların tamamının ders adı ve amaçla tam olarak örtüştüğü gözlenmemektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amaçlarında belirtilenlerin tamamı haftalık konularda açıkça işlenmemektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla tam bir tutarlılık sergilememektedir.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı ve içerik genel olarak uyumlu olsa da, haftalık konuların tamamının ders adı ve amaçla tam olarak örtüştüğü net bir şekilde gösterilememektedir.</div><div class="text-xs text-slate-500 mt-1">Tüm haftalık konuların içeriği (İşyeri Eğitimi) dersin genel içeriğiyle (İşletmede Mesleki Eğitim) örtüşse de, bu örtüşmenin her hafta spesifik bir alt başlık ile kanıtlanması mümkün değildir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “İşletmede Mesleki Eğitim”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “İşyeri Eğitimi”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Her haftanın konusunun, dersin genel amacı ve içeriği ile spesifik bir bağlantı kurarak belirtilmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amaçlarında belirtilenlerin tamamı haftalık konularda açıkça işlenmemektedir.</div><div class="text-xs text-slate-500 mt-1">Dersin amacı (İşletmede Mesleki Eğitim) genel bir çerçeve sunarken, haftalık konuların tamamı sadece &#39;İşyeri Eğitimi&#39; olarak belirtilmiştir ve bu genel başlık altında amaçların tamamının ele alındığı kanıtlanamamıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “İşletmede Mesleki Eğitim”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “İşyeri Eğitimi”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin amacında belirtilen her bir alt hedefin, ilgili haftalarda spesifik bir başlık altında ele alındığı gösterilmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, amaç ve haftalık konularla tam bir tutarlılık sergilememektedir.</div><div class="text-xs text-slate-500 mt-1">Öğrenme çıktıları (örn. İşyerini tanır), genel bir amaç (İşletmede Mesleki Eğitim) ve genel bir konu başlığı (İşyeri Eğitimi) ile ilişkilendirilmiş olsa da, bu çıktıların her birinin spesifik bir haftalık aktivite ile doğrudan desteklendiği gösterilememektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “İşyerini tanır”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “İşyeri Eğitimi”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Her bir öğrenme çıktısının, hangi haftanın hangi içeriği ile doğrudan ilişkilendirildiği belirtilmelidir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %0 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Çıktılar, mesleki eğitimin genel amacına (işletme ortamını tanıma, iş yapma becerisi) hizmet etmektedir, ancak hepsi ölçülebilir fiillerle ifade edilmediği için tam uyum (3) sağlanamamıştır.<br>
+  Bloom dağılımı: anlama 3, uygulama 1</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>İşyerini tanır<div class="text-xs text-amber-700">belirsiz: tanır</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14</td>
+ <td class="text-blue-800">İşyerinin temel yapısını ve işleyişini açıklar.</td></tr>
+ <tr><td>2</td><td>Tek çalışır veya ekip çalışmalarına katılır<div class="text-xs text-amber-700">belirsiz: katılır</div></td><td>uygulama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14</td>
+ <td class="text-blue-800">Tek başına veya ekip olarak verilen görevleri başarıyla tamamlar.</td></tr>
+ <tr><td>3</td><td>İş sorumluluğu alır<div class="text-xs text-amber-700">belirsiz: alır</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14</td>
+ <td class="text-blue-800">Verilen iş sorumluluklarını doğru bir şekilde yerine getirir.</td></tr>
+ <tr><td>4</td><td>Endüstrinin ihtiyaçlarını görür<div class="text-xs text-amber-700">belirsiz: görür</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14</td>
+ <td class="text-blue-800">Endüstrinin güncel ihtiyaçlarını analiz ederek belirtir.</td></tr>
+ </tbody></table>
+</div>
 
 
-
-
-
-
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 0</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>İşyerinin sunduğu kaynaklar<div class="text-xs text-slate-500">Kaynak, işyeri kaynaklarından bahsediyor ancak dersin genel konusu olan &#39;İşletmede Mesleki Eğitim&#39; ile doğrudan teknik bir bağlantı kurulamıyor.</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr><tr><td>İşyerinin sunduğu kaynaklar<div class="text-xs text-slate-500">Kaynak, işyeri kaynaklarından bahsediyor ancak dersin genel konusu olan &#39;İşletmede Mesleki Eğitim&#39; ile doğrudan teknik bir bağlantı kurulamıyor.</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="İşyerini tanır">Ö1</td><td title="Disiplin içi ve çok disiplinli takımlarda etkin biçimde çalışma becerisi; bireysel çalışma becerisi.">P6</td><td class="score">3</td><td class="text-xs text-slate-600">İşyerini tanımak, ekip içinde rol almanın ilk adımı olabilir.</td></tr><tr><td title="İşyerini tanır">Ö1</td><td title="Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.">P10</td><td class="score">2</td><td class="text-xs text-slate-600">İşyeri, iş hayatındaki uygulamaları anlamak için bir bağlam sağlar.</td></tr><tr><td title="Tek çalışır veya ekip çalışmalarına katılır">Ö2</td><td title="Disiplin içi ve çok disiplinli takımlarda etkin biçimde çalışma becerisi; bireysel çalışma becerisi.">P6</td><td class="score">4</td><td class="text-xs text-slate-600">Ekip çalışmasına katılım, bu çıktının en doğrudan desteklendiği alandır.</td></tr><tr><td title="İş sorumluluğu alır">Ö3</td><td title="Etik ilkelerine uygun davranma, mesleki ve etik sorumluluk bilinci; mühendislik uygulamalarında kullanılan standartlar hakkında bilgi">P9</td><td class="score">2</td><td class="text-xs text-slate-600">Sorumluluk almak, etik ve mesleki sorumluluk bilincinin başlangıcı olabilir.</td></tr><tr><td title="Endüstrinin ihtiyaçlarını görür">Ö4</td><td title="Yaşam boyu öğrenmenin gerekliliği bilinci; bilgiye erişebilme, bilim ve teknolojideki gelişmeleri izleme ve kendini sürekli yenileme becerisi.">P8</td><td class="score">3</td><td class="text-xs text-slate-600">Endüstri ihtiyaçlarını görmek, sürekli yenilenme ve gelişmeleri izleme bilincine katkı sağlayabilir.</td></tr></tbody></table></div>
+ </div></div>
 <div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">2 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>

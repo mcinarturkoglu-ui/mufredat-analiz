@@ -67,7 +67,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 4. yarıyıl</div>
@@ -93,7 +93,9 @@
   </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #129 · 13.11 18:12 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
 </div>
 
@@ -151,7 +153,23 @@
 </div>
 
 
-
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Olasılık ve İstatistiğe Giriş, Editörleri Prof. Dr. Salih ÇELEBİOĞLU, Prof. Dr. Reşat KASAP, ISBN :978-605-133-229-1.<div class="text-xs text-slate-500">Kitap, dersin ana konularını (Olasılık ve İstatistik) doğrudan kapsamaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Miller, M. Miller, John E. Freund&#39;s Mathematical Statistics with Applications, Pearson Prentice Hall, Seventh Edition, New Jersey, ISBN: 0978-0-13-124646-1, 2004.<div class="text-xs text-slate-500">Kitap, istatistiksel uygulamalar ve matematiksel istatistik konularını içermektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Olasılık ve İstatistiğe Giriş, Editörleri Prof. Dr. Salih ÇELEBİOĞLU, Prof. Dr. Reşat KASAP, ISBN :978-605-133-229-1.<div class="text-xs text-slate-500">Kaynak 1 ile aynı içeriğe sahip olup, dersin konularıyla doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>-Miller, M. Miller, John E. Freund&#39;s Mathematical Statistics with Applications, Pearson Prentice Hall, Seventh Edition, New Jersey, ISBN: 0978-0-13-124646-1, 2004.<div class="text-xs text-slate-500">Kaynak 2 ile aynı içeriğe sahip olup, dersin konularıyla doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Betimleyici istatistik yöntemlerini kullanabilme">Ö4</td><td title="Karmaşık mühendislik problemlerinin veya disipline özgü araştırma konularının incelenmesi için deney tasarlama, deney yapma, veri toplama, sonuçları analiz etme ve yorumlama becerisi.">P5</td><td class="score">3</td><td class="text-xs text-slate-600">Betimleyici istatistik (Ortalamalar, Değişkenlik ölçütleri, Grafikler) konuları, veri toplama ve analiz süreçlerini kapsayan PO5&#39;i destekler.</td></tr><tr><td title="Betimleyici istatistik yöntemlerini kullanabilme">Ö4</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">2</td><td class="text-xs text-slate-600">Temel istatistiksel kavramların (dağılımlar, merkezi eğilim) anlaşılması, karmaşık problemleri formüle etme becerisine katkı sağlar.</td></tr><tr><td title="İstatiksel yöntemlerle analiz yapabilme ve sonuçlardan anlam çıkarabilme">Ö5</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Hipotez testleri ve Regresyon gibi ileri konular, karmaşık problemleri çözme ve modelleme becerisini (PO2) doğrudan destekler.</td></tr><tr><td title="İstatiksel yöntemlerle analiz yapabilme ve sonuçlardan anlam çıkarabilme">Ö5</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">İstatistiksel yöntemlerin (regresyon, korelasyon) kullanılması, mühendislikte kullanılan modern teknikleri (PO4) uygulamaya yönelik bir beceridir.</td></tr></tbody></table></div>
+ </div></div>
 <div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">4 kaynak · 2 tanesinde yıl var · en yeni 2004 (22 yıl önce) · 10 yıldan eski 2</div>

@@ -67,7 +67,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 6. yarıyıl</div>
@@ -83,13 +83,19 @@
   <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 38</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">76.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #134 · 13.11 18:15 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">86.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #136 · 13.11 18:15 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #149 · 13.11 18:22 · 2 deneme · uzman incelemesi gerekli</div>
+  </div>
  
 </div>
 
@@ -101,12 +107,71 @@
 <td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/2 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
 </tbody></table></div>
 
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin düzeyi (Lisans, 6. Yarıyıl) ile içerikte belirtilen dil seviyesi (A2-B1) arasında bir uyumsuzluk bulunmaktadır. Lisans 6. yarıyıl, genellikle A2-B1 seviyesinden daha yüksek bir dil yeterliliği gerektirebilir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (&#39;Akademik İngilizce IV&#39;) ile işlenen konuların (Unit 10, 11, 12) seviyesi arasında bir daralma olduğu düşünülmektedir. &#39;IV&#39; ibaresi, A2-B1 seviyesinden daha geniş bir kapsam gerektirebilir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konular (Unit 10, 11, 12) dersin genel içeriği (dil bilgisi, okuma-anlama, iletişim) kapsamında olduğu varsayılabilir; kapsam dışı bir konu tespit edilememiştir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (Akademik İngilizce IV) ile içerik (A2-B1 düzeyinde dil bilgisi, okuma-anlama, iletişim) arasında bir uyumsuzluk gözlenmektedir. &#39;Akademik İngilizce IV&#39; daha ileri bir seviyeyi çağrıştırırken, içerik A2-B1 seviyesine odaklanmaktadır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacı (A2-B1 düzeyinde dil bilgisi, kelime, okuma-anlama, dinleme ve sözlü iletişim becerilerini günlük ve akademik bağlamda etkili kullanabilme) haftalık konuların (Unit 10, 11, 12) kapsadığı genel temalarla tam olarak eşleşmediği görülmektedir. Konular sadece ünite başlıklarıdır ve amaçlanan dil bilgisi/beceri kazanımlarının spesifik olarak hangi ünitelerde ele alındığı net değildir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Öğrenme çıktıları (cikti:1, cikti:2, cikti:3), dersin amacında belirtilen becerileri (okuma-anlama, dinleme, sözlü iletişim, dil bilgisi, kelime dağarcığı) kapsayacak şekilde tutarlıdır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı ile içerik arasında seviye uyumsuzluğu vardır.</div><div class="text-xs text-slate-500 mt-1">Ders adı &#39;Akademik İngilizce IV&#39; ileri bir seviyeyi işaret ederken, içerik &#39;A2-B1 düzeylerinde&#39; kalmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Akademik İngilizce IV”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Ders; A2-B1 düzeylerinde İngilizce dil bilgisi yapılarını, okuma-anlama stratejilerini, sözlü ve yazılı iletişim pratiklerini ve tematik hedef kelime çalışmalarını kapsar.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders adının, işlenen dil seviyesine (A2-B1) uygun olarak revize edilmesi veya ders içeriğinin seviye yükseltilerek &#39;IV&#39; ibaresiyle uyumlu hale getirilmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amaçları, haftalık konuların sadece ünite başlıkları olması nedeniyle yeterince desteklenmemektedir.</div><div class="text-xs text-slate-500 mt-1">Amaçlar spesifik dil bilgisi ve beceri kazanımlarını belirtirken, haftalık konular sadece &#39;Unit 10&#39;, &#39;Unit 11&#39; gibi genel başlıklar vermektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “A2-B1 düzeylerinde İngilizce dil bilgisi kurallarını kavramalarını, hedef kelime dağarcıklarını geliştirmelerini; okuma-anlama, dinleme ve sözlü iletişim becerilerini günlük ve akademik bağlamda etkili biçimde kullanabilmelerini sağlamaktır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “Unit 10 : Performance”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konuların, ders amacında belirtilen dil bilgisi konularını ve becerileri (örneğin, &#39;Unit 10: Performance - Tense Usage and Listening Skills&#39;) içerecek şekilde detaylandırılması gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Ders adı fazla geniş</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı, işlenen konuların seviyesine göre gereğinden geniş olabilir.</div><div class="text-xs text-slate-500 mt-1">Ders adı &#39;Akademik İngilizce IV&#39; ileri bir seviyeyi çağrıştırırken, içerik A2-B1 seviyesine odaklanmaktadır, bu da ismin kapsamı daralmış gibi görünmesine neden olmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Akademik İngilizce IV”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Ders; A2-B1 düzeylerinde İngilizce dil bilgisi yapılarını, okuma-anlama stratejilerini, sözlü ve yazılı iletişim pratiklerini ve tematik hedef kelime çalışmalarını kapsar.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders adının, A2-B1 seviyesine daha uygun bir ifadeyle yeniden düzenlenmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin belirtilen düzeyi (Lisans, 6. Yarıyıl) ile içerikte belirtilen dil seviyesi (A2-B1) arasında bir uyumsuzluk bulunmaktadır.</div><div class="text-xs text-slate-500 mt-1">Lisans düzeyinde 6. yarıyıl, genellikle A2-B1 seviyesinden daha yüksek bir dil yeterliliği gerektiren bir dönemdir.</div>
+  <div class="text-xs mt-1">✗ <code class="bg-slate-100 px-1 rounded">Kod: OYDİ302</code> “Düzey: Lisans”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Ders; A2-B1 düzeylerinde İngilizce dil bilgisi yapılarını, okuma-anlama stratejilerini, sözlü ve yazılı iletişim pratiklerini ve tematik hedef kelime çalışmalarını kapsar.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin seviyesinin (Lisans 6. Yarıyıl) gerektirdiği dil yeterliliği ile içerikte belirtilen A2-B1 seviyesi arasındaki tutarsızlık giderilmelidir.</div>
+ </div>
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %67 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Tüm çıktılar, dersin genel amacında belirtilen dil becerilerini (okuma, yazma, dinleme, sözlü iletişim) ve dil bilgisi/kelime dağarcığı hedeflerini kapsayan somut beceri göstergeleri sunmaktadır.<br>
+  Bloom dağılımı: anlama 1, uygulama 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>İngilizce okuma, yazma, dinleme ve konuşma becerilerini bütüncül şekilde kullanarak sosyal, akademik ve profesyonel ortamlarda etkili iletişim kurabilme,</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>2</td><td>Akademik hedeflere yönelik olarak dil bilgisi (gramer) ve kelime bilgisi açısından yeterlilik kazanma<div class="text-xs text-amber-700">belirsiz: yeterlilik kazanma</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</td>
+ <td class="text-blue-800">Akademik hedeflere yönelik olarak dil bilgisi (gramer) ve kelime bilgisi kurallarını doğru bir şekilde uygulayabilme</td></tr>
+ <tr><td>3</td><td>Farklı iletişim bağlamlarında uygun dil ve üslup kullanarak kendini açık, akıcı ve anlaşılır şekilde ifade edebilme.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
 
 
-
-
-
-
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Öğretim görevlisi tarafından hazırlanan notlar ve çalışma kağıtları<div class="text-xs text-slate-500">Dersin konularını ve dil becerilerini destekleyen öğretim elemanı materyalidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">ders notu</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Wide Angle 2 (Oxford University Press) - Öğretim Görevlisi tarafından paylaşılan notlar<div class="text-xs text-slate-500">Belirtilen dil seviyesine uygun bir ders kitabıdır ve dil becerilerini destekler.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki PÇ katkıları · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → P6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin genel iletişim becerileri (cikti:1) ile takım çalışması (po:6) arasında güçlü bir ilişki kurulmuştur.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → P7 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin genel iletişim becerileri (cikti:1) ile yabancı dil ve raporlama (po:7) arasında güçlü bir ilişki kurulmuştur.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → P6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dil bilgisi ve kelime bilgisi yeterliliği (cikti:2) ile bireysel çalışma becerisi (po:6) arasında güçlü bir ilişki kurulmuştur.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → P7 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dil bilgisi ve kelime bilgisi yeterliliği (cikti:2) ile yabancı dil ve raporlama (po:7) arasında güçlü bir ilişki kurulmuştur.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → P6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İfade etme becerisi (cikti:3) ile takım çalışması (po:6) arasında güçlü bir ilişki kurulmuştur.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → P7 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İfade etme becerisi (cikti:3) ile yabancı dil ve raporlama (po:7) arasında güçlü bir ilişki kurulmuştur.</td></tr></tbody></table>
+ </div>
+ </div></div>
 <div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">2 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>

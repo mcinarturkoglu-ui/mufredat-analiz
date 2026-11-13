@@ -67,7 +67,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 6. yarıyıl</div>
@@ -83,13 +83,19 @@
   <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 39</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #141 · 13.11 18:18 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #143 · 13.11 18:18 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #154 · 13.11 18:56 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
  
 </div>
 
@@ -101,12 +107,65 @@
 <td><span class="pill s-high">yüksek</span></td><td>Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.</td><td>98 saat / 3 AKTS = 32.7 saat/AKTS</td><td>25-30 saat/AKTS (75-90 saat)</td><td class="text-slate-600">İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.</td></tr>
 </tbody></table></div>
 
+<div class="card"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Konuların derinliği, Lisans seviyesi ve 6. yarıyıl için uygun bir düzeyde olduğu varsayılmaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konuların kapsamına uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların, dersin adı ve amacının kapsamı dışında bir konu içermediği anlaşılmaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, amaç ve içerik arasında belirgin bir uyum bulunmaktadır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin amaçlarında belirtilen tüm konuların haftalık konular içinde işlendiği görülmektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Öğrenme çıktıları, dersin amaçları ve haftalık konularla tutarlı bir düzeydedir.</td></tr></tbody></table>
+ 
+</div>
+
+<div class="card"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %100 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Dersin amacı (temel bileşenleri kavramak, mimarileri anlamak, assembly programlaması ve donanım etkileşimi becerisi kazandırmak) tüm çıktıların kapsadığı temel konularla (cikti:1-5) doğrudan örtüşmektedir. Tüm çıktılar, dersin hedeflerine ulaşmaya yönelik somut beceriler sunmaktadır.<br>
+  Bloom dağılımı: analiz 1, anlama 1, uygulama 3</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Bilgisayarın temel bileşenlerini ve bu bileşenler arasındaki etkileşimi açıklayabilir.</td><td>anlama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>2</td><td>Komut seti mimarisini, işlemci türlerini ve mikroişlemci mimarilerini karşılaştırabilir.</td><td>analiz</td>
+ <td><span class="pill st-pass">evet</span></td><td>2, 4, 5, 6</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Assembly dilinde temel düzeyde program yazabilir, derleyebilir ve çalıştırabilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>7, 9</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Giriş/çıkış birimleri, kesmeler ve zamanlayıcılar ile donanım düzeyinde etkileşim kurabilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>10, 12, 13</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>Gömülü sistemler, FPGA ve soft-core işlemciler hakkında temel bilgi sahibi olur ve uygulama geliştirebilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>14, 15</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
 
 
-
-
-
-
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Gümüşkaya, H., Mikroişlemciler ve 8051 Ailesi, Alfa Yayınları, 1999.<div class="text-xs text-slate-500">8051 mikrodenetleyicisi ve mikroişlemciler hakkında bilgi içerdiği için doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Mackenzie, I.S., The 8051 Microcontoller, Prentice Hall, 1995.<div class="text-xs text-slate-500">8051 mikrodenetleyicisi hakkında bilgi içerdiği için doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>ATMEL AT89S52 User Guide.<div class="text-xs text-slate-500">Belirli bir mikrodenetleyici (AT89S52) dokümanı olup, donanım seviyesi konularla ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">ders notu</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Ride 51 Simulator and User Guide.<div class="text-xs text-slate-500">Simülatör dokümanı olup, pratik uygulamalarla ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">ders notu</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>L. B. Das, The X86 Microprocessors: Architecture and Programming (8086 to Pentium) (Dorling Kindersley, New Delhi, India, 2010).<div class="text-xs text-slate-500">X86 mikroişlemcileri ve programlama konularını kapsadığı için doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>L. D. Pyeatt and W. Ughetta, ARM 64-Bit Assembly Language (Newnes, Oxford, 2020).<div class="text-xs text-slate-500">ARM64 Assembly dili konularını kapsadığı için doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Bilgisayarın temel bileşenlerini ve bu bileşenler arasındaki etkileşimi açıklayabilir.">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Temel bileşenler ve mimariler (kaynaklar 1, 2, 5, 6) ile sistem kavramları (icerik) doğrudan ilişkilidir.</td></tr><tr><td title="Bilgisayarın temel bileşenlerini ve bu bileşenler arasındaki etkileşimi açıklayabilir.">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">2</td><td class="text-xs text-slate-600">Donanım seviyesinde etkileşim (icerik) ve bileşen bilgisi (kaynaklar) ile modern araç kullanımı (po:4) ilişkilendirilebilir.</td></tr><tr><td title="Komut seti mimarisini, işlemci türlerini ve mikroişlemci mimarilerini karşılaştırabilir.">Ö2</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Farklı mimariler (x86, ARM64) ve işlemci türleri (icerik) karşılaştırma gerektirdiğinden, analiz becerisi (po:2) desteklenmektedir.</td></tr><tr><td title="Komut seti mimarisini, işlemci türlerini ve mikroişlemci mimarilerini karşılaştırabilir.">Ö2</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Farklı mimarilerin (kaynaklar 5, 6) incelenmesi, modern teknikleri (po:4) kullanma becerisine katkı sağlar.</td></tr><tr><td title="Assembly dilinde temel düzeyde program yazabilir, derleyebilir ve çalıştırabilir.">Ö3</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Assembly dili programlama (icerik, hafta 7, 9) ve kodlama becerisi (po:4) doğrudan örtüşmektedir.</td></tr><tr><td title="Assembly dilinde temel düzeyde program yazabilir, derleyebilir ve çalıştırabilir.">Ö3</td><td title="Kodlama, doğrulama, sınama ve hata ayıklama konularını da içerecek şekilde karmaşık yazılım sistemleri geliştirebilmek.">P12</td><td class="score">3</td><td class="text-xs text-slate-600">Assembly ile temel düzeyde program yazma (cikti:3) ve yazılım geliştirme (po:12) arasında güçlü bir bağ vardır.</td></tr><tr><td title="Giriş/çıkış birimleri, kesmeler ve zamanlayıcılar ile donanım düzeyinde etkileşim kurabilir.">Ö4</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Kesmeler, zamanlayıcılar ve I/O (icerik, hafta 10, 12, 13) gibi konuların analizi, karmaşık sistem çözümü (po:2) gerektirir.</td></tr><tr><td title="Giriş/çıkış birimleri, kesmeler ve zamanlayıcılar ile donanım düzeyinde etkileşim kurabilir.">Ö4</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Donanım düzeyinde etkileşim (cikti:4) ve kullanılan araçlar (kaynaklar 3, 4) ile modern teknik kullanımı (po:4) ilişkilidir.</td></tr><tr><td title="Gömülü sistemler, FPGA ve soft-core işlemciler hakkında temel bilgi sahibi olur ve uygulama geliştirebilir.">Ö5</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Gömülü sistemler ve FPGA (icerik, hafta 14, 15) gibi konuların incelenmesi, karmaşık sistem analizi (po:2) gerektirir.</td></tr><tr><td title="Gömülü sistemler, FPGA ve soft-core işlemciler hakkında temel bilgi sahibi olur ve uygulama geliştirebilir.">Ö5</td><td title="Karmaşık bir sistemi, süreci, cihazı veya ürünü gerçekçi kısıtlar ve koşullar altında, belirli gereksinimleri karşılayacak şekilde tasarlama becerisi; bu amaçla modern tasarım yöntemlerini uygulama becerisi.">P3</td><td class="score">3</td><td class="text-xs text-slate-600">Gömülü sistemler ve FPGA ile uygulama geliştirme (cikti:5) becerisi, bir sistemi tasarlama (po:3) yeteneğine yakındır.</td></tr></tbody></table></div>
+ </div></div>
 <div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">6 kaynak · 4 tanesinde yıl var · en yeni 2020 (6 yıl önce) · 10 yıldan eski 3</div>

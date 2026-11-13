@@ -67,7 +67,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 1. yarıyıl</div>
@@ -92,7 +92,8 @@
   </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
-  <div class="text-sm text-red-700 mt-2">Başarısız: 3 denemede geçerli çıktı alınamadı.</div>
+  <div class="text-3xl score mt-1">50<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #168 · 13.11 20:15 · 3 deneme · uzman incelemesi gerekli</div>
   </div>
  
 </div>
@@ -128,7 +129,19 @@
 
 
 
-
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 50</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>1. Raymond A. Serway, Robert J. Beichner, Çeviri:Prof. Dr. Kemal Çolakoğlu, Fen ve Mühendislik için Fizik I, Palme Yayıncılık. 2. Paul M. Fishbane, Stephen Gasiorowicz, Stephn T. Thorton, Çeviri: Prof. Dr. Cengiz Yalçın, Temel Fizik, Cilt 1, Arkadaş Yayınevi. 3. David Halliday, Robert Resnick, Jearl Walker, Çeviri: Bülent G. Akınoğlu, H. Murat Alev, Fiziğin Temelleri, 1. Kitap, Palme Yayıncılık. 4. Bekir Karaoğlu, Üniversiteler için Fizik, Seçkin Yayıncılık. 5. Douglas C. Giancoli, Çeviri: Prof.Dr. Gülsen Önengüt, Fen Bilimcileri ve Mühendisler için Fizik, Akademi Yayıncılık. 6. Frederick J. Bueche, David A. Jerde, Çeviri: Prof.Dr. Kemal Çolakoğlu, Fizik İlkeleri 1, Palme Yayıncılık. 7. Metin Orbay, Feda Öner (Editörler), Genel Fizik ve Teknolojinin Bilimsel İlkeleri, Pegem Akademi. 8. Mehmet Fatih Taşar, Metin Orbay (Editörler), Genel Fizik-1, Pegem Akademi 9. Meral Şanlı, Genel Fizik, Ekin Yayıncılık<div class="text-xs text-slate-500">Dersin temel konularını (mekanik, fizik) kapsayan standart bir ders kitabıdır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Yok<div class="text-xs text-slate-500">Kaynak bilgisi boş bırakılmıştır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">ilgisiz</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Vektörlerle ilgili temel işlemleri (toplama, çıkarma, skaler ve vektörel çarpımlar) yapabilir.">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Vektör işlemleri, temel bilim bilgisi gerektirir.</td></tr><tr><td title="Vektörlerle ilgili temel işlemleri (toplama, çıkarma, skaler ve vektörel çarpımlar) yapabilir.">Ö1</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Vektörlerin bileşenleri ve çarpımları, problem çözme becerisine katkı sağlar.</td></tr><tr><td title="Bir ve İki boyutta hareketi kinematik ve kinetik (Newton hareket yasaları) anlamda açıklayabilir.">Ö2</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Kinematik ve Newton yasaları, temel fen bilgisi gerektirir.</td></tr><tr><td title="Bir ve İki boyutta hareketi kinematik ve kinetik (Newton hareket yasaları) anlamda açıklayabilir.">Ö2</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Hareket yasalarını kullanarak karmaşık hareketleri modelleme becerisi gerektirir.</td></tr><tr><td title="Hareket ile ilgili olayları, Newton hareket yasaları dışında iş-kinetik enerji teoremi ve korunum yasalarını (mekanik enerjinin korunumu, doğrusal ve açısal momentumun korunumu) kullanarak da açıklayabilir.">Ö3</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">4</td><td class="text-xs text-slate-600">Enerji ve momentum korunumunu kullanarak sistemleri analiz etme becerisi gerektirir.</td></tr><tr><td title="Hareket ile ilgili olayları, Newton hareket yasaları dışında iş-kinetik enerji teoremi ve korunum yasalarını (mekanik enerjinin korunumu, doğrusal ve açısal momentumun korunumu) kullanarak da açıklayabilir.">Ö3</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Enerji ve momentum uygulamaları, modern teknikleri kullanmayı gerektirir.</td></tr><tr><td title="Katı cisimlerin dönme hareketini ve denge durumlarını açıklayabilir.">Ö4</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Dönme hareketi ve denge, sistem analizi gerektirir.</td></tr></tbody></table></div>
+ </div></div>
 <div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">2 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>

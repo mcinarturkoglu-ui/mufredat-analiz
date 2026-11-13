@@ -67,7 +67,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 18:10 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 13.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 5. yarıyıl</div>
@@ -93,7 +93,9 @@
   </div>
  
  <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
-  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #142 · 13.11 18:19 · 2 deneme · uzman incelemesi gerekli</div>
+  </div>
  
 </div>
 
@@ -148,7 +150,19 @@
 </div>
 
 
-
+<div class="card"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>R.Kara, Bilgisayar Ağları, Nobel Yayıncılık 2019, Ankara<div class="text-xs text-slate-500">Dersin ana konularını (Ağlar, İletişim) kapsayan bir ders kitabıdır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>1.Computer Networking A Top-Down Approach, Eighth Edition by James F. Kurose and Keith W. Ross, Pearson, 2021.., Computer Networks 4/E, Andrew S. Tanenbaum, Pearson Education Inc., 2006., Stallings, W., Case, T. (2012). 2.Business Data Communications- Infrastructure, Networking and Security, Prentice Hall., Routing &amp; Switching: Time of convergence, Puzmanova. 3.Bilgisayar Ağları ve İnternet Mühendisliği / Toros Rifat Çölkesen / Papatya Yayınları / 2019. Cisco Networking Academy<div class="text-xs text-slate-500">Ağ protokolleri, katmanlar ve iletişim konularını detaylıca ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Program çıktısı katkı önerileri <span class="pill s-info">sayfada katkı girilmemiş</span></h4>
+  <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
+  <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>PÇ</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Bilgisayar ağlarını tanımak.">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">P1</td><td class="score">3</td><td class="text-xs text-slate-600">Temel kavramları öğrenmek, mühendislik bilgi birikiminin başlangıcıdır.</td></tr><tr><td title="Bilgisayar ağlarını tanımak.">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">2</td><td class="text-xs text-slate-600">Ağların temel prensiplerini anlamak, bilişim teknolojilerini kullanma becerisine katkı sağlar.</td></tr><tr><td title="Ağ katmanları hakkında bilgi edinmek ve ayırt etmek.">Ö3</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">3</td><td class="text-xs text-slate-600">Katmanlı yapıyı anlamak, karmaşık bir sistemi modelleme becerisine zemin hazırlar.</td></tr><tr><td title="Ağ katmanları hakkında bilgi edinmek ve ayırt etmek.">Ö3</td><td title="Karmaşık bir sistemi, süreci, cihazı veya ürünü gerçekçi kısıtlar ve koşullar altında, belirli gereksinimleri karşılayacak şekilde tasarlama becerisi; bu amaçla modern tasarım yöntemlerini uygulama becerisi.">P3</td><td class="score">3</td><td class="text-xs text-slate-600">Katmanların işlevlerini bilmek, bir sistemi gereksinimlere göre tasarlama becerisine katkı sağlar.</td></tr><tr><td title="Ağ güvenliğinde kullanılan teknolojileri açıklayabilmek.">Ö4</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">P4</td><td class="score">3</td><td class="text-xs text-slate-600">Güvenlik teknolojilerini öğrenmek, modern teknikleri kullanma becerisine katkı sağlar.</td></tr><tr><td title="Bilgisayar ağının alt ağı karakteristiğini açıklayabilmek.">Ö5</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">P2</td><td class="score">2</td><td class="text-xs text-slate-600">Alt ağ karakteristiğini açıklamak, karmaşık bir problemi (ağ yapısını) formüle etme becerisine yardımcı olur.</td></tr></tbody></table></div>
+ </div></div>
 <div class="card"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">2 kaynak · 2 tanesinde yıl var · en yeni 2021 (5 yıl önce) · 10 yıldan eski 0</div>
