@@ -50,7 +50,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:05 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:15 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 5. yarıyıl</div>
@@ -85,17 +85,17 @@
  <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
   <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 42</span><span class="pill st-fail">kaldı: 0</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
   <div class="text-3xl score mt-1">85<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #118 · 13.11 18:07 · 1 deneme · uzman incelemesi gerekli</div>
   </div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
   <div class="text-3xl score mt-1">61.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #120 · 13.11 18:10 · 3 deneme · uzman incelemesi gerekli</div>
   </div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve ÖP tutarlılığı<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
   <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #142 · 13.11 18:19 · 2 deneme · uzman incelemesi gerekli</div>
   </div>
@@ -105,7 +105,7 @@
 <div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (0)</h3>
 <p class="text-sm">Tüm kontroller geçti.</p></div>
 
-<div class="card" id="modul-a"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
  
  <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
  <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
@@ -128,7 +128,7 @@
  </div>
 </div>
 
-<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
  
  <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %20 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Çıktılar, dersin genel amacını (temel kavramları tanıtmak ve uygulamak) kapsasa da, bazı çıktıların ölçülemez olması (özellikle &#39;tanımak&#39; fiili) bütünsel uyumu düşürmektedir. Ancak, kapsanan konular (katmanlar, güvenlik, alt ağ) ders içeriğiyle doğrudan ilişkilidir.<br>
   Bloom dağılımı: anlama 5</p>
@@ -153,7 +153,7 @@
 </div>
 
 
-<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve ÖP çıktısı katkılarının anlamsal tutarlılığı</h3>
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
  <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
  <div class="grid lg:grid-cols-2 gap-6">
  <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
@@ -166,7 +166,7 @@
   <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
   <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>ÖP</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Bilgisayar ağlarını tanımak.">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">ÖP1</td><td class="score">3</td><td class="text-xs text-slate-600">Temel kavramları öğrenmek, mühendislik bilgi birikiminin başlangıcıdır.</td></tr><tr><td title="Bilgisayar ağlarını tanımak.">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">ÖP4</td><td class="score">2</td><td class="text-xs text-slate-600">Ağların temel prensiplerini anlamak, bilişim teknolojilerini kullanma becerisine katkı sağlar.</td></tr><tr><td title="Ağ katmanları hakkında bilgi edinmek ve ayırt etmek.">Ö3</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">ÖP2</td><td class="score">3</td><td class="text-xs text-slate-600">Katmanlı yapıyı anlamak, karmaşık bir sistemi modelleme becerisine zemin hazırlar.</td></tr><tr><td title="Ağ katmanları hakkında bilgi edinmek ve ayırt etmek.">Ö3</td><td title="Karmaşık bir sistemi, süreci, cihazı veya ürünü gerçekçi kısıtlar ve koşullar altında, belirli gereksinimleri karşılayacak şekilde tasarlama becerisi; bu amaçla modern tasarım yöntemlerini uygulama becerisi.">ÖP3</td><td class="score">3</td><td class="text-xs text-slate-600">Katmanların işlevlerini bilmek, bir sistemi gereksinimlere göre tasarlama becerisine katkı sağlar.</td></tr><tr><td title="Ağ güvenliğinde kullanılan teknolojileri açıklayabilmek.">Ö4</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">ÖP4</td><td class="score">3</td><td class="text-xs text-slate-600">Güvenlik teknolojilerini öğrenmek, modern teknikleri kullanma becerisine katkı sağlar.</td></tr><tr><td title="Bilgisayar ağının alt ağı karakteristiğini açıklayabilmek.">Ö5</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">ÖP2</td><td class="score">2</td><td class="text-xs text-slate-600">Alt ağ karakteristiğini açıklamak, karmaşık bir problemi (ağ yapısını) formüle etme becerisine yardımcı olur.</td></tr></tbody></table></div>
  </div></div>
-<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">2 kaynak · 2 tanesinde yıl var · en yeni 2021 (5 yıl önce) · 10 yıldan eski 0</div>
  <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2019</td><td>R.Kara, Bilgisayar Ağları, Nobel Yayıncılık 2019, Ankara</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2021</td><td>1.Computer Networking A Top-Down Approach, Eighth Edition by James F. Kurose and Keith W. Ross, Pearson, 2021.., Computer Networks 4/E, Andrew S. Tanenbaum, Pearson Education Inc., 2006., Stallings, W., Case, T. (2012). 2.Business Data Communications- Infrastructure, Networking and Security, Prentice Hall., Routing &amp; Switching: Time of convergence, Puzmanova. 3.Bilgisayar Ağları ve İnternet Mühendisliği / Toros Rifat Çölkesen / Papatya Yayınları / 2019. Cisco Networking Academy</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>

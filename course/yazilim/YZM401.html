@@ -50,7 +50,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:05 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:15 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 7. yarıyıl</div>
@@ -85,17 +85,17 @@
  <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
   <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 32</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 7</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
   <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #159 · 13.11 19:43 · 1 deneme · uzman incelemesi gerekli</div>
   </div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
   <div class="text-3xl score mt-1">84<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #161 · 13.11 20:05 · 1 deneme · uzman incelemesi gerekli</div>
   </div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve ÖP tutarlılığı<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
   <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #164 · 13.11 20:13 · 1 deneme · uzman incelemesi gerekli</div>
   </div>
@@ -110,7 +110,7 @@
 <td><span class="pill s-medium">orta</span></td><td>İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.</td><td>19/21 metin TR ile birebir aynı (%90)</td><td>%50 altında</td><td class="text-slate-600">İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.</td></tr>
 </tbody></table></div>
 
-<div class="card" id="modul-a"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
  
  <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
  <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
@@ -123,7 +123,7 @@
  
 </div>
 
-<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
  
  <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %60 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Dersin amacı &#39;teorik ve uygulama becerisi kazandırmak&#39; iken, çıktılar konu belirleme (teori), planlama (uygulama), araştırma (uygulama) ve tez yazma/sunma (uygulama/yaratma) süreçlerini kapsayarak bu amaca yüksek düzeyde hizmet etmektedir.<br>
   Bloom dağılımı: anlama 2, yaratma 1, uygulama 2</p>
@@ -148,7 +148,7 @@
 </div>
 
 
-<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve ÖP çıktısı katkılarının anlamsal tutarlılığı</h3>
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
  <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
  <div class="grid lg:grid-cols-2 gap-6">
  <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
@@ -169,12 +169,12 @@
   <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
   <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>ÖP</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Alanı ile ilgili araştırma konularını bilir.">Ö1</td><td title="Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi; bu alanlardaki kurumsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinde kullanabilme becerisi.">ÖP1</td><td class="score">3</td><td class="text-xs text-slate-600">Araştırma konuları belirleme (hafta 1) ve literatür taraması (cikti:4) ile bilgi birikimi gereklidir.</td></tr><tr><td title="Alanı ile ilgili araştırma konularını bilir.">Ö1</td><td title="Yaşam boyu öğrenmenin gerekliliği bilinci; bilgiye erişebilme, bilim ve teknolojideki gelişmeleri izleme ve kendini sürekli yenileme becerisi.">ÖP8</td><td class="score">2</td><td class="text-xs text-slate-600">Araştırma konularını güncel tutma ve yenileme gerekliliği (cikti:1) ile ilişkilidir.</td></tr><tr><td title="Konuyla ilgili çalışma planı yapar.">Ö2</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">ÖP2</td><td class="score">3</td><td class="text-xs text-slate-600">Çalışma planı yapma (cikti:2) ve yöntem belirleme (cikti:3) karmaşık problem çözme becerisi gerektirir.</td></tr><tr><td title="Konuyla ilgili çalışma planı yapar.">Ö2</td><td title="Proje yönetimi, risk yönetimi ve değişiklik yönetimi gibi, iş hayatındaki uygulamalar hakkında bilgi; girişimcilik, yenilikçilik hakkında farkındalık; sürdürülebilir kalkınma hakkında bilgi.">ÖP10</td><td class="score">2</td><td class="text-xs text-slate-600">Proje yönetimi (cikti:2) ile ilişkilidir.</td></tr><tr><td title="Konu ile ilgili hedefleri belirler ve yöntem seçimini bilir.">Ö3</td><td title="Karmaşık mühendislik problemlerini saptama, tanımlama, formüle etme ve çözme becerisi; bu amaçla uygun analiz ve modelleme yöntemlerini seçme ve uygulama becerisi.">ÖP2</td><td class="score">3</td><td class="text-xs text-slate-600">Hedef belirleme ve yöntem seçimi (cikti:3) karmaşık problem çözme becerisi gerektirir.</td></tr><tr><td title="Konu ile ilgili hedefleri belirler ve yöntem seçimini bilir.">Ö3</td><td title="Karmaşık bir sistemi, süreci, cihazı veya ürünü gerçekçi kısıtlar ve koşullar altında, belirli gereksinimleri karşılayacak şekilde tasarlama becerisi; bu amaçla modern tasarım yöntemlerini uygulama becerisi.">ÖP3</td><td class="score">3</td><td class="text-xs text-slate-600">Tez konusuyla ilgili bir sistemi tasarlama (cikti:3) ile ilişkilidir.</td></tr><tr><td title="Literatür araştırması yapar">Ö4</td><td title="Karmaşık mühendislik problemlerinin veya disipline özgü araştırma konularının incelenmesi için deney tasarlama, deney yapma, veri toplama, sonuçları analiz etme ve yorumlama becerisi.">ÖP5</td><td class="score">3</td><td class="text-xs text-slate-600">Literatür araştırması (cikti:4) deney tasarlama ve veri toplama sürecinin ön adımıdır.</td></tr><tr><td title="Tezi yazar ve sunar.">Ö5</td><td title="Türkçe sözlü ve yazılı etkin iletişim kurma becerisi; en az bir yabancı dil bilgisi; etkili rapor yazma ve yazılı raporları anlama, tasarım ve üretim raporları hazırlayabilme, etkin sunum yapabilme, açık ve anlaşılır talimat verme, alma becerisi.">ÖP7</td><td class="score">3</td><td class="text-xs text-slate-600">Tez yazma ve sunma (cikti:5) etkin iletişim becerisi gerektirir.</td></tr><tr><td title="Tezi yazar ve sunar.">Ö5</td><td title="Disiplin içi ve çok disiplinli takımlarda etkin biçimde çalışma becerisi; bireysel çalışma becerisi.">ÖP6</td><td class="score">2</td><td class="text-xs text-slate-600">Tez yazma ve sunma (cikti:5) bireysel çalışma becerisi gerektirir.</td></tr></tbody></table></div>
  </div></div>
-<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">6 kaynak · 6 tanesinde yıl var · en yeni 2019 (7 yıl önce) · 10 yıldan eski 0</div>
  <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2018</td><td>Ian Sommerville, &#34;Yazılım Mühendisliği&#34;, Nobel Akademik Yayıncılık, 2018</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2019</td><td>Barbara Gastel,&#34;Bilimsel Bir Makale Nasıl Yazılır ve Yayımlanır?&#34;, Gazi Kitabevi, 2019</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2016</td><td>Timur Karaçay, Aybar Karaçay, Deniz Karaçay,&#34;YAzılım Mühendisliğine Giriş&#34;, Abaküs Kitap, 2016</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2018</td><td>Ian Sommerville, &#34;Yazılım Mühendisliği&#34;, Nobel Akademik Yayıncılık, 2018</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2019</td><td>Barbara Gastel,&#34;Bilimsel Bir Makale Nasıl Yazılır ve Yayımlanır?&#34;, Gazi Kitabevi, 2019</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2016</td><td>Timur Karaçay, Aybar Karaçay, Deniz Karaçay,&#34;YAzılım Mühendisliğine Giriş&#34;, Abaküs Kitap, 2016</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
 
-<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu örtüşmesi adayları (Modül B)</h3>
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu benzerliği <span class="text-xs font-normal text-slate-500">(Modül B)</span><span class="ihelp" title="Farklı derslerin haftalık konuları arasındaki benzerlik. Aynı yarıyılda olası tekrar, farklı yarıyılda tekrar ya da derinleşme olabilir.">i</span></h3>
  <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/yazilim/YZM310">YZM310 Bitirme Projesi I</a> · 6. yarıyıl · 67 benzer konu (en yüksek 1.0)</div></div>
 
 <div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>

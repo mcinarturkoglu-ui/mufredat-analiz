@@ -50,7 +50,7 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:05 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:15 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 1. yarıyıl</div>
@@ -85,17 +85,17 @@
  <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
   <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 38</span><span class="pill st-fail">kaldı: 4</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
   <div class="text-3xl score mt-1">70<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #30 · 13.11 15:48 · 2 deneme · uzman incelemesi gerekli</div>
   </div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
   <div class="text-3xl score mt-1">85.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #31 · 13.11 15:49 · 1 deneme · uzman incelemesi gerekli</div>
   </div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve ÖP tutarlılığı<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
   <div class="text-3xl score mt-1">66.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #86 · 13.11 16:25 · 1 deneme · uzman incelemesi gerekli</div>
   </div>
@@ -111,7 +111,7 @@
 <td><span class="pill s-low">düşük</span></td><td>Bazı kaynak satırları künye olamayacak kadar kısa (yazar, eser adı, yıl eksik).</td><td>1 yetersiz künye: [&#39;Ders notları&#39;]</td><td>0 yetersiz künye</td><td class="text-slate-600">Kaynakları yazar, eser adı, yayınevi ve yıl içerecek şekilde yazın.</td></tr>
 </tbody></table></div>
 
-<div class="card" id="modul-a"><h3 class="font-semibold mb-3">Modül A · Ad ve içerik uyumu</h3>
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
  
  <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
  <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
@@ -149,7 +149,7 @@
  </div>
 </div>
 
-<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Modül C · Öğrenme çıktıları</h3>
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
  
  <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %80 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Dersin amacı &#39;temel unsurları anlama ve etkili bir şekilde kullanma becerilerini kazandırmak&#39;tır. Çıktılar (2, 3, 4, 5) bu &#39;kullanma&#39; becerisini ölçülebilir eylemlerle (uygulama) ele almaktadır. Ancak, donanım bilgisi (hafta 2) ve genel &#39;anlama&#39; hedefi (cikti:1) tam olarak kapsanmadığı için tam uyum (3) sağlanamamıştır.<br>
   Bloom dağılımı: anlama 1, uygulama 4</p>
@@ -174,7 +174,7 @@
 </div>
 
 
-<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve ÖP çıktısı katkılarının anlamsal tutarlılığı</h3>
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
  <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
  <div class="grid lg:grid-cols-2 gap-6">
  <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 66.7</h4>
@@ -189,7 +189,7 @@
   <p class="text-xs text-slate-500 mb-2">Öneridir; bilgi paketindeki veriyi değiştirmez ve puana girmez.</p>
   <table class="tbl w-full text-sm"><thead><tr><th>Çıktı</th><th>ÖP</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody><tr><td title="Öğrenciler, bilgisayar biliminin tarihçesini ve temel kavramlarını öğrenir.">Ö1</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">ÖP4</td><td class="score">3</td><td class="text-xs text-slate-600">Bilgisayar biliminin temel kavramları (hafta 1) PO4&#39;teki &#39;bilişim teknolojilerini etkin kullanma&#39; becerisinin başlangıcını destekler.</td></tr><tr><td title="Öğrenciler, bilgisayar biliminin tarihçesini ve temel kavramlarını öğrenir.">Ö1</td><td title="Yaşam boyu öğrenmenin gerekliliği bilinci; bilgiye erişebilme, bilim ve teknolojideki gelişmeleri izleme ve kendini sürekli yenileme becerisi.">ÖP8</td><td class="score">3</td><td class="text-xs text-slate-600">Tarihçe ve temel kavramlar, teknolojideki gelişmeleri izleme bilincine katkı sağlar.</td></tr><tr><td title="Öğrenciler, Microsoft Word arayüzünü ve temel menülerini kullanarak belgeler oluşturur ve düzenler.">Ö2</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">ÖP4</td><td class="score">4</td><td class="text-xs text-slate-600">Word kullanımı (hafta 3, 4, 5) doğrudan bilişim teknolojilerini etkin kullanma becerisini destekler.</td></tr><tr><td title="Öğrenciler, Microsoft Word arayüzünü ve temel menülerini kullanarak belgeler oluşturur ve düzenler.">Ö2</td><td title="Türkçe sözlü ve yazılı etkin iletişim kurma becerisi; en az bir yabancı dil bilgisi; etkili rapor yazma ve yazılı raporları anlama, tasarım ve üretim raporları hazırlayabilme, etkin sunum yapabilme, açık ve anlaşılır talimat verme, alma becerisi.">ÖP7</td><td class="score">3</td><td class="text-xs text-slate-600">Belge oluşturma ve biçimlendirme, etkili rapor yazma becerisine katkı sağlar.</td></tr><tr><td title="Öğrenciler, Microsoft Excel&#39;de veri girişi yapar, temel ve gelişmiş formülleri kullanır.">Ö3</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">ÖP4</td><td class="score">4</td><td class="text-xs text-slate-600">Excel ile veri analizi ve formül kullanımı, modern teknik ve araçları kullanma becerisini destekler.</td></tr><tr><td title="Öğrenciler, Microsoft Excel&#39;de veri girişi yapar, temel ve gelişmiş formülleri kullanır.">Ö3</td><td title="Türkçe sözlü ve yazılı etkin iletişim kurma becerisi; en az bir yabancı dil bilgisi; etkili rapor yazma ve yazılı raporları anlama, tasarım ve üretim raporları hazırlayabilme, etkin sunum yapabilme, açık ve anlaşılır talimat verme, alma becerisi.">ÖP7</td><td class="score">3</td><td class="text-xs text-slate-600">Veri analizi sonuçlarının görselleştirilmesi, etkili sunum hazırlama becerisine dolaylı katkı sağlar.</td></tr><tr><td title="Öğrenciler, PowerPoint arayüzünü ve menülerini kullanarak yeni sunumlar oluşturur ve düzenler.">Ö4</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">ÖP4</td><td class="score">4</td><td class="text-xs text-slate-600">PowerPoint ile sunum oluşturma ve düzenleme, bilişim teknolojilerini etkin kullanma becerisini destekler.</td></tr><tr><td title="Öğrenciler, PowerPoint arayüzünü ve menülerini kullanarak yeni sunumlar oluşturur ve düzenler.">Ö4</td><td title="Türkçe sözlü ve yazılı etkin iletişim kurma becerisi; en az bir yabancı dil bilgisi; etkili rapor yazma ve yazılı raporları anlama, tasarım ve üretim raporları hazırlayabilme, etkin sunum yapabilme, açık ve anlaşılır talimat verme, alma becerisi.">ÖP7</td><td class="score">4</td><td class="text-xs text-slate-600">Sunum hazırlama becerisi, PO7&#39;deki &#39;etkin sunum yapabilme&#39; becerisine doğrudan katkı sağlar.</td></tr><tr><td title="Öğrenciler, Microsoft Visio arayüzünü kullanarak temel şekiller ve diyagramlar oluşturur.">Ö5</td><td title="Mühendislik uygulamalarında karşılaşılan karmaşık problemlerin analizi ve çözümü için gerekli olan modern teknik ve araçları geliştirme, seçme ve kullanma becerisi; bilişim teknolojilerini etkin bir şekilde kullanma becerisi.">ÖP4</td><td class="score">3</td><td class="text-xs text-slate-600">Visio ile diyagram oluşturma, modern teknik ve araçları kullanma becerisine katkı sağlar.</td></tr></tbody></table></div>
  </div></div>
-<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
  <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
  <div class="text-sm mb-2">3 kaynak · 1 tanesinde yıl var · en yeni 2023 (3 yıl önce) · 10 yıldan eski 0</div>
  <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Ders notları</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Öğretim Üyesi ders notları</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2023</td><td>Bilgisayar Bilimine Giriş, J. Glenn Brookshear, Dennis Brylow, Nobel Akademik Yayıncılık,2023</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>

@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Müfredat Analiz</title>
+<title>Raporlar</title>
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <style>
  body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -50,14 +50,37 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:05 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:15 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <h1 class="text-2xl font-bold">Raporlar</h1>
-<div class="card"><h3 class="font-semibold mb-3">Yazılım Mühendisliği</h3><div class="flex flex-wrap gap-2">
- <a class="btn btn-ghost" href="/mufredat-analiz/reports/yazilim/courses.csv">Ders özeti (CSV)</a>
- <a class="btn btn-ghost" href="/mufredat-analiz/reports/yazilim/rules.csv">Kural ihlalleri (CSV)</a>
- <a class="btn btn-ghost" href="/mufredat-analiz/reports/yazilim/findings.csv">YZ bulguları ve kanıtlar (CSV)</a></div>
- <p class="text-xs text-slate-500 mt-2">Dosyalar Excel'de Türkçe karakterlerle açılır. PDF ve biçimli Excel raporları sonraki adımda.</p></div>
+
+<div class="card max-w-4xl">
+ <div class="flex flex-wrap items-start justify-between gap-4">
+  <div><h2 class="font-semibold text-lg">Yazılım Mühendisliği · Bilgi Paketi Analiz Raporu</h2>
+   <p class="text-sm text-slate-500 mt-1">Tek Excel dosyası; renkli durumlar, okunur başlıklar ve süzme özelliğiyle.</p></div>
+  <a class="btn !px-5 !py-2.5" href="/mufredat-analiz/reports/yazilim/rapor.xlsx">Excel raporunu indir</a>
+ </div>
+ <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 mt-5 text-sm">
+  
+   <div class="flex gap-3"><span class="text-blue-700 font-semibold whitespace-nowrap">Özet</span><span class="text-slate-600">Ders sayıları ve her bölümün tamamlandı / iyileştirilmeli / boş dağılımı.</span></div>
+  
+   <div class="flex gap-3"><span class="text-blue-700 font-semibold whitespace-nowrap">Ders Durum Tablosu</span><span class="text-slate-600">Her ders için 8 bölümün renkli durumu.</span></div>
+  
+   <div class="flex gap-3"><span class="text-blue-700 font-semibold whitespace-nowrap">Yapılacaklar</span><span class="text-slate-600">Her ders ve bölüm için sorun ve yapılması gereken, madde madde.</span></div>
+  
+   <div class="flex gap-3"><span class="text-blue-700 font-semibold whitespace-nowrap">Kural İhlalleri</span><span class="text-slate-600">Kesin kural denetimleri: sorun, mevcut ve beklenen değer, öneri.</span></div>
+  
+   <div class="flex gap-3"><span class="text-blue-700 font-semibold whitespace-nowrap">YZ Puanları</span><span class="text-slate-600">Yapay zekâ puanları (0–100), renkli.</span></div>
+  
+   <div class="flex gap-3"><span class="text-blue-700 font-semibold whitespace-nowrap">YZ Bulguları</span><span class="text-slate-600">Yapay zekânın bulduğu olası sorunlar, ders sayfasından alıntılanan kanıt ve öneri.</span></div>
+  
+   <div class="flex gap-3"><span class="text-blue-700 font-semibold whitespace-nowrap">Tanımlar</span><span class="text-slate-600">Raporda geçen tüm terimlerin açıklaması.</span></div>
+  
+ </div>
+ <details class="mt-5 text-sm"><summary class="cursor-pointer text-slate-500">Ham veri (CSV)</summary>
+  <div class="flex flex-wrap gap-3 mt-2"><a class="lnk" href="/mufredat-analiz/status/yazilim.csv">Ders durum tablosu</a><a class="lnk" href="/mufredat-analiz/reports/yazilim/rules.csv">Kural ihlalleri</a><a class="lnk" href="/mufredat-analiz/reports/yazilim/findings.csv">YZ bulguları</a><a class="lnk" href="/mufredat-analiz/reports/yazilim/courses.csv">Ders özeti</a></div></details>
+</div>
+
 
  </main>
 </div>
