@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilgileri Güncelle</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Genel Bakış</a>
+   
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yazılım Mühendisliği</div>
+    <a href="/mufredat-analiz/status/yazilim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/yazilim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/yazilim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/update" class="flex items-center gap-2.5 rounded-md px-3 py-2 bg-slate-800 text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+   <a href="/mufredat-analiz/ai" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:05 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="max-w-4xl space-y-6">
+ <div><h1 class="text-2xl font-bold">Bilgileri Güncelle</h1>
+  <p class="text-sm text-slate-500 mt-1">Ders bilgilerini Bologna sitesinden yeniden çeker, kural denetimlerini yeniler. Yılda birkaç kez yapılması yeterlidir.</p></div>
+
+ <div class="grid sm:grid-cols-3 gap-4">
+  <div class="card"><div class="text-xs text-slate-500">Son veri çekme</div><div class="text-lg font-semibold mt-1">13.11.2026 01:33</div></div>
+  <div class="card"><div class="text-xs text-slate-500">Çekilecek ders kaydı (havuzlar dahil)</div><div class="text-lg font-semibold mt-1">133</div></div>
+  <div class="card"><div class="text-xs text-slate-500">Siteye gidecek istek</div><div class="text-lg font-semibold mt-1">yaklaşık 285</div></div>
+ </div>
+
+ <form id="uf" method="post" action="/mufredat-analiz/update/start" class="card space-y-5 ">
+  <input type="hidden" name="slug" value="yazilim">
+  <div><h2 class="font-semibold">Ne yapılacak?</h2>
+   <div class="mt-3 space-y-3">
+    <div class="flex items-start gap-3 rounded-lg bg-slate-50 px-4 py-3"><span class="mt-0.5 text-emerald-600">✓</span>
+     <div class="flex-1"><div class="text-sm font-medium">Bilgileri çek, doğrula, kuralları yenile</div>
+      <div class="text-xs text-slate-500">Her zaman yapılır · tahmini <b>10 dk</b> (çekme 9 dk 30 sn + işleme 1 dk 15 sn)</div></div></div>
+    <label class="flex items-start gap-3 rounded-lg border border-slate-200 px-4 py-3 cursor-pointer hover:bg-slate-50">
+     <input type="checkbox" name="ai" class="mt-1 w-4 h-4 accent-blue-600" data-s="8136">
+     <div class="flex-1"><div class="text-sm font-medium">Değişen dersleri yapay zekâ ile yeniden analiz et</div>
+      <div class="text-xs text-slate-500">Yalnızca içeriği değişen zorunlu dersler · ders başına ~2 dk 36 sn · hepsi değişmişse en fazla 2 sa 15 dk</div></div></label>
+    <label class="flex items-start gap-3 rounded-lg border border-slate-200 px-4 py-3 cursor-pointer hover:bg-slate-50">
+     <input type="checkbox" name="publish" class="mt-1 w-4 h-4 accent-blue-600" data-s="120">
+     <div class="flex-1"><div class="text-sm font-medium">İnceleme sitesini de güncelle</div>
+      <div class="text-xs text-slate-500">Hocalarla paylaşılan GitHub Pages sitesi yeni verilerle yayınlanır · ~2 dk</div></div></label>
+   </div></div>
+  <div class="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
+   <div class="text-sm">Tahmini toplam süre: <b id="tot" class="text-lg">10 dk</b></div>
+   <span class="text-sm text-slate-500">Bu inceleme sürümünde güncelleme kapalıdır; sistemin kurulu olduğu bilgisayardan yapılır.</span>
+   
+  </div>
+  <p class="text-xs text-slate-500">Süre, son toplamadaki ölçüme göre hesaplanır (son toplamadaki 264 sayfadan ölçüldü; sayfa başına ~2.0 sn). Site yavaşsa uzayabilir. İşlem sürerken panel kullanılabilir; bu sayfa ilerlemeyi gösterir.</p>
+ </form>
+
+ <section id="prog" class="card space-y-4 hidden">
+  <div class="flex items-center justify-between gap-3"><h2 class="font-semibold" id="pl">—</h2><span class="text-sm text-slate-500" id="pt"></span></div>
+  <div class="h-3 rounded-full bg-slate-100 overflow-hidden"><div id="pb" class="h-3 bg-blue-600 transition-all" style="width:0%"></div></div>
+  <div class="text-sm text-slate-600" id="pc"></div>
+  <pre id="plog" class="text-xs bg-slate-50 rounded-lg p-3 max-h-56 overflow-auto whitespace-pre-wrap"></pre>
+  <div id="pres"></div>
+ </section>
+
+ 
+</div>
+<script>
+const fmt = s => { s = Math.round(s); if (s < 60) return s + ' sn'; const h = Math.floor(s/3600), m = Math.floor(s%3600/60), r = s%60; return h ? `${h} sa ${m} dk` : (m < 10 && r ? `${m} dk ${r} sn` : `${m} dk`); };
+const base = 645;
+document.querySelectorAll('#uf input[type=checkbox]').forEach(c => c.addEventListener('change', () => {
+ let t = base; document.querySelectorAll('#uf input[type=checkbox]:checked').forEach(x => t += +x.dataset.s); document.getElementById('tot').textContent = fmt(t); }));
+
+</script>
+
+ </main>
+</div>
+</body>
+</html>

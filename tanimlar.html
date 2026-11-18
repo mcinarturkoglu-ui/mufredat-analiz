@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanımlar</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Genel Bakış</a>
+   
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yazılım Mühendisliği</div>
+    <a href="/mufredat-analiz/status/yazilim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/yazilim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/yazilim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/update" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+   <a href="/mufredat-analiz/ai" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 bg-slate-800 text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:05 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-end justify-between gap-3">
+ <div><h1 class="text-2xl font-bold">Tanımlar</h1>
+  <p class="text-sm text-slate-500">Sistemde görünen tüm kısaltma, kod ve terimlerin açıklaması. Ekranlarda <span class="ihelp">i</span> işaretinin üzerine gelerek de görebilirsiniz.</p></div>
+ <input id="gq" class="border border-slate-300 rounded-lg px-3 py-2 text-sm w-64" placeholder="Terim ara (ör. AKTS, Modül C)">
+</div>
+<div class="grid 2xl:grid-cols-2 gap-4">
+
+ <section class="card gsec"><h2 class="font-semibold mb-3">Durumlar (Ders Durum Tablosu)</h2>
+  <dl class="divide-y divide-slate-100">
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Boş</dt><dd class="text-sm text-slate-600">Bölüm ders sayfasında hiç doldurulmamış.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">İyileştirilmeli</dt><dd class="text-sm text-slate-600">Bölüm dolu, ancak orta ya da yüksek önemde bir kural ihlali veya yapay zekâ bulgusu var.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Tamamlandı</dt><dd class="text-sm text-slate-600">Bölüm dolu ve önemli bir sorun bulunmadı. Düşük önemli notlar durumu değiştirmez.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Gerekmiyor</dt><dd class="text-sm text-slate-600">Ders türü gereği bu bölüm beklenmiyor (ör. staj dersinde haftalık plan). Ayarlar → istisnalar.</dd></div></dl>
+ </section>
+
+ <section class="card gsec"><h2 class="font-semibold mb-3">Bilgi paketi bölümleri (tablo sütunları)</h2>
+  <dl class="divide-y divide-slate-100">
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">ÖP çıktıları</dt><dd class="text-sm text-slate-600">Programın mezunlarına kazandırmayı hedeflediği çıktılar. Sütun, dersin öğrenme çıktılarının ÖP çıktılarına katkısının girilip girilmediğini ve tutarlılığını gösterir.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Ders içeriği</dt><dd class="text-sm text-slate-600">Dersin amacı ve içerik metni; ders adıyla uyumu.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Haftalık plan</dt><dd class="text-sm text-slate-600">Haftalara göre işlenecek konular; sayı, sıra, boş ve tekrarlanan haftalar.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Öğrenme çıktıları</dt><dd class="text-sm text-slate-600">Dersi tamamlayan öğrencinin kazanacağı bilgi ve beceriler; ölçülebilirliği ve haftalarda karşılığı.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Ölçme-değerlendirme</dt><dd class="text-sm text-slate-600">Ara sınav, ödev, final gibi etkinlikler ve katkı yüzdeleri; toplam %100 olmalı.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">AKTS ve iş yükü</dt><dd class="text-sm text-slate-600">Öğrencinin derse ayırdığı toplam saat ve buna karşılık gelen AKTS.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Kaynaklar</dt><dd class="text-sm text-slate-600">Ders kitapları ve okuma listesi; künye biçimi, yayın yılı, derse uygunluk.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">İngilizce paket</dt><dd class="text-sm text-slate-600">Bilgi paketinin İngilizce sürümü; dolu mu, Türkçe ile aynı yapıda mı, çevrilmiş mi.</dd></div></dl>
+ </section>
+
+ <section class="card gsec"><h2 class="font-semibold mb-3">Ders bilgileri</h2>
+  <dl class="divide-y divide-slate-100">
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">ÖP1, ÖP2 …</dt><dd class="text-sm text-slate-600">ÖP çıktılarının sıra numarası.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Ö1, Ö2 …</dt><dd class="text-sm text-slate-600">Dersin öğrenme çıktılarının sıra numarası.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">T+U+L</dt><dd class="text-sm text-slate-600">Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Kredi</dt><dd class="text-sm text-slate-600">Dersin yerel (ulusal) kredisi.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">AKTS</dt><dd class="text-sm text-slate-600">Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">İş yükü</dt><dd class="text-sm text-slate-600">Ders saati, ders dışı çalışma, ödev, sınav hazırlığı vb. toplam öğrenci saati.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Katkı düzeyi (1–5)</dt><dd class="text-sm text-slate-600">Bir öğrenme çıktısının bir ÖP çıktısına katkısı: 1 çok düşük … 5 çok yüksek.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Zorunlu / Seçmeli</dt><dd class="text-sm text-slate-600">Dersin müfredattaki türü.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Seçmeli havuz</dt><dd class="text-sm text-slate-600">Öğrencinin içinden belirli sayıda ders seçtiği ders grubu (ör. OSD301, YZMSEÇ005).</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Ders kategorisi</dt><dd class="text-sm text-slate-600">Kural istisnaları için tür: staj, bitirme projesi, yalnız uygulama/laboratuvar, diğer.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">TYYÇ</dt><dd class="text-sm text-slate-600">Türkiye Yükseköğretim Yeterlilikler Çerçevesi; ÖP çıktılarının ulusal yeterliliklerle ilişkisi.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Son güncelleme</dt><dd class="text-sm text-slate-600">Bilgi paketinin Bologna sitesinde en son düzenlendiği tarih.</dd></div></dl>
+ </section>
+
+ <section class="card gsec"><h2 class="font-semibold mb-3">Kural denetimi (kesin, yapay zekâ kullanmaz)</h2>
+  <dl class="divide-y divide-slate-100">
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">R1 · Zorunlu alanlar</dt><dd class="text-sm text-slate-600">Temel alanlar (ad, amaç, içerik, çıktılar, haftalık plan, değerlendirme, iş yükü, kaynak) her iki dilde dolu mu.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">R2 · Haftalık plan</dt><dd class="text-sm text-slate-600">Hafta sayısı uygun mu, numaralar ardışık mı, boş ya da tekrarlanan konu var mı.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">R3 · Değerlendirme toplamı</dt><dd class="text-sm text-slate-600">Değerlendirme yüzdelerinin toplamı %100 mü.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">R4 · AKTS ve iş yükü</dt><dd class="text-sm text-slate-600">Ders sayfası, müfredat ve iş yükü tablosundaki AKTS aynı mı; saat/AKTS oranı uygun mu.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">R5 · Türkçe / İngilizce</dt><dd class="text-sm text-slate-600">İki dil sürümü aynı yapıda mı; İngilizce metinler çevrilmiş mi.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">R6 · Güncelleme tarihi</dt><dd class="text-sm text-slate-600">Bilgi paketi belirlenen süre içinde güncellenmiş mi.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">R7 · Kaynaklar</dt><dd class="text-sm text-slate-600">Kaynak sayısı, yayın yılı bilgisi, en yeni kaynağın yaşı ve künye biçimi.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">R8 · Yarıyıl AKTS</dt><dd class="text-sm text-slate-600">Her yarıyıl 30 AKTS mi; seçmeli havuz AKTS&#39;leri tutarlı mı; program toplamı (lisans 240) doğru mu.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Önem derecesi</dt><dd class="text-sm text-slate-600">Bilgi &lt; Düşük &lt; Orta &lt; Yüksek &lt; Kritik. Orta ve üzeri durumu “İyileştirilmeli” yapar.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Geçti / Kaldı</dt><dd class="text-sm text-slate-600">Kontrol sağlandı / sağlanmadı.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Muaf</dt><dd class="text-sm text-slate-600">Ders türü gereği kontrol uygulanmadı (istisna).</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Değerlendirilemedi</dt><dd class="text-sm text-slate-600">Kontrol için gereken veri yok; sorun var ya da yok denemez.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Kural çalıştırması #</dt><dd class="text-sm text-slate-600">Kuralların tüm derslere bir kez uygulanması; numarası ve tarihi saklanır.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Risk puanı</dt><dd class="text-sm text-slate-600">Genel bakıştaki sıralama için: 3 × yüksek + 2 × orta + 1 × düşük önemli ihlal sayısı.</dd></div></dl>
+ </section>
+
+ <section class="card gsec"><h2 class="font-semibold mb-3">Yapay zekâ analizleri (ön değerlendirme, uzman onayı bekler)</h2>
+  <dl class="divide-y divide-slate-100">
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Modül A · Ad–içerik uyumu</dt><dd class="text-sm text-slate-600">Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Modül B · Konu örtüşmesi</dt><dd class="text-sm text-slate-600">Farklı derslerin haftalık konuları arasındaki benzerlik. Aynı yarıyılda olası tekrar, farklı yarıyılda tekrar ya da derinleşme olabilir.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Modül C · Öğrenme çıktıları</dt><dd class="text-sm text-slate-600">Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Modül D · Kaynak güncelliği</dt><dd class="text-sm text-slate-600">Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Modül E · Kaynak ve ÖP tutarlılığı</dt><dd class="text-sm text-slate-600">Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Puan (0–100)</dt><dd class="text-sm text-slate-600">Modülün ölçüt düzeylerinden kodla hesaplanır; model doğrudan puan vermez.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Ölçüt düzeyi (0–3)</dt><dd class="text-sm text-slate-600">0 uyumsuz, 1 zayıf, 2 kısmen uyumlu, 3 uyumlu (Modül A).</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Olası sorun</dt><dd class="text-sm text-slate-600">Yapay zekânın bulduğu ve alıntısı kaynak metinde doğrulanan sorun; uzman onayı bekler.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Kanıt ✓ / ✗</dt><dd class="text-sm text-slate-600">✓ alıntı ders sayfasında bulundu; ✗ bulunamadı, bulgu puana girmez.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Kanıtsız, puana girmedi</dt><dd class="text-sm text-slate-600">Model düşük düzey verdi ama doğrulanmış kanıt göstermedi; bu ölçüt puana katılmadı.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Bloom düzeyi</dt><dd class="text-sm text-slate-600">Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Ölçülebilir</dt><dd class="text-sm text-slate-600">Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Benzerlik (0–1)</dt><dd class="text-sm text-slate-600">Modül B&#39;de iki konu başlığının anlamca yakınlığı; 1 aynı anlam. Eşik 0,82.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Değerlendirilemedi (YZ)</dt><dd class="text-sm text-slate-600">Analiz için gereken bilgi eksik ya da model geçerli sonuç vermedi.</dd></div>
+   <div class="gitem grid sm:grid-cols-[13rem_1fr] gap-x-4 gap-y-0.5 py-2"><dt class="text-sm font-semibold text-slate-800">Model</dt><dd class="text-sm text-slate-600">Gemma 4 E4B: bilgisayarda yerel çalışan küçük dil modeli. Bge-m3: konu benzerliği için yerel model.</dd></div></dl>
+ </section>
+
+</div>
+<script>
+document.getElementById('gq').addEventListener('input', e => {
+ const q = e.target.value.trim().toLocaleLowerCase('tr');
+ document.querySelectorAll('.gsec').forEach(sec => { let any = false;
+  sec.querySelectorAll('.gitem').forEach(it => { const ok = !q || it.textContent.toLocaleLowerCase('tr').includes(q); it.style.display = ok ? '' : 'none'; any ||= ok; });
+  sec.style.display = any ? '' : 'none'; });
+});
+</script>
+
+ </main>
+</div>
+</body>
+</html>

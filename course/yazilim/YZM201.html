@@ -17,6 +17,8 @@
  .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
  a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
  .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
 </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -36,20 +38,24 @@
     <a href="/mufredat-analiz/program/yazilim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
    
    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/update" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
    <a href="/mufredat-analiz/ai" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
    <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
    <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
    <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
   </nav>
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 14.11.2026 20:20 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:05 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <div class="flex flex-wrap items-start justify-between gap-3">
  <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/yazilim">Yazılım Mühendisliği</a> / 3. yarıyıl</div>
  <h1 class="text-2xl font-bold">YZM201 · Yazılım Tasarımı ve Modelleme</h1>
- <div class="text-sm text-slate-600 mt-1">T+U+L 2+2+0 · Kredi 3 · AKTS 4 (müfredatta 4) · Zorunlu · kategori: regular · sitede son güncelleme 14.09.2026</div>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+2+0 · Kredi 3 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 4 (müfredatta 4) · Zorunlu · kategori: regular · sitede son güncelleme 14.09.2026</div>
  <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376731&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=376731&amp;lang=tr</a> · toplandı 13.11.2026 01:29</div></div>
  
 </div>
@@ -57,7 +63,7 @@
 <div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/yazilim">Tüm dersler →</a></div>
  <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
   <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
-   <div class="text-[11px] opacity-80">Program çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
   <a href="#modul-a" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
    <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">Tamamlandı</div></a>
   <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
@@ -76,20 +82,20 @@
 
 
 <div class="grid lg:grid-cols-4 gap-4">
- <div class="card"><div class="text-xs text-slate-500">Kural denetimi</div>
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
   <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 37</span><span class="pill st-fail">kaldı: 4</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu</div>
+ <div class="card"><div class="text-xs text-slate-500">Modül A · Ad–içerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
   <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #60 · 13.11 16:09 · 1 deneme · uzman incelemesi gerekli</div>
   </div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları</div>
+ <div class="card"><div class="text-xs text-slate-500">Modül C · Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
   <div class="text-3xl score mt-1">53.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #62 · 13.11 16:10 · 1 deneme · uzman incelemesi gerekli</div>
   </div>
  
- <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve PÇ tutarlılığı</div>
+ <div class="card"><div class="text-xs text-slate-500">Modül E · Kaynak ve ÖP tutarlılığı<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
   <div class="text-3xl score mt-1">75<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
    <div class="text-xs text-slate-500">iş #116 · 13.11 18:06 · 2 deneme · uzman incelemesi gerekli</div>
   </div>
@@ -122,7 +128,7 @@
  
  <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %0 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Çıktılar, dersin genel amaçlarını (tasarımın ne olduğu, tasarım metotları, tasarımın rolü) kapsasa da, hepsi ölçülebilir fiillerle ifade edilmediği için tam uyum sağlanamamıştır.<br>
   Bloom dağılımı: anlama 3, uygulama 1</p>
- <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom</th><th>Ölçülebilir</th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
  
  <tr><td>1</td><td>Tasarımın ne olduğunu ve çeşitli tasarım türlerinin ürünün farklı yönleriyle nasıl ilgilendiğini açıklar<div class="text-xs text-amber-700">belirsiz: açıklar</div></td><td>anlama</td>
  <td><span class="pill st-fail">hayır</span></td><td>1</td>
@@ -140,7 +146,7 @@
 </div>
 
 
-<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve program çıktısı katkılarının anlamsal tutarlılığı</h3>
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Modül E · Kaynakların ve ÖP çıktısı katkılarının anlamsal tutarlılığı</h3>
  <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
  <div class="grid lg:grid-cols-2 gap-6">
  <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 50</h4>
@@ -149,8 +155,8 @@
   <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Ders Notları<div class="text-xs text-slate-500">Satır künye olamayacak kadar kısa (kod denetimi).</div></td>
   <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
   <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
- <div><h4 class="text-sm font-semibold mb-1">Sayfadaki PÇ katkıları · puan 100</h4>
-  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → P10 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tasarım desenleri ve mimarileri (kaynak:1) ve ders içeriği, tasarımın ne olduğunu ve türlerini ele alarak P10&#39;u desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → P12 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tasarım desenleri ve mimarileri (kaynak:1) ve ders içeriği, yazılım geliştirme süreçlerine odaklanarak P12&#39;yi desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → P11 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders içeriği, soyutlama ve modelleme rollerini ele alarak P11&#39;i desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → P12 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders içeriği, tasarımın problem çözme etkinliği olarak sunulmasıyla P12&#39;yi desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → P12 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders içeriği, yazılım yaşam döngüsündeki tasarımın yerini belirterek P12&#39;yi güçlü bir şekilde desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → P12 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders içeriği, yazılım mühendisliğinde tasarım metotlarını inceleyerek P12&#39;yi güçlü bir şekilde desteklemektedir.</td></tr></tbody></table>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tasarım desenleri ve mimarileri (kaynak:1) ve ders içeriği, tasarımın ne olduğunu ve türlerini ele alarak P10&#39;u desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP12 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tasarım desenleri ve mimarileri (kaynak:1) ve ders içeriği, yazılım geliştirme süreçlerine odaklanarak P12&#39;yi desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP11 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders içeriği, soyutlama ve modelleme rollerini ele alarak P11&#39;i desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP12 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders içeriği, tasarımın problem çözme etkinliği olarak sunulmasıyla P12&#39;yi desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP12 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders içeriği, yazılım yaşam döngüsündeki tasarımın yerini belirterek P12&#39;yi güçlü bir şekilde desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP12 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders içeriği, yazılım mühendisliğinde tasarım metotlarını inceleyerek P12&#39;yi güçlü bir şekilde desteklemektedir.</td></tr></tbody></table>
  </div>
  </div></div>
 <div class="card" id="modul-d"><h3 class="font-semibold mb-1">Modül D (ön sürüm) · Kaynak güncelliği</h3>

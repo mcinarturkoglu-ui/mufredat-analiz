@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kullanım Kılavuzu</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Genel Bakış</a>
+   
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yazılım Mühendisliği</div>
+    <a href="/mufredat-analiz/status/yazilim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/yazilim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/yazilim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/update" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+   <a href="/mufredat-analiz/ai" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 bg-slate-800 text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:05 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+
+<div class="max-w-4xl space-y-6">
+ <div><h1 class="text-2xl font-bold">Kullanım Kılavuzu</h1>
+  <p class="text-sm text-slate-500 mt-1">Sistem, Bologna Bilgi Paketi'ndeki ders bilgilerini otomatik toplar, kurallarla ve yapay zekâ ile denetler, sonuçları tek tabloda gösterir.</p></div>
+
+ <section class="card"><h2 class="font-semibold mb-4">5 adımda kullanım</h2>
+  <ol class="space-y-5">
+  
+   <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-blue-50 text-blue-700 font-bold flex items-center justify-center">1</span>
+    <div><div class="font-semibold">Genel Bakış ile başlayın</div><p class="text-sm text-slate-600 mt-0.5">Programdaki ders sayısını, kaç dersin tamamlandığını, kaçında boş ya da iyileştirilmesi gereken bölüm olduğunu ve öncelikli dersleri görürsünüz.</p><a class="lnk text-sm" href="/mufredat-analiz/">Genel Bakış →</a></div></li>
+  
+   <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-blue-50 text-blue-700 font-bold flex items-center justify-center">2</span>
+    <div><div class="font-semibold">Ders Durum Tablosu’nu açın</div><p class="text-sm text-slate-600 mt-0.5">Her satır bir ders, her sütun bilgi paketinin bir bölümüdür. Renkler: yeşil Tamamlandı, sarı İyileştirilmeli, kırmızı Boş, gri Gerekmiyor. Yarıyıla ya da duruma göre süzebilir, ders arayabilirsiniz.</p><a class="lnk text-sm" href="/mufredat-analiz/status/yazilim">Ders Durum Tablosu →</a></div></li>
+  
+   <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-blue-50 text-blue-700 font-bold flex items-center justify-center">3</span>
+    <div><div class="font-semibold">Bir hücreye tıklayın</div><p class="text-sm text-slate-600 mt-0.5">Açılan kutuda o bölümün neden bu durumda olduğu yazar: hangi kural sağlanmadı, mevcut ve beklenen değer ne, yapay zekâ ne buldu. “Ders sayfasını aç” ile ayrıntıya geçersiniz.</p></div></li>
+  
+   <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-blue-50 text-blue-700 font-bold flex items-center justify-center">4</span>
+    <div><div class="font-semibold">Ders sayfasını inceleyin</div><p class="text-sm text-slate-600 mt-0.5">Üstte 8 bölümün durumu, altında kural ihlalleri (gerekçe ve öneriyle), yapay zekâ analizleri (alıntılanan kanıtlarla) ve dersin orijinal Türkçe/İngilizce bilgi paketi yer alır.</p></div></li>
+  
+   <li class="flex gap-4"><span class="w-8 h-8 shrink-0 rounded-full bg-blue-50 text-blue-700 font-bold flex items-center justify-center">5</span>
+    <div><div class="font-semibold">Sonuçları indirin</div><p class="text-sm text-slate-600 mt-0.5">Raporlar sayfasından ders durum tablosunu, kural ihlallerini ve yapay zekâ bulgularını Excel’de açılan dosyalar olarak alabilirsiniz.</p><a class="lnk text-sm" href="/mufredat-analiz/reports">Raporlar →</a></div></li>
+  
+  </ol></section>
+
+ <div class="grid md:grid-cols-2 gap-4">
+  <section class="card"><h2 class="font-semibold mb-2">Sonuçlar nasıl okunur?</h2>
+   <ul class="text-sm text-slate-600 space-y-2 list-disc pl-5">
+    <li><b>Kural denetimleri kesindir:</b> boş alan, %100 olmayan değerlendirme, AKTS–iş yükü uyuşmazlığı gibi ölçülebilir durumlardır.</li>
+    <li><b>Yapay zekâ bulguları ön değerlendirmedir:</b> “olası sorun” olarak işaretlenir ve uzman onayı bekler. Tabloda “Yapay zekâ bulgularını dahil et” kutusunu kapatarak yalnız kurallara göre görebilirsiniz.</li>
+    <li>Yapay zekânın gösterdiği her alıntı ders sayfasında aranır: <b>✓</b> bulundu, <b>✗</b> bulunamadı (bu bulgu puana girmez).</li>
+    <li>Yapay zekânın önerileri (ör. yeniden yazılmış öğrenme çıktısı) ayrı gösterilir; orijinal bilgi paketi değiştirilmez.</li>
+   </ul></section>
+  <section class="card"><h2 class="font-semibold mb-2">Diğer ekranlar</h2>
+   <ul class="text-sm text-slate-600 space-y-2">
+    <li><b>Müfredat:</b> yarıyıllara göre dersler, seçmeli havuzlar, yarıyıl AKTS toplamları, ÖP çıktıları.</li>
+    <li><b>Konu Örtüşmeleri:</b> haftalık konuları birbirine benzeyen ders çiftleri.</li>
+    <li><b>Bilgileri Güncelle:</b> verileri Bologna sitesinden yeniden çeker (yalnız kurulu sürümde).</li>
+    <li><b>Kural Ayarları:</b> eşikler, önem dereceleri ve istisnalar.</li>
+    <li><b>Tanımlar:</b> tüm kısaltma ve terimlerin açıklaması.</li>
+   </ul></section>
+ </div>
+
+ <section class="card"><h2 class="font-semibold mb-2">Bilgiler ne zaman güncellenir?</h2>
+  <p class="text-sm text-slate-600">Veriler Bologna sitesinden otomatik değil, gerektiğinde (yılda birkaç kez) <a class="lnk" href="/mufredat-analiz/update">Bilgileri Güncelle</a> ekranından çekilir. Ekranda işlemin tahmini süresi gösterilir. Yalnızca içeriği değişen dersler yeniden analiz edilir. Bu inceleme sürümünde güncelleme kapalıdır; veriler sayfanın üstündeki tarihe aittir.</p></section>
+</div>
+
+ </main>
+</div>
+</body>
+</html>
