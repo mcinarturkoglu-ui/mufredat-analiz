@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yapay Zekâ Analizleri</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 bg-slate-800 text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+
+<style>
+ .sc{display:inline-flex;align-items:center;justify-content:center;min-width:3.2rem;border-radius:.4rem;padding:.15rem .45rem;font-weight:700;font-size:.8rem;font-variant-numeric:tabular-nums}
+ .sc.g{background:#ecfdf5;color:#047857}.sc.m{background:#fffbeb;color:#b45309}.sc.l{background:#fef2f2;color:#b91c1c}
+ .sc.f{background:#f1f5f9;color:#64748b;font-weight:500}.sc.n{color:#cbd5e1;font-weight:500}
+</style>
+<div class="flex flex-wrap items-end justify-between gap-3">
+ <div><h1 class="text-2xl font-bold">Yapay Zekâ Analizleri</h1>
+  <p class="text-sm text-slate-500 max-w-3xl">Yerel yapay zekâ modeli her dersi üç açıdan değerlendirir ve 0–100 arası puan verir. Puanlar ön değerlendirmedir; bulgular uzman onayı bekler. <a class="lnk" href="/mufredat-analiz/tanimlar">Terimler →</a></p></div>
+ <div class="text-sm text-slate-500">Model: <b class="text-slate-700">gemma4:e4b</b> (bilgisayarda yerel)</div>
+</div>
+
+<div class="grid md:grid-cols-3 gap-4">
+
+ <div class="card">
+  <div class="text-xs font-semibold text-blue-700">Modül A</div>
+  <h2 class="font-semibold text-lg leading-tight">İçerik uyumu</h2>
+  <p class="text-xs text-slate-500 mt-1">Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle uyumlu mu?</p>
+  <div class="flex items-baseline gap-2 mt-4"><span class="text-4xl font-bold tabular-nums">79</span><span class="text-sm text-slate-500">/ 100 ortalama puan</span></div>
+  <div class="text-sm text-slate-600 mt-1"><b>43</b> ders değerlendirildi · <span class="text-slate-500">1 derste sonuç alınamadı<span class="ihelp" title="Analiz için gereken bilgi eksik ya da model geçerli sonuç vermedi.">i</span></span></div>
+  
+  <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-4">
+   <span style="width:48.83720930232558%;background:#10b981"></span><span style="width:46.51162790697674%;background:#f59e0b"></span><span style="width:4.651162790697675%;background:#ef4444"></span></div>
+  <div class="flex flex-wrap gap-x-3 text-[11px] text-slate-500 mt-1"><span><b class="text-emerald-700">21</b> iyi (80+)</span><span><b class="text-amber-700">20</b> orta (50–79)</span><span><b class="text-red-700">2</b> zayıf (&lt;50)</span></div>
+  <div class="border-t border-slate-100 mt-4 pt-3 text-xs text-slate-600 space-y-1">
+   <div>Tespit edilen olası sorun: <b>113</b></div>
+   <div>Gösterilen kanıtların ders sayfasında bulunma oranı: <b>%96</b></div>
+  </div>
+ </div>
+
+ <div class="card">
+  <div class="text-xs font-semibold text-blue-700">Modül C</div>
+  <h2 class="font-semibold text-lg leading-tight">Öğrenme çıktıları</h2>
+  <p class="text-xs text-slate-500 mt-1">Çıktılar ölçülebilir mi, Bloom düzeyi ne, haftalık planda karşılığı var mı?</p>
+  <div class="flex items-baseline gap-2 mt-4"><span class="text-4xl font-bold tabular-nums">72</span><span class="text-sm text-slate-500">/ 100 ortalama puan</span></div>
+  <div class="text-sm text-slate-600 mt-1"><b>39</b> ders değerlendirildi · <span class="text-slate-500">5 derste sonuç alınamadı<span class="ihelp" title="Analiz için gereken bilgi eksik ya da model geçerli sonuç vermedi.">i</span></span></div>
+  
+  <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-4">
+   <span style="width:38.46153846153846%;background:#10b981"></span><span style="width:53.84615384615385%;background:#f59e0b"></span><span style="width:7.6923076923076925%;background:#ef4444"></span></div>
+  <div class="flex flex-wrap gap-x-3 text-[11px] text-slate-500 mt-1"><span><b class="text-emerald-700">15</b> iyi (80+)</span><span><b class="text-amber-700">21</b> orta (50–79)</span><span><b class="text-red-700">3</b> zayıf (&lt;50)</span></div>
+  <div class="border-t border-slate-100 mt-4 pt-3 text-xs text-slate-600 space-y-1">
+   <div>Tespit edilen olası sorun: <b>89</b></div>
+   <div>Gösterilen kanıtların ders sayfasında bulunma oranı: <b>%100</b></div>
+  </div>
+ </div>
+
+ <div class="card">
+  <div class="text-xs font-semibold text-blue-700">Modül E</div>
+  <h2 class="font-semibold text-lg leading-tight">Kaynak ve ÖP uyumu</h2>
+  <p class="text-xs text-slate-500 mt-1">Kaynaklar gerçek künye mi ve derse uygun mu; ÖP katkıları içerikle destekleniyor mu?</p>
+  <div class="flex items-baseline gap-2 mt-4"><span class="text-4xl font-bold tabular-nums">91</span><span class="text-sm text-slate-500">/ 100 ortalama puan</span></div>
+  <div class="text-sm text-slate-600 mt-1"><b>47</b> ders değerlendirildi</div>
+  
+  <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-4">
+   <span style="width:89.36170212765957%;background:#10b981"></span><span style="width:6.382978723404255%;background:#f59e0b"></span><span style="width:4.25531914893617%;background:#ef4444"></span></div>
+  <div class="flex flex-wrap gap-x-3 text-[11px] text-slate-500 mt-1"><span><b class="text-emerald-700">42</b> iyi (80+)</span><span><b class="text-amber-700">3</b> orta (50–79)</span><span><b class="text-red-700">2</b> zayıf (&lt;50)</span></div>
+  <div class="border-t border-slate-100 mt-4 pt-3 text-xs text-slate-600 space-y-1">
+   <div>Tespit edilen olası sorun: <b>55</b></div>
+   <div>Gösterilen kanıtların ders sayfasında bulunma oranı: <b>%100</b></div>
+  </div>
+ </div>
+
+</div>
+
+<div class="card flex flex-wrap items-center justify-between gap-3">
+ <div><div class="text-xs font-semibold text-blue-700">Modül B</div><div class="font-semibold">Konu örtüşmesi</div>
+  <div class="text-sm text-slate-600">Haftalık konuları birbirine benzeyen <b>49</b> ders çifti bulundu; <b>3</b> tanesi aynı yarıyılda.</div></div>
+ <a class="btn btn-ghost" href="/mufredat-analiz/program/iletisim/overlap">Örtüşmeleri gör →</a>
+</div>
+
+<div class="card !p-0 overflow-hidden">
+ <div class="p-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-100">
+  <div><h2 class="font-semibold">Ders bazında sonuçlar</h2><p class="text-xs text-slate-500">47 / 136 derste en az bir analiz var. Puanın üzerine gelince bulguların özeti görünür.</p></div>
+  <input id="aq" class="border border-slate-300 rounded-lg px-3 py-1.5 text-sm w-56" placeholder="Ders ara">
+ </div>
+ <div class="overflow-auto" style="max-height:60vh"><table class="tbl w-full text-sm">
+  <thead class="sticky top-0"><tr><th>Ders</th><th class="text-center">İçerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></th><th class="text-center">Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></th><th class="text-center">Kaynak ve ÖP uyumu<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></th><th></th></tr></thead>
+  <tbody><tr data-q="ati101 atatürk i̇lkeleri ve i̇nkılap tarihi i">
+   <td><span class="font-medium">ATI101</span> <span class="text-slate-600">Atatürk İlkeleri ve İnkılap Tarihi I</span> <span class="text-xs text-slate-400">1. yy</span></td>
+   <td class="text-center">
+    <span class="sc n" title="Bu analiz henüz yapılmadı">—</span>
+    
+   </td><td class="text-center">
+    <span class="sc n" title="Bu analiz henüz yapılmadı">—</span>
+    
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısının ÖP5 çıktısına verilen katkısı içerikle desteklenmiyor.; 1. öğrenme çıktısının ÖP7 çıktısına verilen katkısı içerikle desteklenmiyor.; 1. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.">83.3</span><div class="text-[10px] text-slate-400 mt-0.5">9 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/ATI101">Ayrıntı →</a></td></tr><tr data-q="tdi101 türk dili i">
+   <td><span class="font-medium">TDI101</span> <span class="text-slate-600">Türk Dili I</span> <span class="text-xs text-slate-400">1. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders adı &#39;Türk Dili I&#39; iken, içerikte &#39;kompozisyonla ilgili genel bilgiler&#39;, &#39;Dilekçe ve öz geçmiş yazımı&#39; gibi uygulamalı yazma becerileri de yer almaktadır.; Dersin amacı olan &#39;sözlü anlatım vasıtası olarak Türkçeyi doğru ve güzel kullanabilme yeteneği kazandırabilmek&#39; ifadesi, haftalık konuların ağırlıklı olarak dilin teorik yapısına odaklanması nedeniyle tam olarak desteklenmemektedir.; Öğrenme çıktıları, amaçta belirtilen &#39;doğru ve güzel kullanma&#39; gibi yeterlilik odaklı bir kazanımı ölçmek yerine, daha çok &#39;kavrama&#39; ve &#39;fark etme&#39; gibi bilgi düzeyinde kalmaktadır.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;kavrar&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;bağlantı kurar&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;kavrar&#39;).">61.3</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">95</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/TDI101">Ayrıntı →</a></td></tr><tr data-q="ydi̇101 yabancı dil i">
+   <td><span class="font-medium">YDİ101</span> <span class="text-slate-600">Yabancı Dil I</span> <span class="text-xs text-slate-400">1. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Ders amacında belirtilen &#39;dinleme&#39; becerisine yönelik spesifik bir içerik veya haftalık konu başlığı bulunmamaktadır.">91.7</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="2. öğrenme çıktısı ölçülebilir değil (&#39;hakim olabilir&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;hakim olabilir&#39;).">66.7</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.; 2. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.; 3. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.">75</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/YDİ101">Ayrıntı →</a></td></tr><tr data-q="i̇sg111 i̇ş sağlığı ve güvenliği i">
+   <td><span class="font-medium">İSG111</span> <span class="text-slate-600">İş Sağlığı ve Güvenliği I</span> <span class="text-xs text-slate-400">1. yy</span></td>
+   <td class="text-center">
+    <span class="sc n" title="Bu analiz henüz yapılmadı">—</span>
+    
+   </td><td class="text-center">
+    <span class="sc n" title="Bu analiz henüz yapılmadı">—</span>
+    
+   </td><td class="text-center">
+    <span class="sc l" title="1. kaynak satırı bir kaynak künyesi değil: “Yürütücü tarafından temin edilecek”.; 2. kaynak satırı bir kaynak künyesi değil: “Yürütücü tarafından temin edilecek”.">0</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İSG111">Ayrıntı →</a></td></tr><tr data-q="i̇ty101 temel ekonomi">
+   <td><span class="font-medium">İTY101</span> <span class="text-slate-600">Temel Ekonomi</span> <span class="text-xs text-slate-400">1. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Ders amacında belirtilen &#39;genel ekonomik kavramlar&#39; ve &#39;İktisadi öğretiler&#39; gibi daha geniş konular, haftalık konuların mikroekonomik odaklılığı karşısında yeterince işlenmemektedir.; Öğrenme çıktıları, amaçta belirtilen &#39;genel ekonomik kavramlar&#39;ın kapsanması gerekliliğini tam olarak yansıtmamaktadır.">85</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;kavrayabilecektir&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;uyarlayabilecektir, oluşturabilecektir&#39;).">53.3</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">97.5</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY101">Ayrıntı →</a></td></tr><tr data-q="i̇ty103 sosyolojiye giriş">
+   <td><span class="font-medium">İTY103</span> <span class="text-slate-600">Sosyolojiye Giriş</span> <span class="text-xs text-slate-400">1. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Öğrenme çıktıları, amaçta belirtilen &#39;eleştirel bir düşünüş biçimi geliştirmeyi&#39; yeterince yansıtmamaktadır.">93.3</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;kavrar&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;açıklar&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;değerlendirir&#39;).">53.3</span><div class="text-[10px] text-slate-400 mt-0.5">5 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.; 2. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.; 3. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.">95</span><div class="text-[10px] text-slate-400 mt-0.5">5 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY103">Ayrıntı →</a></td></tr><tr data-q="i̇ty105 i̇letişime giriş">
+   <td><span class="font-medium">İTY105</span> <span class="text-slate-600">İletişime Giriş</span> <span class="text-xs text-slate-400">1. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders adı &#39;İletişime Giriş&#39; iken, içerik ve konuların odak noktası &#39;tasarım&#39; ve &#39;yönetim&#39; kavramlarına kaymaktadır.; Amaçta belirtilen &#39;tasarım yönetimi&#39; ve &#39;yenilikçi ve yaratıcı iletişim becerileri&#39; konuları, haftalık konuların tamamında yeterince işlenmemektedir.; Öğrenme çıktıları, amaçta belirtilen &#39;tasarım yönetimi&#39; kavramını yeterince yansıtmamaktadır.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc l" title="1. öğrenme çıktısı ölçülebilir değil (&#39;öğrenebilecek, kullanabileceklerdir&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;geliştirebileceklerdir&#39;).; 2. öğrenme çıktısının işlendiği bir hafta belirlenemedi.">43.3</span><div class="text-[10px] text-slate-400 mt-0.5">5 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY105">Ayrıntı →</a></td></tr><tr data-q="i̇ty107 psikoloji">
+   <td><span class="font-medium">İTY107</span> <span class="text-slate-600">Psikoloji</span> <span class="text-xs text-slate-400">1. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Dersin amacında belirtilen &#39;insanla iletişim kurmak için gerekli temel faktörleri kavramaları ve uygulamalarında kullanmaları&#39; hedefi, öğrenme çıktıları arasında doğrudan bir karşılık bulamamıştır.">93.3</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="3. öğrenme çıktısı ölçülebilir değil (&#39;kavrayabilme&#39;).; 4. öğrenme çıktısı ölçülebilir değil (&#39;betimleyebilme&#39;).; 5. öğrenme çıktısı ölçülebilir değil (&#39;temel düzeyde kullanabilme&#39;).">76</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">97</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY107">Ayrıntı →</a></td></tr><tr data-q="i̇ty109 i̇letişim kuramları">
+   <td><span class="font-medium">İTY109</span> <span class="text-slate-600">İletişim Kuramları</span> <span class="text-xs text-slate-400">1. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders içeriği, sadece &#39;İletişim Kuramlarını tanımlar&#39; düzeyinde kalmaktadır, oysa haftalık konular çok daha derin ve spesifik kuramları ele almaktadır.; Dersin amacında belirtilen &#39;temel kuramsal yaklaşımları kazandırmak&#39; ifadesi, haftalık konuların tamamını kapsayacak kadar net bir alt başlıklandırma ile desteklenmemektedir.; Öğrenme çıktıları (özellikle Cikti 2), haftalık konuların sunduğu bilgi derinliğini aşan, çok geniş ve karmaşık bir sentez gerektirmektedir.">73.3</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısı ölçülebilir değil (&#39;tanımlar&#39;).">86.7</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY109">Ayrıntı →</a></td></tr><tr data-q="i̇ty111 i̇letişimde anlatım teknikleri">
+   <td><span class="font-medium">İTY111</span> <span class="text-slate-600">İletişimde Anlatım Teknikleri</span> <span class="text-xs text-slate-400">1. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Ders amacında belirtilen bazı konuların haftalık konular başlıklarında doğrudan karşılığı yoktur.; Öğrenme çıktıları, ders içeriğinde detaylıca ele alınan &#39;benliğin sunumu&#39; gibi konuları kapsamamaktadır.">85</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc f" title="Model üç denemede geçerli yanıt vermedi.">sonuç yok</span>
+    
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.; 2. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.; 3. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.">95</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY111">Ayrıntı →</a></td></tr><tr data-q="ati102 atatürk i̇lkeleri ve i̇nkılapları tarihi ii">
+   <td><span class="font-medium">ATI102</span> <span class="text-slate-600">Atatürk İlkeleri ve İnkılapları Tarihi II</span> <span class="text-xs text-slate-400">2. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Ders adı &#39;Atatürk İlkeleri ve İnkılapları Tarihi II&#39; iken, içerik &#39;Atatürk&#39;ten sonraki Türkiye&#39; gibi, inkılaplar dışındaki siyasi gelişmeleri de kapsamaktadır.; Öğrenme çıktıları, dersin amacında belirtilen &#39;yorumlamak&#39; düzeyine ulaşmakta yetersiz kalmaktadır.; Bazı konuların (örneğin, belirli bir inkılabın tek bir haftada ele alınması) dersin Lisans düzeyi için yeterli derinliği sunmayabileceği izlenimi oluşmaktadır.">81.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısı ölçülebilir değil (&#39;temel bilgilere sahip olarak bu değerlere sahip çıkıp koruyan bireyler olurlar&#39;).">80</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">97.1</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/ATI102">Ayrıntı →</a></td></tr><tr data-q="obde102 bilimin doğası ve eleştirel düşünce">
+   <td><span class="font-medium">OBDE102</span> <span class="text-slate-600">Bilimin Doğası ve Eleştirel Düşünce</span> <span class="text-xs text-slate-400">2. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td><td class="text-center">
+    <span class="sc m" title="8. öğrenme çıktısı ölçülebilir değil (&#39;becerisini kazanır&#39;).; 8. öğrenme çıktısının işlendiği bir hafta belirlenemedi.; 9. öğrenme çıktısı ölçülebilir değil (&#39;becerisi kazanır&#39;).">76</span><div class="text-[10px] text-slate-400 mt-0.5">6 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/OBDE102">Ayrıntı →</a></td></tr><tr data-q="tdi102 türk dili ii">
+   <td><span class="font-medium">TDI102</span> <span class="text-slate-600">Türk Dili II</span> <span class="text-xs text-slate-400">2. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders içeriğinde belirtilen &#39;temel eserler&#39; konusu, haftalık konular başlıklarında açıkça yer almamaktadır.; Ders amacında belirtilen &#39;Türkçe´nin özelliklerini bilme&#39; hedefi, haftalık konuların tamamında yeterince kapsanmamıştır.; Öğrenme çıktıları arasında, haftalık konuların odaklandığı &#39;Resmî yazılar&#39; ile doğrudan ilişkilendirilemeyen bir çıktı bulunmaktadır.">73.3</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc f" title="Model üç denemede geçerli yanıt vermedi.">sonuç yok</span>
+    
+   </td><td class="text-center">
+    <span class="sc m" title="2. kaynak satırı bir kaynak künyesi değil: “Yok”.; 82973. öğrenme çıktısının ÖP10 çıktısına verilen katkısı içerikle desteklenmiyor.; 82974. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.">67.5</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/TDI102">Ayrıntı →</a></td></tr><tr data-q="ydi̇102 yabancı dil ii">
+   <td><span class="font-medium">YDİ102</span> <span class="text-slate-600">Yabancı Dil II</span> <span class="text-xs text-slate-400">2. yy</span></td>
+   <td class="text-center">
+    <span class="sc l" title="Öğrenme çıktıları, dersin genel dil becerisi amacından ziyade, çok spesifik bir disiplin (iletişim tasarımı) gerektirmektedir.; Ders adı (&#39;Yabancı Dil II&#39;) işlenen konuların gerektirdiği teknik derinliğe göre gereğinden dar kalmaktadır.; Ders adı (&#39;Yabancı Dil II&#39;) ile ders içeriği ve haftalık konular arasında anlamlı bir örtüşme bulunmamaktadır.">36.7</span><div class="text-[10px] text-slate-400 mt-0.5">5 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">93.3</span>
+   </td><td class="text-center">
+    <span class="sc m" title="2. kaynak satırı bir kaynak künyesi değil: “Dersin kitabı”.">70</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/YDİ102">Ayrıntı →</a></td></tr><tr data-q="i̇sg112 i̇ş sağlığı ve güvenliği ii">
+   <td><span class="font-medium">İSG112</span> <span class="text-slate-600">İş Sağlığı ve Güvenliği II</span> <span class="text-xs text-slate-400">2. yy</span></td>
+   <td class="text-center">
+    <span class="sc n" title="Bu analiz henüz yapılmadı">—</span>
+    
+   </td><td class="text-center">
+    <span class="sc n" title="Bu analiz henüz yapılmadı">—</span>
+    
+   </td><td class="text-center">
+    <span class="sc l" title="1. kaynak satırı bir kaynak künyesi değil: “Yürütücü tarafından temin edilecek”.; 2. kaynak satırı bir kaynak künyesi değil: “Yürütücü tarafından temin edilecek”.">0</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İSG112">Ayrıntı →</a></td></tr><tr data-q="i̇ty102 medya ve i̇letişim">
+   <td><span class="font-medium">İTY102</span> <span class="text-slate-600">Medya ve İletişim</span> <span class="text-xs text-slate-400">2. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders içeriğinde yer alan &#39;süreç okulu&#39; ve &#39;göstergebilim okulu&#39; gibi teorik yaklaşımların, haftalık konuların genel akışında daha belirgin bir yer tutmadığı görülmektedir.; Ders amacında belirtilen &#39;kitle iletişim araçları arasındaki ilişkiyi tanımlamak&#39; ifadesinin, haftalık konuların tamamında doğrudan ele alınmadığı görülmektedir.; Öğrenme çıktıları, amaçta belirtilen &#39;ilişkiyi tanımlamak&#39; gibi analitik bir beceriden ziyade, daha çok &#39;bilgi verme&#39; (tanımlama/gösterme) düzeyinde kalmaktadır.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;bilgiler verir&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;gözler önüne serer&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;tanımlar&#39;).">53.3</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.; 1. öğrenme çıktısının ÖP10 çıktısına verilen katkısı içerikle desteklenmiyor.; 2. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.">87.5</span><div class="text-[10px] text-slate-400 mt-0.5">6 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY102">Ayrıntı →</a></td></tr><tr data-q="i̇ty104 temel tasarım">
+   <td><span class="font-medium">İTY104</span> <span class="text-slate-600">Temel Tasarım</span> <span class="text-xs text-slate-400">2. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders içeriğinde belirtilen &#39;tasarım yönetimi&#39; konusu, haftalık konular içinde tek bir haftaya (hafta:13) odaklanmış olup, diğer temel tasarım öğeleri kadar geniş bir yer kaplamamaktadır.; Amaçlardan biri olan &#39;tasarım yapmak ya da yorumlamak için gerekli temel tasarım öğelerini biliyor olmak&#39;, haftalık konuların tamamında ele alınmış olsa da, bu öğelerin derinlemesine uygulamaya yönelik bir bölüm eksikliği bulunmaktadır.; Öğrenme çıktıları, &#39;tasarım elementleri&#39;nin teorik bilgisini (Amaç 2) yeterince kapsayacak kadar uygulamaya dönük bir çıktı sunmamaktadır.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;inovatif, araştırmacı bakış açısı yakalamak, öğrenecekler&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;araştırmalar yapacaklar&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;öğrenecek&#39;).">53.3</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY104">Ayrıntı →</a></td></tr><tr data-q="i̇ty106 dijitalleşme ve toplum">
+   <td><span class="font-medium">İTY106</span> <span class="text-slate-600">Dijitalleşme ve Toplum</span> <span class="text-xs text-slate-400">2. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders adı (&#39;Dijitalleşme ve Toplum&#39;), dersin odaklandığı &#39;internet haber sitesi&#39; oluşturma ve yönetme becerileriyle tam olarak örtüşmemektedir.; Dersin amacı, &#39;haber sitesinin taşıması gereken özellikleri öğretmek&#39; gibi teknik/yapısal bir beceriye odaklanırken, haftalık konular bu teknik yapıyı yeterince derinlemesine ele almamaktadır.; Öğrenme çıktıları arasında, &#39;haber sitesinin kurulumunu ve teknik işleyişini değerlendirme&#39; becerisi (cikti:2), haftalık konuların sunduğu içerik derinliği ile tam olarak desteklenmemektedir.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">89.7</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY106">Ayrıntı →</a></td></tr><tr data-q="i̇ty108 i̇letişim teknolojileri">
+   <td><span class="font-medium">İTY108</span> <span class="text-slate-600">İletişim Teknolojileri</span> <span class="text-xs text-slate-400">2. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Dersin amacında belirtilen &#39;kuramsal farklılıklar&#39; ve &#39;teknolojik altyapıdaki değişmeler&#39; kavramları, haftalık konuların başlıklarında yeterince detaylı işlenmemiştir.; Öğrenme çıktıları, dersin amacında vurgulanan &#39;kuramsal farklılıklar&#39; ve &#39;teknolojik altyapıdaki değişmeler&#39; gibi soyut kavramları doğrudan ölçmekte yetersiz kalmaktadır.">85</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY108">Ayrıntı →</a></td></tr><tr data-q="i̇ty112 yeni medya kuramları">
+   <td><span class="font-medium">İTY112</span> <span class="text-slate-600">Yeni Medya Kuramları</span> <span class="text-xs text-slate-400">2. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Ders amacında belirtilen &#39;ekonomi ve politika üzerindeki etkiler&#39; konuları, haftalık konular arasında açıkça işlenmemektedir.; Öğrenme çıktıları, amaçta belirtilen &#39;ekonomi ve politika&#39; gibi geniş kapsamlı etkileri doğrudan ölçmeye yetecek kadar spesifik değildir.">85</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="4. öğrenme çıktısı ölçülebilir değil (&#39;kavrar, sentezler&#39;).">83.3</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">97.4</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY112">Ayrıntı →</a></td></tr><tr data-q="oydi̇201 akademik i̇ngilizce i">
+   <td><span class="font-medium">OYDİ201</span> <span class="text-slate-600">Akademik İngilizce I</span> <span class="text-xs text-slate-400">3. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Ders adı &#39;Akademik İngilizce I&#39; olmasına rağmen, haftalık konuların tematik (Identity, Relationships) olması, içeriğin akademik bir odak eksikliği sergilediği izlenimini vermektedir.; Dersin amacı dil bilgisi ve kelime dağarcığı yeterliliğini hedeflerken, haftalık konular bu yapıları doğrudan hedefleyen spesifik dil bilgisi konularını içermemektedir.; Dersin yarıyılı ve düzeyi (Lisans, 3. Yarıyıl) göz önüne alındığında, haftalık konuların sadece tematik başlıklar olması, beklenen dilsel derinliği yansıtmadığı için seviye uyumsuzluğu riski taşımaktadır.">80</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="2. öğrenme çıktısı ölçülebilir değil (&#39;yeterlilik kazanma&#39;).">86.7</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/OYDİ201">Ayrıntı →</a></td></tr><tr data-q="i̇ty201 grafik tasarımı">
+   <td><span class="font-medium">İTY201</span> <span class="text-slate-600">Grafik Tasarımı</span> <span class="text-xs text-slate-400">3. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders içeriği, haftalık konuların odaklandığı temel kavramlar ve ilkelerden daha çok teknik araçlara odaklanmaktadır.; Dersin amacında belirtilen &#39;verilerin toplanması, yorumlanması ve duyurulması&#39; gibi süreçler, haftalık konular başlıklarında doğrudan ele alınmamaktadır.; Öğrenme çıktıları, dersin amacında belirtilen &#39;veri toplama, yorumlama, duyurma&#39; gibi çıktıları kapsamamaktadır.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısı ölçülebilir değil (&#39;bilir&#39;).">80</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY201">Ayrıntı →</a></td></tr><tr data-q="i̇ty203 web tasarımı">
+   <td><span class="font-medium">İTY203</span> <span class="text-slate-600">Web Tasarımı</span> <span class="text-xs text-slate-400">3. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders adı (Web Tasarımı) ile haftalık konular arasında bir uyumsuzluk gözlenmektedir; amaçta belirtilen Java Script ve Jquery konuları haftalık konuların tamamında açıkça yer almamaktadır.; Dersin amacında belirtilen &#39;Java Script, Jquery işlemlerini yapma yeterlikleri&#39; haftalık konuların tamamında (özellikle Jquery&#39;nin) işlendiği görülmemektedir.; Öğrenme çıktıları, amaçta belirtilen &#39;geliştirebilmek ve tasarlayabilmek&#39; yeterliliğinin tamamını kapsamakta zorlanmaktadır; çıktı 1 daha çok tanıma düzeyinde kalmaktadır.">73.3</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;tanır&#39;).">73.3</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY203">Ayrıntı →</a></td></tr><tr data-q="i̇ty205 örgütsel davranış">
+   <td><span class="font-medium">İTY205</span> <span class="text-slate-600">Örgütsel Davranış</span> <span class="text-xs text-slate-400">3. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders içeriğinde belirtilen bazı konuların (örneğin, &#39;sanat takımlar&#39;, &#39;güç ve etkileme&#39;, &#39;örgüt geliştirme ve değişimin yönetimi&#39;) haftalık konular başlıklarında doğrudan karşılığı bulunmamaktadır.; Ders amacında belirtilen &#39;insan davranışlarının yönlendirilmesi, değiştirilmesi ve kontrol edilmesi konularında iletişim becerilerinin geliştirilmesi&#39; amacı, haftalık konuların başlıklarında yeterince ele alınmamaktadır.; Öğrenme çıktıları, dersin amacında belirtilen &#39;insan davranışlarının yönlendirilmesi, değiştirilmesi ve kontrol edilmesi&#39; gibi beceri odaklı bir çıktıyı yansıtmamaktadır.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc f" title="Model üç denemede geçerli yanıt vermedi.">sonuç yok</span>
+    
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">97.5</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY205">Ayrıntı →</a></td></tr><tr data-q="i̇ty207 göstergebilim">
+   <td><span class="font-medium">İTY207</span> <span class="text-slate-600">Göstergebilim</span> <span class="text-xs text-slate-400">3. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Öğrenme çıktıları, amaç ve haftalık konuların kapsadığı &#39;görsel&#39; öğelerin sınırlarını net bir şekilde çizmemektedir.">93.3</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;öğreneceklerdir&#39;).">73.3</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY207">Ayrıntı →</a></td></tr><tr data-q="oydi̇202 akademik i̇ngilizce ii">
+   <td><span class="font-medium">OYDİ202</span> <span class="text-slate-600">Akademik İngilizce II</span> <span class="text-xs text-slate-400">4. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td><td class="text-center">
+    <span class="sc f" title="Model üç denemede geçerli yanıt vermedi.">sonuç yok</span>
+    
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">95.5</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/OYDİ202">Ayrıntı →</a></td></tr><tr data-q="i̇ty202 arayüz tasarımı">
+   <td><span class="font-medium">İTY202</span> <span class="text-slate-600">Arayüz Tasarımı</span> <span class="text-xs text-slate-400">4. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;anlayarak, açıklayabilir&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;geliştirebilir, değerlendirebilir&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;kullanabilir&#39;).">68</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY202">Ayrıntı →</a></td></tr><tr data-q="i̇ty206 reklamcılığa giriş">
+   <td><span class="font-medium">İTY206</span> <span class="text-slate-600">Reklamcılığa Giriş</span> <span class="text-xs text-slate-400">4. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders adı &#39;Reklamcılığa Giriş&#39; iken, haftalık konular arasında &#39;Satış analizi&#39; ve &#39;Medya planlama&#39; gibi daha spesifik ve ileri konular yer almaktadır.; Ders amacında belirtilen &#39;sosyal medya-reklam ilişkisinin kurulması&#39; konusu, haftalık konular arasında belirgin bir yer tutmamaktadır.; Öğrenme çıktıları, dersin amacında belirtilen &#39;reklam çözümlemeleri&#39; ve &#39;sosyal medya-reklam ilişkisi&#39; konularını yeterince yansıtmamaktadır.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;açıklayabilecek&#39;).; 2. öğrenme çıktısının işlendiği bir hafta belirlenemedi.">53.3</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY206">Ayrıntı →</a></td></tr><tr data-q="i̇ty210 araştırma yöntemleri ve etik">
+   <td><span class="font-medium">İTY210</span> <span class="text-slate-600">Araştırma Yöntemleri ve Etik</span> <span class="text-xs text-slate-400">4. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Dersin amacı, &#39;bilimsel yazıları dilsel, biçimsel ve içeriksel açıdan anlamlandırmayı kolaylaştırmak&#39; derken, haftalık konular bu becerilerin tamamını kapsayacak kadar detaylı değildir.; Dersin amacında belirtilen &#39;bilimsel yazıları dilsel, biçimsel ve içeriksel açıdan anlamlandırma&#39; becerisi, haftalık konuların genel başlıklarında yeterince desteklenmemektedir.; Öğrenme çıktıları, amaçta belirtilen &#39;dilsel&#39; ve &#39;biçimsel&#39; anlamlandırma becerisini doğrudan ölçen bir çıktı içermemektedir.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td><td class="text-center">
+    <span class="sc g" title="3. kaynak satırı bir kaynak künyesi değil: “Öğretim üyesi tarafından paylaşılacak slayt gösterileri ve ders notları.”.">80.8</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY210">Ayrıntı →</a></td></tr><tr data-q="i̇ty212 tipografi">
+   <td><span class="font-medium">İTY212</span> <span class="text-slate-600">Tipografi</span> <span class="text-xs text-slate-400">4. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Dersin amacında belirtilen &#39;uygulamayla tasarım bilgisi pekiştirilmesi&#39; hedefi, haftalık konuların sadece bir kısmında (örn. hafta:7, hafta:11) ele alınmış, diğer konular teorik kalmıştır.; Öğrenme çıktıları, dersin amacında belirtilen &#39;uygulamayla tasarım bilgisi pekiştirilmesi&#39; hedefine tam olarak ulaşamamaktadır.">85</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;öğrenir&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;kavrar&#39;).; 2. öğrenme çıktısının işlendiği bir hafta belirlenemedi.">61.3</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY212">Ayrıntı →</a></td></tr><tr data-q="oydi̇301 akademik i̇ngilizce iii">
+   <td><span class="font-medium">OYDİ301</span> <span class="text-slate-600">Akademik İngilizce III</span> <span class="text-xs text-slate-400">5. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Ders adı, içerik ve haftalık konular arasındaki bağlantı zayıftır.; Dersin amaçlarında belirtilen becerilerin, haftalık konular içinde spesifik olarak ele alındığına dair kanıt yoktur.; Dersin seviyesi ve amacı ile haftalık konuların derinliği arasında bir uyum zayıflığı mevcuttur.">80</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="2. öğrenme çıktısı ölçülebilir değil (&#39;yeterlilik kazanma&#39;).">86.7</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">92.5</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/OYDİ301">Ayrıntı →</a></td></tr><tr data-q="i̇ty303 3 boyutlu animasyon teknikleri i">
+   <td><span class="font-medium">İTY303</span> <span class="text-slate-600">3 Boyutlu Animasyon Teknikleri I</span> <span class="text-xs text-slate-400">5. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Dersin amacında belirtilen &#39;3Ds Max programı kullanarak 3 boyutlu eğitim içeriği geliştirmek&#39; hedefi, haftalık konuların sadece teknik adımlara odaklanması nedeniyle yeterince kapsanmamaktadır.; Öğrenme çıktıları, &#39;gerçekçi eğitim materyali&#39; gibi bir niteliği, haftalık konuların sunduğu teknik derinlikle tam olarak eşleştirememektedir.">85</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısı ölçülebilir değil (&#39;öğrenebilme&#39;).">86.7</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY303">Ayrıntı →</a></td></tr><tr data-q="i̇ty305 yaratıcı yazarlık">
+   <td><span class="font-medium">İTY305</span> <span class="text-slate-600">Yaratıcı Yazarlık</span> <span class="text-xs text-slate-400">5. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders adı ve içerik, haftalık konuların teknik derinliği ile tam olarak örtüşmemektedir.; Dersin amacı, &#39;temel kavramlar&#39;ı öğretmeyi hedeflerken, haftalık konuların bir kısmı (Senaryo Yazım Aşamaları) bu temel kavramlardan ziyade spesifik bir süreç adımlarına odaklanmaktadır.; Öğrenme çıktıları tamamen &#39;Yaratıcı Düşünme&#39; becerisine odaklanmıştır; ancak dersin içeriği ve amacı, sinema dili ve çekim teknikleri gibi teknik konuları da ele almaktadır.">58.3</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc l" title="1. öğrenme çıktısı ölçülebilir değil (&#39;açıklayabilecektir&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;tartışabilecektir&#39;).; 2. öğrenme çıktısının işlendiği bir hafta belirlenemedi.">23.3</span><div class="text-[10px] text-slate-400 mt-0.5">7 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY305">Ayrıntı →</a></td></tr><tr data-q="i̇ty307 marka i̇letişimi">
+   <td><span class="font-medium">İTY307</span> <span class="text-slate-600">Marka İletişimi</span> <span class="text-xs text-slate-400">5. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders adı olan &#39;Marka İletişimi&#39; ile haftalık konuların tamamı arasında doğrudan ve sürekli bir örtüşme gözlenmemektedir.; Dersin amacı olan &#39;Sosyal medya kullanımının hayatın farklı alanlarını nasıl etkilediğini kavramak&#39; ifadesi, haftalık konuların tamamını kapsayacak kadar geniş bir odaklanma göstermemektedir.; Öğrenme çıktıları, amaçta belirtilen &#39;hayatın farklı alanlarını etkileme&#39; gibi sosyal/kültürel etkiyi eleştirel bir bakışla inceleme amacını tam olarak yansıtmamaktadır.">70</span><div class="text-[10px] text-slate-400 mt-0.5">5 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;öğrenmek&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;eleştirel bir bakış geliştirmek&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;anlamak&#39;).">53.3</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY307">Ayrıntı →</a></td></tr><tr data-q="i̇ty311 liderlik yöneticilik">
+   <td><span class="font-medium">İTY311</span> <span class="text-slate-600">Liderlik Yöneticilik</span> <span class="text-xs text-slate-400">5. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders içeriğinde yer alan &#39;Yenilik, Stratejik Liderlik ve Kriz Dönemlerinde Liderlik&#39; gibi konular, haftalık konuların başlıklarında doğrudan yer almamaktadır.; Dersin amacında belirtilen &#39;liderlerin hangi şartlarında başarılı ve başarısız olduklarının incelenmesi&#39; konusu, haftalık konuların başlıklarında yeterince ele alınmamıştır.; Amaçta belirtilen &#39;liderlik ve yöneticilik ilgili temel prensiplere ve teorilere hakim olacaklardır&#39; ifadesinin, öğrenme çıktıları ile tam olarak örtüşmediği gözlemlenmiştir.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">97.5</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY311">Ayrıntı →</a></td></tr><tr data-q="oydi̇302 akademik i̇ngilizce iv">
+   <td><span class="font-medium">OYDİ302</span> <span class="text-slate-600">Akademik İngilizce IV</span> <span class="text-xs text-slate-400">6. yy</span></td>
+   <td class="text-center">
+    <span class="sc f" title="Model üç denemede geçerli yanıt vermedi.">sonuç yok</span>
+    
+   </td><td class="text-center">
+    <span class="sc f" title="Model üç denemede geçerli yanıt vermedi.">sonuç yok</span>
+    
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">94.5</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/OYDİ302">Ayrıntı →</a></td></tr><tr data-q="stj300 staj">
+   <td><span class="font-medium">STJ300</span> <span class="text-slate-600">Staj</span> <span class="text-xs text-slate-400">6. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders adı (&#39;Staj&#39;) ile içerik (spesifik medya becerileri) arasında bir uyumsuzluk vardır.; Dersin amacı genel bir beceri geliştirme hedefi sunarken, haftalık konular bu amacı spesifik olarak destekleyen alt başlıklar içermemektedir.; Öğrenme çıktıları genel staj deneyimine uygun olsa da, içerikte belirtilen spesifik medya becerileriyle doğrudan ilişkilendirilebilecek bir çıktı eksikliği vardır.">65</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısı ölçülebilir değil (&#39;kuramsal bilginin uygulamaya dönük yansımalarını değerlendirebilecektir&#39;).">86.7</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/STJ300">Ayrıntı →</a></td></tr><tr data-q="i̇ty302 video kurgu">
+   <td><span class="font-medium">İTY302</span> <span class="text-slate-600">Video Kurgu</span> <span class="text-xs text-slate-400">6. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders amacında belirtilen &#39;Renk ve ses efektlerinin üst düzeyde hakimiyeti&#39; ifadesi, haftalık konuların teknik ve temel süreçlere odaklanmasıyla tam olarak örtüşmemektedir.; Ders amacında belirtilen &#39;Renk ve ses efektlerinin üst düzeyde hakimiyeti&#39; gibi iddialı bir hedefin, haftalık konuların sunduğu içerik derinliği ile tam olarak desteklenmediği görülmektedir.; Öğrenme çıktıları, amaçta belirtilen &#39;Montajla mükemmele en yakın düzeltmelerin yapılabileceğini öğretmek&#39; gibi daha geniş ve niteliksel bir hedefi tam olarak yansıtmamaktadır.">73.3</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">93.3</span>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY302">Ayrıntı →</a></td></tr><tr data-q="i̇ty304 3 boyutlu animasyon teknikleri ii">
+   <td><span class="font-medium">İTY304</span> <span class="text-slate-600">3 Boyutlu Animasyon Teknikleri II</span> <span class="text-xs text-slate-400">6. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders içeriğinde belirtilen &#39;materyal temelleri ve kullanımı&#39; konusu, haftalık konuların akışında yeterince detaylandırılmamıştır.; Dersin amacında belirtilen &#39;3 boyutlu eğitim içeriği geliştirmek&#39; hedefi, haftalık konuların tamamında doğrudan işlenmemektedir.; Öğrenme çıktıları, dersin amacında belirtilen &#39;eğitim içeriği geliştirme&#39; becerisini ölçmekte yetersiz kalmaktadır.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;açıklayabilme&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;öğrenebilme&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;öğrenebilme&#39;).">53.3</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY304">Ayrıntı →</a></td></tr><tr data-q="i̇ty306 i̇letişim etiği">
+   <td><span class="font-medium">İTY306</span> <span class="text-slate-600">İletişim Etiği</span> <span class="text-xs text-slate-400">6. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Dersin amacında belirtilen &#39;çözüm önerileri geliştirebilmek&#39; becerisi, haftalık konuların başlıklarında doğrudan bir işleniş alanı olarak görünmemektedir.; Öğrenme çıktıları, amaçta belirtilen &#39;çözüm önerileri geliştirebilmek&#39; yetkinliğini doğrudan ölçen bir çıktı içermemektedir.">85</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;bilgisine sahip olur&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;kavrar&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;bilir&#39;).">68</span><div class="text-[10px] text-slate-400 mt-0.5">4 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.; 2. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.; 3. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor.">92.5</span><div class="text-[10px] text-slate-400 mt-0.5">5 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY306">Ayrıntı →</a></td></tr><tr data-q="i̇ty310 i̇statistik">
+   <td><span class="font-medium">İTY310</span> <span class="text-slate-600">İstatistik</span> <span class="text-xs text-slate-400">6. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Dersin amacında belirtilen &#39;basit korelasyon analizleri ve bu analizlerin yorumlanması becerileri&#39; haftalık konuların tamamında yeterince işlenmemiştir.; Öğrenme çıktıları, amaçta belirtilen &#39;betimsel istatistiklere ilişkin uygulama ve analizleri yapabilme&#39; becerisini tam olarak yansıtmamaktadır.">85</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="3. öğrenme çıktısının işlendiği bir hafta belirlenemedi.; 4. öğrenme çıktısının işlendiği bir hafta belirlenemedi.">77.3</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">96.5</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY310">Ayrıntı →</a></td></tr><tr data-q="i̇ty401 i̇letişim hukuku">
+   <td><span class="font-medium">İTY401</span> <span class="text-slate-600">İletişim Hukuku</span> <span class="text-xs text-slate-400">7. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Ders adı &#39;İletişim Hukuku&#39; iken, ders içeriğinde fikri mülkiyet hakları (marka, patent) gibi daha geniş bir alanın ele alınması, başlık ile içerik arasında bir odak kayması yaratmaktadır.; Öğrenme çıktıları, ders içeriğinde yer alan fikri mülkiyet konularının derinliğini yansıtmamaktadır.">85</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;bilir&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;kurar&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;yorumlayabilir&#39;).">53.3</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">97.5</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY401">Ayrıntı →</a></td></tr><tr data-q="i̇ty403 bitirme projesi planlama ve geliştirme">
+   <td><span class="font-medium">İTY403</span> <span class="text-slate-600">Bitirme Projesi Planlama ve Geliştirme</span> <span class="text-xs text-slate-400">7. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;kullanabilme&#39;).">73.3</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY403">Ayrıntı →</a></td></tr><tr data-q="i̇ty405 reklam tasarım ve uygulamaları">
+   <td><span class="font-medium">İTY405</span> <span class="text-slate-600">Reklam Tasarım ve Uygulamaları</span> <span class="text-xs text-slate-400">7. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders adı ile haftalık konular arasında, &#39;Uygulamalar&#39; kısmının yeterince işlenmediği görülmektedir.; Ders amacında belirtilen &#39;Basılı reklamcığın geçmişten günümüze tarihsel gelişimi&#39; konusu, haftalık konuların büyük bir bölümünde ele alınmamaktadır.; Öğrenme çıktısı, haftalık konuların sunduğu temel bilgi düzeyinden daha ileri bir &#39;uyarlama ve geliştirme&#39; becerisi talep etmektedir.">70</span><div class="text-[10px] text-slate-400 mt-0.5">5 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">93.3</span>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY405">Ayrıntı →</a></td></tr><tr data-q="i̇ty404 bitirme projesi yürütme">
+   <td><span class="font-medium">İTY404</span> <span class="text-slate-600">Bitirme Projesi Yürütme</span> <span class="text-xs text-slate-400">8. yy</span></td>
+   <td class="text-center">
+    <span class="sc g" title="Dersin amacında belirtilen &#39;deneysel çalışmalar yürütme&#39; ve &#39;tasarım yapma&#39; becerileri, öğrenme çıktıları (cikti:1 ve cikti:2) tarafından tam olarak kapsanmamaktadır.">93.3</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;irdeleyebilme&#39;).">73.3</span><div class="text-[10px] text-slate-400 mt-0.5">1 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="Olası sorun bulunmadı">100</span>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY404">Ayrıntı →</a></td></tr><tr data-q="i̇ty408 masaüstü yayıncılığı">
+   <td><span class="font-medium">İTY408</span> <span class="text-slate-600">Masaüstü Yayıncılığı</span> <span class="text-xs text-slate-400">8. yy</span></td>
+   <td class="text-center">
+    <span class="sc l" title="Ders adı ile haftalık konular arasında anlamlı bir örtüşme bulunmamaktadır.; Dersin amacı olan basım süreçleri, haftalık konularda işlenmemektedir.; Öğrenme çıktıları, haftalık konuların içeriğiyle tutarlı değildir.">13.3</span><div class="text-[10px] text-slate-400 mt-0.5">6 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc l" title="4. öğrenme çıktısı ölçülebilir değil (&#39;bilgi ve kavrayış yeterliliğini gösteren geri bildirimlerde bulunabilme&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;kavrama&#39;).; 2. öğrenme çıktısının işlendiği bir hafta belirlenemedi.">26.7</span><div class="text-[10px] text-slate-400 mt-0.5">6 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="1. öğrenme çıktısının ÖP3 çıktısına verilen katkısı içerikle desteklenmiyor.; 1. öğrenme çıktısının ÖP7 çıktısına verilen katkısı içerikle desteklenmiyor.; 1. öğrenme çıktısının ÖP10 çıktısına verilen katkısı içerikle desteklenmiyor.">85</span><div class="text-[10px] text-slate-400 mt-0.5">12 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY408">Ayrıntı →</a></td></tr><tr data-q="i̇ty410 portfolyo tasarımı ve sunu teknikleri">
+   <td><span class="font-medium">İTY410</span> <span class="text-slate-600">Portfolyo Tasarımı ve Sunu Teknikleri</span> <span class="text-xs text-slate-400">8. yy</span></td>
+   <td class="text-center">
+    <span class="sc m" title="Ders adı &#39;Portfolyo Tasarımı ve Sunu Teknikleri&#39; iken, haftalık konuların bir kısmı sadece &#39;özgeçmiş&#39; odaklıdır.; Amaçlarda belirtilen &#39;Referans Olarak Kullanma&#39; ve &#39;İş Fırsatları ve Projeler Elde Etme&#39; gibi amaçlar, haftalık konuların doğrudan işlenmediği görülmektedir.; Öğrenme çıktıları arasında, amaçlarda belirtilen &#39;Özgünlük ve Yaratıcılık&#39; kavramına doğrudan karşılık gelen bir çıktı bulunmamaktadır.">76.7</span><div class="text-[10px] text-slate-400 mt-0.5">3 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc m" title="1. öğrenme çıktısı ölçülebilir değil (&#39;öğrenir&#39;).; 2. öğrenme çıktısı ölçülebilir değil (&#39;öğrenir&#39;).; 3. öğrenme çıktısı ölçülebilir değil (&#39;bilir&#39;).">66.7</span><div class="text-[10px] text-slate-400 mt-0.5">5 bulgu</div>
+   </td><td class="text-center">
+    <span class="sc g" title="4. öğrenme çıktısının ÖP1 çıktısına verilen katkısı içerikle desteklenmiyor.; 4. öğrenme çıktısının ÖP6 çıktısına verilen katkısı içerikle desteklenmiyor.">97.5</span><div class="text-[10px] text-slate-400 mt-0.5">2 bulgu</div>
+   </td>
+   <td><a class="lnk text-xs whitespace-nowrap" href="/mufredat-analiz/course/iletisim/İTY410">Ayrıntı →</a></td></tr></tbody>
+ </table></div>
+</div>
+
+
+<script>document.getElementById('aq').addEventListener('input', e => { const q = e.target.value.toLowerCase(); document.querySelectorAll('tbody tr[data-q]').forEach(tr => tr.style.display = tr.dataset.q.includes(q) ? '' : 'none'); });</script>
+
+ </main>
+</div>
+</body>
+</html>

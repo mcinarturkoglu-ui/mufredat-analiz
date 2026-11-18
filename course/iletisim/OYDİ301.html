@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 5. yarıyıl</div>
+ <h1 class="text-2xl font-bold">OYDİ301 · Akademik İngilizce III</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+0+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 3 (müfredatta 3) · Zorunlu · kategori: regular · sitede son güncelleme 03.09.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377401&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377401&amp;lang=tr</a> · toplandı 18.11.2026 18:19</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="YZ (A): Ders adı, içerik ve haftalık konular arasındaki bağlantı zayıftır.&amp;#10;YZ (A): Dersin amaçlarında belirtilen becerilerin, haftalık konular içinde spesifik olarak ele alındığına dair kanıt yoktur.&amp;#10;YZ (A): Dersin seviyesi ve amacı ile haftalık konuların derinliği arasında bir uyum zayıflığı mevcuttur." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="YZ (C): 2. öğrenme çıktısı ölçülebilir değil (&#39;yeterlilik kazanma&#39;)." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="TR/EN uyumu: İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor. (mevcut: 13/20 metin TR ile birebir aynı (%65); beklenen: %50 altında)" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">İyileştirilmeli</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 36</span><span class="pill st-fail">kaldı: 5</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">80<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #270 · 18.11 21:43 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">86.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #271 · 18.11 21:43 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">92.5<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #272 · 18.11 21:45 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (5)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">duplicate_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Aynı konu metni birden fazla haftada birebir tekrarlanıyor.</td><td>10 tekrar: &#39;unit 7: people&#39; x3; &#39;unit 8: stories&#39; x5; &#39;unit 9: future&#39; x5</td><td>en çok 0 tekrar</td><td class="text-slate-600">Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.</td></tr><tr><td class="whitespace-nowrap">R5 TR/EN uyumu<div class="text-xs text-slate-500">untranslated · en</div></td><td>content</td>
+<td><span class="pill s-medium">orta</span></td><td>İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.</td><td>13/20 metin TR ile birebir aynı (%65)</td><td>%50 altında</td><td class="text-slate-600">İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/2 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin düzeyi (Lisans, 5. Yarıyıl) ve amacı (A2-B1 seviyesi) belirtilmiş olmasına rağmen, haftalık konuların sadece ünite başlıkları olması, bu konuların Lisans 5. Yarıyıl seviyesine uygun bir derinlikte işlenip işlenmediğini değerlendirmeye yetmemektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı (&#39;Akademik İngilizce III&#39;) ve içerik (&#39;A 2-B 1 düzeyinde...&#39;) arasındaki kapsam, işlenen ünitelerle (tematik konular) uyumlu görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Belirtilen haftalık konuların (UNIT 7, 8, 9) dersin genel kapsamı (dil bilgisi, iletişim) dışında bir konu içerdiğine dair bir bilgi bulunmamaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (Akademik İngilizce III) ile içerik (A 2-B 1 düzeyinde dil bilgisi, okuma-anlama stratejileri, iletişim pratikleri) arasında bir uyum olsa da, haftalık konuların sadece &#39;UNIT 7: People&#39;, &#39;UNIT 8: Stories&#39;, &#39;UNIT 9: Future&#39; gibi tematik başlıklar olması, dersin genel içeriğini yeterince yansıtmadığı görülmektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacı (dil bilgisi, kelime dağarcığı, okuma-anlama, dinleme, sözlü iletişim) genel olarak belirtilmiş olsa da, haftalık konuların sadece ünite başlıkları olması, bu amaçların her hafta spesifik olarak ele alınıp alınmadığını göstermemektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Öğrenme çıktıları (cikti:1, cikti:2, cikti:3), dersin amacında belirtilen beceriler (okuma-anlama, dil bilgisi, iletişim) ile tutarlıdır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı, içerik ve haftalık konular arasındaki bağlantı zayıftır.</div><div class="text-xs text-slate-500 mt-1">Ders içeriği genel bir tanım sunarken, haftalık konular sadece tematik ünite başlıklarından ibarettir, bu da içeriğin detaylı olarak yansıtılamamasına neden olmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Ders; A 2-B 1 düzeylerinde İngilizce dil bilgisi yapılarını, okuma-anlama stratejilerini, sözlü ve yazılı iletişim pratiklerini ve tematik hedef kelime çalışmalarını kapsar.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “UNIT 7: Orientation- People”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konuların, ders içeriğinde belirtilen dil bilgisi yapıları ve iletişim becerileri ile doğrudan ilişkilendirilmiş alt başlıklar içermesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amaçlarında belirtilen becerilerin, haftalık konular içinde spesifik olarak ele alındığına dair kanıt yoktur.</div><div class="text-xs text-slate-500 mt-1">Amaçlar dil bilgisi ve iletişim becerilerini kapsarken, haftalık konular sadece ünite isimleridir ve bu becerilerin her hafta nasıl geliştirileceği belgede gösterilememektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “A2-B1 düzeylerinde İngilizce dil bilgisi kurallarını kavramalarını, hedef kelime dağarcıklarını geliştirmelerini; okuma-anlama, dinleme ve sözlü iletişim becerilerini günlük ve akademik bağlamda etkili biçimde kullanabilmelerini sağlamaktır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “UNIT 7: Orientation- People”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konuların, ders amacındaki dil bilgisi ve iletişim hedeflerine ulaşmak için hangi spesifik dil becerilerini (örneğin, &#39;Unit 7: People - Relative Clauses and Describing People&#39;) işlediğini belirtmesi gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin seviyesi ve amacı ile haftalık konuların derinliği arasında bir uyum zayıflığı mevcuttur.</div><div class="text-xs text-slate-500 mt-1">Dersin Lisans 5. Yarıyıl seviyesinde olması, konuların sadece tematik ünitelerle sınırlı kalmasının, beklenen akademik derinliği sağlamadığı izlenimini vermektedir.</div>
+  <div class="text-xs mt-1">✗ <code class="bg-slate-100 px-1 rounded">Düzey</code> “Lisans”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:15</code> “UNIT 9: Future”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ünite başlıklarının (UNIT 7, 8, 9) içeriğinin, Lisans düzeyinde beklenen eleştirel düşünme ve akademik dil kullanımını gerektirecek şekilde detaylandırılması gerekmektedir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %67 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Tüm çıktılar, dersin genel amacını (dil becerilerini kullanma, dil bilgisi ve kelime dağarcığı geliştirme, iletişim becerilerini kullanma) doğrudan yansıtmaktadır.<br>
+  Bloom dağılımı: anlama 1, uygulama 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>İngilizce okuma, yazma, dinleme ve konuşma becerilerini bütüncül şekilde kullanarak sosyal, akademik ve profesyonel ortamlarda etkili iletişim kurabilme,</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>2</td><td>Akademik hedeflere yönelik olarak dil bilgisi (gramer) ve kelime bilgisi açısından yeterlilik kazanma,<div class="text-xs text-amber-700">belirsiz: yeterlilik kazanma</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</td>
+ <td class="text-blue-800">Akademik hedeflere yönelik olarak dil bilgisi (gramer) ve kelime bilgisi kurallarını doğru bir şekilde uygulayabilme.</td></tr>
+ <tr><td>3</td><td>Farklı iletişim bağlamlarında uygun dil ve üslup kullanarak kendini açık, akıcı ve anlaşılır şekilde ifade edebilme.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Wide Angle 2 (Oxford University Press)<div class="text-xs text-slate-500">Kitap, dersin temelini oluşturan İngilizce dil bilgisi ve kelime dağarcığı konularını desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Wide Angle 2 (Oxford University Press)<div class="text-xs text-slate-500">Kitap, dersin temelini oluşturan İngilizce dil bilgisi ve kelime dağarcığı konularını desteklemektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 85</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin amacı ve içeriği, sosyal ve akademik bağlamlarda etkili iletişim kurma becerisini desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin içeriği, dil bilgisi ve kelime dağarcığı yeterliliği kazanma hedefine katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin amacı, günlük ve akademik bağlamda etkili iletişim kurmayı hedeflediği için kamusal/kişilerarası iletişime katkı vardır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 1</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Dersin içeriği, doğrudan sektör deneyimi ile ilişkilendirme sağlamamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders, dil becerilerini günlük ve akademik bağlamda kullanmayı öğreterek güncel beceri kullanımına dolaylı katkı sunar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders, dil bilgisi yapılarını kapsayarak dilin temel kurallarını öğretmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin sunduğu iletişim becerileri, portfolyo oluşturma ve sunma sürecinde kullanılabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Okuma-anlama ve sözlü iletişim pratikleri, eleştirel inceleme becerisine zemin hazırlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 2</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Dersin içeriği görsel ifade oluşturma (grafik, tipografi vb.) ile doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP1 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dil bilgisi ve kelime dağarcığı kazanımı, ulusal/uluslararası standartlara uyum için temel dil becerisi sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dil bilgisi ve kelime dağarcığı geliştirme, araştırma ve proje yürütme için gerekli dil altyapısını oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dil bilgisi yeterliliği, farklı iletişim bağlamlarında uygun dil kullanma becerisini destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP4 = 1</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Dersin içeriği, doğrudan sektör deneyimi ile ilişkilendirme sağlamamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Hedef kelime çalışmaları ve dil bilgisi, güncel dil kullanımını takip etme becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dil bilgisi yapılarını öğrenmek, dilin temel kuramlarını (gramer kurallarını) anlamayı gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Geliştirilen dil bilgisi ve kelime dağarcığı, portfolyo içeriği oluşturulmasında kullanılır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Okuma-anlama becerisi, akademik çalışmaları eleştirel bir yaklaşımla inceleme yetkinliğine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP9 = 2</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Dersin içeriği görsel tasarım becerileri ile ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP1 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Uygun dil ve üslup kullanımı, kamusal ve kişilerarası iletişim becerilerini geliştirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Akıcı ve anlaşılır ifade yeteneği, akademik hedeflere ulaşmada dilsel yeterlilik gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin temel amacı, farklı iletişim bağlamlarında etkili iletişim kurmayı sağlamaktır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP4 = 1</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Dersin içeriği, doğrudan sektör deneyimi ile ilişkilendirme sağlamamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Günlük ve akademik bağlamda dil kullanma becerisi, güncel gelişmeleri etkili kullanma becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dil bilgisi yapılarını öğrenmek, dilin temel kuramlarını anlamayı gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Akıcı ve anlaşılır ifade, portfolyo sunumunda dilsel yeterlilik gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İletişim becerileri, eleştirel bir yaklaşımla inceleme yapma sürecinde dilsel araç sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP9 = 2</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Dersin içeriği görsel ifade oluşturma ile ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 1</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Dersin içeriği, takım çalışması veya liderlik becerilerini doğrudan ele almamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP10 = 1</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Dersin içeriği takım çalışması veya liderlik becerilerini doğrudan ele almamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP10 = 1</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Dersin içeriği takım çalışması veya liderlik becerilerini doğrudan ele almamaktadır.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">2 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Wide Angle 2 (Oxford University Press)</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Wide Angle 2 (Oxford University Press)</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/iletisim/OYDİ301">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/iletisim/OYDİ301/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Akademik İngilizce III</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">A2-B1 düzeylerinde İngilizce dil bilgisi kurallarını kavramalarını, hedef kelime dağarcıklarını geliştirmelerini; okuma-anlama, dinleme ve sözlü iletişim becerilerini günlük ve akademik bağlamda etkili biçimde
+kullanabilmelerini sağlamaktır.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Ders; A 2-B 1 düzeylerinde İngilizce dil bilgisi yapılarını, okuma-anlama stratejilerini, sözlü ve yazılı iletişim pratiklerini ve tematik hedef kelime çalışmalarını kapsar.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>İngilizce okuma, yazma, dinleme ve konuşma becerilerini bütüncül şekilde kullanarak sosyal, akademik ve profesyonel ortamlarda etkili iletişim kurabilme,</li><li>Akademik hedeflere yönelik olarak dil bilgisi (gramer) ve kelime bilgisi açısından yeterlilik kazanma,</li><li>Farklı iletişim bağlamlarında uygun dil ve üslup kullanarak kendini açık, akıcı ve anlaşılır şekilde ifade edebilme.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%40</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (90 saat → tabloda 3 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 1</td><td>1 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 1</td><td>1 saat</td></tr><tr><td>Ara Sınava Hazırlık</td><td>14 × 1</td><td>14 saat</td></tr><tr><td>Finale Hazırlık</td><td>14 × 1</td><td>14 saat</td></tr><tr><td>Yarıyıl Sınavına Hazırlık</td><td>1 × 4</td><td>4 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>UNIT 7: Orientation- People</td></tr><tr><td class="w-10">2</td><td>UNIT 7: People</td></tr><tr><td class="w-10">3</td><td>UNITE 7: People</td></tr><tr><td class="w-10">4</td><td>UNIT 7: People</td></tr><tr><td class="w-10">5</td><td>UNIT 7: People</td></tr><tr><td class="w-10">6</td><td>UNIT 8: Stories</td></tr><tr><td class="w-10">7</td><td>UNIT 8: Stories</td></tr><tr><td class="w-10">8</td><td>UNIT 8: Stories</td></tr><tr><td class="w-10">9</td><td>UNIT 8: Stories</td></tr><tr><td class="w-10">10</td><td>UNIT 8: Stories</td></tr><tr><td class="w-10">11</td><td>UNIT 9: Future</td></tr><tr><td class="w-10">12</td><td>UNIT 9: Future</td></tr><tr><td class="w-10">13</td><td>UNIT 9: Future</td></tr><tr><td class="w-10">14</td><td>UNIT 9: Future</td></tr><tr><td class="w-10">15</td><td>UNIT 9: Future</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

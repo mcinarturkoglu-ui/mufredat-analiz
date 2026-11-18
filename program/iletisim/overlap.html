@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 bg-slate-800 text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div><h1 class="text-2xl font-bold">Konu Örtüşmeleri · İletişim Tasarımı ve Yönetimi</h1>
+<p class="text-sm text-slate-500">Modül B ön sürüm: haftalık konular yerel <b>bge-m3</b> embedding modeliyle karşılaştırıldı (eşik 0.82; 1645 konu). Sınav/tekrar haftaları hariç. İki seçmeli havuz dersi arasındaki çiftler gösterilmez.
+<a class="lnk" href="/mufredat-analiz/tanimlar">Benzerlik değeri nedir?</a> Bu liste <b>aday</b>dır: farklı yarıyıldaki örtüşme derinleşme ya da ön koşul ilişkisi olabilir; karar uzmana aittir.</p></div>
+
+
+<details class="card" open>
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/STJ300">STJ300</a></b> Staj <span class="text-slate-500">(6. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY467">İTY467</a></b> İşletmede Mesleki Eğitim <span class="text-slate-500">(7. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">140 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>STJ300</th><th>İTY467</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>1. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>2. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>3. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>4. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>5. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>6. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>7. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>8. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>9. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>10. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>11. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>12. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>13. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>14. hf · Sektör Uygulaması</td><td>4. hf · Sektör Uygulaması</td></tr><tr><td class="score">1.0</td><td>1. hf · Sektör Uygulaması</td><td>5. hf · Sektör Uygulaması</td></tr>
+ </tbody></table><p class="text-xs text-slate-500 mt-1">+125 çift daha</p>
+</details>
+
+<details class="card" open>
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/STJ300">STJ300</a></b> Staj <span class="text-slate-500">(6. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY472">İTY472</a></b> İşletmede Mesleki Eğitim <span class="text-slate-500">(8. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">140 konu çifti · en yüksek 0.932</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>STJ300</th><th>İTY472</th></tr></thead><tbody>
+ <tr><td class="score">0.932</td><td>1. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>2. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>3. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>4. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>5. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>6. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>7. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>8. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>9. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>10. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>11. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>12. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>13. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>14. hf · Sektör Uygulaması</td><td>3. hf · Sektör uygulaması</td></tr><tr><td class="score">0.932</td><td>1. hf · Sektör Uygulaması</td><td>4. hf · Sektör uygulaması</td></tr>
+ </tbody></table><p class="text-xs text-slate-500 mt-1">+125 çift daha</p>
+</details>
+
+<details class="card" open>
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OYDİ202">OYDİ202</a></b> Akademik İngilizce II <span class="text-slate-500">(4. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OYDİ302">OYDİ302</a></b> Akademik İngilizce IV <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">40 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OYDİ202</th><th>OYDİ302</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>1. hf · UNIT 8: Advertising in Social Media</td><td>1. hf · UNIT 8: Advertising in Social Media</td></tr><tr><td class="score">1.0</td><td>1. hf · UNIT 8: Advertising in Social Media</td><td>2. hf · UNIT 8: Advertising in Social Media</td></tr><tr><td class="score">1.0</td><td>2. hf · UNIT 8: Advertising in Social Media</td><td>1. hf · UNIT 8: Advertising in Social Media</td></tr><tr><td class="score">1.0</td><td>2. hf · UNIT 8: Advertising in Social Media</td><td>2. hf · UNIT 8: Advertising in Social Media</td></tr><tr><td class="score">1.0</td><td>3. hf · UNIT 9: The Power of Social Media</td><td>3. hf · UNIT 9: The Power of Social Media</td></tr><tr><td class="score">1.0</td><td>3. hf · UNIT 9: The Power of Social Media</td><td>4. hf · UNIT 9: The Power of Social Media</td></tr><tr><td class="score">1.0</td><td>4. hf · UNIT 9: The Power of Social Media</td><td>3. hf · UNIT 9: The Power of Social Media</td></tr><tr><td class="score">1.0</td><td>4. hf · UNIT 9: The Power of Social Media</td><td>4. hf · UNIT 9: The Power of Social Media</td></tr><tr><td class="score">1.0</td><td>5. hf · UNIT 10: Social Media Campaigns in Politics</td><td>5. hf · UNIT 10: Social Media Campaigns in Politics</td></tr><tr><td class="score">1.0</td><td>5. hf · UNIT 10: Social Media Campaigns in Politics</td><td>6. hf · UNIT 10: Social Media Campaigns in Politics</td></tr><tr><td class="score">1.0</td><td>6. hf · UNIT 10: Social Media Campaigns in Politics</td><td>5. hf · UNIT 10: Social Media Campaigns in Politics</td></tr><tr><td class="score">1.0</td><td>6. hf · UNIT 10: Social Media Campaigns in Politics</td><td>6. hf · UNIT 10: Social Media Campaigns in Politics</td></tr><tr><td class="score">1.0</td><td>7. hf · UNIT 11: Corporate Social Responsibility</td><td>7. hf · UNIT 11: Corporate Social Responsibility</td></tr><tr><td class="score">1.0</td><td>7. hf · UNIT 11: Corporate Social Responsibility</td><td>8. hf · UNIT 11: Corporate Social Responsibility</td></tr><tr><td class="score">1.0</td><td>8. hf · UNIT 11: Corporate Social Responsibility</td><td>7. hf · UNIT 11: Corporate Social Responsibility</td></tr>
+ </tbody></table><p class="text-xs text-slate-500 mt-1">+25 çift daha</p>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD202">PFD202</a></b> Öğretmenlik Uygulaması <span class="text-slate-500">(8. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY310">İTY310</a></b> İstatistik <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">28 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>PFD202</th><th>İTY310</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>1. hf · Uygulama</td><td>13. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>1. hf · Uygulama</td><td>14. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>2. hf · Uygulama</td><td>13. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>2. hf · Uygulama</td><td>14. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>3. hf · Uygulama</td><td>13. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>3. hf · Uygulama</td><td>14. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>4. hf · Uygulama</td><td>13. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>4. hf · Uygulama</td><td>14. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>5. hf · Uygulama</td><td>13. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>5. hf · Uygulama</td><td>14. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>6. hf · Uygulama</td><td>13. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>6. hf · Uygulama</td><td>14. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>7. hf · Uygulama</td><td>13. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>7. hf · Uygulama</td><td>14. hf · Uygulama</td></tr><tr><td class="score">1.0</td><td>8. hf · Uygulama</td><td>13. hf · Uygulama</td></tr>
+ </tbody></table><p class="text-xs text-slate-500 mt-1">+13 çift daha</p>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY403">İTY403</a></b> Bitirme Projesi Planlama ve Geliştirme <span class="text-slate-500">(7. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY404">İTY404</a></b> Bitirme Projesi Yürütme <span class="text-slate-500">(8. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">24 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY403</th><th>İTY404</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>1. hf · Bitirme projesinin konusunun belirlenmesi</td><td>1. hf · Bitirme projesinin konusunun belirlenmesi</td></tr><tr><td class="score">1.0</td><td>1. hf · Bitirme projesinin konusunun belirlenmesi</td><td>2. hf · Bitirme projesinin konusunun belirlenmesi</td></tr><tr><td class="score">1.0</td><td>4. hf · Literatür araştırması</td><td>3. hf · Literatür araştırması</td></tr><tr><td class="score">1.0</td><td>4. hf · Literatür araştırması</td><td>4. hf · Literatür araştırması</td></tr><tr><td class="score">1.0</td><td>4. hf · Literatür araştırması</td><td>5. hf · Literatür araştırması</td></tr><tr><td class="score">1.0</td><td>5. hf · Literatür araştırması</td><td>3. hf · Literatür araştırması</td></tr><tr><td class="score">1.0</td><td>5. hf · Literatür araştırması</td><td>4. hf · Literatür araştırması</td></tr><tr><td class="score">1.0</td><td>5. hf · Literatür araştırması</td><td>5. hf · Literatür araştırması</td></tr><tr><td class="score">1.0</td><td>6. hf · Deneysel, Analiz ve Tasarım çalışmaları</td><td>6. hf · Deneysel, Analiz ve Tasarım çalışmaları</td></tr><tr><td class="score">1.0</td><td>7. hf · Çalışma aşaması</td><td>7. hf · Çalışma aşaması</td></tr><tr><td class="score">1.0</td><td>7. hf · Çalışma aşaması</td><td>8. hf · Çalışma aşaması</td></tr><tr><td class="score">1.0</td><td>7. hf · Çalışma aşaması</td><td>9. hf · Çalışma aşaması</td></tr><tr><td class="score">1.0</td><td>8. hf · Çalışma aşaması</td><td>7. hf · Çalışma aşaması</td></tr><tr><td class="score">1.0</td><td>8. hf · Çalışma aşaması</td><td>8. hf · Çalışma aşaması</td></tr><tr><td class="score">1.0</td><td>8. hf · Çalışma aşaması</td><td>9. hf · Çalışma aşaması</td></tr>
+ </tbody></table><p class="text-xs text-slate-500 mt-1">+9 çift daha</p>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY408">İTY408</a></b> Masaüstü Yayıncılığı <span class="text-slate-500">(8. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY457">İTY457</a></b> Stratejik Pazarlama Yönetimi <span class="text-slate-500">(7. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">16 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY408</th><th>İTY457</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>1. hf · Pazarlama Karması Gelişimi</td><td>1. hf · Pazarlama Karması Gelişimi</td></tr><tr><td class="score">1.0</td><td>2. hf · Ürün-Mal ve Hizmetler</td><td>2. hf · Ürün-Mal ve Hizmetler</td></tr><tr><td class="score">1.0</td><td>3. hf · Yeni Ürün Geliştirme</td><td>3. hf · Yeni Ürün Geliştirme</td></tr><tr><td class="score">1.0</td><td>4. hf · Ürün Yaşam Eğrisi</td><td>4. hf · Ürün Yaşam Eğrisi</td></tr><tr><td class="score">1.0</td><td>5. hf · Marka ve Marka Stratejileri</td><td>5. hf · Marka ve Marka Stratejileri</td></tr><tr><td class="score">1.0</td><td>6. hf · Fiyat ve Fiyatlama Politikaları</td><td>6. hf · Fiyat ve Fiyatlama Politikaları</td></tr><tr><td class="score">1.0</td><td>7. hf · Pazarlama Kanalları ve Dağıtım Politikaları</td><td>7. hf · Pazarlama Kanalları ve Dağıtım Politikaları</td></tr><tr><td class="score">1.0</td><td>8. hf · Perakendecilik</td><td>8. hf · Perakendecilik</td></tr><tr><td class="score">1.0</td><td>9. hf · Toptancılık</td><td>9. hf · Toptancılık</td></tr><tr><td class="score">1.0</td><td>10. hf · Fiyat-Fiyatlandırma</td><td>10. hf · Fiyat-Fiyatlandırma</td></tr><tr><td class="score">1.0</td><td>11. hf · İletişim Karması</td><td>11. hf · İletişim Karması</td></tr><tr><td class="score">1.0</td><td>12. hf · İletişim Karması analizi: Reklam-Kişisel Satış</td><td>12. hf · İletişim Karması analizi: Reklam-Kişisel Satış</td></tr><tr><td class="score">1.0</td><td>13. hf · İletişim Karması analizi: Satış Promosyon-Halkla İlişkiler</td><td>13. hf · İletişim Karması analizi: Satış Promosyon-Halkla İlişkiler</td></tr><tr><td class="score">1.0</td><td>14. hf · Pazarlama Etiği ve Pazarlama İle İlgili Yeni Gelişmeler</td><td>14. hf · Pazarlama Etiği ve Pazarlama İle İlgili Yeni Gelişmeler</td></tr><tr><td class="score">0.827</td><td>12. hf · İletişim Karması analizi: Reklam-Kişisel Satış</td><td>13. hf · İletişim Karması analizi: Satış Promosyon-Halkla İlişkiler</td></tr>
+ </tbody></table><p class="text-xs text-slate-500 mt-1">+1 çift daha</p>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD118">OSD118</a></b> İş Sağlığı ve Güvenliği I <span class="text-slate-500">(3. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İSG111">İSG111</a></b> İş Sağlığı ve Güvenliği I <span class="text-slate-500">(1. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">13 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD118</th><th>İSG111</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>2. hf · Güvenlik Kültürü</td><td>2. hf · Güvenlik Kültürü</td></tr><tr><td class="score">1.0</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td></tr><tr><td class="score">1.0</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td></tr><tr><td class="score">1.0</td><td>7. hf · Acil Durum Planı ve Tatbikat</td><td>7. hf · Acil Durum Planı ve Tatbikat</td></tr><tr><td class="score">1.0</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td></tr><tr><td class="score">1.0</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td></tr><tr><td class="score">1.0</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td></tr><tr><td class="score">1.0</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td></tr><tr><td class="score">1.0</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD118">OSD118</a></b> İş Sağlığı ve Güvenliği I <span class="text-slate-500">(3. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İSG112">İSG112</a></b> İş Sağlığı ve Güvenliği II <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">13 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD118</th><th>İSG112</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>2. hf · Güvenlik Kültürü</td><td>2. hf · Güvenlik Kültürü</td></tr><tr><td class="score">1.0</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td></tr><tr><td class="score">1.0</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td></tr><tr><td class="score">1.0</td><td>7. hf · Acil Durum Planı ve Tatbikat</td><td>7. hf · Acil Durum Planı ve Tatbikat</td></tr><tr><td class="score">1.0</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td></tr><tr><td class="score">1.0</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td></tr><tr><td class="score">1.0</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td></tr><tr><td class="score">1.0</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td></tr><tr><td class="score">1.0</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD119">OSD119</a></b> İş Sağlığı Ve Güvenliği II <span class="text-slate-500">(3. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İSG111">İSG111</a></b> İş Sağlığı ve Güvenliği I <span class="text-slate-500">(1. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">13 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD119</th><th>İSG111</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>2. hf · Güvenlik Kültürü</td><td>2. hf · Güvenlik Kültürü</td></tr><tr><td class="score">1.0</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td></tr><tr><td class="score">1.0</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td></tr><tr><td class="score">1.0</td><td>7. hf · Acil Durum Planı ve Tatbikat</td><td>7. hf · Acil Durum Planı ve Tatbikat</td></tr><tr><td class="score">1.0</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td></tr><tr><td class="score">1.0</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td></tr><tr><td class="score">1.0</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td></tr><tr><td class="score">1.0</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td></tr><tr><td class="score">1.0</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD119">OSD119</a></b> İş Sağlığı Ve Güvenliği II <span class="text-slate-500">(3. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İSG112">İSG112</a></b> İş Sağlığı ve Güvenliği II <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">13 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD119</th><th>İSG112</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>2. hf · Güvenlik Kültürü</td><td>2. hf · Güvenlik Kültürü</td></tr><tr><td class="score">1.0</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td></tr><tr><td class="score">1.0</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td></tr><tr><td class="score">1.0</td><td>7. hf · Acil Durum Planı ve Tatbikat</td><td>7. hf · Acil Durum Planı ve Tatbikat</td></tr><tr><td class="score">1.0</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td></tr><tr><td class="score">1.0</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td></tr><tr><td class="score">1.0</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td></tr><tr><td class="score">1.0</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td></tr><tr><td class="score">1.0</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İSG111">İSG111</a></b> İş Sağlığı ve Güvenliği I <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İSG112">İSG112</a></b> İş Sağlığı ve Güvenliği II <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">13 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İSG111</th><th>İSG112</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>2. hf · Güvenlik Kültürü</td><td>2. hf · Güvenlik Kültürü</td></tr><tr><td class="score">1.0</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td><td>3. hf · 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu</td></tr><tr><td class="score">1.0</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td><td>4. hf · İş Kazası ve Meslek Hastalığı</td></tr><tr><td class="score">1.0</td><td>7. hf · Acil Durum Planı ve Tatbikat</td><td>7. hf · Acil Durum Planı ve Tatbikat</td></tr><tr><td class="score">1.0</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td><td>9. hf · İş Sağlığı ve Güvenliği Risk Etmenleri</td></tr><tr><td class="score">1.0</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td><td>10. hf · Ekranlı Araçlarla Çalışma-Elle Kaldırma Taşıma-KKD-Sağlık ve Güvenlik İşaretleri</td></tr><tr><td class="score">1.0</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td><td>11. hf · Gemi, Tersane ve Sanayide İş Güvenliği, Kapalı Alan Çalışmalarında Güvenlik</td></tr><tr><td class="score">1.0</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td><td>12. hf · Kaynak İşlerinde ve Elektrikle Çalışmalarda Güvenlik</td></tr><tr><td class="score">1.0</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td><td>13. hf · İş Ekipmanlarının Güvenli Kullanımı, Yüksekte Çalışma</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>14. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>14. hf · Vaka İncelemesi</td></tr><tr><td class="score">1.0</td><td>15. hf · Vaka İncelemesi</td><td>15. hf · Vaka İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY303">İTY303</a></b> 3 Boyutlu Animasyon Teknikleri I <span class="text-slate-500">(5. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY304">İTY304</a></b> 3 Boyutlu Animasyon Teknikleri II <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">8 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY303</th><th>İTY304</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>3. hf · 3 boyutlu modelleme temelleri, farklı modelleme yöntemlerinin özelliklerini açıklama</td><td>3. hf · 3 boyutlu modelleme temelleri, farklı modelleme yöntemlerinin özelliklerini açıklama</td></tr><tr><td class="score">1.0</td><td>4. hf · Eğrilerle modelleme</td><td>4. hf · Eğrilerle modelleme</td></tr><tr><td class="score">1.0</td><td>9. hf · Materyal temelleri ve kullanımı</td><td>9. hf · Materyal temelleri ve kullanımı</td></tr><tr><td class="score">1.0</td><td>10. hf · Kamera oluşturma ve görüş açısını ayarlama</td><td>10. hf · Kamera oluşturma ve görüş açısını ayarlama</td></tr><tr><td class="score">0.983</td><td>12. hf · Hiyerarşiler ve bir hiyerarşiyi oynatma</td><td>12. hf · Hiyerarşiler ve hiyerarşiyi oynatma</td></tr><tr><td class="score">0.938</td><td>13. hf · Animasyon kontrolleri, denetleyicileri ve hareket panelini kullanma</td><td>13. hf · Animasyon kontrolleri, denetleyicileri kavrama ve hareket panelini kullanma</td></tr><tr><td class="score">0.902</td><td>5. hf · Genişletme ve daraltma, Loft konumunun kullanımı</td><td>5. hf · Genişletme ve daraltma, Loft komutunun kullanımı</td></tr><tr><td class="score">0.891</td><td>2. hf · 3 boyutlu modelleme ve animasyon programları</td><td>2. hf · 3 boyutlu modelleme ve animasyon programları, kullanım teknikleri</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OYDİ202">OYDİ202</a></b> Akademik İngilizce II <span class="text-slate-500">(4. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/YDİ102">YDİ102</a></b> Yabancı Dil II <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">4 konu çifti · en yüksek 0.886</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OYDİ202</th><th>YDİ102</th></tr></thead><tbody>
+ <tr><td class="score">0.886</td><td>3. hf · UNIT 9: The Power of Social Media</td><td>4. hf · UNIT 9: Features of Social Media</td></tr><tr><td class="score">0.886</td><td>4. hf · UNIT 9: The Power of Social Media</td><td>4. hf · UNIT 9: Features of Social Media</td></tr><tr><td class="score">0.88</td><td>3. hf · UNIT 9: The Power of Social Media</td><td>3. hf · UNIT 9:Features of Social Media</td></tr><tr><td class="score">0.88</td><td>4. hf · UNIT 9: The Power of Social Media</td><td>3. hf · UNIT 9:Features of Social Media</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OYDİ302">OYDİ302</a></b> Akademik İngilizce IV <span class="text-slate-500">(6. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/YDİ102">YDİ102</a></b> Yabancı Dil II <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">4 konu çifti · en yüksek 0.886</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OYDİ302</th><th>YDİ102</th></tr></thead><tbody>
+ <tr><td class="score">0.886</td><td>3. hf · UNIT 9: The Power of Social Media</td><td>4. hf · UNIT 9: Features of Social Media</td></tr><tr><td class="score">0.886</td><td>4. hf · UNIT 9: The Power of Social Media</td><td>4. hf · UNIT 9: Features of Social Media</td></tr><tr><td class="score">0.88</td><td>3. hf · UNIT 9: The Power of Social Media</td><td>3. hf · UNIT 9:Features of Social Media</td></tr><tr><td class="score">0.88</td><td>4. hf · UNIT 9: The Power of Social Media</td><td>3. hf · UNIT 9:Features of Social Media</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY111">İTY111</a></b> İletişimde Anlatım Teknikleri <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY259">İTY259</a></b> Etkili İletişim ve Beden Dili <span class="text-slate-500">(3. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">2 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY111</th><th>İTY259</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>8. hf · İletişimde Etkin Dinleme</td><td>6. hf · İletişimde Etkin Dinleme</td></tr><tr><td class="score">0.975</td><td>13. hf · Beden Dilini Etkili Kullanmak</td><td>14. hf · Beden Dilini Etkili Kullanmak İçin</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY105">İTY105</a></b> İletişime Giriş <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY262">İTY262</a></b> Medya, Teknoloji ve Aile <span class="text-slate-500">(4. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">2 konu çifti · en yüksek 0.923</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY105</th><th>İTY262</th></tr></thead><tbody>
+ <tr><td class="score">0.923</td><td>7. hf · Kitap Kritiği</td><td>7. hf · Kitap İncelemesi</td></tr><tr><td class="score">0.923</td><td>7. hf · Kitap Kritiği</td><td>12. hf · Kitap İncelemesi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></b> Medya ve İletişim <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY261">İTY261</a></b> İletişim Sosyolojisi <span class="text-slate-500">(3. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">2 konu çifti · en yüksek 0.879</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY102</th><th>İTY261</th></tr></thead><tbody>
+ <tr><td class="score">0.879</td><td>16. hf · Medya ve Demokrasi</td><td>10. hf · Medya ve siyaset</td></tr><tr><td class="score">0.826</td><td>16. hf · Medya ve Demokrasi</td><td>9. hf · Medya ve kültür</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></b> Medya ve İletişim <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY459">İTY459</a></b> Medya ve Tüketim Toplumu <span class="text-slate-500">(7. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">2 konu çifti · en yüksek 0.837</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY102</th><th>İTY459</th></tr></thead><tbody>
+ <tr><td class="score">0.837</td><td>1. hf · Dersin ve kaynakların tanıtımı.</td><td>1. hf · Ders tanıtımı ve ders içerik aktarımı</td></tr><tr><td class="score">0.829</td><td>15. hf · Yeni medya ve enformasyon toplumu</td><td>13. hf · Enformasyon toplumu</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD107">OSD107</a></b> Düşünce Tarihi <span class="text-slate-500">(3. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY302">İTY302</a></b> Video Kurgu <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD107</th><th>İTY302</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>1. hf · Dersin tanıtımı</td><td>1. hf · Dersin tanıtımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY106">İTY106</a></b> Dijitalleşme ve Toplum <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY108">İTY108</a></b> İletişim Teknolojileri <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-high">aynı yarıyıl: olası tekrar</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY106</th><th>İTY108</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>6. hf · Sosyal Medya</td><td>11. hf · Sosyal Medya</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY112">İTY112</a></b> Yeni Medya Kuramları <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY360">İTY360</a></b> Çağdaş Toplumsal Hareketler <span class="text-slate-500">(6. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 1.0</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY112</th><th>İTY360</th></tr></thead><tbody>
+ <tr><td class="score">1.0</td><td>1. hf · Ders ve kaynakları hakkında bilgilendirme</td><td>1. hf · Ders ve kaynakları hakkında bilgilendirme</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY107">İTY107</a></b> Psikoloji <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY467">İTY467</a></b> İşletmede Mesleki Eğitim <span class="text-slate-500">(7. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.962</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY107</th><th>İTY467</th></tr></thead><tbody>
+ <tr><td class="score">0.962</td><td>1. hf · Tanışma ve Ders Hakkında Bilgilendirme</td><td>1. hf · Tanışma ve ders hakkında bilgilendirme</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY107">İTY107</a></b> Psikoloji <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY472">İTY472</a></b> İşletmede Mesleki Eğitim <span class="text-slate-500">(8. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.962</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY107</th><th>İTY472</th></tr></thead><tbody>
+ <tr><td class="score">0.962</td><td>1. hf · Tanışma ve Ders Hakkında Bilgilendirme</td><td>1. hf · Tanışma ve ders hakkında bilgilendirme</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY109">İTY109</a></b> İletişim Kuramları <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY263">İTY263</a></b> Sinema ve Edebiyat <span class="text-slate-500">(3. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.957</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY109</th><th>İTY263</th></tr></thead><tbody>
+ <tr><td class="score">0.957</td><td>1. hf · Giriş, ders tanıtımı</td><td>1. hf · Giriş ve dersin tanıtımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY103">İTY103</a></b> Sosyolojiye Giriş <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY360">İTY360</a></b> Çağdaş Toplumsal Hareketler <span class="text-slate-500">(6. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.943</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY103</th><th>İTY360</th></tr></thead><tbody>
+ <tr><td class="score">0.943</td><td>13. hf · Sosyal Değişme</td><td>2. hf · Toplumsal Değişme</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></b> Medya ve İletişim <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY405">İTY405</a></b> Reklam Tasarım ve Uygulamaları <span class="text-slate-500">(7. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.938</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY102</th><th>İTY405</th></tr></thead><tbody>
+ <tr><td class="score">0.938</td><td>1. hf · Dersin ve kaynakların tanıtımı.</td><td>1. hf · Tanışma ve ders kaynaklarının tanıtımı.</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD125">OSD125</a></b> Psikososyal Yaşam Becerileri <span class="text-slate-500">(1. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY109">İTY109</a></b> İletişim Kuramları <span class="text-slate-500">(1. yy)</span>
+  <span class="pill s-high">aynı yarıyıl: olası tekrar</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.914</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD125</th><th>İTY109</th></tr></thead><tbody>
+ <tr><td class="score">0.914</td><td>1. hf · Giriş-Dersin tanıtımı</td><td>1. hf · Giriş, ders tanıtımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/TDI101">TDI101</a></b> Türk Dili I <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/TDI102">TDI102</a></b> Türk Dili II <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.907</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>TDI101</th><th>TDI102</th></tr></thead><tbody>
+ <tr><td class="score">0.907</td><td>9. hf · Cümle Bilgisi</td><td>1. hf · Cümle bilgisi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY263">İTY263</a></b> Sinema ve Edebiyat <span class="text-slate-500">(3. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY302">İTY302</a></b> Video Kurgu <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.899</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY263</th><th>İTY302</th></tr></thead><tbody>
+ <tr><td class="score">0.899</td><td>1. hf · Giriş ve dersin tanıtımı</td><td>1. hf · Dersin tanıtımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY105">İTY105</a></b> İletişime Giriş <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY264">İTY264</a></b> Kurumsal İletişim <span class="text-slate-500">(4. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.895</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY105</th><th>İTY264</th></tr></thead><tbody>
+ <tr><td class="score">0.895</td><td>9. hf · İletişim ve Etik</td><td>11. hf · İletişimde Etik ve Yasal Konular</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD125">OSD125</a></b> Psikososyal Yaşam Becerileri <span class="text-slate-500">(1. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY302">İTY302</a></b> Video Kurgu <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.894</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD125</th><th>İTY302</th></tr></thead><tbody>
+ <tr><td class="score">0.894</td><td>1. hf · Giriş-Dersin tanıtımı</td><td>1. hf · Dersin tanıtımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></b> Medya ve İletişim <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY252">İTY252</a></b> Medya ve İnsan Hakları <span class="text-slate-500">(4. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.891</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY102</th><th>İTY252</th></tr></thead><tbody>
+ <tr><td class="score">0.891</td><td>13. hf · Medya ve Kamusal Alan</td><td>5. hf · Kamusal Alan, Medya Ve İnsan Hakları</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD107">OSD107</a></b> Düşünce Tarihi <span class="text-slate-500">(3. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY109">İTY109</a></b> İletişim Kuramları <span class="text-slate-500">(1. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.889</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD107</th><th>İTY109</th></tr></thead><tbody>
+ <tr><td class="score">0.889</td><td>1. hf · Dersin tanıtımı</td><td>1. hf · Giriş, ders tanıtımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY109">İTY109</a></b> İletişim Kuramları <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY302">İTY302</a></b> Video Kurgu <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.889</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY109</th><th>İTY302</th></tr></thead><tbody>
+ <tr><td class="score">0.889</td><td>1. hf · Giriş, ders tanıtımı</td><td>1. hf · Dersin tanıtımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY109">İTY109</a></b> İletişim Kuramları <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY253">İTY253</a></b> Uluslararası Örgütler ve İletişim <span class="text-slate-500">(3. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.878</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY109</th><th>İTY253</th></tr></thead><tbody>
+ <tr><td class="score">0.878</td><td>1. hf · Giriş, ders tanıtımı</td><td>1. hf · Derse Giriş Ve Tanıtım</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY205">İTY205</a></b> Örgütsel Davranış <span class="text-slate-500">(3. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY264">İTY264</a></b> Kurumsal İletişim <span class="text-slate-500">(4. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.862</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY205</th><th>İTY264</th></tr></thead><tbody>
+ <tr><td class="score">0.862</td><td>4. hf · İletişim ve Sosyal Medya</td><td>8. hf · Dijital ve Sosyal Medya İletişimi</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></b> Medya ve İletişim <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY112">İTY112</a></b> Yeni Medya Kuramları <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-high">aynı yarıyıl: olası tekrar</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.855</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY102</th><th>İTY112</th></tr></thead><tbody>
+ <tr><td class="score">0.855</td><td>1. hf · Dersin ve kaynakların tanıtımı.</td><td>1. hf · Ders ve kaynakları hakkında bilgilendirme</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></b> Medya ve İletişim <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY360">İTY360</a></b> Çağdaş Toplumsal Hareketler <span class="text-slate-500">(6. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.855</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY102</th><th>İTY360</th></tr></thead><tbody>
+ <tr><td class="score">0.855</td><td>1. hf · Dersin ve kaynakların tanıtımı.</td><td>1. hf · Ders ve kaynakları hakkında bilgilendirme</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD107">OSD107</a></b> Düşünce Tarihi <span class="text-slate-500">(3. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></b> Medya ve İletişim <span class="text-slate-500">(2. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.85</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>OSD107</th><th>İTY102</th></tr></thead><tbody>
+ <tr><td class="score">0.85</td><td>1. hf · Dersin tanıtımı</td><td>1. hf · Dersin ve kaynakların tanıtımı.</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></b> Medya ve İletişim <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY302">İTY302</a></b> Video Kurgu <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.85</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY102</th><th>İTY302</th></tr></thead><tbody>
+ <tr><td class="score">0.85</td><td>1. hf · Dersin ve kaynakların tanıtımı.</td><td>1. hf · Dersin tanıtımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY253">İTY253</a></b> Uluslararası Örgütler ve İletişim <span class="text-slate-500">(3. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY302">İTY302</a></b> Video Kurgu <span class="text-slate-500">(6. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.841</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY253</th><th>İTY302</th></tr></thead><tbody>
+ <tr><td class="score">0.841</td><td>1. hf · Derse Giriş Ve Tanıtım</td><td>1. hf · Dersin tanıtımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY302">İTY302</a></b> Video Kurgu <span class="text-slate-500">(6. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY459">İTY459</a></b> Medya ve Tüketim Toplumu <span class="text-slate-500">(7. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.838</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY302</th><th>İTY459</th></tr></thead><tbody>
+ <tr><td class="score">0.838</td><td>1. hf · Dersin tanıtımı</td><td>1. hf · Ders tanıtımı ve ders içerik aktarımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY109">İTY109</a></b> İletişim Kuramları <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY363">İTY363</a></b> Sinematografi <span class="text-slate-500">(5. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.837</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY109</th><th>İTY363</th></tr></thead><tbody>
+ <tr><td class="score">0.837</td><td>1. hf · Giriş, ders tanıtımı</td><td>1. hf · Giriş, Dersin içeriği hakkında bilgilendirme.</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY104">İTY104</a></b> Temel Tasarım <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY405">İTY405</a></b> Reklam Tasarım ve Uygulamaları <span class="text-slate-500">(7. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.833</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY104</th><th>İTY405</th></tr></thead><tbody>
+ <tr><td class="score">0.833</td><td>1. hf · Tasarım nedir? Temel tasarım nedir?</td><td>2. hf · Tasarım nedir?</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></b> Medya ve İletişim <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY263">İTY263</a></b> Sinema ve Edebiyat <span class="text-slate-500">(3. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.832</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY102</th><th>İTY263</th></tr></thead><tbody>
+ <tr><td class="score">0.832</td><td>1. hf · Dersin ve kaynakların tanıtımı.</td><td>1. hf · Giriş ve dersin tanıtımı</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY112">İTY112</a></b> Yeni Medya Kuramları <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY405">İTY405</a></b> Reklam Tasarım ve Uygulamaları <span class="text-slate-500">(7. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.832</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY112</th><th>İTY405</th></tr></thead><tbody>
+ <tr><td class="score">0.832</td><td>1. hf · Ders ve kaynakları hakkında bilgilendirme</td><td>1. hf · Tanışma ve ders kaynaklarının tanıtımı.</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY360">İTY360</a></b> Çağdaş Toplumsal Hareketler <span class="text-slate-500">(6. yy, seçmeli)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY405">İTY405</a></b> Reklam Tasarım ve Uygulamaları <span class="text-slate-500">(7. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.832</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY360</th><th>İTY405</th></tr></thead><tbody>
+ <tr><td class="score">0.832</td><td>1. hf · Ders ve kaynakları hakkında bilgilendirme</td><td>1. hf · Tanışma ve ders kaynaklarının tanıtımı.</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY107">İTY107</a></b> Psikoloji <span class="text-slate-500">(1. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY253">İTY253</a></b> Uluslararası Örgütler ve İletişim <span class="text-slate-500">(3. yy, seçmeli)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.831</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY107</th><th>İTY253</th></tr></thead><tbody>
+ <tr><td class="score">0.831</td><td>1. hf · Tanışma ve Ders Hakkında Bilgilendirme</td><td>1. hf · Derse Giriş Ve Tanıtım</td></tr>
+ </tbody></table>
+</details>
+
+<details class="card" >
+ <summary class="cursor-pointer flex flex-wrap gap-2 items-center">
+  <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></b> Medya ve İletişim <span class="text-slate-500">(2. yy)</span>
+  ↔ <b><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY205">İTY205</a></b> Örgütsel Davranış <span class="text-slate-500">(3. yy)</span>
+  <span class="pill s-low">farklı yarıyıl: tekrar ya da derinleşme</span>
+  <span class="pill s-info">1 konu çifti · en yüksek 0.825</span>
+ </summary>
+ <table class="tbl w-full text-sm mt-3"><thead><tr><th>Benzerlik</th><th>İTY102</th><th>İTY205</th></tr></thead><tbody>
+ <tr><td class="score">0.825</td><td>11. hf · İletişim ve Dil</td><td>4. hf · İletişim ve Sosyal Medya</td></tr>
+ </tbody></table>
+</details>
+
+
+ </main>
+</div>
+</body>
+</html>

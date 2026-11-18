@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / seçmeli havuz</div>
+ <h1 class="text-2xl font-bold">İTY265 · Üretken Yapay Zeka</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+0+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 4 (müfredatta 4) · Seçmeli · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377422&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377422&amp;lang=en</a> · toplandı 18.11.2026 18:22</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 40</span><span class="pill st-fail">kaldı: 2</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (2)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr>
+</tbody></table></div>
+
+
+
+
+
+
+
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">4 kaynak · 3 tanesinde yıl var · en yeni 2016 (10 yıl önce) · 10 yıldan eski 2</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2003</td><td>Mühendislikte Yapay Zeka Uygulamaları, Ufuk Kitabevi, Ağustos 2003.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Introduction to Artificial Inteligence, Eugene Charniak, Drew McDermott, Addison-Wesley Pub.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2016</td><td>Vasif Vagifoğlu Nabiyev, Yapay Zeka, 5. baskı, Nisan 2016, Seçkin Yayıncılık.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2010</td><td>Artificial Intelligence: Foundations of Computational Agents, David Poole, Alan Mackworth, Cambridge University Press 2010.</td><td class="text-xs text-slate-500">kaynaklar</td></tr></tbody></table></div>
+
+
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY265">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/iletisim/İTY265/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Generative Artificial Intelligence</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">The aim of this course is to provide students with the basic concepts, working principles and current
+application areas of generative artificial intelligence technologies from an interdisciplinary perspective. Students will be able to recognize the models used in text,
+visual, audio and data production, critically
+evaluate these technologies and adapt them to their own fields. In addition, the awareness of using artificial intelligence tools responsibly by being aware of ethical, social and professional
+impacts is developed.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">This course provides a basic introduction to generative AI technologies and explains how content such as text, images and audio is generated. Appealing to students from different disciplines, the course is enriched with a wide range of applications from engineering to health, from arts to social sciences. Ethics, societal impacts and use cases are also addressed to develop students&#39; technical and critical thinking skills. Theory and practice are balanced.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Explain the basic concepts and working principles of generative artificial intelligence.</li><li>Recognize and compare artificial intelligence models that produce text, visual, audio and data.</li><li>Analyzes productive artificial intelligence applications in different disciplines with examples.</li><li>Generates content by applying generative AI tools in specific scenarios.</li><li>Question the ethical, legal and social implications of artificial intelligence technologies.</li><li>Evaluates how they can benefit from productive AI in their area of expertise.</li><li>Contributes to productive artificial intelligence applications in interdisciplinary collaborative environments.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Mid-terms</td><td>1</td><td>%40</td></tr><tr><td>Final examination</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (106 saat → tabloda 4 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Assignments</td><td>4 × 5</td><td>20 saat</td></tr><tr><td>Mid-terms</td><td>1 × 10</td><td>10 saat</td></tr><tr><td>Final examination</td><td>1 × 10</td><td>10 saat</td></tr><tr><td>Preparation for the Final</td><td>1 × 10</td><td>10 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Introduction to Artificial Intelligence - Artificial Intelligence and Machine Learning Fundamentals - Supervised Learning - Unsupervised Learning - Artificial Intelligence Powered Applications - Limitations of Artificial Intelligence - Key Concepts</td></tr><tr><td class="w-10">2</td><td>Text Processing with Generative Networks - Automated extraction of lecture notes with generative networks - Summarization techniques and applications - Tools and Technologies - Note-taking applications and software - Hands-on Workshops o Summarizing Handwritten or PDF Notes o Automatic Summary Extraction from Lecture Video o Key Concept Map Generation o Transcribing and Summarizing Audio Lectures o Designing Q&amp;A with Generative AI</td></tr><tr><td class="w-10">3</td><td>Generative Networks and Natural Language Processing (NLP) - Text creation and translation studies - Generative Networks in Language Learning - Dialog and text production for language practice - Hands-on Workshops o Translating a text into different languages and creating dialogs o Multilingual Translation and Meaning Preservation Testing o Dialogue Simulation: Language Practice with an Artificial Language Assistant o Automatic Story Completion o Cultural Adaptation in Machine Translation (Localization)</td></tr><tr><td class="w-10">4</td><td>Data Analysis and Visualization - Data Analytics with Generative Networks - Data visualization techniques - Working with Big Data Sets - Data cleaning and analysis processes - Hands-on Workshops o Visualization work on a data set o Data Cleaning Assistant: Detecting Erroneous Inputs o Automated Reporting with LLMs o Pattern Finding Task with Big Data</td></tr><tr><td class="w-10">5</td><td>Education Material Production - Course Content Development - Lecture notes, summaries and drafts of textbooks - Generating Questions and Answers - Automatic question and answer generation for exams and assignments - Practical Workshops o Lecture Note and Summary Production by Topic o Automatic Question and Answer Production and Adaptation to Class Level o Mini Textbook Drafting o Homework Production and Answer Key Preparation o Material Matching for Learning Objective</td></tr><tr><td class="w-10">6</td><td>Code Writing and Programming Help - Scripting and Debugging with Generative Networks - Code generation and debugging tools - Helpful Applications in Programming Languages - Hands-on Workshop o Code Completion and Description Generation o Debugging on Faulty Code o Code Generation from Problem Definition o Documentation of Code o Code Translation to Different Programming Languages</td></tr><tr><td class="w-10">7</td><td>Project Planning and Organization - Basic concepts of project management - Project planning and time management - Project Writing with Productive Networks - Use of productive networks for project reports and documentation - Points to be considered in project writing - Practical Workshop o Generating Project Ideas and Creating an Abstract o Designing a Gantt Chart and Timeline o Writing Project Objectives and Expected Results o Generating Project Risks and Measures o Drafting and Editing a Project Report</td></tr><tr><td class="w-10">8</td><td>Personalized Education - Personalized Study Plans o The importance of creating student-specific study plans o Creating personalized study plans with productive networks o Time management and goal setting - Learning Material o The importance of creating materials appropriate to learning styles o Creating personalized learning materials and practice tests with generative networks - Practical Workshops o Personalized Weekly Study Plan Design o Material Production According to Learning Style o Target Based Mini Test and Feedback Production o Content Suggestion Development by Creating Student Profile o Learning Diary and Tracking Progress</td></tr><tr><td class="w-10">9</td><td>Scientific Studies - Research and Article Writing o Basic steps of the scientific research process o Writing scientific articles with productive networks o Reference management and academic integrity - Data Analysis and Presentation o Data analysis methods and tools o Data analysis and graphing with generative networks o Preparing scientific presentations - Hands-on Workshops o Article Section Writing with Generative AI o Bibliography and Reference Management Simulation o Analysis on Simple Data Set with Generative AI o Command-Based Work for Graph and Figure Generation o Preparing Scientific Presentation Content</td></tr><tr><td class="w-10">10</td><td>Voice Processing with Productive Networks - Audio Processing Basics o Audio processing and audio signal analysis o Basic concepts: frequency, amplitude, wavelength - Generative Networks and Voice Synthesis o Voice synthesis with generative networks o Commonly used models: WaveNet, Tacotron, VQ-VAE - Music and Speech Generation o Generative networks for music generation o Speech synthesis and voice assistants - Hands-on Workshops o Analyzing Basic Properties of Audio Signal o Speech Synthesis Simulation o Creating a Music Track with Generative AI o Noise Removal and Sound Cleaning o Developing a Simple Command System for a Voice Assistant</td></tr><tr><td class="w-10">11</td><td>Generating Visuals with Generative Networks - Fundamentals of Visual Production o Processing and analyzing visual data o The role of generative networks in visual production - Visual Generation Models with Generative Networks o Generative Adversarial Networks (GANs) o Variational Autoencoders (VAEs) o Other generative models - Visual Production Applications o Art and design projects o Game development and animation - Practical Workshops o Visual Production from Text o Comparing Different Model Outputs with the Same Concept o Producing Visuals Suitable for Art Movements o Game Character or Background Design o Visual Manipulation and Style Transfer Simulation</td></tr><tr><td class="w-10">12</td><td>Innovation and Entrepreneurship - Entrepreneurship Basics o What is entrepreneurship? o Examples of successful startups - Innovation through Productive Networks o The use of productive networks in developing innovative ideas and solutions - Business Plan Development o Business idea generation and business plan writing o Drafting business plans with productive networks - Hands-on Workshop o Generating a Startup Idea with Generative AI o Creating a Business Model Canvas o Drafting a Business Plan o Market Analysis Simulation with Generative AI o Preparing an Investor Pitch Deck</td></tr><tr><td class="w-10">13</td><td>Social Media and Digital Content Production - Content Production o The importance of social media and digital content production o Creating blog posts, social media posts and other digital content with productive networks o Content strategies and planning - Message Drafts o The importance of emails and other communication texts o Creating effective message drafts with productive networks o Sample messages for different communication situations - Hands-on Workshops o Social Media Post Production o Blog Post Creation and Development o Content Calendar Creation o Email and Message Drafting o Digital Content Type Recognition and Conversion</td></tr><tr><td class="w-10">14</td><td>Career and Work Preparation - CV and Cover Letter Writing o The importance of CV and cover letter writing o Using productive networks for CV and cover letter o Sample CV and cover letters for different sectors - Interview Preparation o Interview types and processes o Using generative networks for interview questions and answers o Practical interview simulations - Practical Workshops o Creating a Sector Specific CV and Cover Letter o CV Analysis and Feedback Study o Creating Interview Question and Answer Scenarios o Interview Simulation o Preparing Email and LinkedIn Messages for the Job Application Process</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

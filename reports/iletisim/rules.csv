@@ -1,0 +1,606 @@
+﻿kural,kontrol,hedef,dil,alan,sonuç,önem,gerekçe,mevcut,beklenen,öneri
+R1_required_fields,filled,ATI101,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,ATI101,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,ATI101,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'milli mücadele hazırlık dönemi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,hours_per_ects,ATI101,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",67 saat / 2 AKTS = 33.5 saat/AKTS,25-30 saat/AKTS (50-60 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,ATI101,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2007 (19 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R2_weekly_plan,duplicate_topics,İSG111,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'vaka i̇ncelemesi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,workload_ects_matches,İSG111,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",3,2,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,İSG111,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",80 saat / 2 AKTS = 40.0 saat/AKTS,25-30 saat/AKTS (50-60 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,İSG111,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İSG111,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY101,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY101,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY101,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,2 tekrar: 'talep ve arz esneklikleri ve uygulamaları' x2; 'üretim ve maliyet analizi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R1_required_fields,filled,İTY103,tr,content,kaldı,yüksek,'Dersin içeriği' alanı boş ya da yetersiz.,9 karakter,en az 20 karakter,'Dersin içeriği' alanını doldurun.
+R1_required_fields,filled,İTY103,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY103,en,content,kaldı,yüksek,'Dersin içeriği' alanı boş ya da yetersiz.,9 karakter,en az 20 karakter,'Dersin içeriği' alanını doldurun.
+R1_required_fields,filled,İTY103,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY103,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",125 saat / 4 AKTS = 31.2 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R5_tr_en_parity,untranslated,İTY103,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,20/22 metin TR ile birebir aynı (%91),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R1_required_fields,filled,İTY105,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY105,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY109,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY109,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY111,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY111,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY111,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2010 (16 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,TDI101,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,TDI101,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R5_tr_en_parity,untranslated,TDI101,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,18/21 metin TR ile birebir aynı (%86),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R2_weekly_plan,duplicate_topics,YDİ101,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,5 tekrar: 'unit 2 – things' x2; 'unit 3 – places' x2; 'unit 4 – life' x2; 'unit 5 – travel' x2; 'unit 6 – skills' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R5_tr_en_parity,untranslated,YDİ101,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,11/20 metin TR ile birebir aynı (%55),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,year_present,YDİ101,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,YDİ101,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,ATI102,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,ATI102,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,ATI102,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'atatürk dönemi türk dış politikası (1923-1930)' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,hours_per_ects,ATI102,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",67 saat / 2 AKTS = 33.5 saat/AKTS,25-30 saat/AKTS (50-60 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,ATI102,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2007 (19 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İSG112,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İSG112,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İSG112,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'vaka i̇ncelemesi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,workload_ects_matches,İSG112,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",3,2,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,İSG112,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",80 saat / 2 AKTS = 40.0 saat/AKTS,25-30 saat/AKTS (50-60 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,İSG112,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İSG112,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY102,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY102,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY104,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY104,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY104,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY104,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY106,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY106,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R3_assessment_total,weights_sum,İTY106,tr,assessment,kaldı,yüksek,Değerlendirme ağırlıklarının toplamı %100 değil.,%0,%100,Katkı yüzdelerini toplamı %100 olacak şekilde düzeltin.
+R7_references,year_present,İTY106,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,1/3 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY106,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2013 (13 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY108,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY108,en,references,kaldı,orta,'Kaynaklar' alanı boş ya da yetersiz.,0 kaynak satırı,en az 1 kaynak,'Kaynaklar' alanını doldurun.
+R1_required_fields,filled,İTY108,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY108,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,3 tekrar: 'etkileşimli televizyon' x2; 'e-yayıncılık' x2; 'web 2.0 ve sonrası' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY108,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2013 (13 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY112,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY112,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OBDE102,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OBDE102,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OBDE102,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,5 tekrar: 'günümüz bilimi ve eleştirel düşünce' x3; 'eleştirel düşünce ve mantık' x2; 'eleştirel okuma ve eleştirel yazma uygulamaları: metin anali' x3,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,year_present,OBDE102,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/3 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OBDE102,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,TDI102,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,TDI102,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,empty_topics,TDI102,tr,weekly_topics,kaldı,orta,Bazı haftaların konusu boş.,"2 boş hafta ([15, 16])",0 boş hafta,Boş haftaların konusunu yazın.
+R2_weekly_plan,duplicate_topics,TDI102,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,"4 tekrar: 'konuşmaya dayalı (sözlü) anlatım türleri' x2; 'yazılı anlatım türleri' x2; 'resmî yazılar (öz geçmiş, dilekçe, rapor)' x2; 'anlatım bozuklukları' x2",en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,TDI102,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2011 (15 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R7_references,bibliographic_form,TDI102,tr,references,kaldı,düşük,"Bazı kaynak satırları künye olamayacak kadar kısa (yazar, eser adı, yıl eksik).",1 yetersiz künye: ['Yok'],0 yetersiz künye,"Kaynakları yazar, eser adı, yayınevi ve yıl içerecek şekilde yazın."
+R2_weekly_plan,week_count,YDİ102,tr,weekly_topics,kaldı,orta,Haftalık plandaki hafta sayısı beklenen aralığın dışında.,17 hafta,14-16 hafta,Haftalık planı akademik takvimdeki hafta sayısına göre tamamlayın.
+R2_weekly_plan,duplicate_topics,YDİ102,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,6 tekrar: 'unit 8: communication methods: video' x2; 'unit 10: benefits for businesses and individuals' x2; 'unit 11: information sourcing' x2; 'unit 12: online culture' x2; 'unit 13: metrics 1' x2; 'unit 14: metrics 2' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,hours_per_ects,YDİ102,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",70 saat / 2 AKTS = 35.0 saat/AKTS,25-30 saat/AKTS (50-60 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R5_tr_en_parity,untranslated,YDİ102,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,16/24 metin TR ile birebir aynı (%67),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,year_present,YDİ102,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,YDİ102,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R7_references,bibliographic_form,YDİ102,tr,references,kaldı,düşük,"Bazı kaynak satırları künye olamayacak kadar kısa (yazar, eser adı, yıl eksik).",1 yetersiz künye: ['Dersin kitabı'],0 yetersiz künye,"Kaynakları yazar, eser adı, yayınevi ve yıl içerecek şekilde yazın."
+R1_required_fields,filled,İTY201,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY201,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY201,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,8 tekrar: 'grafik tasarımının temel i̇lkeleri' x2; 'problem çözümleme teknikleri' x2; 'görsel çözümleme konuları' x3; 'grafik resim çalışmaları' x5,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,year_present,İTY201,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY201,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY203,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY203,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY203,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2014 (12 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY205,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY205,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY205,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",122 saat / 4 AKTS = 30.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,İTY205,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2000 (26 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY207,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY207,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY207,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'sinema çözümleme örnekleri' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY207,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2009 (17 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OYDİ201,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OYDİ201,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OYDİ201,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,8 tekrar: 'üni̇te 1: identity' x4; 'üni̇te 2: relationships' x3; 'üni̇te 3: responsibilities' x4,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,year_present,OYDİ201,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OYDİ201,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY251,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY251,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY251,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2008 (18 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY253,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY253,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY253,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,3 tekrar: 'uluslararası örgütlerin yapısı' x2; 'uluslararası örgütlerde i̇letişim' x2; 'türkiye ve uluslararası örgütler' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R1_required_fields,filled,İTY255,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY255,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY255,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2015 (11 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY257,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY257,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY257,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2011 (15 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY259,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY259,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY259,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",122 saat / 4 AKTS = 30.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R1_required_fields,filled,İTY261,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY261,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY261,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'kitle iletişim kuramları' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY261,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2003 (23 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY263,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY263,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,week_count,İTY263,tr,weekly_topics,kaldı,orta,Haftalık plandaki hafta sayısı beklenen aralığın dışında.,13 hafta,14-16 hafta,Haftalık planı akademik takvimdeki hafta sayısına göre tamamlayın.
+R4_ects_workload,hours_per_ects,İTY263,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",128 saat / 4 AKTS = 32.0 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,İTY263,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2010 (16 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY265,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY265,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD101,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD101,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,OSD101,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",96 saat / 3 AKTS = 32.0 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,OSD101,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OSD101,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,OSD102,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD102,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,workload_ects_matches,OSD102,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",4,3,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,OSD102,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",130 saat / 3 AKTS = 43.3 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R1_required_fields,filled,OSD103,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD103,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,OSD103,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2001 (25 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OSD104,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD104,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,OSD104,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2014 (12 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OSD105,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD105,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD105,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,3 tekrar: 'türkiye'de anayasalar' x2; 'türk demokrasisinin sorunları ve imkanları' x3,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,hours_per_ects,OSD105,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",98 saat / 3 AKTS = 32.7 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,OSD105,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OSD105,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,OSD106,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD106,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD106,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,4 tekrar: 'kültürel çalışmalarda farklı yaklaşımlar' x2; 'alanda klasik çalışmalar' x2; 'kültürel çalışmalarda araştırma' x2; 'araştırma süreci: çalışmanın metin haline getirilmesi.' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,OSD106,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2010 (16 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OSD107,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD107,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,workload_ects_matches,OSD107,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",5,3,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,OSD107,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",150 saat / 3 AKTS = 50.0 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,OSD107,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2008 (18 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OSD108,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD108,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,workload_ects_matches,OSD108,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",4,3,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,OSD108,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",130 saat / 3 AKTS = 43.3 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R1_required_fields,filled,OSD109,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD109,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,OSD109,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",93 saat / 3 AKTS = 31.0 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R5_tr_en_parity,untranslated,OSD109,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,17/19 metin TR ile birebir aynı (%89),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,newest_year,OSD109,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2007 (19 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OSD110,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD110,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD110,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'sanatın değeri: kant-yargı yetisinin eleştirisi’nden seçmele' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,year_present,OSD110,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/8 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OSD110,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,OSD111,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD111,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD111,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,3 tekrar: 'yapay sinir ağları' x3; 'bulanık mantık.' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R1_required_fields,filled,OSD112,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD112,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD113,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD113,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,week_count,OSD113,tr,weekly_topics,kaldı,orta,Haftalık plandaki hafta sayısı beklenen aralığın dışında.,13 hafta,14-16 hafta,Haftalık planı akademik takvimdeki hafta sayısına göre tamamlayın.
+R2_weekly_plan,week_numbering,OSD113,tr,weekly_topics,kaldı,düşük,Hafta numaraları ardışık değil (atlanan ya da tekrarlanan hafta var).,"1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14",1..13 ardışık,Hafta numaralarını 1'den başlayarak ardışık olacak şekilde düzeltin.
+R2_weekly_plan,duplicate_topics,OSD113,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,2 tekrar: 'demokrati̇k değerler' x2; 'değer öğreti̇mi̇ yaklaşimlari' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,hours_per_ects,OSD113,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",93 saat / 3 AKTS = 31.0 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R5_tr_en_parity,untranslated,OSD113,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,16/18 metin TR ile birebir aynı (%89),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,newest_year,OSD113,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2000 (26 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OSD114,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD114,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,week_count,OSD114,tr,weekly_topics,kaldı,orta,Haftalık plandaki hafta sayısı beklenen aralığın dışında.,1 hafta,14-16 hafta,Haftalık planı akademik takvimdeki hafta sayısına göre tamamlayın.
+R4_ects_workload,workload_ects_matches,OSD114,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",2,3,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,OSD114,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",72 saat / 3 AKTS = 24.0 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,OSD114,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OSD114,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R7_references,bibliographic_form,OSD114,tr,references,kaldı,düşük,"Bazı kaynak satırları künye olamayacak kadar kısa (yazar, eser adı, yıl eksik).",1 yetersiz künye: ['Ders Notları'],0 yetersiz künye,"Kaynakları yazar, eser adı, yayınevi ve yıl içerecek şekilde yazın."
+R1_required_fields,filled,OSD115,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD115,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,OSD115,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/4 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OSD115,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,OSD116,tr,references,kaldı,orta,'Kaynaklar' alanı boş ya da yetersiz.,0 kaynak satırı,en az 1 kaynak,'Kaynaklar' alanını doldurun.
+R1_required_fields,filled,OSD116,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD116,en,references,kaldı,orta,'Kaynaklar' alanı boş ya da yetersiz.,0 kaynak satırı,en az 1 kaynak,'Kaynaklar' alanını doldurun.
+R1_required_fields,filled,OSD116,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD116,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,"1 tekrar: 'temel gönüllülük alanları (afet ve acil durum, çevre, eğitim' x2",en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,workload_ects_matches,OSD116,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",3,4,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,OSD116,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",81 saat / 4 AKTS = 20.2 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R5_tr_en_parity,untranslated,OSD116,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,18/20 metin TR ile birebir aynı (%90),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,count,OSD116,tr,references,kaldı,orta,Derste kaynak belirtilmemiş.,0 kaynak,en az 1,En az bir temel kaynak ekleyin.
+R7_references,year_present,OSD116,tr,references,değerlendirilemedi,bilgi,Kaynak yok; denetlenemedi.,,,
+R7_references,newest_year,OSD116,tr,references,değerlendirilemedi,bilgi,Kaynak yok; denetlenemedi.,,,
+R7_references,bibliographic_form,OSD116,tr,references,değerlendirilemedi,bilgi,Kaynak yok; denetlenemedi.,,,
+R1_required_fields,filled,OSD117,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD117,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,OSD117,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/6 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OSD117,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,OSD118,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD118,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD118,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'vaka i̇ncelemesi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,year_present,OSD118,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OSD118,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,OSD119,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD119,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD119,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'vaka i̇ncelemesi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,year_present,OSD119,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OSD119,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R4_ects_workload,workload_ects_matches,OSD120,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",5,3,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,OSD120,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",140 saat / 3 AKTS = 46.7 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,OSD120,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2012 (14 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OSD121,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD121,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD121,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'arkeolojik buluntuların yorumlanıp tarihendirilmesi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,hours_per_ects,OSD121,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",93 saat / 3 AKTS = 31.0 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R5_tr_en_parity,untranslated,OSD121,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,19/21 metin TR ile birebir aynı (%90),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,newest_year,OSD121,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2004 (22 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OSD122,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD122,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD122,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'firma davranışı olarak girişimciliğin boyutları' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,workload_ects_matches,OSD122,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",2,3,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,OSD122,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",56 saat / 3 AKTS = 18.7 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,OSD122,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OSD122,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,OSD123,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD123,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD123,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,3 tekrar: 'projelerin yürütülmesi' x3; 'projenin yürütülmesi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,OSD123,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2009 (17 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OSD124,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OSD124,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OSD124,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,"2 tekrar: 'antik çağ düşüncesinde etik; sokrates,platon,aristotales' x2; 'modern dönem akımlar;faydacılık,liberteryenizm ii' x2",en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,hours_per_ects,OSD124,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",93 saat / 3 AKTS = 31.0 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R5_tr_en_parity,untranslated,OSD124,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,17/19 metin TR ile birebir aynı (%89),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,newest_year,OSD124,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2013 (13 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY202,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY202,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,week_count,İTY202,tr,weekly_topics,kaldı,orta,Haftalık plandaki hafta sayısı beklenen aralığın dışında.,17 hafta,14-16 hafta,Haftalık planı akademik takvimdeki hafta sayısına göre tamamlayın.
+R2_weekly_plan,duplicate_topics,İTY202,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,"2 tekrar: 'proje kapsamında belirlenen bir kuruluşa, hizmete ya da mark' x3",en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY202,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2013 (13 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY206,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY206,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY206,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,2 tekrar: 'reklamcılığın sosyal ekonomik ve yasal yönleri' x2; 'reklam bütçesi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,year_present,İTY206,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/3 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY206,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY210,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY210,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY210,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2009 (17 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY212,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY212,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY212,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,2 tekrar: 'tipografi tarihi' x2; 'final proje' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,hours_per_ects,İTY212,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",128 saat / 4 AKTS = 32.0 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,İTY212,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2012 (14 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R2_weekly_plan,week_count,OYDİ202,tr,weekly_topics,kaldı,orta,Haftalık plandaki hafta sayısı beklenen aralığın dışında.,17 hafta,14-16 hafta,Haftalık planı akademik takvimdeki hafta sayısına göre tamamlayın.
+R2_weekly_plan,duplicate_topics,OYDİ202,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,6 tekrar: 'unit 8: advertising in social media' x2; 'unit 9: the power of social media' x2; 'unit 10: social media campaigns in politics' x2; 'unit 11: corporate social responsibility' x2; 'unit 12: editorial ethics' x2; 'unit 13: corporate ethics' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R5_tr_en_parity,untranslated,OYDİ202,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,16/24 metin TR ile birebir aynı (%67),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,year_present,OYDİ202,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OYDİ202,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY252,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY252,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY252,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'medya ve i̇nsan haklarına eleştirel bir bakış' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R1_required_fields,filled,İTY256,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY256,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY256,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'haber yazma teknikleri' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY256,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2014 (12 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY258,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY258,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY258,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",122 saat / 4 AKTS = 30.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,İTY258,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2009 (17 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY260,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY260,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY260,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2006 (20 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY262,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY262,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY262,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'kitap i̇ncelemesi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,year_present,İTY262,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,1/10 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY262,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2015 (11 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R7_references,bibliographic_form,İTY262,tr,references,kaldı,düşük,"Bazı kaynak satırları künye olamayacak kadar kısa (yazar, eser adı, yıl eksik).",1 yetersiz künye: ['Kaynaklar'],0 yetersiz künye,"Kaynakları yazar, eser adı, yayınevi ve yıl içerecek şekilde yazın."
+R1_required_fields,filled,İTY264,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY264,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY266,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY266,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY266,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",130 saat / 4 AKTS = 32.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,İTY266,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2010 (16 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY303,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY303,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY303,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,1/5 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY303,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2010 (16 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY305,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY305,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY305,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY305,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY307,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY307,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY307,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2015 (11 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY311,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY311,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY311,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'grup örnek olaya çalışması' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY311,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2015 (11 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,OYDİ301,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,OYDİ301,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,OYDİ301,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,10 tekrar: 'unit 7: people' x3; 'unit 8: stories' x5; 'unit 9: future' x5,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R5_tr_en_parity,untranslated,OYDİ301,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,13/20 metin TR ile birebir aynı (%65),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,year_present,OYDİ301,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OYDİ301,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,PFD101,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,PFD101,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,workload_ects_matches,PFD101,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",5,4,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,PFD101,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",150 saat / 4 AKTS = 37.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,PFD101,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2011 (15 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,PFD103,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,PFD103,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R3_assessment_total,weights_sum,PFD103,tr,assessment,kaldı,yüksek,Değerlendirme ağırlıklarının toplamı %100 değil.,%90,%100,Katkı yüzdelerini toplamı %100 olacak şekilde düzeltin.
+R4_ects_workload,hours_per_ects,PFD103,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",132 saat / 4 AKTS = 33.0 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R4_ects_workload,workload_ects_matches,PFD105,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",1,3,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,PFD105,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",30 saat / 3 AKTS = 10.0 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,PFD105,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2007 (19 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY380,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY380,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY382,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY382,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY382,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",122 saat / 4 AKTS = 30.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,İTY382,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/3 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY382,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY384,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY384,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY384,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2007 (19 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY386,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY386,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY386,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'türk mitolojisi' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY386,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 1998 (28 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY388,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY388,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY388,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,2 tekrar: 'cümle kurabilme' x2; 'diyalog kalıpları' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,hours_per_ects,İTY388,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",127 saat / 4 AKTS = 31.8 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,İTY388,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY388,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY390,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY390,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY390,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,"2 tekrar: 'gönüllü çalışmalarla i̇lgili proje geliştirme ve sahada gönü' x2; 'gönüllü çalışmalarda etik, ahlaki, dini, geleneksel değerler' x2",en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,year_present,İTY390,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY390,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY392,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY392,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY392,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY392,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY351,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY351,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,week_count,İTY351,tr,weekly_topics,kaldı,orta,Haftalık plandaki hafta sayısı beklenen aralığın dışında.,13 hafta,14-16 hafta,Haftalık planı akademik takvimdeki hafta sayısına göre tamamlayın.
+R2_weekly_plan,week_numbering,İTY351,tr,weekly_topics,kaldı,düşük,Hafta numaraları ardışık değil (atlanan ya da tekrarlanan hafta var).,"1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14",1..13 ardışık,Hafta numaralarını 1'den başlayarak ardışık olacak şekilde düzeltin.
+R2_weekly_plan,duplicate_topics,İTY351,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,2 tekrar: 'radyo ve tv haberlerinin farkı' x2; 'yayın haberlerinin dili' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY351,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 1999 (27 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY353,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY353,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY353,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2005 (21 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY355,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY355,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY355,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",126 saat / 4 AKTS = 31.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,İTY355,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,1/5 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY355,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2005 (21 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY357,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY357,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY357,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,3 tekrar: 'e-nesil' x2; 'e-ticaret türleri' x3,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,year_present,İTY357,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY357,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY359,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY359,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY359,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'yeniden yapılanma' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY359,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2003 (23 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY361,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY361,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY361,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'öğrenci sunuşları' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY361,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2004 (22 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY363,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY363,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY363,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'kurgu' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R1_required_fields,filled,İTY365,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY365,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY302,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY302,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY302,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY302,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY304,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY304,en,references,kaldı,orta,'Kaynaklar' alanı boş ya da yetersiz.,0 kaynak satırı,en az 1 kaynak,'Kaynaklar' alanını doldurun.
+R1_required_fields,filled,İTY304,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY304,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY304,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY306,tr,content,kaldı,yüksek,'Dersin içeriği' alanı boş ya da yetersiz.,15 karakter,en az 20 karakter,'Dersin içeriği' alanını doldurun.
+R1_required_fields,filled,İTY306,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY306,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY306,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",94 saat / 3 AKTS = 31.3 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R5_tr_en_parity,untranslated,İTY306,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,14/22 metin TR ile birebir aynı (%64),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,newest_year,İTY306,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2006 (20 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY310,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY310,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY310,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'uygulama' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R2_weekly_plan,week_count,OYDİ302,tr,weekly_topics,kaldı,orta,Haftalık plandaki hafta sayısı beklenen aralığın dışında.,17 hafta,14-16 hafta,Haftalık planı akademik takvimdeki hafta sayısına göre tamamlayın.
+R2_weekly_plan,duplicate_topics,OYDİ302,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,6 tekrar: 'unit 8: advertising in social media' x2; 'unit 9: the power of social media' x2; 'unit 10: social media campaigns in politics' x2; 'unit 11: corporate social responsibility' x2; 'unit 12: editorial ethics' x2; 'unit 13: corporate ethics' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R5_tr_en_parity,untranslated,OYDİ302,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,16/24 metin TR ile birebir aynı (%67),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,year_present,OYDİ302,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/2 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,OYDİ302,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,STJ300,tr,weekly_topics,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,STJ300,tr,references,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,STJ300,tr,teaching_methods,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,STJ300,en,weekly_topics,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,STJ300,en,references,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,STJ300,en,teaching_methods,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R2_weekly_plan,week_count,STJ300,tr,weekly_topics,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R2_weekly_plan,week_numbering,STJ300,tr,weekly_topics,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R2_weekly_plan,empty_topics,STJ300,tr,weekly_topics,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R2_weekly_plan,duplicate_topics,STJ300,tr,weekly_topics,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R4_ects_workload,hours_per_ects,STJ300,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",254 saat / 8 AKTS = 31.8 saat/AKTS,25-30 saat/AKTS (200-240 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R5_tr_en_parity,untranslated,STJ300,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,14/19 metin TR ile birebir aynı (%74),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,count,STJ300,tr,references,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,year_present,STJ300,tr,references,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,newest_year,STJ300,tr,references,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,bibliographic_form,STJ300,tr,references,muaf,bilgi,'internship' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R4_ects_workload,workload_ects_matches,PFD102,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",5,4,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,PFD102,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",150 saat / 4 AKTS = 37.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,PFD102,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2007 (19 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R3_assessment_total,weights_sum,PFD104,tr,assessment,kaldı,yüksek,Değerlendirme ağırlıklarının toplamı %100 değil.,%50,%100,Katkı yüzdelerini toplamı %100 olacak şekilde düzeltin.
+R5_tr_en_parity,untranslated,PFD104,en,content,kaldı,orta,İngilizce sürümdeki metinlerin çoğu Türkçe metnin aynısı; çeviri girilmemiş görünüyor.,23/25 metin TR ile birebir aynı (%92),%50 altında,İngilizce bilgi paketine metinlerin İngilizce karşılıklarını girin.
+R7_references,year_present,PFD104,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/10 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,PFD104,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R3_assessment_total,weights_sum,PFD106,tr,assessment,kaldı,yüksek,Değerlendirme ağırlıklarının toplamı %100 değil.,%40,%100,Katkı yüzdelerini toplamı %100 olacak şekilde düzeltin.
+R4_ects_workload,hours_per_ects,PFD106,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",92 saat / 3 AKTS = 30.7 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,PFD106,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2015 (11 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY352,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY352,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY352,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/10 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY352,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY354,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY354,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY354,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2005 (21 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY356,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY356,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY356,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",122 saat / 4 AKTS = 30.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,İTY356,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2004 (22 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY358,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY358,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY358,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",122 saat / 4 AKTS = 30.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R1_required_fields,filled,İTY360,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY360,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY360,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",128 saat / 4 AKTS = 32.0 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,İTY360,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2012 (14 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY362,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY362,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY362,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY362,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY364,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY364,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY364,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2012 (14 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY401,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY401,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY401,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2012 (14 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY403,tr,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,İTY403,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY403,en,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,İTY403,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY403,tr,weekly_topics,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,count,İTY403,tr,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,year_present,İTY403,tr,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,newest_year,İTY403,tr,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,bibliographic_form,İTY403,tr,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,İTY405,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY405,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,hours_per_ects,İTY405,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",122 saat / 4 AKTS = 30.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,İTY405,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY405,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,PFD201,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,PFD201,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,workload_ects_matches,PFD201,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",5,4,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,PFD201,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",150 saat / 4 AKTS = 37.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,newest_year,PFD201,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2013 (13 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R2_weekly_plan,duplicate_topics,PFD203,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,2 tekrar: 'yetersizlik alanları' x3,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,workload_ects_matches,PFD203,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",5,4,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,PFD203,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",150 saat / 4 AKTS = 37.5 saat/AKTS,25-30 saat/AKTS (100-120 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R1_required_fields,filled,İTY451,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY451,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY451,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/4 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY451,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY453,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY453,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY455,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY455,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY455,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2009 (17 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY457,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY457,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY457,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY457,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY459,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY459,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY463,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY463,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY463,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'etiket tasarımı' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R1_required_fields,filled,İTY467,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY467,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY467,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,9 tekrar: 'sektör uygulaması' x10,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R1_required_fields,filled,İTY469,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY469,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY469,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2007 (19 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY471,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY471,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,workload_ects_matches,İTY471,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",3,5,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,İTY471,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",88 saat / 5 AKTS = 17.6 saat/AKTS,25-30 saat/AKTS (125-150 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R1_required_fields,filled,İTY404,tr,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,İTY404,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY404,en,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,İTY404,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY404,tr,weekly_topics,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,count,İTY404,tr,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,year_present,İTY404,tr,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,newest_year,İTY404,tr,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R7_references,bibliographic_form,İTY404,tr,references,muaf,bilgi,'graduation_project' kategorisindeki dersler bu kontrolden muaftır (rules.toml).,,,
+R1_required_fields,filled,İTY408,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY408,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,year_present,İTY408,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY408,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY410,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY410,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R4_ects_workload,workload_ects_matches,İTY410,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",5,3,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,İTY410,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",148 saat / 3 AKTS = 49.3 saat/AKTS,25-30 saat/AKTS (75-90 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,İTY410,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/3 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,İTY410,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,PFD202,tr,content,kaldı,yüksek,'Dersin içeriği' alanı boş ya da yetersiz.,13 karakter,en az 20 karakter,'Dersin içeriği' alanını doldurun.
+R1_required_fields,filled,PFD202,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,PFD202,en,objective,kaldı,yüksek,'Dersin amacı' alanı boş ya da yetersiz.,17 karakter,en az 20 karakter,'Dersin amacı' alanını doldurun.
+R1_required_fields,filled,PFD202,en,content,kaldı,yüksek,'Dersin içeriği' alanı boş ya da yetersiz.,17 karakter,en az 20 karakter,'Dersin içeriği' alanını doldurun.
+R1_required_fields,filled,PFD202,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,PFD202,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,13 tekrar: 'uygulama' x14,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R4_ects_workload,workload_ects_matches,PFD202,tr,workload.ects,kaldı,yüksek,"İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.",6,10,İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.
+R4_ects_workload,hours_per_ects,PFD202,tr,workload.total,kaldı,yüksek,"Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.",190 saat / 10 AKTS = 19.0 saat/AKTS,25-30 saat/AKTS (250-300 saat),İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.
+R7_references,year_present,PFD202,tr,references,kaldı,düşük,Kaynakların çoğunda yayın yılı yazılmamış.,0/1 kaynakta yayın yılı var,en az %50,Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.
+R7_references,newest_year,PFD202,tr,references,değerlendirilemedi,bilgi,Hiçbir kaynakta yayın yılı bulunamadı; güncellik değerlendirilemedi.,,,
+R1_required_fields,filled,İTY452,tr,assessment,kaldı,yüksek,'Değerlendirme ölçütleri' alanı boş ya da yetersiz.,0 satır,en az 1 satır,'Değerlendirme ölçütleri' alanını doldurun.
+R1_required_fields,filled,İTY452,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY452,en,assessment,kaldı,yüksek,'Değerlendirme ölçütleri' alanı boş ya da yetersiz.,0 satır,en az 1 satır,'Değerlendirme ölçütleri' alanını doldurun.
+R1_required_fields,filled,İTY452,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R3_assessment_total,weights_sum,İTY452,tr,assessment,değerlendirilemedi,bilgi,Değerlendirme tablosu boş (eksiklik R1'de raporlanır).,,,
+R1_required_fields,filled,İTY454,tr,assessment,kaldı,yüksek,'Değerlendirme ölçütleri' alanı boş ya da yetersiz.,0 satır,en az 1 satır,'Değerlendirme ölçütleri' alanını doldurun.
+R1_required_fields,filled,İTY454,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY454,en,assessment,kaldı,yüksek,'Değerlendirme ölçütleri' alanı boş ya da yetersiz.,0 satır,en az 1 satır,'Değerlendirme ölçütleri' alanını doldurun.
+R1_required_fields,filled,İTY454,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY454,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'proje' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R3_assessment_total,weights_sum,İTY454,tr,assessment,değerlendirilemedi,bilgi,Değerlendirme tablosu boş (eksiklik R1'de raporlanır).,,,
+R7_references,newest_year,İTY454,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2006 (20 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY458,tr,assessment,kaldı,yüksek,'Değerlendirme ölçütleri' alanı boş ya da yetersiz.,0 satır,en az 1 satır,'Değerlendirme ölçütleri' alanını doldurun.
+R1_required_fields,filled,İTY458,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY458,en,assessment,kaldı,yüksek,'Değerlendirme ölçütleri' alanı boş ya da yetersiz.,0 satır,en az 1 satır,'Değerlendirme ölçütleri' alanını doldurun.
+R1_required_fields,filled,İTY458,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY458,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'biyomimikri çalışması' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R3_assessment_total,weights_sum,İTY458,tr,assessment,değerlendirilemedi,bilgi,Değerlendirme tablosu boş (eksiklik R1'de raporlanır).,,,
+R7_references,newest_year,İTY458,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2011 (15 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY460,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY460,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY460,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2015 (11 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY462,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY462,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY462,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,1 tekrar: 'sosyal medya ve güncel kuramsal tartışmalar' x2,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY462,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2015 (11 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY464,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY464,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY464,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2008 (18 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY466,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY466,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY466,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2007 (19 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY468,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY468,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R7_references,newest_year,İTY468,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2003 (23 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R1_required_fields,filled,İTY472,tr,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R1_required_fields,filled,İTY472,en,teaching_methods,kaldı,düşük,'Yöntem ve teknikler' alanı boş ya da yetersiz.,boş,dolu,'Yöntem ve teknikler' alanını doldurun.
+R2_weekly_plan,duplicate_topics,İTY472,tr,weekly_topics,kaldı,düşük,Aynı konu metni birden fazla haftada birebir tekrarlanıyor.,9 tekrar: 'sektör uygulaması' x10,en çok 0 tekrar,Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.
+R7_references,newest_year,İTY472,tr,references,kaldı,orta,Yılı belirtilen kaynakların en yenisi bile eski.,en yeni kaynak 2008 (18 yıl önce),en çok 10 yıl önce,Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.
+R8_semester_ects,semester_total,1. yarıyıl,,ects,kaldı,yüksek,1. yarıyılın AKTS toplamı beklenen değerden farklı.,36 AKTS (zorunlu 36 + seçmeli 0),30 AKTS,Yarıyıldaki derslerin AKTS değerlerini ya da ders dağılımını gözden geçirin.
+R8_semester_ects,semester_total,2. yarıyıl,,ects,kaldı,yüksek,2. yarıyılın AKTS toplamı beklenen değerden farklı.,36 AKTS (zorunlu 36 + seçmeli 0),30 AKTS,Yarıyıldaki derslerin AKTS değerlerini ya da ders dağılımını gözden geçirin.
+R8_semester_ects,pool_member_ects,3. yarıyıl,,elective_group:OSD201,kaldı,orta,'ORTAK SEÇMELİ DERS HAVUZU' havuzundaki derslerin AKTS değerleri havuzun AKTS değeriyle tutarlı değil; yarıyıl toplamı seçilen derse göre değişir.,"havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS",her üye 0 AKTS (1 ders × 0 = 0),Havuzun AKTS değerini ve üye derslerin AKTS değerlerini eşitleyin.
+R8_semester_ects,pool_member_ects,4. yarıyıl,,elective_group:OSD202,kaldı,orta,'ORTAK SEÇMELİ DERS HAVUZU' havuzundaki derslerin AKTS değerleri havuzun AKTS değeriyle tutarlı değil; yarıyıl toplamı seçilen derse göre değişir.,"havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS",her üye 0 AKTS (1 ders × 0 = 0),Havuzun AKTS değerini ve üye derslerin AKTS değerlerini eşitleyin.
+R8_semester_ects,semester_total,5. yarıyıl,,ects,kaldı,yüksek,5. yarıyılın AKTS toplamı beklenen değerden farklı.,38 AKTS (zorunlu 18 + seçmeli 20),30 AKTS,Yarıyıldaki derslerin AKTS değerlerini ya da ders dağılımını gözden geçirin.
+R8_semester_ects,pool_member_ects,5. yarıyıl,,elective_group:FORMASYON,kaldı,orta,'FORMASYON 1.DÖNEM DERSLERİ' havuzundaki derslerin AKTS değerleri havuzun AKTS değeriyle tutarlı değil; yarıyıl toplamı seçilen derse göre değişir.,"havuz 4 AKTS (1 ders); üyeler 3, 4 AKTS",her üye 4 AKTS (1 ders × 4 = 4),Havuzun AKTS değerini ve üye derslerin AKTS değerlerini eşitleyin.
+R8_semester_ects,pool_member_ects,5. yarıyıl,,elective_group:OSD301,kaldı,orta,'ORTAK SEÇMELİ DERS HAVUZU' havuzundaki derslerin AKTS değerleri havuzun AKTS değeriyle tutarlı değil; yarıyıl toplamı seçilen derse göre değişir.,"havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS",her üye 0 AKTS (1 ders × 0 = 0),Havuzun AKTS değerini ve üye derslerin AKTS değerlerini eşitleyin.
+R8_semester_ects,semester_total,6. yarıyıl,,ects,kaldı,yüksek,6. yarıyılın AKTS toplamı beklenen değerden farklı.,42 AKTS (zorunlu 26 + seçmeli 16),30 AKTS,Yarıyıldaki derslerin AKTS değerlerini ya da ders dağılımını gözden geçirin.
+R8_semester_ects,pool_member_ects,6. yarıyıl,,elective_group:FORMASYON 2. DÖNEM,kaldı,orta,'FORMASYON 2.DÖNEM DERSLERİ' havuzundaki derslerin AKTS değerleri havuzun AKTS değeriyle tutarlı değil; yarıyıl toplamı seçilen derse göre değişir.,"havuz 4 AKTS (1 ders); üyeler 3, 4 AKTS",her üye 4 AKTS (1 ders × 4 = 4),Havuzun AKTS değerini ve üye derslerin AKTS değerlerini eşitleyin.
+R8_semester_ects,pool_member_ects,6. yarıyıl,,elective_group:İTYSEÇA002,kaldı,orta,'Alan Dışı Seçmeli-II' havuzunda ders tanımlanmamış.,havuz 4 AKTS; havuzda ders yok,her üye 4 AKTS (1 ders × 4 = 4),Havuza seçilebilecek dersleri ekleyin.
+R8_semester_ects,pool_member_ects,6. yarıyıl,,elective_group:OSD302,kaldı,orta,'ORTAK SEÇMELİ DERS HAVUZU' havuzundaki derslerin AKTS değerleri havuzun AKTS değeriyle tutarlı değil; yarıyıl toplamı seçilen derse göre değişir.,"havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS",her üye 0 AKTS (1 ders × 0 = 0),Havuzun AKTS değerini ve üye derslerin AKTS değerlerini eşitleyin.
+R8_semester_ects,semester_total,7. yarıyıl,,ects,kaldı,yüksek,7. yarıyılın AKTS toplamı beklenen değerden farklı.,34 AKTS (zorunlu 15 + seçmeli 19),30 AKTS,Yarıyıldaki derslerin AKTS değerlerini ya da ders dağılımını gözden geçirin.
+R8_semester_ects,pool_member_ects,7. yarıyıl,,elective_group:İTYSEÇ007,kaldı,orta,'İletişim Tasarımı ve Yönetimi 7.Yarıyıl Seçmeli Ders Havuzu' havuzundaki derslerin AKTS değerleri havuzun AKTS değeriyle tutarlı değil; yarıyıl toplamı seçilen derse göre değişir.,"havuz 15 AKTS (3 ders); üyeler 5, 15 AKTS",her üye 5 AKTS (3 ders × 5 = 15),Havuzun AKTS değerini ve üye derslerin AKTS değerlerini eşitleyin.
+R8_semester_ects,pool_member_ects,7. yarıyıl,,elective_group:OSD401,kaldı,orta,'ORTAK SEÇMELİ DERS HAVUZU' havuzundaki derslerin AKTS değerleri havuzun AKTS değeriyle tutarlı değil; yarıyıl toplamı seçilen derse göre değişir.,"havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS",her üye 0 AKTS (1 ders × 0 = 0),Havuzun AKTS değerini ve üye derslerin AKTS değerlerini eşitleyin.
+R8_semester_ects,semester_total,8. yarıyıl,,ects,kaldı,yüksek,8. yarıyılın AKTS toplamı beklenen değerden farklı.,40 AKTS (zorunlu 15 + seçmeli 25),30 AKTS,Yarıyıldaki derslerin AKTS değerlerini ya da ders dağılımını gözden geçirin.
+R8_semester_ects,pool_member_ects,8. yarıyıl,,elective_group:İTYSEÇ008,kaldı,orta,'İletişim Tasarımı ve Yönetimi 8.Yarıyıl Seçmeli Ders Havuzu' havuzundaki derslerin AKTS değerleri havuzun AKTS değeriyle tutarlı değil; yarıyıl toplamı seçilen derse göre değişir.,"havuz 15 AKTS (3 ders); üyeler 5, 15 AKTS",her üye 5 AKTS (3 ders × 5 = 15),Havuzun AKTS değerini ve üye derslerin AKTS değerlerini eşitleyin.
+R8_semester_ects,pool_member_ects,8. yarıyıl,,elective_group:OSD402,kaldı,orta,'ORTAK SEÇMELİ DERS HAVUZU' havuzundaki derslerin AKTS değerleri havuzun AKTS değeriyle tutarlı değil; yarıyıl toplamı seçilen derse göre değişir.,"havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS",her üye 0 AKTS (1 ders × 0 = 0),Havuzun AKTS değerini ve üye derslerin AKTS değerlerini eşitleyin.
+R8_semester_ects,curriculum_total,müfredat,,ects,kaldı,yüksek,Müfredatın toplam AKTS değeri beklenen değerden farklı.,286 AKTS,240 AKTS,Yarıyıl AKTS dağılımını gözden geçirin.

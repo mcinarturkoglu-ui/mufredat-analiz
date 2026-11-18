@@ -30,16 +30,17 @@
   </div>
   <nav class="p-3 space-y-0.5 text-sm">
    
-   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Genel Bakış</a>
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
    
-    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yazılım Mühendisliği</div>
-    <a href="/mufredat-analiz/status/yazilim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
-    <a href="/mufredat-analiz/program/yazilim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
-    <a href="/mufredat-analiz/program/yazilim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <a href="/mufredat-analiz/p/iletisim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">İletişim Tasarımı ve Yönetimi</a>
+    
    
    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
-   <a href="/mufredat-analiz/update" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
-   <a href="/mufredat-analiz/ai" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
    <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 bg-slate-800 text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
    <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
    <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
@@ -50,26 +51,26 @@
  </aside>
  <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
   <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
-   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 17:15 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
   
 <h1 class="text-2xl font-bold">Veri Toplama Merkezi</h1>
 <div class="grid lg:grid-cols-3 gap-4">
  <div class="card"><h3 class="font-semibold mb-2">Veri kaynakları</h3><div class="text-sm"><b>proliz_bologna</b> · <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/index.aspx" target="_blank">https://obs.samsun.edu.tr/oibs</a><div class="text-xs text-slate-500">istekler arası en az 1.5 sn, tek bağlantı</div></div>
-  <h4 class="text-sm font-semibold mt-3">Tanımlı programlar (programs.toml)</h4><div class="text-sm">Yazılım Mühendisliği <span class="text-slate-500">curSunit=5143</span></div></div>
+  <h4 class="text-sm font-semibold mt-3">Tanımlı programlar (programs.toml)</h4><div class="text-sm">Yazılım Mühendisliği <span class="text-slate-500">curSunit=5143</span></div><div class="text-sm">İletişim Tasarımı ve Yönetimi <span class="text-slate-500">curSunit=5114</span></div></div>
  <div class="card"><h3 class="font-semibold mb-2">Arşiv</h3><table class="tbl w-full text-sm"><thead><tr><th>Tür</th><th>Anlık görüntü</th><th>Son toplama</th><th>Boyut</th></tr></thead><tbody>
-  <tr><td>program</td><td>6</td><td>13.11.2026 01:11</td><td>1.7 MB</td></tr><tr><td>course</td><td>254</td><td>13.11.2026 01:33</td><td>31.1 MB</td></tr></tbody></table>
-  <p class="text-sm mt-2">Ders içerik sürümü: 127</p></div>
+  <tr><td>program</td><td>12</td><td>18.11.2026 18:09</td><td>3.8 MB</td></tr><tr><td>course</td><td>526</td><td>18.11.2026 18:25</td><td>63.0 MB</td></tr></tbody></table>
+  <p class="text-sm mt-2">Ders içerik sürümü: 263</p></div>
  <div class="card"><h3 class="font-semibold mb-2">Toplama doğruluğu</h3><div class="text-sm space-y-1"><div>127 ders · 4860 kontrol</div>
-  <div><span class="pill st-pass">geçti 4414</span> <span class="pill st-fail">ayrıştırma hatası 0</span> <span class="pill s-medium">kaynak tutarsızlığı 60</span></div></div>
+  <div><span class="pill st-pass">geçti 4426</span> <span class="pill st-fail">ayrıştırma hatası 0</span> <span class="pill s-medium">kaynak tutarsızlığı 48</span></div></div>
   <p class="text-xs text-slate-500 mt-2">Yeniden tarama (komut satırı): <code>python -m bologna.cli fetch --program yazilim --all --refresh</code>, ardından <code>parse</code>, <code>validate</code>, <code>python -m db.load</code>. Panelden tarama başlatma sonraki adımdır.</p></div>
 </div>
 <div class="grid lg:grid-cols-2 gap-4">
  <div class="card"><h3 class="font-semibold mb-2">İçe aktarma işleri</h3><table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Tür</th><th>Durum</th><th>Başlangıç</th><th>Özet</th></tr></thead><tbody>
-  <tr><td>1</td><td>import</td><td>done</td><td class="text-xs">13.11 02:08</td><td class="text-xs">127 ders · 127 yeni sürüm · 0 değişmedi</td></tr></tbody></table></div>
+  <tr><td>3</td><td>import</td><td>done</td><td class="text-xs">18.11 18:27</td><td class="text-xs">136 ders · 136 yeni sürüm · 0 değişmedi</td></tr><tr><td>1</td><td>import</td><td>done</td><td class="text-xs">13.11 02:08</td><td class="text-xs">127 ders · 127 yeni sürüm · 0 değişmedi</td></tr></tbody></table></div>
  <div class="card"><div class="flex justify-between items-center mb-2"><h3 class="font-semibold">Kural çalıştırmaları</h3>
   </div>
   <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Referans tarih</th><th>Kontrol</th><th>Kaldı (Y/O/D)</th></tr></thead><tbody>
-  <tr><td>1</td><td>2026-11-13</td><td>5354</td><td>65 / 96 / 348</td></tr></tbody></table></div>
+  <tr><td>3</td><td>2026-11-18</td><td>5354</td><td>65 / 96 / 348</td></tr><tr><td>2</td><td>2026-11-18</td><td>5744</td><td>84 / 103 / 346</td></tr><tr><td>1</td><td>2026-11-13</td><td>5354</td><td>65 / 96 / 348</td></tr></tbody></table></div>
 </div>
 
  </main>

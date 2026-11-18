@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / seçmeli havuz</div>
+ <h1 class="text-2xl font-bold">OSD102 · Uygarlık Tarihi</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+0+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 3 (müfredatta 3) · Seçmeli · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377364&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377364&amp;lang=en</a> · toplandı 18.11.2026 18:17</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="AKTS–iş yükü: İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı. (mevcut: 4; beklenen: 3)&amp;#10;AKTS–iş yükü: Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında. (mevcut: 130 saat / 3 AKTS = 43.3 saat/AKTS; beklenen: 25-30 saat/AKTS (75-90 saat))" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 38</span><span class="pill st-fail">kaldı: 4</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-sm text-slate-500 mt-2">Henüz çalıştırılmadı.</div></div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (4)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R4 AKTS–iş yükü<div class="text-xs text-slate-500">workload_ects_matches · tr</div></td><td>workload.ects</td>
+<td><span class="pill s-high">yüksek</span></td><td>İş yükü tablosunda hesaplanan AKTS, dersin AKTS değerinden farklı.</td><td>4</td><td>3</td><td class="text-slate-600">İş yükü kalemlerini dersin AKTS değerini verecek şekilde düzenleyin ya da dersin AKTS değerini güncelleyin.</td></tr><tr><td class="whitespace-nowrap">R4 AKTS–iş yükü<div class="text-xs text-slate-500">hours_per_ects · tr</div></td><td>workload.total</td>
+<td><span class="pill s-high">yüksek</span></td><td>Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.</td><td>130 saat / 3 AKTS = 43.3 saat/AKTS</td><td>25-30 saat/AKTS (75-90 saat)</td><td class="text-slate-600">İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.</td></tr>
+</tbody></table></div>
+
+
+
+
+
+
+
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">5 kaynak · 3 tanesinde yıl var · en yeni 2016 (10 yıl önce) · 10 yıldan eski 2</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Öğretim elemanı tarafından verilen kaynaklar</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2016</td><td>- İsmail Güven (ed.), Uygarlık Tarihi, Pegem Akademi Yayıncılık, 2016.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2004</td><td>- Andre Bonnard, Antik Yunan Uygarlığı 1,2,3, Evrensel Basım Yayın, 2004.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2003</td><td>- Charles Freeman, Mısır, Yunan ve Roma: Antik Akdeniz Uygarlıkları, Çev: Suat Kemal Angı, Dost Kitapevi Yayınları, Ankara, 2003.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">—</td><td>Dersin öğretim üyesi tarafından belirlenen ilgili bütün diğer metin ve kaynaklar, ders başında ve sırasında öğrencilere duyurulmaktadır.</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD102">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/iletisim/OSD102/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">History of Civilization</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">The aim of the course is examine the effect of civilizations on the social, economic and cultural development of the world by learning the rising processes, historical developments and the main characteristics of civilizations that have continued to emerge and flourish since the birth of human race. In this way students will be able to have a wider point of view of the world and events that is crucial to have for translators and interpreters.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Civilizations that have emerged and flourished since the birth of human race, their historical development, and their social, economic and cultural characteristics, together with their effect on the development of societies in the world.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>To identify civilization that have appeared since the beginning of human race</li><li>By learning basic information about these civilizations, not only to improve the world knowledge but also to consider the world in a wider perspective.</li><li>To examine the effect of these civilizations on the social, economic and cultural development of the world.</li><li>By maintaining cultural information crucial for translation, to be able to act more globally in cases of necessity.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Mid-terms</td><td>1</td><td>%40</td></tr><tr><td>Attendance</td><td>14</td><td>%10</td></tr><tr><td>Final examination</td><td>1</td><td>%50</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (130 saat → tabloda 4 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>14 × 7</td><td>98 saat</td></tr><tr><td>Mid-terms</td><td>1 × 2</td><td>2 saat</td></tr><tr><td>Final examination</td><td>1 × 2</td><td>2 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Introduction to the course. What is civilization?</td></tr><tr><td class="w-10">2</td><td>Methodology in history and history of civilizations</td></tr><tr><td class="w-10">3</td><td>Birth of civilizations: Paleolithic and Neolithic ages.</td></tr><tr><td class="w-10">4</td><td>Civilizaitons of Ancient Mesopotamia: Sumerians, Egyptians, Accadians, Assyrians, Babylonians, Society, Economy, Art, Architecture, Science.</td></tr><tr><td class="w-10">5</td><td>Ancient Egyptian civilization: Dynasties, Society, Economy, Religion, Literature, Art, Architecture, Science.</td></tr><tr><td class="w-10">6</td><td>Anatolian Civilizations: Hittites, Luvians, Society, Religion, Architecture, Art, Science.</td></tr><tr><td class="w-10">7</td><td>The archaic age of Ancient Greek civilizations: Myceneans, The war of Troy, Colonization, Inscriptions, Alphabet, Society, Art, Science</td></tr><tr><td class="w-10">8</td><td>Mid-term exam</td></tr><tr><td class="w-10">9</td><td>Civilizations of the Iron Age: Phoenicians, Jews, Chaldeans, Late Hittites, Urartians, Phyrgians, Lydians, Lycians</td></tr><tr><td class="w-10">10</td><td>Ancient Greek civilization (Archaic and classical ages): Politics, Legislators, Democracy, Society, Trade, Industry, Religion, Literature, Education, Philosophy, Art, Science</td></tr><tr><td class="w-10">11</td><td>Great empires and Hellenistic age : Persians, Alexander the Great, Hellenistic Kingdoms, Politics, Society, Religion, Literature, Philosophy, Art, Education</td></tr><tr><td class="w-10">12</td><td>Ancient Rome: founding of Rome, Kings,Republic of Rome, civil wars, end of republic</td></tr><tr><td class="w-10">13</td><td>Civilization of Rome: constitutional order of Rome, literature, art, architecture, science, religion</td></tr><tr><td class="w-10">14</td><td>Migration of tribes: Germens, Huns, downfall of west Rome empire</td></tr><tr><td class="w-10">15</td><td>Revision</td></tr><tr><td class="w-10">16</td><td>Final exam</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

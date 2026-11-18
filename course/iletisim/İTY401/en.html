@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 7. yarıyıl</div>
+ <h1 class="text-2xl font-bold">İTY401 · İletişim Hukuku</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+0+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 4 (müfredatta 4) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377372&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377372&amp;lang=en</a> · toplandı 18.11.2026 18:24</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="YZ (A): Ders adı &#39;İletişim Hukuku&#39; iken, ders içeriğinde fikri mülkiyet hakları (marka, patent) gibi daha geniş bir alanın ele alınması, başlık ile içerik arasında bir odak kayması yaratmaktadır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktıları, ders içeriğinde yer alan fikri mülkiyet konularının derinliğini yansıtmamaktadır.&amp;#10;YZ (C): 1. öğrenme çıktısı ölçülebilir değil (&#39;bilir&#39;).&amp;#10;YZ (C): 2. öğrenme çıktısı ölçülebilir değil (&#39;kurar&#39;).&amp;#10;YZ (C): 3. öğrenme çıktısı ölçülebilir değil (&#39;yorumlayabilir&#39;)." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-e" title="Kaynaklar: Yılı belirtilen kaynakların en yenisi bile eski. (mevcut: en yeni kaynak 2012 (14 yıl önce); beklenen: en çok 10 yıl önce)" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 39</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">85<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #291 · 18.11 22:46 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">53.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #292 · 18.11 22:46 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">97.5<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #293 · 18.11 22:47 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (3)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2012 (14 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin Lisans ve 7. yarıyıl düzeyine uygun bir derinlikte olduğu gözlemlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konuların kapsamını yeterince yansıtmaktadır.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konular, dersin genel kapsamı (İletişim Hukuku) dahilinde görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (&#39;İletişim Hukuku&#39;) ile içerik ve haftalık konular arasında, fikri emeğin korunması konularının (marka, patent vb.) yer alması nedeniyle bir uyumsuzluk gözlenmektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin amacı olan &#39;Hukuk ve iletişim hukuku konusunda temel bilgileri vermek&#39; konuların tamamında işlenmektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, ders içeriğinde yer alan &#39;fikri emeğin korunması&#39; gibi daha geniş bir alanı kapsayan konularla tam olarak örtüşmemektedir.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı &#39;İletişim Hukuku&#39; iken, ders içeriğinde fikri mülkiyet hakları (marka, patent) gibi daha geniş bir alanın ele alınması, başlık ile içerik arasında bir odak kayması yaratmaktadır.</div><div class="text-xs text-slate-500 mt-1">Ders içeriği, &#39;fikri emeğin korunmasına ilişkin temel kavramlar, fikir ürünü fikir ve sanat eseri, eser sahipliği, eser sahibinin hakları, marka, patent, endüstriyel tasarımlar üzerindeki hakların korunmasına ilişkin düzenlemeler&#39; gibi konuları barındırmaktadır. Bu konular, sadece &#39;İletişim Hukuku&#39; başlığı altında beklenen temel iletişim hukuku konularından daha geniştir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “fikri emeğin korunmasına ilişkin temel kavramlar, fikir ürünü fikir ve sanat eseri, eser sahipliği, eser sahibinin hakları, marka, patent, endüstriyel tasarımlar üzerindeki hakların korunmasına ilişkin düzenlemeler ve örnek uygulamaların analizleri dersin içeriğini oluşturmaktadır.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders adının &#39;İletişim Hukuku ve Fikri Mülkiyet Hukuku&#39; gibi daha kapsayıcı bir hale getirilmesi veya fikri mülkiyet konularının ders içeriğinden çıkarılması önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, ders içeriğinde yer alan fikri mülkiyet konularının derinliğini yansıtmamaktadır.</div><div class="text-xs text-slate-500 mt-1">Ders içeriği, sadece haberleşme özgürlüğü ve medya rejimleri ile sınırlı kalmayıp, aynı zamanda marka ve patent gibi fikri mülkiyet konularını da içermektedir. Öğrenme çıktıları ise daha çok &#39;teorik bağlantı kurma&#39; ve &#39;yorum yapma&#39; düzeyinde kalmaktadır ve bu geniş içeriği tam olarak kapsayacak şekilde yapılandırılmamıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “fikri emeğin korunmasına ilişkin temel kavramlar, fikir ürünü fikir ve sanat eseri, eser sahipliği, eser sahibinin hakları, marka, patent, endüstriyel tasarımlar üzerindeki hakların korunmasına ilişkin düzenlemeler ve örnek uygulamaların analizleri dersin içeriğini oluşturmaktadır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “İletişim ile hukuk arasında var olan teorik bağlantıyı bilir”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktılarına, fikri mülkiyet haklarının iletişim hukuku ile kesişim noktalarını analiz etme becerisi gibi, içerikteki tüm konuları kapsayan çıktılar eklenmelidir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %0 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Dersin amacı &#39;temel bilgileri vermek&#39; iken, çıktılar teorik bağlantı kurma, ilişki kurma ve yorumlama gibi daha üst düzey bilişsel beceriler gerektirmektedir. Bu, temel bilgileri vermekten biraz daha fazlasını talep etmektedir, ancak içerik konularıyla doğrudan ilişkilidir.<br>
+  Bloom dağılımı: analiz 1, anlama 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>İletişim ile hukuk arasında var olan teorik bağlantıyı bilir<div class="text-xs text-amber-700">belirsiz: bilir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1</td>
+ <td class="text-blue-800">İletişim ile hukuk arasında var olan teorik bağlantıyı açıklar</td></tr>
+ <tr><td>2</td><td>Medya ile Hukukî rejimler arasındaki bağlantıları kurar<div class="text-xs text-amber-700">belirsiz: kurar</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 8, 9, 10, 11, 12, 13</td>
+ <td class="text-blue-800">Medya ile Hukukî rejimler arasındaki bağlantıları karşılaştırır</td></tr>
+ <tr><td>3</td><td>Medya ve Hukuk arasındaki ilişkinin Türkiye&#39;deki yansımalarını yorumlayabilir<div class="text-xs text-amber-700">belirsiz: yorumlayabilir</div></td><td>analiz</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 8, 9, 10, 11, 12, 13</td>
+ <td class="text-blue-800">Medya ve Hukuk arasındaki ilişkinin Türkiye&#39;deki yansımalarını analiz eder</td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>İçel-Ünver, Kitle Haberleşme Hukuku, 9. Basım, İstanbul, 2012.<div class="text-xs text-slate-500">Kitap, dersin ana konusu olan kitle haberleşme hukuku ile doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 95</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, hukuki düzenlemeler hakkında bilgi verdiği için desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, konunun derinliğini sağlayarak araştırma becerisine katkı sunmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İletişim hukuku, kamusal iletişim becerileriyle ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, hukuki konuları sektör deneyimiyle ilişkilendirme potansiyeli sunar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Hukuksal düzenlemeler güncel bilgi gerektirdiğinden, kaynak bu alana katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kitap, temel ilke ve kuramları içerdiği için doğrudan desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, ders içeriğiyle birlikte portfolyo oluşturmaya zemin hazırlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Hukuki metinlerin incelenmesi eleştirel inceleme yetkinliğini destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 3</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Kaynak, hukuki bir metin olup görsel/tasarım becerisi ile doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, hukuki düzenlemeler hakkında bilgi verdiği için desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Konu, araştırma ve proje geliştirme için temel oluşturmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP3 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Medya rejimleri, kamusal iletişimle ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP4 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Hukuksal düzenlemeler, sektör deneyimiyle ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İnternet ve medya rejimleri güncel teknolojik gelişmeleri içerir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin içeriği, hukukun temel kuramlarını ele almaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin içeriği, akademik çıktıların bir parçası olarak portfolyo oluşturmaya katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Hukuki düzenlemelerin analizi eleştirel inceleme yetkinliğini destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP9 = 4</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Kaynak, hukuki bir metin olup görsel/tasarım becerisi ile doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Türkiye&#39;deki hukuki düzenlemeler, ulusal kurallara hâkimiyet gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Türkiye&#39;deki uygulamaların incelenmesi araştırma becerisini destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP3 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Medya ve hukuk ilişkisi, kamusal iletişimle doğrudan ilgilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Türkiye&#39;deki hukuki durumlar, sektör deneyimiyle ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İnternet ve medya rejimleri, güncel teknolojik gelişmeleri içerir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin içeriği, Türk hukukundaki temel kavramları ele almaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin içeriği, akademik çıktıların bir parçası olarak portfolyo oluşturmaya katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Türkiye&#39;deki uygulamaların analizi eleştirel inceleme yetkinliğini destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP9 = 4</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Kaynak, hukuki bir metin olup görsel/tasarım becerisi ile doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin yapısı, takım çalışması gerektiren konuları kapsayabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP10 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin konuları, ekip çalışması gerektiren hukuki vaka analizlerini içerebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP10 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin konuları, hukuki tartışmaların takım çalışması gerektirmesiyle ilişkilidir.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">1 kaynak · 1 tanesinde yıl var · en yeni 2012 (14 yıl önce) · 10 yıldan eski 1</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2012</td><td>İçel-Ünver, Kitle Haberleşme Hukuku, 9. Basım, İstanbul, 2012.</td><td class="text-xs text-slate-500">kaynaklar</td></tr></tbody></table></div>
+
+
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY401">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/iletisim/İTY401/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Communication Law</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">To give basic information about law and communication law</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Basic concepts of communication law, freedom of communication in Turkish law and examination of legal regulations related to media institutions and organizations and basic concepts related to the protection of intellectual labor, intellectual property and work of art, ownership of the work, rights of the author, rights of trademark, patent and industrial designs regulations and analysis of sample applications are the content of the course.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>İletişim ile hukuk arasında var olan teorik bağlantıyı bilir</li><li>Medya ile Hukukî rejimler arasındaki bağlantıları kurar</li><li>Medya ve Hukuk arasındaki ilişkinin Türkiye&#39;deki yansımalarını yorumlayabilir</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Mid-terms</td><td>1</td><td>%40</td></tr><tr><td>Final examination</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (110 saat → tabloda 4 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Assignments</td><td>14 × 1</td><td>14 saat</td></tr><tr><td>Presentation</td><td>6 × 2</td><td>12 saat</td></tr><tr><td>Mid-terms</td><td>1 × 2</td><td>2 saat</td></tr><tr><td>Practice</td><td>12 × 2</td><td>24 saat</td></tr><tr><td>Final examination</td><td>1 × 2</td><td>2 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>General Communication, Mass Communication and Mass Communication Law Concepts</td></tr><tr><td class="w-10">2</td><td>Mass Media Freedom in Turkey</td></tr><tr><td class="w-10">3</td><td>Scope of Press and Basic Concepts Regarding Press Regime</td></tr><tr><td class="w-10">4</td><td>Periodical Publications</td></tr><tr><td class="w-10">5</td><td>Right to Answer and Correction</td></tr><tr><td class="w-10">6</td><td>Legal ans criminal responsibility in the Press</td></tr><tr><td class="w-10">7</td><td>Midterm exam</td></tr><tr><td class="w-10">8</td><td>Radio and Television Regime</td></tr><tr><td class="w-10">9</td><td>Radio and TV Legal Regime in Turkey</td></tr><tr><td class="w-10">10</td><td>Cinema-Video Regime</td></tr><tr><td class="w-10">11</td><td>Legal Regime Cinema-Video in Turkey</td></tr><tr><td class="w-10">12</td><td>Internet Regime</td></tr><tr><td class="w-10">13</td><td>Internet Legal Regime in Turkey</td></tr><tr><td class="w-10">14</td><td>General Review and Evaluation</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

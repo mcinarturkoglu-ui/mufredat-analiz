@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 4. yarıyıl</div>
+ <h1 class="text-2xl font-bold">İTY212 · Tipografi</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+1+0 · Kredi 3 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 4 (müfredatta 4) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377337&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377337&amp;lang=tr</a> · toplandı 18.11.2026 18:21</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="YZ (A): Dersin amacında belirtilen &#39;uygulamayla tasarım bilgisi pekiştirilmesi&#39; hedefi, haftalık konuların sadece bir kısmında (örn. hafta:7, hafta:11) ele alınmış, diğer konular teorik kalmıştır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktıları, dersin amacında belirtilen &#39;uygulamayla tasarım bilgisi pekiştirilmesi&#39; hedefine tam olarak ulaşamamaktadır.&amp;#10;YZ (C): 1. öğrenme çıktısı ölçülebilir değil (&#39;öğrenir&#39;).&amp;#10;YZ (C): 2. öğrenme çıktısı ölçülebilir değil (&#39;kavrar&#39;).&amp;#10;YZ (C): 2. öğrenme çıktısının işlendiği bir hafta belirlenemedi.&amp;#10;YZ (C): 4. öğrenme çıktısı ölçülebilir değil (&#39;bilir&#39;)." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="AKTS–iş yükü: Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında. (mevcut: 128 saat / 4 AKTS = 32.0 saat/AKTS; beklenen: 25-30 saat/AKTS (100-120 saat))" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#modul-e" title="Kaynaklar: Yılı belirtilen kaynakların en yenisi bile eski. (mevcut: en yeni kaynak 2012 (14 yıl önce); beklenen: en çok 10 yıl önce)" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 37</span><span class="pill st-fail">kaldı: 5</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">85<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #252 · 18.11 21:13 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">61.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #253 · 18.11 21:14 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #316 · 18.11 23:18 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (5)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">duplicate_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Aynı konu metni birden fazla haftada birebir tekrarlanıyor.</td><td>2 tekrar: &#39;tipografi tarihi&#39; x2; &#39;final proje&#39; x2</td><td>en çok 0 tekrar</td><td class="text-slate-600">Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.</td></tr><tr><td class="whitespace-nowrap">R4 AKTS–iş yükü<div class="text-xs text-slate-500">hours_per_ects · tr</div></td><td>workload.total</td>
+<td><span class="pill s-high">yüksek</span></td><td>Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.</td><td>128 saat / 4 AKTS = 32.0 saat/AKTS</td><td>25-30 saat/AKTS (100-120 saat)</td><td class="text-slate-600">İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2012 (14 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Belirtilen ders düzeyi (Lisans, 4. Yarıyıl) ile konuların derinliği arasında bir uyumsuzluk tespit edilememiştir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı ve işlenen konuların kapsamı birbirine uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin genel kapsamı (Tipografi kavramları, tarihi ve uygulamaları) dahilindedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı (Tipografi) ile içerik ve haftalık konular arasında belirgin bir uyumsuzluk gözlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacında belirtilen &#39;font bilgisi geliştirmeyi&#39; ve &#39;uygulamayla tasarım bilgisi pekiştirilmesi&#39; hedefleri, haftalık konuların tamamında yeterince işlenmediği izlenimi oluşmaktadır.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konular arasında tam bir örtüşme sağlanamamıştır; özellikle &#39;uygulamayla tasarım bilgisi pekiştirilmesi&#39; amacı, çıktıların tamamında yeterince yansıtılamamıştır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amacında belirtilen &#39;uygulamayla tasarım bilgisi pekiştirilmesi&#39; hedefi, haftalık konuların sadece bir kısmında (örn. hafta:7, hafta:11) ele alınmış, diğer konular teorik kalmıştır.</div><div class="text-xs text-slate-500 mt-1">Amaç, &#39;Yazı karakteri ve font bilgisi edinilerek uygulamayla tasarım bilgisi pekiştirilmesi hedeflenmektedir.&#39; derken, haftalık konuların büyük bir kısmı (örn. hafta:1, hafta:2, hafta:3) teorik bilgiye odaklanmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Yazı karakteri ve font bilgisi edinilerek uygulamayla tasarım bilgisi pekiştirilmesi hedeflenmektedir.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “Tipografiyle ilgili genel bilgi”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Uygulama odaklı konuların (örn. Illustrator kullanımı) haftalık konulara daha fazla entegre edilmesi ve teorik konuların pratik uygulamalarla desteklenmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, dersin amacında belirtilen &#39;uygulamayla tasarım bilgisi pekiştirilmesi&#39; hedefine tam olarak ulaşamamaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaç, &#39;uygulamayla tasarım bilgisi pekiştirilmesi&#39; iken, çıktılar daha çok &#39;bilme&#39; ve &#39;kavrama&#39; düzeyinde kalmaktadır (örn. cikti:1, cikti:2).</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Yazı karakteri ve font bilgisi edinilerek uygulamayla tasarım bilgisi pekiştirilmesi hedeflenmektedir.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Tipografi kavramını öğrenir.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktılarına, &#39;tasarımda uygulayabilme&#39; veya &#39;eleştirel değerlendirebilme&#39; gibi daha uygulamalı beceriler eklenmesi gerekmektedir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %40 · haftalarda karşılığı olan: %80 · amaç uyumu 2/3 — Dersin amacı &#39;font bilgisi geliştirmek&#39; ve &#39;uygulamayla tasarım bilgisi pekiştirmek&#39; iken, çıktılar bu hedeflere ulaşmaya yönelik temel bilgi (cikti:1, 2, 4) ve uygulama becerisi (cikti:3, 5) içeriyor. Ancak, çıktılar daha çok &#39;bilme&#39; ve &#39;kavrama&#39; düzeyinde kaldığı için tam uyum (3) sağlanamamıştır.<br>
+  Bloom dağılımı: anlama 2, uygulama 1, hatırlama 1, değerlendirme 1</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Tipografi kavramını öğrenir.<div class="text-xs text-amber-700">belirsiz: öğrenir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1</td>
+ <td class="text-blue-800">Tipografi kavramlarını tanımlar.</td></tr>
+ <tr><td>2</td><td>Tipografinin tasarımdaki önemini kavrar.<div class="text-xs text-amber-700">belirsiz: kavrar</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>—</td>
+ <td class="text-blue-800">Tipografinin tasarımdaki önemini açıklar.</td></tr>
+ <tr><td>3</td><td>Yazıda gerekli olan espas vb lere dikkat eder.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>9, 10</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Yazı karakteri türlerini bilir.<div class="text-xs text-amber-700">belirsiz: bilir</div></td><td>hatırlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>6</td>
+ <td class="text-blue-800">Yazı karakteri türlerini listeler.</td></tr>
+ <tr><td>5</td><td>Hangi yazı karakterini kullanacağına karar verebilir.</td><td>değerlendirme</td>
+ <td><span class="pill st-pass">evet</span></td><td>5, 6, 7, 8</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Gonzales, D. (2012). Typography : Graphic Design in Context, London. Sarıkavak, Namık Kemal, (2004). Çağdaş Tipografinin Temelleri, Seçkin Yayıncılık San. Ve Tic. A.Ş., Ankara. Modern sanat ve yeni tipografi (Emre Becer) Typo (Friedrich Friedl - Nicolaus Ott - Bernard Stein)<div class="text-xs text-slate-500">Kitaplar, tipografi ve tasarım konularını doğrudan ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tipografi kavramları ve tarihi, etik kurallar ve standartlar bağlamında ele alınabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin amacı, font bilgisi geliştirerek tasarımda kullanmayı amaçladığı için proje geliştirme becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tipografi, görsel iletişimle doğrudan ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders, tipografi temellerini vererek teorik bilgiyi uygulamayla ilişkilendirme potansiyeli sunar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Font bilgisi edinmek, yazılımsal gelişmeleri takip etme gerekliliğini dolaylı olarak destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin içeriği (Tarih, kavramlar) temel ilke ve kuramları kapsar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ara ve final uygulamaları, portfolyo oluşturma sürecine zemin hazırlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Font örnekleri incelemesi ve final tartışması eleştirel inceleme becerisini destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tipografi, grafiksel görsel ifadelerin temelini oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP1 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tasarımın önemini anlamak, etik kurallara uyum gerekliliğini dolaylı olarak çağrıştırır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP2 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dersin temel amacı, tasarımda kullanma becerisi geliştirmektir, bu da proje yürütme becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tipografik tasarım, kamusal ve kişilerarası iletişimin görsel bir parçasıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP4 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ders, teorik bilgiyi (tipografi) pratik uygulamayla (tasarım) ilişkilendirme hedefine sahiptir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Illustrator gibi yazılımların kullanımı, teknolojik gelişmeleri takip etme gerekliliğini destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tipografi tarihi ve kavramları, alanın temel kuramlarını içerir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP7 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Uygulama ve final ödevi, portfolyo oluşturma sürecine doğrudan katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Font örnekleri incelemesi ve final tartışması eleştirel inceleme yetkinliğini destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP9 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tipografi, grafiksel görsel ifadelerin temel bileşenidir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metin düzenleme ve hiyerarşi, iletişim standartlarına uyum gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metin düzenleme becerisi, tasarım projelerinin yürütülmesinde kritik bir rol oynar.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Espas ve boşluk kullanımı, görsel iletişimin kalitesini doğrudan etkiler.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Paragraf ve metin düzenleme, tipografik kuramların uygulanmasıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metin düzenleme, dijital araçlar (Illustrator) ile gerçekleştirildiği için teknolojik beceri gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Espas ve boşluk, tipografinin temel kurallarından biridir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İyi düzenlenmiş metinler, sunulacak bir portfolyonun kalitesini artırır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP8 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metin hiyerarşisi, tasarımdaki eleştirel bakış açısını gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP9 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metin düzenleme, tipografik görsel ifadelerin ana konusudur.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP1 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Yazı karakteri türleri, tasarım standartları bağlamında incelenir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP2 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Farklı yazı karakteri türlerini bilmek, tasarımda doğru araç seçimi yapma becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP3 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Farklı karakterlerin görsel etkileri, iletişim kalitesini belirler.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Harfin anatomisi ve karakter türleri, tipografik kuramların temelini oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Farklı font ailelerinin ve karakterlerin dijital araçlarla (Illustrator) incelenmesi gereklidir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Yazı karakteri türleri, tipografinin temel kuramlarıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kullanılan fontların ve karakterlerin portfolyoda sergilenmesi gerekir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Farklı yazı karakteri kullanımları eleştirel olarak incelenir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP9 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Yazı karakteri seçimi, tipografik görsel ifadelerin temelini oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP1 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Karakter seçimi, tasarımın etik ve standartlara uygunluğunu etkileyebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP2 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Doğru font seçimi, projenin başarılı bir şekilde yürütülmesini sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Karakter seçimi, mesajın doğru ve etkili bir şekilde iletilmesiyle ilgilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Hangi karakterin ne zaman kullanılacağı, tipografik kuramların uygulamasıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Font seçimi ve uygulaması, güncel yazılımlar (Illustrator) ile yapılır.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Karakter seçimi, tipografik kuramların doğru uygulanmasıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Seçilen fontların ve karakterlerin portfolyoda sergilenmesi gerekir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Karakter seçimi ve kullanımının eleştirel olarak değerlendirilmesi gereklidir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP9 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Karakter seçimi, nihai tipografik görsel ifadenin kalitesini belirler.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Uygulama çalışmaları, takım çalışması gerektiren projelerle ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP10 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Uygulama ve proje aşamaları, ekip çalışması gerektiren görevlerle ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP10 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metinlerin düzenlenmesi, ekip içinde paylaşılan materyallerin kalitesini etkiler.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP10 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Farklı karakterlerin kullanım alanları, iş gereksinimlerine göre değerlendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP10 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Proje aşamasında yapılan karakter seçimi, ekip çalışması gerektirebilir.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">1 kaynak · 1 tanesinde yıl var · en yeni 2012 (14 yıl önce) · 10 yıldan eski 1</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2012</td><td>Gonzales, D. (2012). Typography : Graphic Design in Context, London. Sarıkavak, Namık Kemal, (2004). Çağdaş Tipografinin Temelleri, Seçkin Yayıncılık San. Ve Tic. A.Ş., Ankara. Modern sanat ve yeni tipografi (Emre Becer) Typo (Friedrich Friedl - Nicolaus Ott - Bernard Stein)</td><td class="text-xs text-slate-500">kaynaklar</td></tr></tbody></table></div>
+
+
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/iletisim/İTY212">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/iletisim/İTY212/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Tipografi</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Ders kapsamında tipografi konusunda temel ve tarihsel süreç bilgisi verilerek tasarımda kullanmak üzere font bilgisi geliştirmeyi amaçlamaktadır. Yazı karakteri ve font bilgisi edinilerek uygulamayla tasarım bilgisi pekiştirilmesi hedeflenmektedir.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Tipografi kavramları, tarihi ve uygulamaları</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Tipografi kavramını öğrenir.</li><li>Tipografinin tasarımdaki önemini kavrar.</li><li>Yazıda gerekli olan espas vb lere dikkat eder.</li><li>Yazı karakteri türlerini bilir.</li><li>Hangi yazı karakterini kullanacağına karar verebilir.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%20</td></tr><tr><td>Uygulama</td><td>1</td><td>%20</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (128 saat → tabloda 4 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>10 × 5</td><td>50 saat</td></tr><tr><td>Ödevler</td><td>5 × 2</td><td>10 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 10</td><td>10 saat</td></tr><tr><td>Uygulama</td><td>2 × 10</td><td>20 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 10</td><td>10 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Tipografiyle ilgili genel bilgi</td></tr><tr><td class="w-10">2</td><td>Tipografi Tarihi</td></tr><tr><td class="w-10">3</td><td>Tipografi Tarihi</td></tr><tr><td class="w-10">4</td><td>Harfin Anatomisi</td></tr><tr><td class="w-10">5</td><td>Harfin Anatomisi ve Kullanım Alanları</td></tr><tr><td class="w-10">6</td><td>Font Ailesi</td></tr><tr><td class="w-10">7</td><td>Mevcut font üzerinden ara uygulama çalışması</td></tr><tr><td class="w-10">8</td><td>Font örnekleri incelemesi Final ödevi verilmesi</td></tr><tr><td class="w-10">9</td><td>Espas ve boşluk</td></tr><tr><td class="w-10">10</td><td>Paragraf ve metin düzenleme, hiyerarşi</td></tr><tr><td class="w-10">11</td><td>Illustrator da tipografi</td></tr><tr><td class="w-10">12</td><td>Final proje</td></tr><tr><td class="w-10">13</td><td>Final proje</td></tr><tr><td class="w-10">14</td><td>Final tartışma</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

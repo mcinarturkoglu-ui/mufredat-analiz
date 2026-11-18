@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 2. yarıyıl</div>
+ <h1 class="text-2xl font-bold">İTY106 · Dijitalleşme ve Toplum</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+0+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 5 (müfredatta 5) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377442&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377442&amp;lang=en</a> · toplandı 18.11.2026 18:20</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="YZ (A): Ders adı (&#39;Dijitalleşme ve Toplum&#39;), dersin odaklandığı &#39;internet haber sitesi&#39; oluşturma ve yönetme becerileriyle tam olarak örtüşmemektedir.&amp;#10;YZ (A): Dersin amacı, &#39;haber sitesinin taşıması gereken özellikleri öğretmek&#39; gibi teknik/yapısal bir beceriye odaklanırken, haftalık konular bu teknik yapıyı yeterince derinlemesine ele almamaktadır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktıları arasında, &#39;haber sitesinin kurulumunu ve teknik işleyişini değerlendirme&#39; becerisi (cikti:2), haftalık konuların sunduğu içerik derinliği ile tam olarak desteklenmemektedir." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Değerlendirme: Değerlendirme ağırlıklarının toplamı %100 değil. (mevcut: %0; beklenen: %100)" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-e" title="Kaynaklar: Yılı belirtilen kaynakların en yenisi bile eski. (mevcut: en yeni kaynak 2013 (13 yıl önce); beklenen: en çok 10 yıl önce)" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 37</span><span class="pill st-fail">kaldı: 5</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">76.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #210 · 18.11 19:03 · 2 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #211 · 18.11 19:03 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">89.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #312 · 18.11 23:08 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (5)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R3 Değerlendirme %100<div class="text-xs text-slate-500">weights_sum · tr</div></td><td>assessment</td>
+<td><span class="pill s-high">yüksek</span></td><td>Değerlendirme ağırlıklarının toplamı %100 değil.</td><td>%0</td><td>%100</td><td class="text-slate-600">Katkı yüzdelerini toplamı %100 olacak şekilde düzeltin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>1/3 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2013 (13 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Belirtilen konuların derinliği, Lisans düzeyinde bir ders için uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konuların kapsamını gereğinden dar veya geniş göstermemektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin amacı ve içeriği ile ilgili konuları kapsamaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (&#39;Dijitalleşme ve Toplum&#39;) ile içerik ve haftalık konular arasında, &#39;haber sitesi&#39; odaklı bir tutarlılık zayıf görünüyor.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacı olan &#39;haber sitesi&#39; odaklı beceriler, haftalık konuların tamamında yeterince işlenmiyor.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konular arasında, &#39;haber sitesi&#39;nin teknik kurulumu ve operasyonel yönleri arasında bir boşluk var.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı (&#39;Dijitalleşme ve Toplum&#39;), dersin odaklandığı &#39;internet haber sitesi&#39; oluşturma ve yönetme becerileriyle tam olarak örtüşmemektedir.</div><div class="text-xs text-slate-500 mt-1">Dersin amacı ve içeriği, spesifik olarak &#39;internet haber sitesi&#39; üzerine yoğunlaşırken, ders adı daha geniş bir &#39;Dijitalleşme ve Toplum&#39; temasını işaret etmektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Dijitalleşme ve Toplum”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “öğrencilere bir internet haber sitesinin taşıması gereken özellikleri öğretmek ve uygun içerik oluşturabilmelerini sağlamaktır.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders adının, dersin ana odak noktası olan &#39;İnternet Yayıncılığı&#39; veya &#39;Dijital Haberleşme&#39; gibi daha spesifik bir terimle güncellenmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amacı, &#39;haber sitesinin taşıması gereken özellikleri öğretmek&#39; gibi teknik/yapısal bir beceriye odaklanırken, haftalık konular bu teknik yapıyı yeterince derinlemesine ele almamaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaç, bir &#39;haber sitesi&#39;nin özelliklerini öğretmeyi hedeflerken, haftalık konuların büyük bir kısmı (örneğin, &#39;Yaşamdaki İnternet&#39;, &#39;Siber Kültür&#39;) daha çok teorik ve sosyolojik konulara odaklanmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “öğrencilere bir internet haber sitesinin taşıması gereken özellikleri öğretmek”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:3</code> “Yaşamdaki İnternet”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konular arasına, &#39;Web Sitesi Mimarisi&#39;, &#39;CMS Kullanımı&#39; veya &#39;Dijital Yayın Platformları&#39; gibi, haber sitesinin teknik özelliklerini doğrudan ele alan konular eklenmesi gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları arasında, &#39;haber sitesinin kurulumunu ve teknik işleyişini değerlendirme&#39; becerisi (cikti:2), haftalık konuların sunduğu içerik derinliği ile tam olarak desteklenmemektedir.</div><div class="text-xs text-slate-500 mt-1">Amaç ve içerik, içerik üretimine (cikti:3) daha fazla odaklanırken, çıktı:2&#39;nin gerektirdiği &#39;kurulum ve teknik işleyiş&#39; bilgisi, haftalık konuların genel kapsamı içinde yeterince ele alınmamıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:2</code> “İnternet haber sitesinin kurulumunu ve teknik işleyişini değerlendirir”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Ders kapsamında öğrenciler haber içerikleri oluşturup (metin, video, fotoğraf vb.), haber sitesi üzerinde bu içerikleri yayınlayacaklardır.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktıları ile haftalık konular arasındaki tutarlılığı artırmak için, &#39;Web Teknolojileri Temelleri&#39; veya &#39;Dijital Yayın Akışı&#39; gibi teknik bir konunun haftalık plana eklenmesi önerilir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %100 · haftalarda karşılığı olan: %100 · amaç uyumu 3/3 — Dersin amacı olan &#39;bir internet haber sitesinin taşıması gereken özellikleri öğretmek ve uygun içerik oluşturabilmelerini sağlamak&#39; çıktı 1, 2, 3, 4 ve 5 ile doğrudan ilişkilidir. Bu çıktılar, temel kavramları açıklama (1), teknik işleyişi değerlendirme (2), içerik üretme (3), sosyal medya ilişkisini tartışma (4) ve yenilikleri değerlendirme (5) becerilerini kapsayarak amaca ulaşmaktadır.<br>
+  Bloom dağılımı: analiz 1, anlama 1, uygulama 1, değerlendirme 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>İnternet yayıncılığının temel unsurlarını ve kavramlarını açıklayabilir</td><td>anlama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>2</td><td>İnternet haber sitesinin kurulumunu ve teknik işleyişini değerlendirir</td><td>değerlendirme</td>
+ <td><span class="pill st-pass">evet</span></td><td>13</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Haber içeriklerini (video, fotoğraf, yazı vb.) internet yayıncılığına uygun şekilde hazırlayabilir</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>İnternet yayıncılığı ve sosyal medya ilişkisini tartışabilir</td><td>analiz</td>
+ <td><span class="pill st-pass">evet</span></td><td>6</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>İnternet yayıncılığının getirdiği yenilikleri ve değişimleri değerlendirebilir</td><td>değerlendirme</td>
+ <td><span class="pill st-pass">evet</span></td><td>4, 5</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 83.3</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Yeni Medya ve Gazetecilik, John V. Pavlik, Çeviri: Berrin Kalsın, Müge Demir, Phoenix Yayınevi, 2013 İnternet Çağında Gazetecilik, Serhan Yedig, Haşim Akman, Metis Yayınları, 2002 Yeni İletişim Teknolojileri ve Medya, Sevda Alankuş, IPS İletişim Vakfı Yayınları, 2003<div class="text-xs text-slate-500">Kitaplar, dijital medya ve gazetecilik konularını doğrudan ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>• İnternet Yayıncılığı, Editör: Prof. Dr. Halil İbrahim Gürcan, Anadolu Üniversitesi Yayınları<div class="text-xs text-slate-500">Kitap, internet yayıncılığı konusunu doğrudan ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>• İnternet ve Ağ Toplumu, Editör: Esra Keleş, Pegem Akademi.<div class="text-xs text-slate-500">Kitap, ağ toplumu kavramını içerir, ancak yayıncılık odağı daha azdır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill s-medium">kısmen</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 96</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel kavramlar ve etik kurallar (P1) kaynaklar aracılığıyla desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel unsurlar (P2) kaynaklar aracılığıyla desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel unsurlar (P3) ve iletişim becerileri (P3) kaynaklar aracılığıyla desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel unsurlar (P4) ve sektör deneyimi (P4) kaynaklar aracılığıyla desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel unsurlar (P5) ve teknolojik gelişmeleri takip etme (P5) kaynaklar aracılığıyla desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel kavramlar (P6) ve kuramcılar (P6) kaynaklar aracılığıyla desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 3</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Kaynaklar, portfolyo oluşturma (P7) becerisine doğrudan katkı sağlamamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel unsurları açıklama (P8) ve eleştirel inceleme (P8) kaynaklar aracılığıyla desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel unsurlar (P9) ve görsel ifadeler (P9) kaynaklar aracılığıyla desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurulum ve işleyiş (P1) ile etik kurallar (P1) arasında bağlantı kurulabilmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP2 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Teknik işleyiş (P2) ve araştırma/proje yürütme (P2) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İşleyiş değerlendirmesi (P3) ve iletişim becerileri (P3) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İşleyiş değerlendirmesi (P4) ve sektör deneyimi (P4) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP5 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Teknik işleyiş (P5) ve teknolojik gelişmeleri takip etme (P5) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İşleyiş (P6) ve temel kuramlar (P6) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP7 = 2</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Teknik işleyişin (P7) portfolyo ile doğrudan ilişkisi zayıftır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP8 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İşleyişin eleştirel incelenmesi (P8) kaynaklar aracılığıyla desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP9 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Teknik işleyişin (P9) görsel çıktılarla ilişkisi desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İçerik hazırlama (P1) ve etik kurallar (P1) arasında bağlantı kurulabilmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İçerik hazırlama (P2) ve proje geliştirme (P2) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İçerik hazırlama (P3) ve iletişim becerileri (P3) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İçerik hazırlama (P4) ve sektör deneyimi (P4) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İçerik hazırlama (P5) ve teknolojik gelişmeleri kullanma (P5) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İçerik hazırlama (P6) ve temel kuramlar (P6) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İçerik hazırlama (P7) ve portfolyo (P7) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İçerik hazırlama (P8) ve eleştirel inceleme (P8) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP9 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İçerik hazırlama (P9) ve görsel ifadeler (P9) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ilişkisi (P1) ve etik kurallar (P1) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP2 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ilişkisi (P2) ve araştırma/proje (P2) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ilişkisi (P3) ve iletişim becerileri (P3) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ilişkisi (P4) ve sektör deneyimi (P4) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ilişkisi (P5) ve teknolojik gelişmeleri takip etme (P5) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ilişkisi (P6) ve temel kuramlar (P6) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP7 = 2</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Sosyal medya ilişkisinin (P7) portfolyo ile doğrudan ilişkisi zayıftır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ilişkisinin (P8) eleştirel incelenmesi (P8) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP9 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ilişkisi (P9) ve görsel ifadeler (P9) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişim değerlendirmesi (P1) ve etik kurallar (P1) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişim değerlendirmesi (P2) ve proje geliştirme (P2) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişim değerlendirmesi (P3) ve iletişim becerileri (P3) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişim değerlendirmesi (P4) ve sektör deneyimi (P4) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişim değerlendirmesi (P5) ve teknolojik gelişmeleri takip etme (P5) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişim değerlendirmesi (P6) ve temel kuramlar (P6) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP7 = 2</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Değişim değerlendirmesinin (P7) portfolyo ile doğrudan ilişkisi zayıftır.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP8 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişim değerlendirmesi (P8) ve eleştirel inceleme (P8) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP9 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişim değerlendirmesi (P9) ve görsel ifadeler (P9) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel unsurlar (P10) ve takım çalışması (P10) kaynaklar aracılığıyla desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP10 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İşleyişin (P10) takım çalışması (P10) ile ilişkisi desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP10 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İçerik hazırlama (P10) ve takım çalışması (P10) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP10 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ilişkisi (P10) ve takım çalışması (P10) desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP10 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişim değerlendirmesi (P10) ve takım çalışması (P10) desteklenmektedir.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">3 kaynak · 1 tanesinde yıl var · en yeni 2013 (13 yıl önce) · 10 yıldan eski 1</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2013</td><td>Yeni Medya ve Gazetecilik, John V. Pavlik, Çeviri: Berrin Kalsın, Müge Demir, Phoenix Yayınevi, 2013 İnternet Çağında Gazetecilik, Serhan Yedig, Haşim Akman, Metis Yayınları, 2002 Yeni İletişim Teknolojileri ve Medya, Sevda Alankuş, IPS İletişim Vakfı Yayınları, 2003</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>• İnternet Yayıncılığı, Editör: Prof. Dr. Halil İbrahim Gürcan, Anadolu Üniversitesi Yayınları</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">—</td><td>• İnternet ve Ağ Toplumu, Editör: Esra Keleş, Pegem Akademi.</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu benzerliği <span class="text-xs font-normal text-slate-500">(Modül B)</span><span class="ihelp" title="Farklı derslerin haftalık konuları arasındaki benzerlik. Aynı yarıyılda olası tekrar, farklı yarıyılda tekrar ya da derinleşme olabilir.">i</span></h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY108">İTY108 İletişim Teknolojileri</a> · 2. yarıyıl · 1 benzer konu (en yüksek 1.0)</div></div>
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY106">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/iletisim/İTY106/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Dijitalleşme ve Toplum</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">The aim of the course is to teach the features of an internet news site and to create the appropriate content.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Basic and technical concepts of internet broadcasting will be taught to the students. Students will create news content (text, video, photos, etc.) and publish them on the news website.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Explain the basic elements and concepts of internet broadcasting</li><li>Evaluate the installation and technical functioning of the Internet news website</li><li>Prepare news content (video, photo, text, etc.) in accordance with internet publishing</li><li>Discuss the relationship between internet broadcasting and social media</li><li>Evaluate the changes and innovations of internet broadcasting</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Mid-terms</td><td>1</td><td>%0</td></tr><tr><td>Final examination</td><td>1</td><td>%0</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (150 saat → tabloda 5 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>14 × 4</td><td>56 saat</td></tr><tr><td>Assignments</td><td>5 × 10</td><td>50 saat</td></tr><tr><td>Mid-terms</td><td>1 × 6</td><td>6 saat</td></tr><tr><td>Final examination</td><td>1 × 10</td><td>10 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Introduction to Internet Publishing</td></tr><tr><td class="w-10">2</td><td>Internet Publishing Tools</td></tr><tr><td class="w-10">3</td><td>Internet in Life</td></tr><tr><td class="w-10">4</td><td>Theories of Digital Media</td></tr><tr><td class="w-10">5</td><td>Cyber Culture</td></tr><tr><td class="w-10">6</td><td>Social media</td></tr><tr><td class="w-10">7</td><td>midterm</td></tr><tr><td class="w-10">8</td><td>Internet Advertising</td></tr><tr><td class="w-10">9</td><td>Internet and children</td></tr><tr><td class="w-10">10</td><td>Infırmation ethics and safe internet use</td></tr><tr><td class="w-10">11</td><td>Internet and Individuals with Special Needs</td></tr><tr><td class="w-10">12</td><td>Internet of things</td></tr><tr><td class="w-10">13</td><td>Internet design</td></tr><tr><td class="w-10">14</td><td>Final exam</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 6. yarıyıl</div>
+ <h1 class="text-2xl font-bold">İTY302 · Video Kurgu</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 1+2+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 4 (müfredatta 4) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377462&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377462&amp;lang=tr</a> · toplandı 18.11.2026 18:22</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="YZ (A): Ders amacında belirtilen &#39;Renk ve ses efektlerinin üst düzeyde hakimiyeti&#39; ifadesi, haftalık konuların teknik ve temel süreçlere odaklanmasıyla tam olarak örtüşmemektedir.&amp;#10;YZ (A): Ders amacında belirtilen &#39;Renk ve ses efektlerinin üst düzeyde hakimiyeti&#39; gibi iddialı bir hedefin, haftalık konuların sunduğu içerik derinliği ile tam olarak desteklenmediği görülmektedir.&amp;#10;YZ (A): Dersin Lisans ve 6. Yarıyıl düzeyinde olması beklendiği düşünüldüğünde, haftalık konuların büyük bir kısmının temel program arayüzü ve format bilgisine ayrılması, beklenen derinlikten daha azdır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktıları, amaçta belirtilen &#39;Montajla mükemmele en yakın düzeltmelerin yapılabileceğini öğretmek&#39; gibi daha geniş ve niteliksel bir hedefi tam olarak yansıtmamaktadır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 38</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">73.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #273 · 18.11 21:46 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">93.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #274 · 18.11 21:46 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #275 · 18.11 21:47 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (3)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/1 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin &#39;Lisans&#39; ve &#39;6. Yarıyıl&#39; düzeyinde olması beklenirken, haftalık konuların büyük bir kısmı temel program arayüzü, format bilgisi ve temel tekniklere odaklanmaktadır; bu durum, amaçta belirtilen &#39;üst düzeyde hakimiyet&#39; iddiasıyla bir gerilim yaratmaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı (&#39;Video Kurgu&#39;) ve içerik, işlenen konularla (program kullanımı, teknikler, efektler) uyumlu bir kapsam sunmaktadır.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin genel başlığı ve amacı dahilinde teknik kurgu süreçlerini ele almaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (&#39;Video Kurgu&#39;) ile içerik ve haftalık konular arasında genel bir uyum olsa da, amaçta belirtilen &#39;Renk ve ses efektlerinin üst düzeyde hakimiyeti&#39; gibi iddialı bir ifadenin, haftalık konuların teknik odaklı ilerleyişiyle tam olarak desteklenmediği görülmektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Amaçta belirtilen &#39;Renk ve ses efektlerinin üst düzeyde hakimiyeti&#39; gibi konuların, haftalık konuların teknik program kullanımı ve temel kurgu adımları odaklı ilerleyişinde yeterince derinlemesine işlendiği tespit edilememiştir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları (cikti:1 ve cikti:2), amaçta belirtilen &#39;kurguya dair tüm bilinmesi gerekenleri öğretmek&#39; ve &#39;Montajla mükemmele en yakın düzeltmelerin yapılabileceğini öğretmek&#39; gibi daha geniş kapsamlı hedefleri tam olarak yansıtmamaktadır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders amacında belirtilen &#39;Renk ve ses efektlerinin üst düzeyde hakimiyeti&#39; ifadesi, haftalık konuların teknik ve temel süreçlere odaklanmasıyla tam olarak örtüşmemektedir.</div><div class="text-xs text-slate-500 mt-1">Amaç, &#39;Renk ve ses efektlerinin üst düzeyde hakimiyeti&#39; derken, haftalık konular daha çok programın temel işlevlerine odaklanmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Renk ve ses efektlerinin üst düzeyde hakimiyeti.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:7</code> “Video Convert, Mpeg Stream Programı. Görüntü ve ses formatlarının anlatımı.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Amaç ifadesi, haftalık konuların derinliğine uygun olarak &#39;Temel renk ve ses düzenleme prensipleri&#39; gibi daha gerçekçi bir ifadeyle revize edilmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders amacında belirtilen &#39;Renk ve ses efektlerinin üst düzeyde hakimiyeti&#39; gibi iddialı bir hedefin, haftalık konuların sunduğu içerik derinliği ile tam olarak desteklenmediği görülmektedir.</div><div class="text-xs text-slate-500 mt-1">Haftalık konular, programın temel işlevlerini ve formatları ele alırken, &#39;üst düzey hakimiyet&#39; gerektiren karmaşık efektlerin yeterince işlendiği kanıtlanamamıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Renk ve ses efektlerinin üst düzeyde hakimiyeti.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:13</code> “Key, Logo Key&#39;leme.. Crop Motion Video Katları, Röportaj Kurgusu, Clone Efekt”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Amaç, &#39;üst düzey&#39; yerine, işlenen tekniklerin kapsamını yansıtan &#39;İleri düzey kurgu tekniklerine giriş&#39; gibi bir ifadeye dönüştürülmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, amaçta belirtilen &#39;Montajla mükemmele en yakın düzeltmelerin yapılabileceğini öğretmek&#39; gibi daha geniş ve niteliksel bir hedefi tam olarak yansıtmamaktadır.</div><div class="text-xs text-slate-500 mt-1">Çıktılar, &#39;program kullanma becerisi&#39; ve &#39;çekim aşamalarını bilme&#39; gibi daha teknik ve başlangıç seviyesine yakın becerilere odaklanmıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Montajla mükemmele en yakın düzeltmelerin yapılabileceğini öğretmek.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Video programlarını kullanma becerisine sahiptir”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktıları, amaçtaki &#39;mükemmellik&#39; iddiasını destekleyecek, daha üst düzey analitik veya sentez becerileri içerecek şekilde revize edilmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin Lisans ve 6. Yarıyıl düzeyinde olması beklendiği düşünüldüğünde, haftalık konuların büyük bir kısmının temel program arayüzü ve format bilgisine ayrılması, beklenen derinlikten daha azdır.</div><div class="text-xs text-slate-500 mt-1">Amaçta belirtilen &#39;üst düzey hakimiyet&#39; iddiası ile haftalık konuların temel tekniklere odaklanması arasında bir uyumsuzluk bulunmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Renk ve ses efektlerinin üst düzeyde hakimiyeti.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:5</code> “Programların arayüzleri”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin seviyesine uygun olarak, haftalık konuların daha ileri düzey kurgu teorileri ve eleştirel analizlere daha fazla yer vermesi gerekmektedir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %100 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Dersin amacı &#39;kurgunun temel kavramları&#39; ve &#39;tekniklerin&#39; öğretilmesidir. Cıktı 1, program kullanımını kapsayarak teknik beceriye odaklanmaktadır. Cıktı 2, çekim aşaması bilgisini kapsayarak sürecin bir parçasını ele almaktadır. Ancak, &#39;Renk ve ses efektlerinin üst düzeyde hakimiyeti&#39; gibi daha üst düzey yaratma/değerlendirme çıktıları eksiktir.<br>
+  Bloom dağılımı: uygulama 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Video programlarını kullanma becerisine sahiptir</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>2</td><td>Kurgu çekim aşamalarını bilir ve uygulayabilir</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>6</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Sinematografi, Blain Brown / Sinema ve Videoda Işıklandırma, Blain Brown. Göz Kırparken, Walter Murch.<div class="text-xs text-slate-500">Kitaplar, kurgu ve sinema kavramlarına doğrudan değinmektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, sinema ve video terminolojisi ile ilgili temel bilgileri içerir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, kurgu teknikleri ve süreçleri hakkında bilgi vererek proje geliştirme temeline katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu, görsel anlatım gerektirdiğinden, bu kaynak dolaylı olarak iletişim becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, sektörde kullanılan temel kavramları ele almaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, video ve sinema teknolojileri hakkında bilgi sunmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kitaplar, kurgunun temel kuramlarını ve ilke isimlerini tanıtmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu çalışmaları, portfolyo oluşturma sürecinin bir parçası olabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, kurgu tekniklerini ele alarak eleştirel inceleme zeminine zemin hazırlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu, görsel ve estetik ifadeler oluşturma sürecidir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu, çekim aşamasının sonuçlarını kullandığı için bu alana dolaylı katkı vardır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP2 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu, çekimden gelen materyali kullanarak bir ürün ortaya çıkarma sürecidir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu, hikaye anlatımı yoluyla iletişim kurmayı gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu, teknik ve sanatsal becerileri birleştirir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu, video formatları ve yazılımları gibi teknolojik gelişmeleri kullanır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu, sinematografik kuramlar üzerine kuruludur.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu projeleri, portfolyo oluşturma sürecini destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu, materyali ele alıp düzenleme gerektirdiğinden eleştirel inceleme gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP9 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kurgu, görsel estetik oluşturma sürecidir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Video kurgu, ekip çalışması gerektiren bir alandır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP10 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Video prodüksiyonu, genellikle ekip çalışması gerektirir.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">1 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Sinematografi, Blain Brown / Sinema ve Videoda Işıklandırma, Blain Brown. Göz Kırparken, Walter Murch.</td><td class="text-xs text-slate-500">kaynaklar</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu benzerliği <span class="text-xs font-normal text-slate-500">(Modül B)</span><span class="ihelp" title="Farklı derslerin haftalık konuları arasındaki benzerlik. Aynı yarıyılda olası tekrar, farklı yarıyılda tekrar ya da derinleşme olabilir.">i</span></h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD107">OSD107 Düşünce Tarihi</a> · 3. yarıyıl · 1 benzer konu (en yüksek 1.0)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY263">İTY263 Sinema ve Edebiyat</a> · 3. yarıyıl · 1 benzer konu (en yüksek 0.899)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD125">OSD125 Psikososyal Yaşam Becerileri</a> · 1. yarıyıl · 1 benzer konu (en yüksek 0.894)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY109">İTY109 İletişim Kuramları</a> · 1. yarıyıl · 1 benzer konu (en yüksek 0.889)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102 Medya ve İletişim</a> · 2. yarıyıl · 1 benzer konu (en yüksek 0.85)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY253">İTY253 Uluslararası Örgütler ve İletişim</a> · 3. yarıyıl · 1 benzer konu (en yüksek 0.841)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY459">İTY459 Medya ve Tüketim Toplumu</a> · 7. yarıyıl · 1 benzer konu (en yüksek 0.838)</div></div>
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/iletisim/İTY302">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/iletisim/İTY302/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Video Kurgu</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Kurgunun temel kavramları, devamlılık esasları ve kurguya dair tüm bilinmesi gerekenleri öğretmek.Renk ve ses efektlerinin üst düzeyde hakimiyeti. Montajla mükemmele en yakın düzeltmelerin yapılabileceğini öğretmek.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Non linear video edit programlarının kullanımı, terminolojisi, giriş ve çıkış formatları. Cut kurgudan başlayıp çok katmanlı karmaşık kurguya kadar tüm teknikler.İyi bir kurgu için çekim aşamasının önemi.Çekimden eksik ve - veya kötü malzeme geldiğinde çeşitli efektler ve görüntü değişimleriyle bu olumsuz durumu yoketmek…Video - doğal ses - efekt sesleri - görsel efektler – müzik ve yazı kavramlarının birlikte kullanımını öğretmek. Farklı kurgu tekniklerin anlatılmasının ardından, öğrencilerden birtakım video kurgu çalışmalarıyla bu içeriği pratiğe dökmeleri beklenecektir.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Video programlarını kullanma becerisine sahiptir</li><li>Kurgu çekim aşamalarını bilir ve uygulayabilir</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%40</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (117 saat → tabloda 4 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Ödevler</td><td>5 × 3</td><td>15 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 3</td><td>3 saat</td></tr><tr><td>Uygulama</td><td>4 × 3</td><td>12 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 3</td><td>3 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Dersin tanıtımı</td></tr><tr><td class="w-10">2</td><td>Kurguya giriş ve kurgunun önemi</td></tr><tr><td class="w-10">3</td><td>Kurgunun amacı, kurgunun türleri ve kurgu programının tanıtılması</td></tr><tr><td class="w-10">4</td><td>Kurgu programlarının yüklenmesi ve genel ayarları</td></tr><tr><td class="w-10">5</td><td>Programların arayüzleri</td></tr><tr><td class="w-10">6</td><td>Kameradaki görüntülerin kurgu ortamına alınması</td></tr><tr><td class="w-10">7</td><td>Video Convert, Mpeg Stream Programı. Görüntü ve ses formatlarının anlatımı.</td></tr><tr><td class="w-10">8</td><td>Ses ayarları, video ve sesin eşleştirilmesi.</td></tr><tr><td class="w-10">9</td><td>Seçilen videolar eşliğinde sesli ve dsf kurgu.</td></tr><tr><td class="w-10">10</td><td>Vektorskop ve Waveform monitörlerinin kullanımı, Title - Kurguda yazının kullanımı.</td></tr><tr><td class="w-10">11</td><td>Video Filter&#39;lara devam</td></tr><tr><td class="w-10">12</td><td>Compositing nedir? Ne işe yarar?</td></tr><tr><td class="w-10">13</td><td>Key, Logo Key&#39;leme.. Crop Motion Video Katları, Röportaj Kurgusu, Clone Efekt</td></tr><tr><td class="w-10">14</td><td>Final</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

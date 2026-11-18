@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 bg-slate-800 text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+
+
+<div class="flex flex-wrap items-end justify-between gap-3">
+ <div><h1 class="text-2xl font-bold">İletişim Tasarımı ve Yönetimi</h1>
+  <p class="text-sm text-slate-500">2026 (2026 İletişim Tasarımı ve Yönetimi) · Samsun Üniversitesi Bologna Bilgi Paketi · veriler 18.11.2026 18:25 tarihli</p></div>
+ <div class="flex gap-2"><a href="/mufredat-analiz/status/iletisim" class="btn">Ders Durum Tablosunu aç →</a></div>
+</div>
+
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-sm text-slate-500">Toplam ders</div><div class="text-3xl font-bold mt-1">136</div>
+  <div class="mt-2 space-y-0.5 text-xs text-slate-600">
+   <div class="flex justify-between"><span>Zorunlu ders</span><b>41</b></div>
+   <div class="flex justify-between"><span>5i dersi<span class="ihelp" title="2547 sayılı Kanun&#39;un 5/ı maddesine göre tüm programlarda okutulan ortak zorunlu dersler: Atatürk İlkeleri ve İnkılap Tarihi, Türk Dili, Yabancı Dil. Ders kodu ATI, TDI, YDİ ile başlayan zorunlu dersler bu gruba sayılır.">i</span></span><b>6</b></div>
+   <div class="flex justify-between"><span>Seçmeli ders</span><b>89</b></div>
+  </div></div>
+ 
+ <div class="card"><div class="text-sm text-slate-500">Tüm bölümleri tamamlanmış</div><div class="text-3xl font-bold mt-1 text-emerald-600">26</div><div class="text-xs text-slate-500 mt-1">hiçbir bölümde sorun yok</div></div>
+ 
+ <div class="card"><div class="text-sm text-slate-500">İyileştirme gereken</div><div class="text-3xl font-bold mt-1 text-amber-600">105</div><div class="text-xs text-slate-500 mt-1">boş bölüm yok, sorunlu bölüm var</div></div>
+ 
+ <div class="card"><div class="text-sm text-slate-500">En az bir bölümü boş</div><div class="text-3xl font-bold mt-1 text-red-600">5</div><div class="text-xs text-slate-500 mt-1">çoğunlukla ÖP çıktısı katkıları</div></div>
+ 
+</div>
+
+<div class="grid lg:grid-cols-5 gap-4">
+ <a href="/mufredat-analiz/status/iletisim" class="card lg:col-span-3 block hover:border-blue-300 transition">
+  <div class="flex items-center justify-between"><h2 class="font-semibold">Bilgi paketi bölümlerinin durumu</h2><span class="text-xs text-slate-500">136 ders · kurallar + yapay zekâ</span></div>
+  <div class="mt-4 space-y-3">
+  
+   <div>
+    <div class="flex justify-between text-sm"><span>ÖP çıktıları<span class="ihelp" title="Programın mezunlarına kazandırmayı hedeflediği çıktılar. Sütun, dersin öğrenme çıktılarının ÖP çıktılarına katkısının girilip girilmediğini ve tutarlılığını gösterir.">i</span></span>
+     <span class="text-xs text-slate-500"><span class="text-emerald-700">127 tamam</span> · <span class="text-amber-700">9 iyileştir</span> · <span class="text-red-700">0 boş</span></span></div>
+    <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-1">
+     <span style="width:93.38235294117646%;background:#10b981"></span><span style="width:6.617647058823529%;background:#f59e0b"></span><span style="width:0.0%;background:#ef4444"></span><span style="width:0.0%;background:#cbd5e1"></span></div>
+   </div>
+  
+   <div>
+    <div class="flex justify-between text-sm"><span>Ders içeriği<span class="ihelp" title="Dersin amacı ve içerik metni; ders adıyla uyumu.">i</span></span>
+     <span class="text-xs text-slate-500"><span class="text-emerald-700">99 tamam</span> · <span class="text-amber-700">37 iyileştir</span> · <span class="text-red-700">0 boş</span></span></div>
+    <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-1">
+     <span style="width:72.79411764705883%;background:#10b981"></span><span style="width:27.205882352941178%;background:#f59e0b"></span><span style="width:0.0%;background:#ef4444"></span><span style="width:0.0%;background:#cbd5e1"></span></div>
+   </div>
+  
+   <div>
+    <div class="flex justify-between text-sm"><span>Haftalık plan<span class="ihelp" title="Haftalara göre işlenecek konular; sayı, sıra, boş ve tekrarlanan haftalar.">i</span></span>
+     <span class="text-xs text-slate-500"><span class="text-emerald-700">125 tamam</span> · <span class="text-amber-700">10 iyileştir</span> · <span class="text-red-700">0 boş</span></span></div>
+    <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-1">
+     <span style="width:91.91176470588235%;background:#10b981"></span><span style="width:7.352941176470588%;background:#f59e0b"></span><span style="width:0.0%;background:#ef4444"></span><span style="width:0.7352941176470589%;background:#cbd5e1"></span></div>
+   </div>
+  
+   <div>
+    <div class="flex justify-between text-sm"><span>Öğrenme çıktıları<span class="ihelp" title="Dersi tamamlayan öğrencinin kazanacağı bilgi ve beceriler; ölçülebilirliği ve haftalarda karşılığı.">i</span></span>
+     <span class="text-xs text-slate-500"><span class="text-emerald-700">94 tamam</span> · <span class="text-amber-700">42 iyileştir</span> · <span class="text-red-700">0 boş</span></span></div>
+    <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-1">
+     <span style="width:69.11764705882354%;background:#10b981"></span><span style="width:30.88235294117647%;background:#f59e0b"></span><span style="width:0.0%;background:#ef4444"></span><span style="width:0.0%;background:#cbd5e1"></span></div>
+   </div>
+  
+   <div>
+    <div class="flex justify-between text-sm"><span>Ölçme-değerlendirme<span class="ihelp" title="Ara sınav, ödev, final gibi etkinlikler ve katkı yüzdeleri; toplam %100 olmalı.">i</span></span>
+     <span class="text-xs text-slate-500"><span class="text-emerald-700">129 tamam</span> · <span class="text-amber-700">4 iyileştir</span> · <span class="text-red-700">3 boş</span></span></div>
+    <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-1">
+     <span style="width:94.8529411764706%;background:#10b981"></span><span style="width:2.9411764705882355%;background:#f59e0b"></span><span style="width:2.2058823529411766%;background:#ef4444"></span><span style="width:0.0%;background:#cbd5e1"></span></div>
+   </div>
+  
+   <div>
+    <div class="flex justify-between text-sm"><span>AKTS ve iş yükü<span class="ihelp" title="Öğrencinin derse ayırdığı toplam saat ve buna karşılık gelen AKTS.">i</span></span>
+     <span class="text-xs text-slate-500"><span class="text-emerald-700">92 tamam</span> · <span class="text-amber-700">44 iyileştir</span> · <span class="text-red-700">0 boş</span></span></div>
+    <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-1">
+     <span style="width:67.6470588235294%;background:#10b981"></span><span style="width:32.35294117647059%;background:#f59e0b"></span><span style="width:0.0%;background:#ef4444"></span><span style="width:0.0%;background:#cbd5e1"></span></div>
+   </div>
+  
+   <div>
+    <div class="flex justify-between text-sm"><span>Kaynaklar<span class="ihelp" title="Ders kitapları ve okuma listesi; künye biçimi, yayın yılı, derse uygunluk.">i</span></span>
+     <span class="text-xs text-slate-500"><span class="text-emerald-700">66 tamam</span> · <span class="text-amber-700">66 iyileştir</span> · <span class="text-red-700">1 boş</span></span></div>
+    <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-1">
+     <span style="width:48.529411764705884%;background:#10b981"></span><span style="width:48.529411764705884%;background:#f59e0b"></span><span style="width:0.7352941176470589%;background:#ef4444"></span><span style="width:2.2058823529411766%;background:#cbd5e1"></span></div>
+   </div>
+  
+   <div>
+    <div class="flex justify-between text-sm"><span>İngilizce paket<span class="ihelp" title="Bilgi paketinin İngilizce sürümü; dolu mu, Türkçe ile aynı yapıda mı, çevrilmiş mi.">i</span></span>
+     <span class="text-xs text-slate-500"><span class="text-emerald-700">115 tamam</span> · <span class="text-amber-700">20 iyileştir</span> · <span class="text-red-700">1 boş</span></span></div>
+    <div class="flex h-2.5 rounded-full overflow-hidden bg-slate-100 mt-1">
+     <span style="width:84.55882352941177%;background:#10b981"></span><span style="width:14.705882352941176%;background:#f59e0b"></span><span style="width:0.7352941176470589%;background:#ef4444"></span><span style="width:0.0%;background:#cbd5e1"></span></div>
+   </div>
+  
+  </div>
+  <div class="flex gap-4 mt-4 text-xs text-slate-500"><span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm" style="background:#10b981"></span>Tamamlandı</span><span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm" style="background:#f59e0b"></span>İyileştirilmeli</span><span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm" style="background:#ef4444"></span>Boş</span><span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm" style="background:#cbd5e1"></span>Gerekmiyor</span></div>
+ </a>
+
+ <div class="card lg:col-span-2">
+  <h2 class="font-semibold">Öncelikli dersler</h2>
+  <p class="text-xs text-slate-500 mb-3">En çok boş ve iyileştirilmesi gereken bölümü olanlar</p>
+  <div class="divide-y divide-slate-100">
+  
+   <a href="/mufredat-analiz/course/iletisim/YDİ102" class="flex items-center justify-between gap-3 py-2 hover:bg-slate-50 -mx-2 px-2 rounded">
+    <div class="min-w-0"><div class="text-sm font-medium truncate">YDİ102 · Yabancı Dil II</div><div class="text-xs text-slate-500">2. yarıyıl</div></div>
+    <div class="flex gap-0.5 shrink-0" title="ÖP çıktıları: Tamamlandı&#10;Ders içeriği: İyileştirilmeli&#10;Haftalık plan: İyileştirilmeli&#10;Öğrenme çıktıları: İyileştirilmeli&#10;Ölçme-değerlendirme: Tamamlandı&#10;AKTS ve iş yükü: İyileştirilmeli&#10;Kaynaklar: İyileştirilmeli&#10;İngilizce paket: İyileştirilmeli&#10;"><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span></div>
+   </a>
+  
+   <a href="/mufredat-analiz/course/iletisim/İTY306" class="flex items-center justify-between gap-3 py-2 hover:bg-slate-50 -mx-2 px-2 rounded">
+    <div class="min-w-0"><div class="text-sm font-medium truncate">İTY306 · İletişim Etiği</div><div class="text-xs text-slate-500">6. yarıyıl</div></div>
+    <div class="flex gap-0.5 shrink-0" title="ÖP çıktıları: İyileştirilmeli&#10;Ders içeriği: İyileştirilmeli&#10;Haftalık plan: Tamamlandı&#10;Öğrenme çıktıları: İyileştirilmeli&#10;Ölçme-değerlendirme: Tamamlandı&#10;AKTS ve iş yükü: İyileştirilmeli&#10;Kaynaklar: İyileştirilmeli&#10;İngilizce paket: İyileştirilmeli&#10;"><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span></div>
+   </a>
+  
+   <a href="/mufredat-analiz/course/iletisim/İTY103" class="flex items-center justify-between gap-3 py-2 hover:bg-slate-50 -mx-2 px-2 rounded">
+    <div class="min-w-0"><div class="text-sm font-medium truncate">İTY103 · Sosyolojiye Giriş</div><div class="text-xs text-slate-500">1. yarıyıl</div></div>
+    <div class="flex gap-0.5 shrink-0" title="ÖP çıktıları: İyileştirilmeli&#10;Ders içeriği: İyileştirilmeli&#10;Haftalık plan: Tamamlandı&#10;Öğrenme çıktıları: İyileştirilmeli&#10;Ölçme-değerlendirme: Tamamlandı&#10;AKTS ve iş yükü: İyileştirilmeli&#10;Kaynaklar: Tamamlandı&#10;İngilizce paket: İyileştirilmeli&#10;"><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span></div>
+   </a>
+  
+   <a href="/mufredat-analiz/course/iletisim/TDI102" class="flex items-center justify-between gap-3 py-2 hover:bg-slate-50 -mx-2 px-2 rounded">
+    <div class="min-w-0"><div class="text-sm font-medium truncate">TDI102 · Türk Dili II</div><div class="text-xs text-slate-500">2. yarıyıl</div></div>
+    <div class="flex gap-0.5 shrink-0" title="ÖP çıktıları: İyileştirilmeli&#10;Ders içeriği: İyileştirilmeli&#10;Haftalık plan: İyileştirilmeli&#10;Öğrenme çıktıları: İyileştirilmeli&#10;Ölçme-değerlendirme: Tamamlandı&#10;AKTS ve iş yükü: Tamamlandı&#10;Kaynaklar: İyileştirilmeli&#10;İngilizce paket: Tamamlandı&#10;"><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span></div>
+   </a>
+  
+   <a href="/mufredat-analiz/course/iletisim/YDİ101" class="flex items-center justify-between gap-3 py-2 hover:bg-slate-50 -mx-2 px-2 rounded">
+    <div class="min-w-0"><div class="text-sm font-medium truncate">YDİ101 · Yabancı Dil I</div><div class="text-xs text-slate-500">1. yarıyıl</div></div>
+    <div class="flex gap-0.5 shrink-0" title="ÖP çıktıları: İyileştirilmeli&#10;Ders içeriği: İyileştirilmeli&#10;Haftalık plan: Tamamlandı&#10;Öğrenme çıktıları: İyileştirilmeli&#10;Ölçme-değerlendirme: Tamamlandı&#10;AKTS ve iş yükü: Tamamlandı&#10;Kaynaklar: Tamamlandı&#10;İngilizce paket: İyileştirilmeli&#10;"><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span></div>
+   </a>
+  
+   <a href="/mufredat-analiz/course/iletisim/İTY111" class="flex items-center justify-between gap-3 py-2 hover:bg-slate-50 -mx-2 px-2 rounded">
+    <div class="min-w-0"><div class="text-sm font-medium truncate">İTY111 · İletişimde Anlatım Teknikleri</div><div class="text-xs text-slate-500">1. yarıyıl</div></div>
+    <div class="flex gap-0.5 shrink-0" title="ÖP çıktıları: İyileştirilmeli&#10;Ders içeriği: İyileştirilmeli&#10;Haftalık plan: Tamamlandı&#10;Öğrenme çıktıları: İyileştirilmeli&#10;Ölçme-değerlendirme: Tamamlandı&#10;AKTS ve iş yükü: Tamamlandı&#10;Kaynaklar: İyileştirilmeli&#10;İngilizce paket: Tamamlandı&#10;"><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span></div>
+   </a>
+  
+   <a href="/mufredat-analiz/course/iletisim/ATI102" class="flex items-center justify-between gap-3 py-2 hover:bg-slate-50 -mx-2 px-2 rounded">
+    <div class="min-w-0"><div class="text-sm font-medium truncate">ATI102 · Atatürk İlkeleri ve İnkılapları Tarihi II</div><div class="text-xs text-slate-500">2. yarıyıl</div></div>
+    <div class="flex gap-0.5 shrink-0" title="ÖP çıktıları: Tamamlandı&#10;Ders içeriği: İyileştirilmeli&#10;Haftalık plan: Tamamlandı&#10;Öğrenme çıktıları: İyileştirilmeli&#10;Ölçme-değerlendirme: Tamamlandı&#10;AKTS ve iş yükü: İyileştirilmeli&#10;Kaynaklar: İyileştirilmeli&#10;İngilizce paket: Tamamlandı&#10;"><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span></div>
+   </a>
+  
+   <a href="/mufredat-analiz/course/iletisim/İTY106" class="flex items-center justify-between gap-3 py-2 hover:bg-slate-50 -mx-2 px-2 rounded">
+    <div class="min-w-0"><div class="text-sm font-medium truncate">İTY106 · Dijitalleşme ve Toplum</div><div class="text-xs text-slate-500">2. yarıyıl</div></div>
+    <div class="flex gap-0.5 shrink-0" title="ÖP çıktıları: Tamamlandı&#10;Ders içeriği: İyileştirilmeli&#10;Haftalık plan: Tamamlandı&#10;Öğrenme çıktıları: İyileştirilmeli&#10;Ölçme-değerlendirme: İyileştirilmeli&#10;AKTS ve iş yükü: Tamamlandı&#10;Kaynaklar: İyileştirilmeli&#10;İngilizce paket: Tamamlandı&#10;"><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span><span class="w-2.5 h-5 rounded-sm" style="background:#f59e0b"></span><span class="w-2.5 h-5 rounded-sm" style="background:#10b981"></span></div>
+   </a>
+  
+  </div>
+ </div>
+</div>
+
+<div class="grid md:grid-cols-3 gap-4">
+ <div class="card"><div class="text-sm text-slate-500">Kural denetimi<span class="ihelp" title="Bilgi &lt; Düşük &lt; Orta &lt; Yüksek &lt; Kritik. Orta ve üzeri durumu “İyileştirilmeli” yapar.">i</span></div>
+  <div class="mt-2 text-sm">5744 kontrol · <span class="text-red-700">84 yüksek</span>, <span class="text-amber-700">103 orta</span>, 346 düşük önemli ihlal</div>
+  <a href="/mufredat-analiz/reports" class="lnk text-xs">Tüm ihlalleri indir →</a></div>
+ <div class="card"><div class="text-sm text-slate-500">Yapay zekâ analizleri</div>
+  <div class="mt-2 text-sm">İçerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span> 43 · Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span> 39 · Kaynak ve ÖP<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span> 47 ders analiz edildi</div>
+  <div class="text-xs text-slate-500 mt-1">Model: gemma4:e4b (yerel)</div></div>
+ <div class="card"><div class="text-sm text-slate-500">Nasıl okunur?</div>
+  <div class="mt-2 text-xs text-slate-600"><a class="lnk" href="/mufredat-analiz/kilavuz">Kullanım kılavuzu</a> · <a class="lnk" href="/mufredat-analiz/tanimlar">Tanımlar</a>. Kural denetimleri kesindir. Yapay zekâ bulguları ön değerlendirmedir ve uzman onayı bekler; Durum Tablosu'nda istenirse kapatılabilir.</div></div>
+</div>
+
+
+ </main>
+</div>
+</body>
+</html>

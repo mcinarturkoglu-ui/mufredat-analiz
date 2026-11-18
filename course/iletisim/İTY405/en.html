@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 7. yarıyıl</div>
+ <h1 class="text-2xl font-bold">İTY405 · Reklam Tasarım ve Uygulamaları</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+2+0 · Kredi 3 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 4 (müfredatta 4) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377374&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377374&amp;lang=en</a> · toplandı 18.11.2026 18:24</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="YZ (A): Ders adı ile haftalık konular arasında, &#39;Uygulamalar&#39; kısmının yeterince işlenmediği görülmektedir.&amp;#10;YZ (A): Ders amacında belirtilen &#39;Basılı reklamcığın geçmişten günümüze tarihsel gelişimi&#39; konusu, haftalık konuların büyük bir bölümünde ele alınmamaktadır.&amp;#10;YZ (A): Ders adı &#39;Reklam Tasarım ve Uygulamaları&#39; olmasına rağmen, haftalık konuların büyük bir kısmı (Temel Tasarım Kuralları, Layout) sadece &#39;Tasarım&#39;ın temel kısımlarına odaklanmış, &#39;Uygulamalar&#39; kısmı yetersiz kalmıştır.&amp;#10;YZ (A): Dersin 7. yarıyıl Lisans düzeyi olması göz önüne alındığında, haftalık konuların büyük bir kısmı (Tasarım nedir?, Temel kurallar) giriş seviyesinde kalmaktadır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktısı, haftalık konuların sunduğu temel bilgi düzeyinden daha ileri bir &#39;uyarlama ve geliştirme&#39; becerisi talep etmektedir." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="AKTS–iş yükü: Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında. (mevcut: 122 saat / 4 AKTS = 30.5 saat/AKTS; beklenen: 25-30 saat/AKTS (100-120 saat))" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 37</span><span class="pill st-fail">kaldı: 4</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">70<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #297 · 18.11 22:49 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">93.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #298 · 18.11 22:49 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #299 · 18.11 22:50 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (4)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R4 AKTS–iş yükü<div class="text-xs text-slate-500">hours_per_ects · tr</div></td><td>workload.total</td>
+<td><span class="pill s-high">yüksek</span></td><td>Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.</td><td>122 saat / 4 AKTS = 30.5 saat/AKTS</td><td>25-30 saat/AKTS (100-120 saat)</td><td class="text-slate-600">İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/1 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin 7. yarıyıl Lisans düzeyi olması göz önüne alındığında, haftalık konuların büyük bir kısmı (örneğin, &#39;Tasarım nedir?&#39;, &#39;Temel tasarım kuralları&#39;) giriş seviyesinde kalmaktadır ve bu durum, bir Lisans dersi için beklenen derinlikten daha azdır.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı &#39;Reklam Tasarım ve Uygulamaları&#39; iken, haftalık konuların büyük bir kısmı (hafta 2&#39;den 11&#39;e kadar) &#39;Temel tasarım kuralları&#39; ve &#39;Layout&#39; gibi daha temel ve teorik konulara odaklanmıştır; bu durum, &#39;Uygulamalar&#39; kısmının yetersiz ele alındığı izlenimini vermektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin genel amacı ve içeriği dahilinde (tasarım ve reklam süreçleri) kalmaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (&#39;Reklam Tasarım ve Uygulamaları&#39;) ile içerik (&#39;Bu derste, öncesi ve sonrası reklam tasarım süreçleri teorik ve uygulamalı olarak verilir.&#39;) arasında bir uyum olsa da, haftalık konuların (çoğunlukla temel tasarım kuralları ve layout) ders adının kapsadığı &#39;Uygulamalar&#39; kısmını yeterince yansıtmadığı görülmektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacında belirtilen &#39;Basılı reklamcığın geçmişten günümüze tarihsel gelişimi anlatılır&#39; kısmı, haftalık konuların büyük bir kısmında (hafta 2&#39;den 11&#39;e kadar) doğrudan ele alınmamaktadır; daha çok temel tasarım kurallarına odaklanılmıştır.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktısı (&#39;Reklam fikrini dijital ve basılı ortama uyarlayarak görsel materyal geliştirir&#39;) genel olarak amaçla uyumlu olsa da, haftalık konuların büyük bir kısmı (örneğin, &#39;Tasarım nedir?&#39;, &#39;Temel tasarım kuralları&#39;) bu çıktının gerektirdiği &#39;uyarlama&#39; ve &#39;geliştirme&#39; aşamalarından ziyade teorik temellere odaklanmaktadır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı ile haftalık konular arasında, &#39;Uygulamalar&#39; kısmının yeterince işlenmediği görülmektedir.</div><div class="text-xs text-slate-500 mt-1">Ders adı &#39;Reklam Tasarım ve Uygulamaları&#39; iken, haftalık konuların büyük bir kısmı temel kurallara odaklanmıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Bu derste, öncesi ve sonrası reklam tasarım süreçleri teorik ve uygulamalı olarak verilir.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:5</code> “Temel tasarım kuralları”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konulara, teorik bilgileri pratiğe döken, somut uygulama odaklı konular (örneğin, &#39;Dijital Reklam Prototipleme&#39;, &#39;Basılı Tasarım İncelemesi&#39;) eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders amacında belirtilen &#39;Basılı reklamcığın geçmişten günümüze tarihsel gelişimi&#39; konusu, haftalık konuların büyük bir bölümünde ele alınmamaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaçta belirtilen tarihsel gelişim, haftalık konuların çoğunda yer almamaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Basılı reklamcığın geçmişten günümüze tarihsel gelişimi anlatılır ve basılı reklamcılıkla ilgili güncel trendler öğretilir.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:2</code> “Tasarım nedir?”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konulara, tarihsel gelişimi ve güncel trendleri kapsayan özel bir bölüm (örneğin, &#39;Reklam Tarihsel Dönüm Noktaları&#39;) eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktısı, haftalık konuların sunduğu temel bilgi düzeyinden daha ileri bir &#39;uyarlama ve geliştirme&#39; becerisi talep etmektedir.</div><div class="text-xs text-slate-500 mt-1">Haftalık konular daha çok &#39;nedir&#39; ve &#39;nasıl yapılır&#39;ın temel kurallarını içerirken, çıktı &#39;geliştirir&#39; gibi bir uygulama becerisi gerektirmektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Reklam fikrini dijital ve basılı ortama uyarlayarak görsel materyal geliştirir”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:5</code> “Temel tasarım kuralları”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktısının, haftalık konularla daha uyumlu olacak şekilde &#39;Temel tasarım kurallarını kullanarak basit bir görsel materyal oluşturur&#39; şeklinde revize edilmesi düşünülebilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ders adı fazla dar</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı &#39;Reklam Tasarım ve Uygulamaları&#39; olmasına rağmen, haftalık konuların büyük bir kısmı (Temel Tasarım Kuralları, Layout) sadece &#39;Tasarım&#39;ın temel kısımlarına odaklanmış, &#39;Uygulamalar&#39; kısmı yetersiz kalmıştır.</div><div class="text-xs text-slate-500 mt-1">Ders adı uygulamayı işaret ederken, konuların ağırlığı teorik temellere kaymıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Reklam Tasarım ve Uygulamaları”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:10</code> “Layout tasarımında yaklaşımlar”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Uygulama odaklı konuların (örneğin, yazılım kullanımı, çıktı formatları) haftalık konulara eklenmesi gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin 7. yarıyıl Lisans düzeyi olması göz önüne alındığında, haftalık konuların büyük bir kısmı (Tasarım nedir?, Temel kurallar) giriş seviyesinde kalmaktadır.</div><div class="text-xs text-slate-500 mt-1">Lisans seviyesi, genellikle daha derinlemesine analiz ve eleştirel bakış açısı gerektirirken, konular daha çok temel tanımlara odaklanmıştır.</div>
+  <div class="text-xs mt-1">✗ <code class="bg-slate-100 px-1 rounded">Düzey</code> “Lisans”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:2</code> “Tasarım nedir?”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Konuların derinliğini artırmak için, temel kuralların ötesine geçilerek, bu kuralların güncel pazar dinamikleriyle nasıl çatıştığına dair eleştirel analizler eklenmelidir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %100 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Dersin amacı &#39;reklam üretimini gerçekleştirmede kullanılan tasarım ve tasarım hazırlık mantığını öğretmek&#39; iken, tek öğrenme çıktısı (cikti:1) bu amaca doğrudan hizmet etmektedir. Ancak, bu çıktı sadece &#39;geliştirir&#39; fiiliyle sınırlı kalmıştır ve &#39;tasarım hazırlık mantığını&#39; tam olarak kapsayıp kapsamadığı belgede net değildir. Bu nedenle 2 puan verilmiştir.<br>
+  Bloom dağılımı: uygulama 1</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Reklam fikrini dijital ve basılı ortama uyarlayarak görsel materyal geliştirir</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3, 4, 5, 6, 8, 9, 10, 11</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>CREATIVE STRATEGY IN ADVERTISING / A. JEROME JEWLER, BONNIE L. DREWNIANY.<div class="text-xs text-slate-500">Kitap, reklam stratejisi ve yaratıcılık konularını ele alarak dersin ana konusuyla doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, reklam fikri geliştirme sürecini kapsar, bu da etik kurallarla dolaylı olarak ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Reklam materyali geliştirme, proje yürütme becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Görsel materyal geliştirme, iletişim becerilerini dolaylı olarak destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Reklam tasarımı, sektör deneyimi ile ilişkilendirilebilecek bir alandır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dijital ve basılı ortam uyarlaması, teknolojik gelişmeleri kullanma gerekliliğini yansıtır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Reklam stratejisi, temel kuramları ve yaklaşımları içerir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Görsel materyal geliştirme, portfolyo oluşturma sürecinin temelini oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Reklam fikrinin geliştirilmesi, eleştirel inceleme yeteneği gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Görsel materyal geliştirme, grafik ve görsel ifade oluşturma hedefine doğrudan hizmet eder.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Reklam projeleri genellikle ekip çalışması gerektirir.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">1 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>CREATIVE STRATEGY IN ADVERTISING / A. JEROME JEWLER, BONNIE L. DREWNIANY.</td><td class="text-xs text-slate-500">kaynaklar</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu benzerliği <span class="text-xs font-normal text-slate-500">(Modül B)</span><span class="ihelp" title="Farklı derslerin haftalık konuları arasındaki benzerlik. Aynı yarıyılda olası tekrar, farklı yarıyılda tekrar ya da derinleşme olabilir.">i</span></h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY102">İTY102 Medya ve İletişim</a> · 2. yarıyıl · 1 benzer konu (en yüksek 0.938)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY104">İTY104 Temel Tasarım</a> · 2. yarıyıl · 1 benzer konu (en yüksek 0.833)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY112">İTY112 Yeni Medya Kuramları</a> · 2. yarıyıl · 1 benzer konu (en yüksek 0.832)</div><div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY360">İTY360 Çağdaş Toplumsal Hareketler</a> · 6. yarıyıl · 1 benzer konu (en yüksek 0.832)</div></div>
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY405">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/iletisim/İTY405/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Advertising Design and Application</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">This course aims to teach the design and design preparation logic used in advertising production for digital and printed media. Historical development of printed advertising from past to present is explained and current trends in printed advertising are taught.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">In this course, pre and post advertising design processes are given theoretically and practically.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Develops visual material by adapting the idea of ??advertising to digital and printed media.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Mid-terms</td><td>1</td><td>%40</td></tr><tr><td>Final examination</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (122 saat → tabloda 4 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Assignments</td><td>5 × 10</td><td>50 saat</td></tr><tr><td>Mid-terms</td><td>1 × 6</td><td>6 saat</td></tr><tr><td>Final examination</td><td>1 × 10</td><td>10 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Introduction and introduction of course resources.</td></tr><tr><td class="w-10">2</td><td>What is design</td></tr><tr><td class="w-10">3</td><td>Development of design</td></tr><tr><td class="w-10">4</td><td>Design approaches</td></tr><tr><td class="w-10">5</td><td>Basic design rules</td></tr><tr><td class="w-10">6</td><td>Basic design rules (continued)</td></tr><tr><td class="w-10">7</td><td>Midterm</td></tr><tr><td class="w-10">8</td><td>The concept of layout in advertising</td></tr><tr><td class="w-10">9</td><td>Importance of layout design</td></tr><tr><td class="w-10">10</td><td>Approaches in layout design</td></tr><tr><td class="w-10">11</td><td>Creative and innovative approaches</td></tr><tr><td class="w-10">12</td><td>presentations</td></tr><tr><td class="w-10">13</td><td>presentations</td></tr><tr><td class="w-10">14</td><td>Final exam</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

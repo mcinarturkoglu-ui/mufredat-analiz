@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 bg-slate-800 text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div><h1 class="text-2xl font-bold">İletişim Tasarımı ve Yönetimi</h1>
+<p class="text-sm text-slate-500">2026 (2026 İletişim Tasarımı ve Yönetimi) · İnsan ve Toplum Bilimleri Fakültesi</p></div>
+
+<div class="grid lg:grid-cols-3 gap-4">
+ <div class="card"><h3 class="font-semibold mb-2">ÖP çıktıları (10)<span class="ihelp" title="Programın mezunlarına kazandırmayı hedeflediği çıktılar. Sütun, dersin öğrenme çıktılarının ÖP çıktılarına katkısının girilip girilmediğini ve tutarlılığını gösterir.">i</span></h3>
+  <ol class="text-sm space-y-1 max-h-64 overflow-auto"><li><b>ÖP1</b> Alanıyla ilgili ulusal ve uluslararası etik kurallar, standartlar ve yasal düzenlemelere hâkim olur.</li><li><b>ÖP2</b> Alanıyla ilgili araştırma, proje geliştirme ve yürütme becerisine sahip olur.</li><li><b>ÖP3</b> Kamusal ve kişilerarası iletişim becerilerini geliştirir.</li><li><b>ÖP4</b> Akademik bilgi ve tecrübesini sektör deneyimi ile ilişkilendirir</li><li><b>ÖP5</b> Alanının gerektirdiği şekilde güncel bilimsel, teknolojik ve yazılımsal gelişmeleri takip eder ve etkili biçimde kullanır.</li><li><b>ÖP6</b> Alanındaki temel ilke, kuram ve kuramcıları bilir.</li><li><b>ÖP7</b> Çalışmalarını ve özgeçmişini bir portfolyo haline getirme ve sunma becerisine sahip olur.</li><li><b>ÖP8</b> Alanında gerçekleştirilmiş çalışmaları eleştirel bir yaklaşımla inceleme yetkinliğine sahip olur.</li><li><b>ÖP9</b> Tasarım ve estetik değerlerine bağlı olarak grafik, tipografik, 2 ve 3 boyutlu, hareketli ve etkileşimli görsel ifadeler oluşturur ve sunar.</li><li><b>ÖP10</b> Takım çalışmasına uygun olarak kazandığı ekip ruhu ve liderlik becerilerini çalışma hayatına uygular.</li></ol>
+  <p class="text-xs text-slate-500 mt-2">Ders–ÖP matrisinde değer girilmiş ders: 136</p></div>
+ <div class="card"><h3 class="font-semibold mb-2">Yarıyıl AKTS denetimi (R8)<span class="ihelp" title="Her yarıyıl 30 AKTS mi; seçmeli havuz AKTS&#39;leri tutarlı mı; program toplamı (lisans 240) doğru mu.">i</span></h3>
+  <ul class="text-sm space-y-2">
+   <li><span class="pill s-high">yüksek</span> 1. yarıyıl: 36 AKTS (zorunlu 36 + seçmeli 0) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-high">yüksek</span> 2. yarıyıl: 36 AKTS (zorunlu 36 + seçmeli 0) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-medium">orta</span> 3. yarıyıl: havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS <span class="text-slate-500">(beklenen her üye 0 AKTS (1 ders × 0 = 0))</span></li>
+   <li><span class="pill s-medium">orta</span> 4. yarıyıl: havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS <span class="text-slate-500">(beklenen her üye 0 AKTS (1 ders × 0 = 0))</span></li>
+   <li><span class="pill s-high">yüksek</span> 5. yarıyıl: 38 AKTS (zorunlu 18 + seçmeli 20) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-medium">orta</span> 5. yarıyıl: havuz 4 AKTS (1 ders); üyeler 3, 4 AKTS <span class="text-slate-500">(beklenen her üye 4 AKTS (1 ders × 4 = 4))</span></li>
+   <li><span class="pill s-medium">orta</span> 5. yarıyıl: havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS <span class="text-slate-500">(beklenen her üye 0 AKTS (1 ders × 0 = 0))</span></li>
+   <li><span class="pill s-high">yüksek</span> 6. yarıyıl: 42 AKTS (zorunlu 26 + seçmeli 16) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-medium">orta</span> 6. yarıyıl: havuz 4 AKTS (1 ders); üyeler 3, 4 AKTS <span class="text-slate-500">(beklenen her üye 4 AKTS (1 ders × 4 = 4))</span></li>
+   <li><span class="pill s-medium">orta</span> 6. yarıyıl: havuz 4 AKTS; havuzda ders yok <span class="text-slate-500">(beklenen her üye 4 AKTS (1 ders × 4 = 4))</span></li>
+   <li><span class="pill s-medium">orta</span> 6. yarıyıl: havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS <span class="text-slate-500">(beklenen her üye 0 AKTS (1 ders × 0 = 0))</span></li>
+   <li><span class="pill s-high">yüksek</span> 7. yarıyıl: 34 AKTS (zorunlu 15 + seçmeli 19) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-medium">orta</span> 7. yarıyıl: havuz 15 AKTS (3 ders); üyeler 5, 15 AKTS <span class="text-slate-500">(beklenen her üye 5 AKTS (3 ders × 5 = 15))</span></li>
+   <li><span class="pill s-medium">orta</span> 7. yarıyıl: havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS <span class="text-slate-500">(beklenen her üye 0 AKTS (1 ders × 0 = 0))</span></li>
+   <li><span class="pill s-high">yüksek</span> 8. yarıyıl: 40 AKTS (zorunlu 15 + seçmeli 25) <span class="text-slate-500">(beklenen 30 AKTS)</span></li>
+   <li><span class="pill s-medium">orta</span> 8. yarıyıl: havuz 15 AKTS (3 ders); üyeler 5, 15 AKTS <span class="text-slate-500">(beklenen her üye 5 AKTS (3 ders × 5 = 15))</span></li>
+   <li><span class="pill s-medium">orta</span> 8. yarıyıl: havuz 0 AKTS (1 ders); üyeler 2, 3, 4 AKTS <span class="text-slate-500">(beklenen her üye 0 AKTS (1 ders × 0 = 0))</span></li>
+   <li><span class="pill s-high">yüksek</span> Müfredat: 286 AKTS <span class="text-slate-500">(beklenen 240 AKTS)</span></li></ul>
+  </div>
+ <div class="card"><h3 class="font-semibold mb-2">Konu örtüşmesi adayları (49)</h3>
+  <ul class="text-sm space-y-1"><li>STJ300 ↔ İTY467 · 140 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>STJ300 ↔ İTY472 · 140 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>OYDİ202 ↔ OYDİ302 · 40 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>PFD202 ↔ İTY310 · 28 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>İTY403 ↔ İTY404 · 24 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>İTY408 ↔ İTY457 · 16 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>OSD118 ↔ İSG111 · 13 konu · <span class="text-slate-500">farklı yarıyıl</span></li><li>OSD118 ↔ İSG112 · 13 konu · <span class="text-slate-500">farklı yarıyıl</span></li></ul>
+  <a class="lnk text-sm" href="/mufredat-analiz/program/iletisim/overlap">Tümünü gör →</a></div>
+</div>
+
+<div class="card">
+ <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+  <div><h3 class="font-semibold">Müfredat</h3><p class="text-xs text-slate-500">YZ puanları 0–100: <span class="pill st-pass">80+ iyi</span> <span class="pill s-medium">50–79 orta</span> <span class="pill st-fail">&lt;50 zayıf</span> · Sütun adlarındaki <span class="ihelp">i</span> işaretine gelince açıklaması görünür.</p></div>
+  
+ </div>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">1. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span></th><th>AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span></th><th title="Kural ihlali sayısı: yüksek / orta / düşük önem">Kural ihlali<span class="ihelp" title="Bilgi &lt; Düşük &lt; Orta &lt; Yüksek &lt; Kritik. Orta ve üzeri durumu “İyileştirilmeli” yapar.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">yüksek · orta · düşük</div></th>
+  <th class="text-center">İçerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Kaynak ve ÖP<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/ATI101">ATI101</a></td><td>Atatürk İlkeleri ve İnkılap Tarihi I </td>
+  <td>2+0+0</td><td>2</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="text-slate-300" title="Henüz analiz edilmedi">—</span></td>
+  <td class="text-center"><span class="text-slate-300" title="Henüz analiz edilmedi">—</span></td>
+  <td class="text-center"><span class="pill st-pass score">83.3</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İSG111">İSG111</a></td><td>İş Sağlığı ve Güvenliği I </td>
+  <td>2+0+0</td><td>2</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="text-slate-300" title="Henüz analiz edilmedi">—</span></td>
+  <td class="text-center"><span class="text-slate-300" title="Henüz analiz edilmedi">—</span></td>
+  <td class="text-center"><span class="pill st-fail score">0</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY101">İTY101</a></td><td>Temel Ekonomi </td>
+  <td>3+0+0</td><td>5</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill st-pass score">85</span></td>
+  <td class="text-center"><span class="pill s-medium score">53.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">97.5</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY103">İTY103</a></td><td>Sosyolojiye Giriş </td>
+  <td>2+0+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">3</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill st-pass score">93.3</span></td>
+  <td class="text-center"><span class="pill s-medium score">53.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">95</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY105">İTY105</a></td><td>İletişime Giriş </td>
+  <td>3+0+0</td><td>6</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill st-fail score">43.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY107">İTY107</a></td><td>Psikoloji </td>
+  <td>2+0+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td>
+  <td class="text-center"><span class="pill st-pass score">93.3</span></td>
+  <td class="text-center"><span class="pill s-medium score">76</span></td>
+  <td class="text-center"><span class="pill st-pass score">97</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY109">İTY109</a></td><td>İletişim Kuramları </td>
+  <td>3+0+0</td><td>5</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill s-medium score">73.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">86.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY111">İTY111</a></td><td>İletişimde Anlatım Teknikleri </td>
+  <td>2+0+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill st-pass score">85</span></td>
+  <td class="text-center"><span class="text-xs text-slate-500" title="Model üç denemede geçerli yanıt vermedi">sonuç yok</span></td>
+  <td class="text-center"><span class="pill st-pass score">95</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/TDI101">TDI101</a></td><td>Türk Dili I </td>
+  <td>2+0+0</td><td>2</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill s-medium score">61.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">95</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/YDİ101">YDİ101</a></td><td>Yabancı Dil I </td>
+  <td>2+0+0</td><td>2</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill st-pass score">91.7</span></td>
+  <td class="text-center"><span class="pill s-medium score">66.7</span></td>
+  <td class="text-center"><span class="pill s-medium score">75</span></td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">2. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span></th><th>AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span></th><th title="Kural ihlali sayısı: yüksek / orta / düşük önem">Kural ihlali<span class="ihelp" title="Bilgi &lt; Düşük &lt; Orta &lt; Yüksek &lt; Kritik. Orta ve üzeri durumu “İyileştirilmeli” yapar.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">yüksek · orta · düşük</div></th>
+  <th class="text-center">İçerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Kaynak ve ÖP<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/ATI102">ATI102</a></td><td>Atatürk İlkeleri ve İnkılapları Tarihi II </td>
+  <td>2+0+0</td><td>2</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill st-pass score">81.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">80</span></td>
+  <td class="text-center"><span class="pill st-pass score">97.1</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İSG112">İSG112</a></td><td>İş Sağlığı ve Güvenliği II </td>
+  <td>2+0+0</td><td>2</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="text-center"><span class="text-slate-300" title="Henüz analiz edilmedi">—</span></td>
+  <td class="text-center"><span class="text-slate-300" title="Henüz analiz edilmedi">—</span></td>
+  <td class="text-center"><span class="pill st-fail score">0</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY102">İTY102</a></td><td>Medya ve İletişim </td>
+  <td>3+0+0</td><td>6</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill s-medium score">53.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">87.5</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY104">İTY104</a></td><td>Temel Tasarım </td>
+  <td>2+1+0</td><td>6</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill s-medium score">53.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY106">İTY106</a></td><td>Dijitalleşme ve Toplum </td>
+  <td>2+0+0</td><td>5</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td>
+  <td class="text-center"><span class="pill st-pass score">89.7</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY108">İTY108</a></td><td>İletişim Teknolojileri </td>
+  <td>2+0+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill st-pass score">85</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY112">İTY112</a></td><td>Yeni Medya Kuramları </td>
+  <td>2+0+0</td><td>5</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill st-pass score">85</span></td>
+  <td class="text-center"><span class="pill st-pass score">83.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">97.4</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/OBDE102">OBDE102</a></td><td>Bilimin Doğası ve Eleştirel Düşünce </td>
+  <td>2+0+0</td><td>2</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td>
+  <td class="text-center"><span class="pill s-medium score">76</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/TDI102">TDI102</a></td><td>Türk Dili II </td>
+  <td>2+0+0</td><td>2</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">4</span></td>
+  <td class="text-center"><span class="pill s-medium score">73.3</span></td>
+  <td class="text-center"><span class="text-xs text-slate-500" title="Model üç denemede geçerli yanıt vermedi">sonuç yok</span></td>
+  <td class="text-center"><span class="pill s-medium score">67.5</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/YDİ102">YDİ102</a></td><td>Yabancı Dil II </td>
+  <td>2+0+0</td><td>2</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill st-fail score">36.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">93.3</span></td>
+  <td class="text-center"><span class="pill s-medium score">70</span></td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">3. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span></th><th>AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span></th><th title="Kural ihlali sayısı: yüksek / orta / düşük önem">Kural ihlali<span class="ihelp" title="Bilgi &lt; Düşük &lt; Orta &lt; Yüksek &lt; Kritik. Orta ve üzeri durumu “İyileştirilmeli” yapar.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">yüksek · orta · düşük</div></th>
+  <th class="text-center">İçerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Kaynak ve ÖP<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY201">İTY201</a></td><td>Grafik Tasarımı </td>
+  <td>1+2+0</td><td>6</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">80</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY203">İTY203</a></td><td>Web Tasarımı </td>
+  <td>1+2+0</td><td>6</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill s-medium score">73.3</span></td>
+  <td class="text-center"><span class="pill s-medium score">73.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY205">İTY205</a></td><td>Örgütsel Davranış </td>
+  <td>3+0+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="text-xs text-slate-500" title="Model üç denemede geçerli yanıt vermedi">sonuç yok</span></td>
+  <td class="text-center"><span class="pill st-pass score">97.5</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY207">İTY207</a></td><td>Göstergebilim </td>
+  <td>2+0+0</td><td>3</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill st-pass score">93.3</span></td>
+  <td class="text-center"><span class="pill s-medium score">73.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/OYDİ201">OYDİ201</a></td><td>Akademik İngilizce I </td>
+  <td>2+0+0</td><td>3</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="text-center"><span class="pill st-pass score">80</span></td>
+  <td class="text-center"><span class="pill st-pass score">86.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">4. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span></th><th>AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span></th><th title="Kural ihlali sayısı: yüksek / orta / düşük önem">Kural ihlali<span class="ihelp" title="Bilgi &lt; Düşük &lt; Orta &lt; Yüksek &lt; Kritik. Orta ve üzeri durumu “İyileştirilmeli” yapar.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">yüksek · orta · düşük</div></th>
+  <th class="text-center">İçerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Kaynak ve ÖP<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY202">İTY202</a></td><td>Arayüz Tasarımı </td>
+  <td>2+1+0</td><td>6</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td>
+  <td class="text-center"><span class="pill s-medium score">68</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY206">İTY206</a></td><td>Reklamcılığa Giriş </td>
+  <td>2+1+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill s-medium score">53.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY210">İTY210</a></td><td>Araştırma Yöntemleri ve Etik </td>
+  <td>3+0+0</td><td>5</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td>
+  <td class="text-center"><span class="pill st-pass score">80.8</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY212">İTY212</a></td><td>Tipografi </td>
+  <td>2+1+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill st-pass score">85</span></td>
+  <td class="text-center"><span class="pill s-medium score">61.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/OYDİ202">OYDİ202</a></td><td>Akademik İngilizce II </td>
+  <td>2+0+0</td><td>3</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td>
+  <td class="text-center"><span class="text-xs text-slate-500" title="Model üç denemede geçerli yanıt vermedi">sonuç yok</span></td>
+  <td class="text-center"><span class="pill st-pass score">95.5</span></td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">5. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span></th><th>AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span></th><th title="Kural ihlali sayısı: yüksek / orta / düşük önem">Kural ihlali<span class="ihelp" title="Bilgi &lt; Düşük &lt; Orta &lt; Yüksek &lt; Kritik. Orta ve üzeri durumu “İyileştirilmeli” yapar.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">yüksek · orta · düşük</div></th>
+  <th class="text-center">İçerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Kaynak ve ÖP<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY303">İTY303</a></td><td>3 Boyutlu Animasyon Teknikleri I </td>
+  <td>1+2+0</td><td>5</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill st-pass score">85</span></td>
+  <td class="text-center"><span class="pill st-pass score">86.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY305">İTY305</a></td><td>Yaratıcı Yazarlık </td>
+  <td>2+0+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill s-medium score">58.3</span></td>
+  <td class="text-center"><span class="pill st-fail score">23.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY307">İTY307</a></td><td>Marka İletişimi </td>
+  <td>2+0+0</td><td>3</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill s-medium score">70</span></td>
+  <td class="text-center"><span class="pill s-medium score">53.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY311">İTY311</a></td><td>Liderlik Yöneticilik </td>
+  <td>2+0+0</td><td>3</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td>
+  <td class="text-center"><span class="pill st-pass score">97.5</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/OYDİ301">OYDİ301</a></td><td>Akademik İngilizce III </td>
+  <td>2+0+0</td><td>3</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td>
+  <td class="text-center"><span class="pill st-pass score">80</span></td>
+  <td class="text-center"><span class="pill st-pass score">86.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">92.5</span></td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">6. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span></th><th>AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span></th><th title="Kural ihlali sayısı: yüksek / orta / düşük önem">Kural ihlali<span class="ihelp" title="Bilgi &lt; Düşük &lt; Orta &lt; Yüksek &lt; Kritik. Orta ve üzeri durumu “İyileştirilmeli” yapar.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">yüksek · orta · düşük</div></th>
+  <th class="text-center">İçerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Kaynak ve ÖP<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY302">İTY302</a></td><td>Video Kurgu </td>
+  <td>1+2+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill s-medium score">73.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">93.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY304">İTY304</a></td><td>3 Boyutlu Animasyon Teknikleri II </td>
+  <td>1+2+0</td><td>5</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill s-medium score">53.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY306">İTY306</a></td><td>İletişim Etiği </td>
+  <td>2+0+0</td><td>3</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill st-pass score">85</span></td>
+  <td class="text-center"><span class="pill s-medium score">68</span></td>
+  <td class="text-center"><span class="pill st-pass score">92.5</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY310">İTY310</a></td><td>İstatistik </td>
+  <td>2+0+0</td><td>3</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill st-pass score">85</span></td>
+  <td class="text-center"><span class="pill s-medium score">77.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">96.5</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/OYDİ302">OYDİ302</a></td><td>Akademik İngilizce IV </td>
+  <td>2+0+0</td><td>3</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="text-xs text-slate-500" title="Model üç denemede geçerli yanıt vermedi">sonuç yok</span></td>
+  <td class="text-center"><span class="text-xs text-slate-500" title="Model üç denemede geçerli yanıt vermedi">sonuç yok</span></td>
+  <td class="text-center"><span class="pill st-pass score">94.5</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/STJ300">STJ300</a></td><td>Staj <span class="pill s-info">internship</span></td>
+  <td>0+0+0</td><td>8</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td>
+  <td class="text-center"><span class="pill s-medium score">65</span></td>
+  <td class="text-center"><span class="pill st-pass score">86.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">7. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span></th><th>AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span></th><th title="Kural ihlali sayısı: yüksek / orta / düşük önem">Kural ihlali<span class="ihelp" title="Bilgi &lt; Düşük &lt; Orta &lt; Yüksek &lt; Kritik. Orta ve üzeri durumu “İyileştirilmeli” yapar.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">yüksek · orta · düşük</div></th>
+  <th class="text-center">İçerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Kaynak ve ÖP<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY401">İTY401</a></td><td>İletişim Hukuku </td>
+  <td>2+0+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill st-pass score">85</span></td>
+  <td class="text-center"><span class="pill s-medium score">53.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">97.5</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY403">İTY403</a></td><td>Bitirme Projesi Planlama ve Geliştirme <span class="pill s-info">graduation_project</span></td>
+  <td>2+2+0</td><td>7</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td>
+  <td class="text-center"><span class="pill s-medium score">73.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY405">İTY405</a></td><td>Reklam Tasarım ve Uygulamaları </td>
+  <td>2+2+0</td><td>4</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill s-medium score">70</span></td>
+  <td class="text-center"><span class="pill st-pass score">93.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr>
+ </tbody></table>
+ 
+ <h4 class="mt-4 mb-1 text-sm font-semibold text-slate-600">8. yarıyıl</h4>
+ <table class="tbl w-full text-sm"><thead><tr><th class="w-24">Kod</th><th>Ders</th><th>T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span></th><th>AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span></th><th title="Kural ihlali sayısı: yüksek / orta / düşük önem">Kural ihlali<span class="ihelp" title="Bilgi &lt; Düşük &lt; Orta &lt; Yüksek &lt; Kritik. Orta ve üzeri durumu “İyileştirilmeli” yapar.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">yüksek · orta · düşük</div></th>
+  <th class="text-center">İçerik uyumu<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Öğrenme çıktıları<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th>
+  <th class="text-center">Kaynak ve ÖP<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span><div class="font-normal normal-case text-[10px] text-slate-400">YZ puanı</div></th></tr></thead><tbody>
+ <tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY404">İTY404</a></td><td>Bitirme Projesi Yürütme <span class="pill s-info">graduation_project</span></td>
+  <td>2+2+0</td><td>7</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td>
+  <td class="text-center"><span class="pill st-pass score">93.3</span></td>
+  <td class="text-center"><span class="pill s-medium score">73.3</span></td>
+  <td class="text-center"><span class="pill st-pass score">100</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY408">İTY408</a></td><td>Masaüstü Yayıncılığı </td>
+  <td>2+1+0</td><td>5</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill st-fail score">13.3</span></td>
+  <td class="text-center"><span class="pill st-fail score">26.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">85</span></td></tr><tr>
+  <td><a class="lnk font-medium" href="/mufredat-analiz/course/iletisim/İTY410">İTY410</a></td><td>Portfolyo Tasarımı ve Sunu Teknikleri </td>
+  <td>2+1+0</td><td>3</td>
+  <td class="whitespace-nowrap"><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td>
+  <td class="text-center"><span class="pill s-medium score">76.7</span></td>
+  <td class="text-center"><span class="pill s-medium score">66.7</span></td>
+  <td class="text-center"><span class="pill st-pass score">97.5</span></td></tr>
+ </tbody></table>
+ 
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">3. yarıyıl seçmeli havuzu: İTYSEÇ003 — İletişim Tasarımı ve Yönetimi3.Yarıyıl Seçmeli Ders Havuzu (8 AKTS, 2 ders seçilir, 8 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY251">İTY251</a></td><td>Dijital Kültür</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY253">İTY253</a></td><td>Uluslararası Örgütler ve İletişim</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY255">İTY255</a></td><td>Örgütsel Değişim Yönetimi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY257">İTY257</a></td><td>Medya Okuryazarlığı</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY259">İTY259</a></td><td>Etkili İletişim ve Beden Dili</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY261">İTY261</a></td><td>İletişim Sosyolojisi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY263">İTY263</a></td><td>Sinema ve Edebiyat</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY265">İTY265</a></td><td>Üretken Yapay Zeka</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">3. yarıyıl seçmeli havuzu: OSD201 — ORTAK SEÇMELİ DERS HAVUZU (0 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD101">OSD101</a></td><td>Finansal Okuryazarlık</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD102">OSD102</a></td><td>Uygarlık Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD103">OSD103</a></td><td>Kozmolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD104">OSD104</a></td><td>Kent Kültürü</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD105">OSD105</a></td><td>Demokrasi Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD106">OSD106</a></td><td>Kültürel Çalışmalar</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD107">OSD107</a></td><td>Düşünce Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD108">OSD108</a></td><td>İslam Bilim Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD109">OSD109</a></td><td>İslam Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD110">OSD110</a></td><td>Sanat Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD111">OSD111</a></td><td>Yapay Zeka</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD112">OSD112</a></td><td>Sağlıklı Yaşam, Beslenme ve Spor</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD113">OSD113</a></td><td>Değerler Eğitimi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">3</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD114">OSD114</a></td><td>Ahlak Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD115">OSD115</a></td><td>Sanat Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD116">OSD116</a></td><td>Gönüllülük Dersi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">4</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD117">OSD117</a></td><td>Kariyer Planlama</td><td>2 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD118">OSD118</a></td><td>İş Sağlığı ve Güvenliği I</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD119">OSD119</a></td><td>İş Sağlığı Ve Güvenliği II</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD120">OSD120</a></td><td>Küreselleşme</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD121">OSD121</a></td><td>Arkeolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD122">OSD122</a></td><td>İnovasyon</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD123">OSD123</a></td><td>Toplumsal Duyarlılık Projeleri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD124">OSD124</a></td><td>Hukuk ve Etik</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD125">OSD125</a></td><td>Psikososyal Yaşam Becerileri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">4. yarıyıl seçmeli havuzu: İTYSEÇ004 — İletişim ve Tasarım 4.Yarıyıl Seçmeli Ders Havuzu (8 AKTS, 2 ders seçilir, 7 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY252">İTY252</a></td><td>Medya ve İnsan Hakları</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY256">İTY256</a></td><td>Haber Toplama</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY258">İTY258</a></td><td>Röportaj Teknikleri</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY260">İTY260</a></td><td>Diksiyon</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY262">İTY262</a></td><td>Medya, Teknoloji ve Aile</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">5</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY264">İTY264</a></td><td>Kurumsal İletişim</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY266">İTY266</a></td><td>Pazarlama İletişimi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">4. yarıyıl seçmeli havuzu: OSD202 — ORTAK SEÇMELİ DERS HAVUZU (0 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD101">OSD101</a></td><td>Finansal Okuryazarlık</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD102">OSD102</a></td><td>Uygarlık Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD103">OSD103</a></td><td>Kozmolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD104">OSD104</a></td><td>Kent Kültürü</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD105">OSD105</a></td><td>Demokrasi Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD106">OSD106</a></td><td>Kültürel Çalışmalar</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD107">OSD107</a></td><td>Düşünce Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD108">OSD108</a></td><td>İslam Bilim Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD109">OSD109</a></td><td>İslam Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD110">OSD110</a></td><td>Sanat Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD111">OSD111</a></td><td>Yapay Zeka</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD112">OSD112</a></td><td>Sağlıklı Yaşam, Beslenme ve Spor</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD113">OSD113</a></td><td>Değerler Eğitimi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">3</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD114">OSD114</a></td><td>Ahlak Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD115">OSD115</a></td><td>Sanat Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD116">OSD116</a></td><td>Gönüllülük Dersi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">4</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD117">OSD117</a></td><td>Kariyer Planlama</td><td>2 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD118">OSD118</a></td><td>İş Sağlığı ve Güvenliği I</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD119">OSD119</a></td><td>İş Sağlığı Ve Güvenliği II</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD120">OSD120</a></td><td>Küreselleşme</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD121">OSD121</a></td><td>Arkeolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD122">OSD122</a></td><td>İnovasyon</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD123">OSD123</a></td><td>Toplumsal Duyarlılık Projeleri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD124">OSD124</a></td><td>Hukuk ve Etik</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD125">OSD125</a></td><td>Psikososyal Yaşam Becerileri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">5. yarıyıl seçmeli havuzu: FORMASYON — FORMASYON 1.DÖNEM DERSLERİ (4 AKTS, 1 ders seçilir, 3 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD101">PFD101</a></td><td>Eğitime Gİriş</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD103">PFD103</a></td><td>Öğretim İlke ve Yöntemleri</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD105">PFD105</a></td><td>Sınıf Yönetimi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">5. yarıyıl seçmeli havuzu: İTYSEÇA001 — Alan Dışı Seçmeli-I (4 AKTS, 1 ders seçilir, 7 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY380">İTY380</a></td><td>Drama</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY382">İTY382</a></td><td>Sivil Toplum ve Demokrasi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY384">İTY384</a></td><td>Afet ve Kriz Yönetimi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY386">İTY386</a></td><td>Mitoloji</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY388">İTY388</a></td><td>İspanyolca</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY390">İTY390</a></td><td>Gönüllülük Çalışmaları</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY392">İTY392</a></td><td>Kariyer Planlama</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">5. yarıyıl seçmeli havuzu: İTYSEÇ005 — İletişim Tasarımı ve Yönetimi5.Yarıyıl Seçmeli Ders Havuzu (12 AKTS, 3 ders seçilir, 8 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY351">İTY351</a></td><td>Radyo ve Televizyon Haberciliği</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY353">İTY353</a></td><td>Sanat Tarihi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY355">İTY355</a></td><td>Medya ve Edebiyat</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY357">İTY357</a></td><td>E-Ticaret</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY359">İTY359</a></td><td>Yönetimde Yeni Eğilimler</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY361">İTY361</a></td><td>Türkiye&#39;nin Sosyal Sorunları</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY363">İTY363</a></td><td>Sinematografi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY365">İTY365</a></td><td>Nitel Araştırma Yöntemleri</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">5. yarıyıl seçmeli havuzu: OSD301 — ORTAK SEÇMELİ DERS HAVUZU (0 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD101">OSD101</a></td><td>Finansal Okuryazarlık</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD102">OSD102</a></td><td>Uygarlık Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD103">OSD103</a></td><td>Kozmolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD104">OSD104</a></td><td>Kent Kültürü</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD105">OSD105</a></td><td>Demokrasi Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD106">OSD106</a></td><td>Kültürel Çalışmalar</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD107">OSD107</a></td><td>Düşünce Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD108">OSD108</a></td><td>İslam Bilim Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD109">OSD109</a></td><td>İslam Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD110">OSD110</a></td><td>Sanat Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD111">OSD111</a></td><td>Yapay Zeka</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD112">OSD112</a></td><td>Sağlıklı Yaşam, Beslenme ve Spor</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD113">OSD113</a></td><td>Değerler Eğitimi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">3</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD114">OSD114</a></td><td>Ahlak Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD115">OSD115</a></td><td>Sanat Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD116">OSD116</a></td><td>Gönüllülük Dersi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">4</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD117">OSD117</a></td><td>Kariyer Planlama</td><td>2 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD118">OSD118</a></td><td>İş Sağlığı ve Güvenliği I</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD119">OSD119</a></td><td>İş Sağlığı Ve Güvenliği II</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD120">OSD120</a></td><td>Küreselleşme</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD121">OSD121</a></td><td>Arkeolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD122">OSD122</a></td><td>İnovasyon</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD123">OSD123</a></td><td>Toplumsal Duyarlılık Projeleri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD124">OSD124</a></td><td>Hukuk ve Etik</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD125">OSD125</a></td><td>Psikososyal Yaşam Becerileri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">6. yarıyıl seçmeli havuzu: FORMASYON 2. DÖNEM — FORMASYON 2.DÖNEM DERSLERİ (4 AKTS, 1 ders seçilir, 3 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD102">PFD102</a></td><td>Eğitim Psikolojisi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD104">PFD104</a></td><td>Özel Öğretim Yöntemleri</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">1</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD106">PFD106</a></td><td>Öğretim Teknolojileri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">6. yarıyıl seçmeli havuzu: İTYSEÇA002 — Alan Dışı Seçmeli-II (4 AKTS, 1 ders seçilir, 0 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">6. yarıyıl seçmeli havuzu: İTYSEÇ006 — İletişim Tasarımı ve Yönetimi 6.Yarıyıl Seçmeli Ders Havuzu (8 AKTS, 2 ders seçilir, 7 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY352">İTY352</a></td><td>Fotoğrafçılık</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY354">İTY354</a></td><td>Tasarım Tarihi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY356">İTY356</a></td><td>Medya ve Siyaset</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY358">İTY358</a></td><td>Tasarım Araştırmaları ve Görselleştirme</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY360">İTY360</a></td><td>Çağdaş Toplumsal Hareketler</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY362">İTY362</a></td><td>Bilim İletişimi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY364">İTY364</a></td><td>Senaryo Yazımı</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">6. yarıyıl seçmeli havuzu: OSD302 — ORTAK SEÇMELİ DERS HAVUZU (0 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD101">OSD101</a></td><td>Finansal Okuryazarlık</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD102">OSD102</a></td><td>Uygarlık Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD103">OSD103</a></td><td>Kozmolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD104">OSD104</a></td><td>Kent Kültürü</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD105">OSD105</a></td><td>Demokrasi Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD106">OSD106</a></td><td>Kültürel Çalışmalar</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD107">OSD107</a></td><td>Düşünce Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD108">OSD108</a></td><td>İslam Bilim Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD109">OSD109</a></td><td>İslam Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD110">OSD110</a></td><td>Sanat Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD111">OSD111</a></td><td>Yapay Zeka</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD112">OSD112</a></td><td>Sağlıklı Yaşam, Beslenme ve Spor</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD113">OSD113</a></td><td>Değerler Eğitimi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">3</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD114">OSD114</a></td><td>Ahlak Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD115">OSD115</a></td><td>Sanat Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD116">OSD116</a></td><td>Gönüllülük Dersi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">4</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD117">OSD117</a></td><td>Kariyer Planlama</td><td>2 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD118">OSD118</a></td><td>İş Sağlığı ve Güvenliği I</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD119">OSD119</a></td><td>İş Sağlığı Ve Güvenliği II</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD120">OSD120</a></td><td>Küreselleşme</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD121">OSD121</a></td><td>Arkeolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD122">OSD122</a></td><td>İnovasyon</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD123">OSD123</a></td><td>Toplumsal Duyarlılık Projeleri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD124">OSD124</a></td><td>Hukuk ve Etik</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD125">OSD125</a></td><td>Psikososyal Yaşam Becerileri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">7. yarıyıl seçmeli havuzu: FORMASYON 3.DÖNEM — FORMASYON 3.DÖNEM DERSLERİ (4 AKTS, 1 ders seçilir, 2 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD201">PFD201</a></td><td>Eğitimde Ölçme ve Değerlendirme</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD203">PFD203</a></td><td>Rehberlik ve Özel Eğitim</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">1</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">7. yarıyıl seçmeli havuzu: İTYSEÇ007 — İletişim Tasarımı ve Yönetimi 7.Yarıyıl Seçmeli Ders Havuzu (15 AKTS, 3 ders seçilir, 9 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY451">İTY451</a></td><td>Kısa Film Uygulamaları</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY453">İTY453</a></td><td>Görsel Sanat</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY455">İTY455</a></td><td>Sunuculuk ve Spikerlik</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY457">İTY457</a></td><td>Stratejik Pazarlama Yönetimi</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY459">İTY459</a></td><td>Medya ve Tüketim Toplumu</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY463">İTY463</a></td><td>Ambalaj Tasarımı</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY467">İTY467</a></td><td>İşletmede Mesleki Eğitim</td><td>15 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY469">İTY469</a></td><td>Medya Analizi</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY471">İTY471</a></td><td>Fikri Haklar</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">7. yarıyıl seçmeli havuzu: OSD401 — ORTAK SEÇMELİ DERS HAVUZU (0 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD101">OSD101</a></td><td>Finansal Okuryazarlık</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD102">OSD102</a></td><td>Uygarlık Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD103">OSD103</a></td><td>Kozmolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD104">OSD104</a></td><td>Kent Kültürü</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD105">OSD105</a></td><td>Demokrasi Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD106">OSD106</a></td><td>Kültürel Çalışmalar</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD107">OSD107</a></td><td>Düşünce Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD108">OSD108</a></td><td>İslam Bilim Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD109">OSD109</a></td><td>İslam Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD110">OSD110</a></td><td>Sanat Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD111">OSD111</a></td><td>Yapay Zeka</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD112">OSD112</a></td><td>Sağlıklı Yaşam, Beslenme ve Spor</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD113">OSD113</a></td><td>Değerler Eğitimi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">3</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD114">OSD114</a></td><td>Ahlak Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD115">OSD115</a></td><td>Sanat Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD116">OSD116</a></td><td>Gönüllülük Dersi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">4</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD117">OSD117</a></td><td>Kariyer Planlama</td><td>2 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD118">OSD118</a></td><td>İş Sağlığı ve Güvenliği I</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD119">OSD119</a></td><td>İş Sağlığı Ve Güvenliği II</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD120">OSD120</a></td><td>Küreselleşme</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD121">OSD121</a></td><td>Arkeolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD122">OSD122</a></td><td>İnovasyon</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD123">OSD123</a></td><td>Toplumsal Duyarlılık Projeleri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD124">OSD124</a></td><td>Hukuk ve Etik</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD125">OSD125</a></td><td>Psikososyal Yaşam Becerileri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">8. yarıyıl seçmeli havuzu: FORMASYON 4.DÖNEM — FORMASYON 4.DÖNEM DERSİ (10 AKTS, 1 ders seçilir, 1 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD202">PFD202</a></td><td>Öğretmenlik Uygulaması</td><td>10 AKTS</td>
+ <td><span class="pill s-high mr-1">5</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">8. yarıyıl seçmeli havuzu: İTYSEÇ008 — İletişim Tasarımı ve Yönetimi 8.Yarıyıl Seçmeli Ders Havuzu (15 AKTS, 3 ders seçilir, 9 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY452">İTY452</a></td><td>Film Eleştirisi</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY454">İTY454</a></td><td>Dergi Tasarımı ve Üretimi</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY458">İTY458</a></td><td>Biyomimikri</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY460">İTY460</a></td><td>Sanat ve Estetik</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY462">İTY462</a></td><td>Sosyal Medya Yönetimi</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY464">İTY464</a></td><td>Avrupa Birliği ve Medya Politikaları</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY466">İTY466</a></td><td>Sosyal İnovasyon ve Sürdürülebilirlik</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY468">İTY468</a></td><td>Uluslararası İletişim</td><td>5 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY472">İTY472</a></td><td>İşletmede Mesleki Eğitim</td><td>15 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr></tbody></table></details>
+ 
+ <details class="mt-4"><summary class="cursor-pointer text-sm font-semibold text-slate-600">8. yarıyıl seçmeli havuzu: OSD402 — ORTAK SEÇMELİ DERS HAVUZU (0 AKTS, 1 ders seçilir, 25 ders)</summary>
+ <table class="tbl w-full text-sm mt-2"><tbody><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD101">OSD101</a></td><td>Finansal Okuryazarlık</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD102">OSD102</a></td><td>Uygarlık Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD103">OSD103</a></td><td>Kozmolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD104">OSD104</a></td><td>Kent Kültürü</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD105">OSD105</a></td><td>Demokrasi Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD106">OSD106</a></td><td>Kültürel Çalışmalar</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD107">OSD107</a></td><td>Düşünce Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD108">OSD108</a></td><td>İslam Bilim Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD109">OSD109</a></td><td>İslam Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD110">OSD110</a></td><td>Sanat Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD111">OSD111</a></td><td>Yapay Zeka</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD112">OSD112</a></td><td>Sağlıklı Yaşam, Beslenme ve Spor</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">2</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD113">OSD113</a></td><td>Değerler Eğitimi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">3</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD114">OSD114</a></td><td>Ahlak Felsefesi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD115">OSD115</a></td><td>Sanat Tarihi</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD116">OSD116</a></td><td>Gönüllülük Dersi</td><td>4 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">4</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD117">OSD117</a></td><td>Kariyer Planlama</td><td>2 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD118">OSD118</a></td><td>İş Sağlığı ve Güvenliği I</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD119">OSD119</a></td><td>İş Sağlığı Ve Güvenliği II</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD120">OSD120</a></td><td>Küreselleşme</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">0</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD121">OSD121</a></td><td>Arkeolojiye Giriş</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD122">OSD122</a></td><td>İnovasyon</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">2</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">4</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD123">OSD123</a></td><td>Toplumsal Duyarlılık Projeleri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">1</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD124">OSD124</a></td><td>Hukuk ve Etik</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">1</span><span class="pill s-medium mr-1">2</span><span class="pill s-low mr-1">3</span></td></tr><tr><td class="w-24"><a class="lnk" href="/mufredat-analiz/course/iletisim/OSD125">OSD125</a></td><td>Psikososyal Yaşam Becerileri</td><td>3 AKTS</td>
+ <td><span class="pill s-high mr-1">0</span><span class="pill s-medium mr-1">0</span><span class="pill s-low mr-1">0</span></td></tr></tbody></table></details>
+ 
+</div>
+
+ </main>
+</div>
+</body>
+</html>

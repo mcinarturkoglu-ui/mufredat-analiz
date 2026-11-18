@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 8. yarıyıl</div>
+ <h1 class="text-2xl font-bold">İTY408 · Masaüstü Yayıncılığı</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+1+0 · Kredi 3 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 5 (müfredatta 5) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377470&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377470&amp;lang=en</a> · toplandı 18.11.2026 18:24</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="YZ (E): 1. öğrenme çıktısının ÖP3 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 1. öğrenme çıktısının ÖP7 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 1. öğrenme çıktısının ÖP10 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 2. öğrenme çıktısının ÖP3 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 2. öğrenme çıktısının ÖP7 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 2. öğrenme çıktısının ÖP10 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 3. öğrenme çıktısının ÖP3 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 3. öğrenme çıktısının ÖP7 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 3. öğrenme çıktısının ÖP10 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 4. öğrenme çıktısının ÖP3 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 4. öğrenme çıktısının ÖP7 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 4. öğrenme çıktısının ÖP10 çıktısına verilen katkısı içerikle desteklenmiyor." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#modul-a" title="YZ (A): Ders adı ile haftalık konular arasında anlamlı bir örtüşme bulunmamaktadır.&amp;#10;YZ (A): Dersin amacı olan basım süreçleri, haftalık konularda işlenmemektedir.&amp;#10;YZ (A): Ders adı, işlenen konulara göre gereğinden geniş görünmektedir.&amp;#10;YZ (A): Konuların içeriği (pazarlama) ile dersin teknik odak noktası (basım) arasında bir seviye uyumsuzluğu bulunmaktadır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="YZ (A): Haftalık konuların tamamı, dersin temel amacı olan basım teknikleri ve süreçleri kapsamı dışındadır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktıları, haftalık konuların içeriğiyle tutarlı değildir.&amp;#10;YZ (C): 4. öğrenme çıktısı ölçülebilir değil (&#39;bilgi ve kavrayış yeterliliğini gösteren geri bildirimlerde bulunabilme&#39;).&amp;#10;YZ (C): 2. öğrenme çıktısı ölçülebilir değil (&#39;kavrama&#39;).&amp;#10;YZ (C): 2. öğrenme çıktısının işlendiği bir hafta belirlenemedi.&amp;#10;YZ (C): 3. öğrenme çıktısı ölçülebilir değil (&#39;hâkim olma&#39;).&amp;#10;YZ (C): 3. öğrenme çıktısının işlendiği bir hafta belirlenemedi.&amp;#10;YZ (C): 4. öğrenme çıktısının işlendiği bir hafta belirlenemedi." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 38</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">13.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #303 · 18.11 22:53 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">26.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #304 · 18.11 22:53 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">85<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #305 · 18.11 22:55 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (3)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/1 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacı ve içeriği teknik basım süreçlerine odaklanırken, haftalık konuların pazarlama konuları olması, dersin teknik derinliği ile konuların içeriği arasında bir uyumsuzluk olduğunu göstermektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">0/3 </td><td>Ders adı &#39;Masaüstü Yayıncılığı&#39; basım süreçlerini işaret ederken, haftalık konuların tamamı pazarlama konuları olduğu için ders adı, işlenen konulara göre gereğinden geniş (veya uyumsuz) görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">0/3 </td><td>Haftalık konuların tamamı (Hafta 1&#39;den 14&#39;e kadar) pazarlama konularıdır ve dersin amacı (basım teknikleri, baskı aşamaları) ile kapsam dışı konular içermektedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">0/3 </td><td>Ders adı (&#39;Masaüstü Yayıncılığı&#39;) ile ders içeriği (&#39;Tipo, ofset, tifdruk, flekso, serigrafi gibi günümüz baskı tekniklerinin tanıtımı. Baskı öncesi, baskı ve baskı sonrası basım aşamaları. Kâğıt, kâğıtta fire, renk ayrımı, montaj, laminasyon, kesim ve ciltleme işlemleri.&#39;) arasında bir uyum varken, haftalık konuların tamamı (Pazarlama Karması Gelişimi, Ürün-Mal ve Hizmetler vb.) baskı teknikleri ve basım süreçleri ile doğrudan örtüşmemektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">0/3 </td><td>Dersin amacı basım yöntemlerini, baskı aşamalarını ve matbaadaki uygulamaları öğretmeyi hedeflerken, haftalık konuların büyük çoğunluğu (Hafta 1&#39;den 14&#39;e kadar) pazarlama konularına odaklanmıştır ve dersin temel amacı olan basım süreçleri ile doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">1/3 </td><td>Öğrenme çıktıları (cikti:1, cikti:2, cikti:3, cikti:4) baskı süreçleri ve teknolojik yeterliliklere odaklanmış olsa da, bu çıktıların haftalık konular (Pazarlama Karması, Fiyatlama vb.) ile doğrudan bir bağlantısı kurulamamaktadır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-high">yüksek</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı ile haftalık konular arasında anlamlı bir örtüşme bulunmamaktadır.</div><div class="text-xs text-slate-500 mt-1">Dersin amacı basım tekniklerini öğretmeyi hedeflerken, haftalık konular pazarlama konularıdır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Masaüstü Yayıncılığı”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “Pazarlama Karması Gelişimi”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konuların, dersin amacı ve içeriği olan basım teknikleri ve basım aşamaları ile yeniden düzenlenmesi gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-high">yüksek</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amacı olan basım süreçleri, haftalık konularda işlenmemektedir.</div><div class="text-xs text-slate-500 mt-1">Dersin amacı basım tekniklerini öğretmek iken, haftalık konular pazarlama konularıdır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Dersin amacı, teknolojinin gelişim sürecinde değişim gösteren basım yöntemlerini öğretmek, günümüz baskı tekniklerinin tanıtımında bulunmak, baskı öncesi, baskı ve baskı sonrası basım aşamalarını açıklamak ve matbaalardaki uygulamaların yerinde izlenmesidir.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:2</code> “Ürün-Mal ve Hizmetler”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konuların, dersin amacına uygun olarak basım teknolojileri, baskı öncesi/sonrası süreçleri gibi konularla değiştirilmesi gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, haftalık konuların içeriğiyle tutarlı değildir.</div><div class="text-xs text-slate-500 mt-1">Öğrenme çıktıları baskı süreçlerine odaklanmışken, haftalık konular pazarlama konularıdır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Tasarımın baskı öncesi tüm hazırlıklarını yapabilme, tasarıma teknolojik kriterler doğrultusunda yön verebilme.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:5</code> “Marka ve Marka Stratejileri”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktıları ile haftalık konular arasında bir köprü kurulması veya haftalık konuların basım süreçlerine göre yeniden yapılandırılması gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-high">yüksek</span> <b>Kapsam dışı konu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Haftalık konuların tamamı, dersin temel amacı olan basım teknikleri ve süreçleri kapsamı dışındadır.</div><div class="text-xs text-slate-500 mt-1">Dersin amacı basım tekniklerini öğretmek iken, haftalık konular pazarlama konularıdır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Dersin amacı, teknolojinin gelişim sürecinde değişim gösteren basım yöntemlerini öğretmek, günümüz baskı tekniklerinin tanıtımında bulunmak, baskı öncesi, baskı ve baskı sonrası basım aşamalarını açıklamak ve matbaalardaki uygulamaların yerinde izlenmesidir.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:14</code> “Pazarlama Etiği ve Pazarlama İle İlgili Yeni Gelişmeler”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Haftalık konuların, dersin amacına uygun olarak basım süreçleri üzerine odaklanması gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ders adı fazla geniş</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı, işlenen konulara göre gereğinden geniş görünmektedir.</div><div class="text-xs text-slate-500 mt-1">Ders adı &#39;Masaüstü Yayıncılığı&#39; basım süreçlerini işaret ederken, haftalık konuların tamamı pazarlama konularıdır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Masaüstü Yayıncılığı”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “Pazarlama Karması Gelişimi”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Eğer pazarlama konuları işlenmeye devam edecekse, ders adının &#39;Masaüstü Yayıncılığı ve Pazarlama İlişkileri&#39; gibi daha kapsayıcı bir hale getirilmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Konuların içeriği (pazarlama) ile dersin teknik odak noktası (basım) arasında bir seviye uyumsuzluğu bulunmaktadır.</div><div class="text-xs text-slate-500 mt-1">Dersin amacı teknik basım süreçlerini öğretmek iken, haftalık konuların pazarlama konuları olması, teknik derinlik beklentisi ile konuların içeriği arasında bir uyumsuzluk olduğunu göstermektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Tipo, ofset, tifdruk, flekso, serigrafi gibi günümüz baskı tekniklerinin tanıtımı.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:10</code> “Fiyat-Fiyatlandırma”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin seviyesi ve amacı göz önüne alınarak, haftalık konuların teknik basım süreçleri ile uyumlu hale getirilmesi gerekmektedir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %25 · haftalarda karşılığı olan: %25 · amaç uyumu 1/3 — Dersin amacı basım tekniklerini ve süreçlerini öğretmek iken, çıktılar büyük ölçüde pazarlama konularına odaklanmıştır (Hafta 1-14). Bu nedenle tam uyum sağlanamamıştır.<br>
+  Bloom dağılımı: anlama 3, uygulama 1</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Tasarımın baskı öncesi tüm hazırlıklarını yapabilme, tasarıma teknolojik kriterler doğrultusunda yön verebilme.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>2</td><td>Baskı için gerekli malzeme ve bilgi yönetimini kavrama.<div class="text-xs text-amber-700">belirsiz: kavrama</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>—</td>
+ <td class="text-blue-800">Baskı için gerekli malzeme ve bilgi yönetimini açıklayabilme.</td></tr>
+ <tr><td>3</td><td>Teknolojik verilere hâkim olma.<div class="text-xs text-amber-700">belirsiz: hâkim olma</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>—</td>
+ <td class="text-blue-800">Teknolojik verileri listeleyebilme.</td></tr>
+ <tr><td>4</td><td>Baskı tekniğinin zorunlu kıldığı iletişim kanalları hakkında bilgi ve kavrayış yeterliliğini gösteren geri bildirimlerde bulunabilme.<div class="text-xs text-amber-700">belirsiz: bilgi ve kavrayış yeterliliğini gösteren geri bildirimlerde bulunabilme</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>—</td>
+ <td class="text-blue-800">Belirli bir baskı tekniğinin zorunlu kıldığı iletişim kanallarını tanımlayabilme.</td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Kağıt Baskı Üzerinde Yaratıcı Uygulama Teknikleri, Basım Teknolojisi. (Dr. G. Gülnuz Gültekin, Gazi Üni.).<div class="text-xs text-slate-500">Kaynak, &#39;Basım Teknolojisi&#39; ve &#39;Uygulama Teknikleri&#39; konularını içererek dersin içeriğiyle doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 70</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı teknikleri ve uygulamaları hakkında bilgi vererek etik kurallara dolaylı katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, teknolojik uygulamaları ele alarak araştırma ve proje geliştirme becerisine katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 4</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, doğrudan iletişim becerileri yerine teknik konulara odaklanmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı süreçlerini anlatarak sektör deneyimi ile akademik bilgiyi ilişkilendirmeye yardımcı olmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, güncel baskı teknolojilerini tanıttığı için teknolojik gelişmeleri takip etme becerisine katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı tekniklerinin temel ilke ve kuramlarını tanıtmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 4</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, portfolyo oluşturma becerisine doğrudan katkı sağlamamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, teknik uygulamaları ele alarak eleştirel inceleme yetkinliğine zemin hazırlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, &#39;Yaratıcı Uygulama Teknikleri&#39; başlığı ile görsel ifade oluşturma becerisine dolaylı katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP1 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı süreçlerindeki malzeme ve teknik gereklilikleri ele alarak etik standartlara dolaylı katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı süreçlerinin teknik detaylarını içerdiği için araştırma ve proje geliştirme becerisine katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP3 = 3</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, malzeme yönetimi yerine teknik süreçlere odaklanmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı tekniklerinin gerektirdiği materyal bilgisi ile sektör deneyimini ilişkilendirmeye yardımcı olmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, güncel baskı tekniklerini tanıttığı için teknolojik gelişmeleri takip etme becerisine katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, farklı baskı tekniklerinin (Tipo, ofset vb.) temel kuramlarını tanıtmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP7 = 4</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, portfolyo oluşturma becerisine doğrudan katkı sağlamamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı süreçlerinin teknik detaylarını sunduğu için eleştirel inceleme yetkinliğine zemin hazırlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP9 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, kâğıt ve baskı teknikleri ile görsel çıktı arasındaki ilişkiyi kurarak grafiksel ifadeye dolaylı katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP1 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı süreçlerinin teknik yönlerini ele alarak etik standartlara dolaylı katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı teknolojisi hakkında bilgi sunarak araştırma ve proje geliştirme becerisine katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP3 = 3</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, doğrudan iletişim becerileri yerine teknik konulara odaklanmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı tekniklerinin gerektirdiği bilgi birikimi ile sektör deneyimini ilişkilendirmeye yardımcı olmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, güncel baskı teknolojilerini tanıttığı için teknolojik gelişmeleri takip etme becerisine katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı tekniklerinin temel ilke ve kuramlarını tanıtmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP7 = 4</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, portfolyo oluşturma becerisine doğrudan katkı sağlamamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı süreçlerinin teknik detaylarını sunduğu için eleştirel inceleme yetkinliğine zemin hazırlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP9 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı teknikleri ve kâğıt bilgisi ile görsel çıktı arasındaki ilişkiyi kurarak grafiksel ifadeye dolaylı katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı tekniklerinin gerektirdiği bilgi birikimi ile etik kurallar arasındaki ilişkiyi dolaylı olarak kurmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı süreçlerinin teknik detayları ile bilgi yönetimi arasındaki bağlantıyı kurarak araştırma becerisine katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP3 = 5</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, doğrudan iletişim becerileri yerine teknik konulara odaklanmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı tekniklerinin gerektirdiği bilgi ve materyal bilgisi ile sektör deneyimini ilişkilendirmeye yardımcı olmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, güncel baskı teknolojilerini tanıttığı için teknolojik gelişmeleri takip etme becerisine katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı tekniklerinin temel ilke ve kuramlarını tanıtmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP7 = 4</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, portfolyo oluşturma becerisine doğrudan katkı sağlamamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı süreçlerinin teknik detayları ile bilgi yönetimi arasındaki bağlantıyı eleştirel olarak inceleme fırsatı sunmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP9 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynak, baskı teknikleri ve kâğıt bilgisi ile görsel çıktı arasındaki ilişkiyi kurarak grafiksel ifadeye dolaylı katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 4</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, takım çalışması veya liderlik becerileri ile ilgili bir içerik barındırmamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP10 = 4</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, takım çalışması veya liderlik becerileri ile ilgili bir içerik barındırmamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP10 = 5</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, takım çalışması veya liderlik becerileri ile ilgili bir içerik barındırmamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP10 = 4</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Kaynak, takım çalışması veya liderlik becerileri ile ilgili bir içerik barındırmamaktadır.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">1 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Kağıt Baskı Üzerinde Yaratıcı Uygulama Teknikleri, Basım Teknolojisi. (Dr. G. Gülnuz Gültekin, Gazi Üni.).</td><td class="text-xs text-slate-500">kaynaklar</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu benzerliği <span class="text-xs font-normal text-slate-500">(Modül B)</span><span class="ihelp" title="Farklı derslerin haftalık konuları arasındaki benzerlik. Aynı yarıyılda olası tekrar, farklı yarıyılda tekrar ya da derinleşme olabilir.">i</span></h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY457">İTY457 Stratejik Pazarlama Yönetimi</a> · 7. yarıyıl · 16 benzer konu (en yüksek 1.0)</div></div>
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY408">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/iletisim/İTY408/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Desktop Publishing</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">The aim of the course is to teach the printing methods that have changed in the development of technology, to introduce today&#39;s printing techniques, to explain the prepress, printing and post-printing stages and to monitor the applications in the printing houses.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Presentation of today&#39;s printing techniques such as letterpress, offset, intaglio, flexo, serigraphy. Prepress, print and print
+post-printing stages. Paper, paper waste, color separation, assembly, lamination, cutting and binding processes.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>To be able to make the all preparations of the design before printing, direction to design in line with technological criteria.</li><li>To comprehend necessary material knowledge and management for printing.</li><li>To have knowledge of technological data.</li><li>Feedback showing the competence of knowledge and understanding about the communication channels required by the printing technique ability to make notifications.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Mid-terms</td><td>1</td><td>%20</td></tr><tr><td>Assignment</td><td>1</td><td>%20</td></tr><tr><td>Final examination</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (140 saat → tabloda 5 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Assignments</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Mid-terms</td><td>1 × 12</td><td>12 saat</td></tr><tr><td>Final examination</td><td>1 × 2</td><td>2 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Marketing Mix Development</td></tr><tr><td class="w-10">2</td><td>Products-Goods and Services</td></tr><tr><td class="w-10">3</td><td>New Product Development</td></tr><tr><td class="w-10">4</td><td>Product Life Curve</td></tr><tr><td class="w-10">5</td><td>Brand and Brand Strategies</td></tr><tr><td class="w-10">6</td><td>Price and Pricing Policies</td></tr><tr><td class="w-10">7</td><td>Marketing Channels and Distribution Policies</td></tr><tr><td class="w-10">8</td><td>Retail</td></tr><tr><td class="w-10">9</td><td>Wholesaling</td></tr><tr><td class="w-10">10</td><td>Price-Pricing</td></tr><tr><td class="w-10">11</td><td>Communication Mix</td></tr><tr><td class="w-10">12</td><td>Communication Mix analysis: Advertising-Personal Sales</td></tr><tr><td class="w-10">13</td><td>Communication Mix Analysis: Sales Promotion-Public Relations</td></tr><tr><td class="w-10">14</td><td>Marketing Ethics and New Developments in Marketing</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

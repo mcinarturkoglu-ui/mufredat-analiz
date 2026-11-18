@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 2. yarıyıl</div>
+ <h1 class="text-2xl font-bold">ATI102 · Atatürk İlkeleri ve İnkılapları Tarihi II</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+0+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 2 (müfredatta 2) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377396&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377396&amp;lang=tr</a> · toplandı 18.11.2026 18:17</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="YZ (A): Ders adı &#39;Atatürk İlkeleri ve İnkılapları Tarihi II&#39; iken, içerik &#39;Atatürk&#39;ten sonraki Türkiye&#39; gibi, inkılaplar dışındaki siyasi gelişmeleri de kapsamaktadır.&amp;#10;YZ (A): Bazı konuların (örneğin, belirli bir inkılabın tek bir haftada ele alınması) dersin Lisans düzeyi için yeterli derinliği sunmayabileceği izlenimi oluşmaktadır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktıları, dersin amacında belirtilen &#39;yorumlamak&#39; düzeyine ulaşmakta yetersiz kalmaktadır.&amp;#10;YZ (C): 1. öğrenme çıktısı ölçülebilir değil (&#39;temel bilgilere sahip olarak bu değerlere sahip çıkıp koruyan bireyler olurlar&#39;)." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="AKTS–iş yükü: Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında. (mevcut: 67 saat / 2 AKTS = 33.5 saat/AKTS; beklenen: 25-30 saat/AKTS (50-60 saat))" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#modul-e" title="Kaynaklar: Yılı belirtilen kaynakların en yenisi bile eski. (mevcut: en yeni kaynak 2007 (19 yıl önce); beklenen: en çok 10 yıl önce)" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 37</span><span class="pill st-fail">kaldı: 5</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">81.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #200 · 18.11 18:51 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">80<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #201 · 18.11 18:52 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">97.1<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #202 · 18.11 18:56 · 3 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (5)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">duplicate_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Aynı konu metni birden fazla haftada birebir tekrarlanıyor.</td><td>1 tekrar: &#39;atatürk dönemi türk dış politikası (1923-1930)&#39; x2</td><td>en çok 0 tekrar</td><td class="text-slate-600">Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.</td></tr><tr><td class="whitespace-nowrap">R4 AKTS–iş yükü<div class="text-xs text-slate-500">hours_per_ects · tr</div></td><td>workload.total</td>
+<td><span class="pill s-high">yüksek</span></td><td>Toplam iş yükü, dersin AKTS değerinin gerektirdiği saat aralığının dışında.</td><td>67 saat / 2 AKTS = 33.5 saat/AKTS</td><td>25-30 saat/AKTS (50-60 saat)</td><td class="text-slate-600">İş yükü kalemlerini ya da AKTS değerini yeniden değerlendirin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2007 (19 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin &#39;Lisans&#39; düzeyi ve &#39;Yarıyıl 2&#39; olması göz önüne alındığında, bazı konuların (örneğin, &#39;Saltanatın kaldırılması&#39; gibi temel olayların tek bir haftada ele alınması) derinlik açısından yetersiz kalma riski bulunmaktadır.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı ve içerik, işlenen konuların kapsamını genel olarak doğru yansıtmaktadır.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin genel içeriği ve amacı dahilinde görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı, içerik ve haftalık konular arasında bazı uyumsuzluklar bulunmaktadır. Özellikle &#39;İnkılaplar&#39; odaklı bir dersin, &#39;Atatürk&#39;ten sonraki Türkiye&#39; gibi konuları da kapsaması, başlık ile içeriğin tam örtüşmediğini göstermektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin amacı olan &#39;yorumlamak&#39; eylemi, haftalık konuların sadece &#39;betimleme&#39; düzeyinde kalma riski taşımaktadır, ancak amaçlanan konuların tamamı işlenmektedir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları (özellikle Cikti:1), sadece &#39;bilgiye sahip olmak&#39; ve &#39;açıklamak&#39; düzeyinde kalmakta, dersin amacında belirtilen &#39;yorumlamak&#39; düzeyine ulaşmakta yetersiz kalmaktadır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı &#39;Atatürk İlkeleri ve İnkılapları Tarihi II&#39; iken, içerik &#39;Atatürk&#39;ten sonraki Türkiye&#39; gibi, inkılaplar dışındaki siyasi gelişmeleri de kapsamaktadır.</div><div class="text-xs text-slate-500 mt-1">Ders adı ağırlıklı olarak &#39;İnkılaplar&#39;a odaklanırken, içerik &#39;Atatürk&#39;ten sonraki Türkiye&#39; başlığı altında İnönü ve DP gibi konuları da barındırmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Atatürk&#39;ten sonraki Türkiye (İnönü&#39;nün cumhurbaşkanlığı, II. Dünya Savaşı ve Türkiye, Demokrat Parti&#39;nin kuruluşu ve çok partili hayata geçiş)”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders adının, &#39;Atatürk Dönemi ve Sonrası Türkiye&#39; gibi daha geniş bir kapsamı yansıtacak şekilde revize edilmesi veya ders içeriğinin &#39;Atatürk&#39;ten sonraki Türkiye&#39; kısmının kapsamının daraltılması önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, dersin amacında belirtilen &#39;yorumlamak&#39; düzeyine ulaşmakta yetersiz kalmaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaç, olayları &#39;yorumlamak&#39; iken, çıktılar &#39;bilgiye sahip olmak&#39; ve &#39;betimlemek&#39; düzeyinde kalmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Atatürk İlke, İnkılâpları ve Dış Politikası hakkında temel bilgilere sahip olarak bu değerlere sahip çıkıp koruyan bireyler olurlar.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:3</code> “Siyasi devrimleri betimler.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktıları, &#39;analiz etmek&#39;, &#39;değerlendirmek&#39; veya &#39;eleştirel yorum yapmak&#39; gibi daha üst düzey bilişsel becerileri içerecek şekilde revize edilmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Bazı konuların (örneğin, belirli bir inkılabın tek bir haftada ele alınması) dersin Lisans düzeyi için yeterli derinliği sunmayabileceği izlenimi oluşmaktadır.</div><div class="text-xs text-slate-500 mt-1">İçerik çok geniş konuları (örneğin, &#39;Hukuk alanındaki gelişmeler&#39;) çok kısıtlı zaman dilimlerine (Hafta:3) sığdırmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “1924 Anayasası, diğer anayasalar, Hukuk alanındaki gelişmeler, Toplumsal hayatın düzenlenmesi ile ilgili inkılâplar ve Türkiye Cumhuriyeti&#39;nin laikleşme süreci”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:3</code> “Hukuk İnkılâbı ve Hukuk Düzeni”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Hukuk ve toplumsal düzenlemeler gibi geniş konuların, daha fazla haftaya yayılması veya bu konuların ele alınış biçiminin derinleştirilmesi gerekmektedir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %67 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Dersin amacı &#39;anlamak&#39; ve &#39;yorumlamak&#39; üzerine kuruludur. Çıktı 2 ve 3 bu seviyede kalmaktadır. Çıktı 1 ise bir tutum hedeflediği için (olurlar) tam uyum sağlamamaktadır, bu nedenle 2 puan verilmiştir.<br>
+  Bloom dağılımı: anlama 3</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Atatürk İlke, İnkılâpları ve Dış Politikası hakkında temel bilgilere sahip olarak bu değerlere sahip çıkıp koruyan bireyler olurlar.<div class="text-xs text-amber-700">belirsiz: temel bilgilere sahip olarak bu değerlere sahip çıkıp koruyan bireyler olurlar</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11</td>
+ <td class="text-blue-800">Atatürk İlkeleri, İnkılapları ve Dış Politikası ile ilgili temel bilgileri kullanarak bu değerleri savunur ve yorumlar.</td></tr>
+ <tr><td>2</td><td>Atatürk ilkelerini ve önemini açıklar.</td><td>anlama</td>
+ <td><span class="pill st-pass">evet</span></td><td>10, 11</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Siyasi devrimleri betimler.</td><td>anlama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1, 2, 3</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Atatürk, M. Kemal, Nutuk (1919-1927), Atatürk Araştırma Merkezi Yayınları, Ankara, 1991.<div class="text-xs text-slate-500">Nutuk, dersin ana konuları olan siyasi ve toplumsal inkılapları doğrudan içerir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Nutuk, (Jun. Zeynep Korkmaz), Ankara, 2004.<div class="text-xs text-slate-500">Nutuk&#39;un yorumlar ve analizler içermesi, dersin yorumlama amacına katkı sağlar.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">ders notu</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Fahir Armaoğlu, 20. Yüzyıl Siyasi Tarihi, Ankara, 1992.<div class="text-xs text-slate-500">20. Yüzyıl Siyasi Tarihi, uluslararası ilişkiler ve siyasi gelişmeleri kapsar.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Yusuf Hikmet Bayur, Atatürk&#39;ün Hayatı ve Eserleri, Ankara, 1997.<div class="text-xs text-slate-500">Atatürk&#39;ün hayatı ve eserleri, inkılapların arka planını ve aktörlerini sunar.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Utkan Kocatürk, Atatürk&#39;ün Hayatı ve Eserleri, Ankara, 2005.<div class="text-xs text-slate-500">Atatürk&#39;ün hayatı ve eserleri, inkılapların kapsamını destekler.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Mesut Çapa, Rahmi Çiçek, Atatürk İlkeleri ve İnkılap Tarihi, 2006.<div class="text-xs text-slate-500">Atatürk İlkeleri ve İnkılap Tarihi başlığı, dersin ana konusudur.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Yüksek Öğretim Kurulu, (Komisyon), Atatürk İlkeleri ve İnkılap Tarihi, I, II, Ankara 2007.<div class="text-xs text-slate-500">YÖK tarafından hazırlanmış olması, dersin resmi çerçevesini ve konularını yansıtır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">ders notu</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 94.2</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, Atatürk ilkeleri ve inkılapları hakkında temel bilgi sunmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, inkılapların bağlamını ve sonuçlarını inceleme imkanı sunar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Siyasi olaylar (Saltanat, Halifelik vb.) kaynaklarda yer almaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, inkılapların toplumsal ve hukuki boyutlarını dolaylı olarak desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, dönemin siyasi ve sosyal gelişmeleri hakkında bilgi içermektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Atatürk İlkeleri ve sistematiği, kaynakların temel konusudur.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, dersin kapsamındaki olayların belgelenmesine yardımcı olur.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, olayları eleştirel bir bakış açısıyla inceleme zemini sunar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 5</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Kaynaklar, görsel/tasarımsal çıktı üretimine doğrudan katkı sağlamamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP1 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, Atatürk ilkelerinin tanımını ve kapsamını sunmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP2 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, ilkelerin tarihsel gelişimini ve önemini aktarmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP3 = 5</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">İlkeler, siyasi devrimlerin kendisi değil, bu devrimleri yönlendiren felsefedir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP4 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İlkeler, toplumsal düzenlemelerle ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP5 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İlkeler, dönemin bilimsel ve siyasi gelişmeleriyle ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İlkeler, kuram ve kuramcıları (Atatürk) ile doğrudan ilgilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP7 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, ilkelerin uygulandığı dönemin belgelerini içerir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP8 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İlkelerin uygulanma biçimi eleştirel olarak incelenebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP1 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Siyasi inkılaplar (Saltanat, Halifelik vb.) kaynaklarda detaylıca anlatılmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP2 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Siyasi olayların arka planı ve sonuçları kaynaklar aracılığıyla sunulmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Siyasi devrimler (Ankara&#39;nın başkent oluşu vb.) doğrudan konu başlıklarıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP4 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Siyasi olayların toplumsal sonuçları kaynaklarda ele alınmaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP5 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Siyasi gelişmeler, dönemin uluslararası olaylarıyla (Dış Politika) ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP6 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Siyasi inkılaplar, ulusal kimlik ve devlet yapısı kurma çabasıdır (Temel ilke).</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP7 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Siyasi olayların kronolojik anlatımı, portfolyo için veri sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP8 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Siyasi olayların neden-sonuç ilişkisi eleştirel incelemeye açıktır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP9 = 5</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Siyasi olayların görselleştirilmesi, kaynakların içeriğiyle sınırlıdır.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">7 kaynak · 7 tanesinde yıl var · en yeni 2007 (19 yıl önce) · 10 yıldan eski 7</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">1991</td><td>Atatürk, M. Kemal, Nutuk (1919-1927), Atatürk Araştırma Merkezi Yayınları, Ankara, 1991.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2004</td><td>Nutuk, (Jun. Zeynep Korkmaz), Ankara, 2004.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">1992</td><td>Fahir Armaoğlu, 20. Yüzyıl Siyasi Tarihi, Ankara, 1992.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">1997</td><td>Yusuf Hikmet Bayur, Atatürk&#39;ün Hayatı ve Eserleri, Ankara, 1997.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2005</td><td>Utkan Kocatürk, Atatürk&#39;ün Hayatı ve Eserleri, Ankara, 2005.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2006</td><td>Mesut Çapa, Rahmi Çiçek, Atatürk İlkeleri ve İnkılap Tarihi, 2006.</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">2007</td><td>Yüksek Öğretim Kurulu, (Komisyon), Atatürk İlkeleri ve İnkılap Tarihi, I, II, Ankara 2007.</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/iletisim/ATI102">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/iletisim/ATI102/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Atatürk İlkeleri ve İnkılapları Tarihi II</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">I. Dünya Savaşı’na giden süreçte Osmanlı Devleti ve Avrupa’da yaşanan gelişmeleri öğrenmek, Yeni Türkiye Cumhuriyet devletinin kurulmasına giden süreçte yaşanan olayları ve sonuçlarını anlamak, yorumlamak.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Siyasî alanda yapılan inkılâplar (Saltanatın kaldırılması, Ankara&#39;nın başkent oluşu, Cumhuriyetin ilanı ve Halifeliğin kaldırılması)Terakkiperver Cumhuriyet Fırkası&#39;nın kuruluşu, Şeyh Sait İsyanı, Takrir-i Sükûn yasası ve Atatürk&#39;e suikast teşebbüsüSerbest Cumhuriyet Fırkası&#39;nın kuruluşu, İzmir mitingi, Fırkanın kapanışı, Menemen ve Bursa olayları1924 Anayasası, diğer anayasalar, Hukuk alanındaki gelişmeler, Toplumsal hayatın düzenlenmesi ile ilgili inkılâplar ve Türkiye Cumhuriyeti&#39;nin laikleşme süreciEğitim ve Kültür alanında gerçekleştirilen inkılâplar (Tevhid-i Tedrisat kanunu, Latin harflerinin kabulü, Millet mektepleri, Türk Tarih ve Dil kurumlarının kurulması ve faaliyetleri, Türk tarih tezi, güneş-dil teorisi, 1933 Üniversite reformu, Halkevleri), Sağlık alanındaki gelişmelerİzmir İktisat Kongresi, Cumhuriyetin ilk yıllarında ekonomi politikası, 1929 Dünya Ekonomik Buhranı&#39;nın yansıması olarak Türkiye&#39;de devletçi ekonomi politikalarının gündeme gelmesi ve I. Beş Yıllık Kalkınma ProgramıAtatürk döneminde Türk dış politikası (1923-1938 döneminde Türk-İngiliz, Türk-Sovyet, Türk-Fransız, Türk-İtalyan ilişkileri, Komşularla münasebetler, Balkan ve Sadabat Paktı)Atatürkçü Düşünce Sistemi&#39;nin tanımı, kapsamı, Atatürk İlkeleri (Cumhuriyetçilik, Laiklik, Milliyetçilik, Halkçılık, Devletçilik, İnkılâpçılık) ve bu ilkelere yönelik tehditlerAtatürk&#39;ten sonraki Türkiye (İnönü&#39;nün cumhurbaşkanlığı, II. Dünya Savaşı ve Türkiye, Demokrat Parti&#39;nin kuruluşu ve çok partili hayata geçiş)</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Atatürk İlke, İnkılâpları ve Dış Politikası hakkında temel bilgilere sahip olarak bu değerlere sahip çıkıp koruyan bireyler olurlar.</li><li>Atatürk ilkelerini ve önemini açıklar.</li><li>Siyasi devrimleri betimler.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%40</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (67 saat → tabloda 2 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>14 × 1</td><td>14 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 10</td><td>10 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 15</td><td>15 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Siyasi İnkılâplar: Saltanatın Kaldırılması, Cumhuriyetin İlanı, Halifeliğin Kaldırılması</td></tr><tr><td class="w-10">2</td><td>Atatürk Döneminde Kurulan ve TBMM’de temsil edilen siyasi partiler ve siyasi olaylar</td></tr><tr><td class="w-10">3</td><td>Hukuk İnkılâbı ve Hukuk Düzeni</td></tr><tr><td class="w-10">4</td><td>Eğitim Alanında İnkılâplar</td></tr><tr><td class="w-10">5</td><td>Kültür ve Toplumsal Alanda Yapılan İnkılâplar</td></tr><tr><td class="w-10">6</td><td>Ekonomik Alanda Yapılan İnkılâplar</td></tr><tr><td class="w-10">7</td><td>Atatürk Dönemi Türk Dış Politikası (1923-1930)</td></tr><tr><td class="w-10">8</td><td>Atatürk Dönemi Türk Dış Politikası (1923-1930)</td></tr><tr><td class="w-10">9</td><td>Atatürk Dönemi Türk Dış Politikası (1930-1938)</td></tr><tr><td class="w-10">10</td><td>Atatürk İlkeleri I</td></tr><tr><td class="w-10">11</td><td>Atatürk İlkeleri II ve Bütünleyici İlkeler</td></tr><tr><td class="w-10">12</td><td>Atatürk Sonrası Türkiye I</td></tr><tr><td class="w-10">13</td><td>Atatürk Sonrası Türkiye II</td></tr><tr><td class="w-10">14</td><td>Çıktıların Kontrolü: Değerlendirme ve Yorumlama</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

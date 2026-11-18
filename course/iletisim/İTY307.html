@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 5. yarıyıl</div>
+ <h1 class="text-2xl font-bold">İTY307 · Marka İletişimi</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+0+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 3 (müfredatta 3) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377461&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377461&amp;lang=tr</a> · toplandı 18.11.2026 18:22</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="YZ (A): Ders adı olan &#39;Marka İletişimi&#39; ile haftalık konuların tamamı arasında doğrudan ve sürekli bir örtüşme gözlenmemektedir.&amp;#10;YZ (A): Dersin amacı olan &#39;Sosyal medya kullanımının hayatın farklı alanlarını nasıl etkilediğini kavramak&#39; ifadesi, haftalık konuların tamamını kapsayacak kadar geniş bir odaklanma göstermemektedir.&amp;#10;YZ (A): Ders adı olan &#39;Marka İletişimi&#39;, işlenen konuların (Web 1.0, Web 2.0, Konum Hizmetleri vb.) kapsadığı geniş teknolojik ve sosyal medya evrimi konusuna göre gereğinden dar kalmaktadır.&amp;#10;YZ (A): Dersin 5. yarıyıl Lisans düzeyi olması göz önüne alındığında, bazı konuların (örneğin, &#39;Sosyal medyaya giriş&#39;) derinliği, beklenen akademik seviyeye tam ulaşmamıştır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktıları, amaçta belirtilen &#39;hayatın farklı alanlarını etkileme&#39; gibi sosyal/kültürel etkiyi eleştirel bir bakışla inceleme amacını tam olarak yansıtmamaktadır.&amp;#10;YZ (C): 1. öğrenme çıktısı ölçülebilir değil (&#39;öğrenmek&#39;).&amp;#10;YZ (C): 2. öğrenme çıktısı ölçülebilir değil (&#39;eleştirel bir bakış geliştirmek&#39;).&amp;#10;YZ (C): 3. öğrenme çıktısı ölçülebilir değil (&#39;anlamak&#39;)." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-e" title="Kaynaklar: Yılı belirtilen kaynakların en yenisi bile eski. (mevcut: en yeni kaynak 2015 (11 yıl önce); beklenen: en çok 10 yıl önce)" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 39</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">70<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #264 · 18.11 21:34 · 2 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">53.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #265 · 18.11 21:34 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #266 · 18.11 21:35 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (3)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2015 (11 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin Lisans 5. yarıyıl olması göz önüne alındığında, konuların derinliği (örneğin, sadece &#39;Sosyal medyaya giriş&#39; gibi temel konuların yer alması) beklenen akademik seviyeye tam ulaşmamış olabilir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı &#39;Marka İletişimi&#39; iken, içerik ve konuların büyük bir kısmı (Web 1.0, Web 2.0, Konum Hizmetleri gibi) daha geniş bir &#39;Medya Tarihi/Sosyal Medya Çalışmaları&#39; kapsamına giriyor, bu da başlığın dar kalmasına neden oluyor.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin genel kapsamı (Sosyal medya ve medya evrimi) dahilinde görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (&#39;Marka İletişimi&#39;) ile içerik (&#39;Yeni ve eski medyanın yerel, ulusal ve küresel ölçekte kullanımı&#39;) arasında bir bağlantı kurulabilmekle birlikte, haftalık konuların tamamı doğrudan &#39;Marka İletişimi&#39; odağında ilerlemiyor gibi görünüyor.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacı olan &#39;Sosyal medya kullanımının hayatın farklı alanlarını nasıl etkilediğini kavramak&#39; ifadesi, haftalık konuların tamamını kapsamakta zorlanıyor; özellikle &#39;Marka İletişimi&#39; odaklı konuların daha belirgin olması beklenirdi.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konular arasında tam bir örtüşme göstermiyor. Örneğin, amaç &#39;hayatın farklı alanlarını etkileme&#39; iken, çıktılar daha çok teknolojik/kavramsal bilgiye odaklanmış.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı olan &#39;Marka İletişimi&#39; ile haftalık konuların tamamı arasında doğrudan ve sürekli bir örtüşme gözlenmemektedir.</div><div class="text-xs text-slate-500 mt-1">Ders adı spesifik bir disipline (Marka İletişimi) odaklanırken, haftalık konuların büyük bir kısmı (Web 1.0, Web 2.0, Konum Hizmetleri) daha geniş bir teknoloji/sosyal medya evrimi konusuna odaklanmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Marka İletişimi”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:2</code> “Web 1.0. 1990larda internet”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders adının, işlenen konuların genel kapsamını yansıtacak şekilde revize edilmesi veya ders içeriğinin marka iletişimi odaklı konularla daha sık ilişkilendirilmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amacı olan &#39;Sosyal medya kullanımının hayatın farklı alanlarını nasıl etkilediğini kavramak&#39; ifadesi, haftalık konuların tamamını kapsayacak kadar geniş bir odaklanma göstermemektedir.</div><div class="text-xs text-slate-500 mt-1">Amaç, &#39;hayatın farklı alanları&#39; gibi çok geniş bir alanı kapsarken, haftalık konuların büyük bir kısmı (örneğin, &#39;Web 1.0&#39; veya &#39;Bloglar&#39;) bu geniş kapsamın sadece bir alt bileşenini temsil etmektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Sosyal medya kullanımının hayatın farklı alanlarını nasıl etkilediğini kavramak”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:2</code> “Web 1.0. 1990larda internet”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Amaç, haftalık konularla daha doğrudan ilişkilendirilebilecek, daha spesifik bir çıktıya odaklanacak şekilde daraltılmalıdır.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, amaçta belirtilen &#39;hayatın farklı alanlarını etkileme&#39; gibi sosyal/kültürel etkiyi eleştirel bir bakışla inceleme amacını tam olarak yansıtmamaktadır.</div><div class="text-xs text-slate-500 mt-1">Çıktılar (cikti:1, cikti:3) daha çok teknolojik kavramları (temel kavramlar, Web 2.0 teknolojileri) öğrenmeye odaklanmışken, amaç daha çok sosyal ve kültürel dönüşümü ele almayı gerektirmektedir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Sosyal medyaya ilişkin temel kavramları öğrenmek”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:2</code> “Sosyal medyanın sosyal ve kültürel hayatı nasıl değiştirdiğine dair eleştirel bir bakış geliştirmek”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktıları, amaçta belirtilen &#39;sosyal ve kültürel hayatı değiştirme&#39; boyutunu daha güçlü bir şekilde yansıtacak şekilde revize edilmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ders adı fazla dar</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders adı olan &#39;Marka İletişimi&#39;, işlenen konuların (Web 1.0, Web 2.0, Konum Hizmetleri vb.) kapsadığı geniş teknolojik ve sosyal medya evrimi konusuna göre gereğinden dar kalmaktadır.</div><div class="text-xs text-slate-500 mt-1">İşlenen konular, sadece marka iletişimi ile sınırlı kalmayıp, medyanın genel evrimini ele almaktadır; bu durum, ders adının kapsamı dar gösterir.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Marka İletişimi”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Yeni ve eski medyanın yerel, ulusal ve küresel ölçekte kullanımı”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders adı, işlenen konuların genişliğini yansıtacak şekilde &#39;Sosyal Medya ve Medya Evrimi&#39; gibi daha kapsayıcı bir başlıkla değiştirilmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin 5. yarıyıl Lisans düzeyi olması göz önüne alındığında, bazı konuların (örneğin, &#39;Sosyal medyaya giriş&#39;) derinliği, beklenen akademik seviyeye tam ulaşmamıştır.</div><div class="text-xs text-slate-500 mt-1">Dersin 5. yarıyılda olması, daha ileri düzeyde analiz ve eleştirel bakış gerektirmesi beklenirken, bazı konuların giriş niteliğinde kalması seviye uyumsuzluğuna işaret etmektedir.</div>
+  <div class="text-xs mt-1">✗ <code class="bg-slate-100 px-1 rounded">[Düzey]</code> “Lisans”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “Sosyal medyaya giriş”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin seviyesine uygun olarak, konuların daha derinlemesine teorik ve analitik yaklaşımlarla zenginleştirilmesi gerekmektedir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %0 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Dersin amacı (&#39;Sosyal medya kullanımının hayatın farklı alanlarını nasıl etkilediğini kavramak&#39;) ile çıktı 2 (sosyal ve kültürel değişim) ve çıktı 1 (temel kavramlar) kısmen örtüşmektedir. Çıktı 3 ise daha teknik bir konuya odaklanmaktadır. Bu nedenle uyum orta düzeydedir.<br>
+  Bloom dağılımı: anlama 2, değerlendirme 1</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Sosyal medyaya ilişkin temel kavramları öğrenmek<div class="text-xs text-amber-700">belirsiz: öğrenmek</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>1</td>
+ <td class="text-blue-800">Sosyal medyaya ilişkin temel kavramları tanımlamak</td></tr>
+ <tr><td>2</td><td>Sosyal medyanın sosyal ve kültürel hayatı nasıl değiştirdiğine dair eleştirel bir bakış geliştirmek<div class="text-xs text-amber-700">belirsiz: eleştirel bir bakış geliştirmek</div></td><td>değerlendirme</td>
+ <td><span class="pill st-fail">hayır</span></td><td>13, 14</td>
+ <td class="text-blue-800">Sosyal medyanın sosyal ve kültürel hayatı nasıl değiştirdiğine dair eleştirel argümanlar sunmak</td></tr>
+ <tr><td>3</td><td>Web 2.0 teknolojilerinin interneti nasıl değiştirdiğini anlamak<div class="text-xs text-amber-700">belirsiz: anlamak</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>3</td>
+ <td class="text-blue-800">Web 2.0 teknolojilerinin interneti nasıl değiştirdiğini açıklamak</td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>İletişimde Sosyal Medya Sosyal Medyada İletişim, Kolektif (2015) Kalkedon yayınları<div class="text-xs text-slate-500">Kitap, dersin ana konusu olan sosyal medya ve iletişimi doğrudan ele almaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Sosyal Medyanın ABC&#39;si, 2015, Alfa yayıncılık<div class="text-xs text-slate-500">Kitap, sosyal medya kavramlarını ve kullanımını ele alarak ders içeriğine uygunluk göstermektedir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Ali Murat Kırık, Ali Büyükaslan (2013) Sosyal Medya Araştırmaları, Çizgi kitabevi<div class="text-xs text-slate-500">Kitap, sosyal medya araştırmaları yapıldığı için dersin konularıyla doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, sosyal medya kavramlarını ele alarak P1&#39;e (etik kurallar) dolaylı katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kaynaklar, sosyal medya konuları üzerinden araştırma ve proje geliştirme becerisine katkı sağlamaktadır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya, hem kamusal hem de kişilerarası iletişimi kapsadığı için P3&#39;ü desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya kullanımı, sektör deneyimi ile akademik bilgiyi ilişkilendirme potansiyeli taşır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya, güncel teknolojik gelişmeleri temsil ettiği için P5&#39;i desteklemektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya, iletişim kuramları bağlamında ele alınabilir, bu da P6&#39;ya katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ile ilgili çalışmalar, portfolyo oluşturma sürecine girdi sağlayabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya uygulamaları eleştirel bir yaklaşımla incelenebilir, bu da P8&#39;i destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya içerik üretimi (görsel/metin) P9&#39;un gerektirdiği görsel ifadeye dolaylı katkı sunar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medyanın kültürel etkileri, etik kurallar tartışmasını tetikleyebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medyanın toplumsal değişimdeki rolü, araştırma konuları sunar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medyanın toplumsal değişimdeki rolü, kamusal iletişimi doğrudan etkiler.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medyanın toplumsal etkileri, sektördeki uygulamalarla ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya, sürekli gelişen bir teknoloji olduğundan P5&#39;i destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medyanın getirdiği değişimler, iletişim kuramlarının ele alınmasını gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya ile ilgili eleştirel çalışmalar, portfolyo içeriği oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Eleştirel bakış geliştirmek, P8&#39;in temel gerekliliğidir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP9 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya içeriklerinin analizi, görsel ifade becerilerini dolaylı olarak geliştirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Web 2.0&#39;ın getirdiği yeni yapılar, yasal düzenlemeler bağlamında tartışılabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Web 2.0 teknolojileri, yeni araştırma konuları ve proje alanları sunar.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP3 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Web 2.0, dijital iletişim biçimlerini değiştirerek kamusal iletişime etki eder.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Web 2.0&#39;ın getirdiği teknolojik değişimler, sektördeki uygulamalarla ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Web 2.0, güncel ve teknolojik bir gelişme olduğundan P5&#39;i doğrudan destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Web 2.0, internetin evrimindeki bir kuramsal değişimi temsil eder.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Web 2.0 ile ilgili çalışmalar, portfolyo için teknik içerik sunar.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Web 2.0&#39;ın getirdiği değişimler eleştirel bir bakış açısıyla incelenebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP9 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Web 2.0, etkileşimli içerik üretimi (sosyal medya) ile ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya projeleri ekip çalışması gerektirebilir, bu da P10&#39;u destekler.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP10 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Sosyal medya projeleri, takım çalışması gerektirebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP10 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Web 2.0 teknolojileri, modern iş yapış biçimlerinde takım çalışması gerektirir.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">3 kaynak · 3 tanesinde yıl var · en yeni 2015 (11 yıl önce) · 10 yıldan eski 3</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2015</td><td>İletişimde Sosyal Medya Sosyal Medyada İletişim, Kolektif (2015) Kalkedon yayınları</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2015</td><td>Sosyal Medyanın ABC&#39;si, 2015, Alfa yayıncılık</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2013</td><td>Ali Murat Kırık, Ali Büyükaslan (2013) Sosyal Medya Araştırmaları, Çizgi kitabevi</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/iletisim/İTY307">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/iletisim/İTY307/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Marka İletişimi</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Sosyal medya kullanımının hayatın farklı alanlarını nasıl etkilediğini kavramak</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Yeni ve eski medyanın yerel, ulusal ve küresel ölçekte kullanımı</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Sosyal medyaya ilişkin temel kavramları öğrenmek</li><li>Sosyal medyanın sosyal ve kültürel hayatı nasıl değiştirdiğine dair eleştirel bir bakış geliştirmek</li><li>Web 2.0 teknolojilerinin interneti nasıl değiştirdiğini anlamak</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%40</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (90 saat → tabloda 3 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Ödevler</td><td>5 × 3</td><td>15 saat</td></tr><tr><td>Sunum/Seminer Hazırlama</td><td>2 × 5</td><td>10 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 5</td><td>5 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 4</td><td>4 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Sosyal medyaya giriş</td></tr><tr><td class="w-10">2</td><td>Web 1.0. 1990larda internet</td></tr><tr><td class="w-10">3</td><td>Web 2.0</td></tr><tr><td class="w-10">4</td><td>Sosyal Paylaşım Siteleri</td></tr><tr><td class="w-10">5</td><td>Bloglar</td></tr><tr><td class="w-10">6</td><td>Micro-Bloglar</td></tr><tr><td class="w-10">7</td><td>Ara sınav</td></tr><tr><td class="w-10">8</td><td>Konum Hizmetleri</td></tr><tr><td class="w-10">9</td><td>Türkiye&#39;de sosyal medya</td></tr><tr><td class="w-10">10</td><td>Sosyal medyanin iş hayatında kullanımı</td></tr><tr><td class="w-10">11</td><td>Sosyal medya ve pazarlama</td></tr><tr><td class="w-10">12</td><td>Sosyal medya ve gençlik</td></tr><tr><td class="w-10">13</td><td>Sosyal medya ve sosyal değişme</td></tr><tr><td class="w-10">14</td><td>Sosyal medya ve ağ toplumu</td></tr><tr><td class="w-10">15</td><td>Final Sınavı</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

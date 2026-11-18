@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 6. yarıyıl</div>
+ <h1 class="text-2xl font-bold">İTY310 · İstatistik</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+0+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 3 (müfredatta 3) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377468&amp;lang=en" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377468&amp;lang=en</a> · toplandı 18.11.2026 18:22</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="YZ (A): Dersin amacında belirtilen &#39;basit korelasyon analizleri ve bu analizlerin yorumlanması becerileri&#39; haftalık konuların tamamında yeterince işlenmemiştir." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktıları, amaçta belirtilen &#39;betimsel istatistiklere ilişkin uygulama ve analizleri yapabilme&#39; becerisini tam olarak yansıtmamaktadır.&amp;#10;YZ (C): 3. öğrenme çıktısının işlendiği bir hafta belirlenemedi.&amp;#10;YZ (C): 4. öğrenme çıktısının işlendiği bir hafta belirlenemedi." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 39</span><span class="pill st-fail">kaldı: 3</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">85<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #282 · 18.11 22:24 · 3 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">77.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #283 · 18.11 22:24 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">96.5<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #319 · 18.11 23:25 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (3)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">duplicate_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Aynı konu metni birden fazla haftada birebir tekrarlanıyor.</td><td>1 tekrar: &#39;uygulama&#39; x2</td><td>en çok 0 tekrar</td><td class="text-slate-600">Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Konuların derinliği, Lisans düzeyinde ve 6. yarıyıl için uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, işlenen konulara göre ne gereğinden geniş ne de dar görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin amacı ve içeriği dahilinde görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı (İstatistik) ile amaç, içerik ve haftalık konular arasında belirgin bir uyumsuzluk gözlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacında belirtilen &#39;basit korelasyon analizleri ve bu analizlerin yorumlanması becerileri&#39; haftalık konuların tamamında yeterince işlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla tam olarak örtüşmemektedir; özellikle amaçta belirtilen &#39;betimsel istatistiklere ilişkin uygulama ve analizleri yapabilme&#39; becerisi, tüm çıktıları kapsayacak kadar detaylı değildir.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amacında belirtilen &#39;basit korelasyon analizleri ve bu analizlerin yorumlanması becerileri&#39; haftalık konuların tamamında yeterince işlenmemiştir.</div><div class="text-xs text-slate-500 mt-1">Amaçta korelasyon analizi vurgulanırken, haftalık konuların büyük bir kısmı (örneğin, Hipotez Testleri, Regresyon) bu spesifik beceriye odaklanmaktan ziyade daha geniş istatistiksel yöntemlere ayrılmıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “basit korelasyon analizleri ve bu analizlerin yorumlanması becerilerini kazandırmaktır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:7</code> “Hipotez Testleri: İki Ana Kütleye İlişkin Hipotez Testleri”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Korelasyon ve regresyon konularının, amaçta belirtilen &#39;basit korelasyon&#39; seviyesine uygun olarak daha fazla haftaya ayrılması veya bu konuların haftalık planlamada daha belirgin hale getirilmesi önerilir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, amaçta belirtilen &#39;betimsel istatistiklere ilişkin uygulama ve analizleri yapabilme&#39; becerisini tam olarak yansıtmamaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaç, &#39;uygulama ve analiz&#39; becerisi isterken, çıktılar daha çok &#39;tanıma&#39; ve &#39;hesaplama&#39; düzeyinde kalmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “betimsel istatistiklere ilişkin uygulama ve analizleri yapabilme”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:4</code> “Değişim (yayıklık: değişim aralığı, standart sapma ve varyans) ölçülerini tanır, hesaplar ve yorumlar.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktıları, sadece hesaplama değil, aynı zamanda bu değerleri kullanarak anlamlı çıkarımlar yapma (analiz) becerisini de içerecek şekilde revize edilmelidir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %100 · haftalarda karşılığı olan: %60 · amaç uyumu 2/3 — Dersin amacı temel kavramları verme, verileri anlamlı hale getirme, betimsel istatistik uygulamaları ve korelasyon yorumlama becerilerini kazandırmaktır. Çıktılar (1, 2, 3, 4, 5) bu becerilerin çoğunu kapsasa da, hipotez testleri gibi diğer önemli konular (hafta 7, 8) çıktı olarak yansıtılmamıştır. Bu nedenle tam uyum sağlanamamıştır.<br>
+  Bloom dağılımı: anlama 1, uygulama 4</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Değişken tiplerini açıklar ve uygulama alanlarını sınıflandırır.</td><td>anlama</td>
+ <td><span class="pill st-pass">evet</span></td><td>2</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>2</td><td>Değişken tiplerine göre yaygın olarak kullanılan grafik sunum tekniklerini (bar, çizgi, pasta, kutu grafiği, histogram v.b.) SPSS ve EXCEL ortamlarında çizer.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>1</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Frekans (sıklık), nisbi frekans ve kümülatif frekans değerlerini hesaplar.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>—</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>4</td><td>Değişim (yayıklık: değişim aralığı, standart sapma ve varyans) ölçülerini tanır, hesaplar ve yorumlar.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>—</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>5</td><td>İki değişken arasındaki bağıntıyı korelasyon yöntemi uygulayarak açıklar.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>12</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Şener Büyüköztürk Ömay Çokluk Bökeoğlu Nilgün Köklü, (2019). Sosyal Bilimler için İstatistik, 21. Baskı, Ankara: Pegem Akademi Yayıncılık<div class="text-xs text-slate-500">Kitap, dersin temel konularını (istatistik) kapsamaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Öğretim elemanı tarafından paylaşılacak slayt gösterileri ve ders notları.<div class="text-xs text-slate-500">Öğretim elemanı notları, ders içeriğiyle doğrudan ilişkilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">ders notu</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Şener Büyüköztürk Ömay Çokluk Bökeoğlu Nilgün Köklü, (2019). Sosyal Bilimler için İstatistik, 21. Baskı, Ankara: Pegem Akademi Yayıncılık<div class="text-xs text-slate-500">Kitap, dersin temel konularını (istatistik) kapsamaktadır.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Öğretim üyesi tarafından paylaşılacak slayt gösterileri ve ders notları.<div class="text-xs text-slate-500">Öğretim üyesi notları, ders içeriğiyle doğrudan ilişkilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">ders notu</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 93</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişken tiplerini açıklamak, etik kurallarla dolaylı olarak ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişken tiplerini anlamak, araştırma becerisinin temelini oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İstatistiksel kavramlar, iletişim becerileriyle ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İstatistiksel bilgi, sektör deneyimiyle ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İstatistiksel yöntemler, yazılımsal gelişmeleri kullanmayı gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel kavramları bilmek, kuramları bilme amacına hizmet eder.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İstatistiksel beceriler, portfolyo oluşturmada kullanılabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişken tiplerini analiz etmek, eleştirel incelemeye zemin hazırlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 2</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Değişken tipleri doğrudan görsel ifade oluşturma becerisini desteklemez.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Grafik sunumu, etik kurallara uygun veri sunumu gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP2 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Veri görselleştirme, araştırma sürecinin bir parçasıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP3 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Grafik çizimi, sunum becerisi gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP4 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Veri analizi sonuçlarının sunumu, sektörle ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">SPSS/EXCEL kullanımı, yazılımsal gelişmeleri takip etme amacına hizmet eder.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Grafik türleri, istatistiksel kuramların bir parçasıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Görsel çıktıların portfolyoda sunulması mümkündür.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Grafiklerin eleştirel yorumlanması, eleştirel inceleme yetkinliğine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP9 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Grafik çizimi, doğrudan görsel ifade oluşturma becerisidir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Frekans hesaplaması, etik veri sunumunun temelidir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP2 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Frekans hesaplaması, veri analizi sürecinin bir parçasıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP3 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tablo oluşturma, iletişim becerisi gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Veri özetleme, sonuçların yorumlanmasıyla ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Veri işleme, yazılımsal araçlar gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Frekans kavramları, istatistiksel kuramların temelini oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Hesaplanan değerler, raporlama ve portfolyo için kullanılabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Frekansların yorumlanması, eleştirel incelemeye katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP9 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tablo verileri, görselleştirme (grafik) için girdi sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP1 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ölçülerin doğru kullanımı, etik veri sunumunu gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tanımlayıcı istatistikler, araştırma sonuçlarının özetlenmesinde kullanılır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP3 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Hesaplanan değerlerin yorumlanması, raporlama becerisini geliştirir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Değişim ölçüleri, sonuçların eleştirel olarak değerlendirilmesinde kullanılır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP5 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Hesaplama, yazılımsal araçların kullanımını gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP6 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Varyans ve standart sapma gibi kavramlar, istatistiksel kuramların parçasıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Hesaplanan değerler, akademik sunum materyali oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Ölçülerin yorumlanması, eleştirel analiz yetkinliğine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP9 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Bu ölçüler, verinin görsel olarak sunulmasını sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Bağıntı analizi, etik veri kullanımı gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP2 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Korelasyon, araştırma hipotezlerini test etme sürecinin bir parçasıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP3 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Bağıntıların açıklanması, sonuçların anlaşılır bir dille aktarılmasını gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Korelasyon sonuçları, mevcut durumun eleştirel değerlendirilmesine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP5 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Korelasyon hesaplamaları, istatistiksel yazılımlar gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Korelasyon, istatistiksel ilişkileri inceleyen temel bir kuramdır.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Analiz sonuçları, akademik raporlama için kullanılabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP8 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Bağıntıların yorumlanması, eleştirel inceleme yetkinliğine doğrudan katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP9 = 4</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Korelasyon, doğrudan görsel ifade oluşturma becerisi değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 2</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Bu çıktı, takım çalışması becerisiyle doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP10 = 4</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Bu çıktı, takım çalışması becerisiyle doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP10 = 3</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Bu çıktı, takım çalışması becerisiyle doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:4 → ÖP10 = 3</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Bu çıktı, takım çalışması becerisiyle doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:5 → ÖP10 = 4</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Bu çıktı, takım çalışması becerisiyle doğrudan ilgili değildir.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">4 kaynak · 2 tanesinde yıl var · en yeni 2019 (7 yıl önce) · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2019</td><td>Şener Büyüköztürk Ömay Çokluk Bökeoğlu Nilgün Köklü, (2019). Sosyal Bilimler için İstatistik, 21. Baskı, Ankara: Pegem Akademi Yayıncılık</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Öğretim elemanı tarafından paylaşılacak slayt gösterileri ve ders notları.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">2019</td><td>Şener Büyüköztürk Ömay Çokluk Bökeoğlu Nilgün Köklü, (2019). Sosyal Bilimler için İstatistik, 21. Baskı, Ankara: Pegem Akademi Yayıncılık</td><td class="text-xs text-slate-500">ders notları</td></tr><tr><td class="w-16">—</td><td>Öğretim üyesi tarafından paylaşılacak slayt gösterileri ve ders notları.</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu benzerliği <span class="text-xs font-normal text-slate-500">(Modül B)</span><span class="ihelp" title="Farklı derslerin haftalık konuları arasındaki benzerlik. Aynı yarıyılda olası tekrar, farklı yarıyılda tekrar ya da derinleşme olabilir.">i</span></h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/PFD202">PFD202 Öğretmenlik Uygulaması</a> · 8. yarıyıl · 28 benzer konu (en yüksek 1.0)</div></div>
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="lnk" href="/mufredat-analiz/course/iletisim/İTY310">Türkçe</a> · <a class="font-bold" href="/mufredat-analiz/course/iletisim/İTY310/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Statistics</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">The aim of this course is to give basic information about statistics, to make data meaningful with tables and graphs, to make applications and analyzes related to descriptive statistics, to gain the skills of simple correlation analysis and interpretation of these analyzes.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Basic concepts related to statistics, to make the data collected with tables and graphs, to be able to do the analysis and analysis of descriptive statistics, simple correlation analysis and interpretation of these analyzes</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">None</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Turkish</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Explains variable types and classify application areas.</li><li>Uses graphical presentation techniques (bar, line, pie, box graph, histogram etc.) commonly used by variable types in SPSS and EXCEL environments.</li><li>Calculates frequency, relative frequency and cumulative frequency values.</li><li>Recognizes, calculates and interprets the variation (change interval, standard deviation and variance) measures.</li><li>Explains the relationship between two variables by applying the correlation method.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Mid-terms</td><td>1</td><td>%40</td></tr><tr><td>Final examination</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (88 saat → tabloda 3 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Course Duration</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Hours for off-the-c.r.stud</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Assignments</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Mid-terms</td><td>1 × 2</td><td>2 saat</td></tr><tr><td>Final examination</td><td>1 × 2</td><td>2 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Definition and Functions of Statistics: Data acquisition, Presentation techniques</td></tr><tr><td class="w-10">2</td><td>Variable Types</td></tr><tr><td class="w-10">3</td><td>Random variable, analysis of distributions</td></tr><tr><td class="w-10">4</td><td>Skewness and kurtosis coefficient of a distribution</td></tr><tr><td class="w-10">5</td><td>Sampling: Sampling errors, sampling techniques</td></tr><tr><td class="w-10">6</td><td>Estimation of population parameters from sampling statistics</td></tr><tr><td class="w-10">7</td><td>Hypothesis Testing: Hypothesis Tests for Two Masses</td></tr><tr><td class="w-10">8</td><td>Comparison of ratios; Hypothesis testing for large and small samples; Chi-Square Distribution and Chi-Square Test for Qualitative Variables</td></tr><tr><td class="w-10">9</td><td>Midterm</td></tr><tr><td class="w-10">10</td><td>Standard Points: Z and T Distributions</td></tr><tr><td class="w-10">11</td><td>Simple linear regression model</td></tr><tr><td class="w-10">12</td><td>Korelasyon kavramı ve alternatif korelasyon teknikleri</td></tr><tr><td class="w-10">13</td><td>Practice</td></tr><tr><td class="w-10">14</td><td>Practice</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

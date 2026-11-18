@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 3. yarıyıl</div>
+ <h1 class="text-2xl font-bold">İTY201 · Grafik Tasarımı</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 1+2+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 6 (müfredatta 6) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377456&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377456&amp;lang=tr</a> · toplandı 18.11.2026 18:21</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-a" title="YZ (A): Ders içeriği, haftalık konuların odaklandığı temel kavramlar ve ilkelerden daha çok teknik araçlara odaklanmaktadır.&amp;#10;YZ (A): Dersin amacında belirtilen &#39;verilerin toplanması, yorumlanması ve duyurulması&#39; gibi süreçler, haftalık konular başlıklarında doğrudan ele alınmamaktadır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktıları, dersin amacında belirtilen &#39;veri toplama, yorumlama, duyurma&#39; gibi çıktıları kapsamamaktadır.&amp;#10;YZ (C): 1. öğrenme çıktısı ölçülebilir değil (&#39;bilir&#39;)." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-e" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 37</span><span class="pill st-fail">kaldı: 4</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 1</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">76.7<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #228 · 18.11 19:18 · 2 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-3xl score mt-1">80<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #229 · 18.11 19:18 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">100<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #230 · 18.11 19:20 · 2 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (4)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">duplicate_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Aynı konu metni birden fazla haftada birebir tekrarlanıyor.</td><td>8 tekrar: &#39;grafik tasarımının temel i̇lkeleri&#39; x2; &#39;problem çözümleme teknikleri&#39; x2; &#39;görsel çözümleme konuları&#39; x3; &#39;grafik resim çalışmaları&#39; x5</td><td>en çok 0 tekrar</td><td class="text-slate-600">Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">year_present · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Kaynakların çoğunda yayın yılı yazılmamış.</td><td>0/2 kaynakta yayın yılı var</td><td>en az %50</td><td class="text-slate-600">Kaynaklara yayın yılı (ve baskı bilgisi) ekleyin.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Dersin lisans düzeyi ve yarıyılı göz önüne alındığında, konuların derinliği hakkında yeterli bilgi bulunmamaktadır; bu nedenle uyumlu kabul edilmiştir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı (&#39;Grafik Tasarımı&#39;) ile işlenen konular (Temel İlkeler, Problem Çözümleme, Grafik Çalışmaları) arasında gereğinden dar veya geniş bir durum gözlenmemiştir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı dersin adı ve amacı dahilinde gibi görünmektedir; kapsam dışı bir konu tespit edilememiştir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (&#39;Grafik Tasarımı&#39;) ile haftalık konular ve içerik arasında tam bir örtüşme gözlenmemektedir; içerik daha çok &#39;teknik ve modern araçlar&#39;a odaklanırken, konular daha çok &#39;temel kavramlar&#39; ve &#39;ilkeler&#39; üzerine yoğunlaşmaktadır.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin amacı (&#39;verilerin toplanması, yorumlanması, duyurulması ve uygulanmasına yönelik bilginin kazandırılması&#39;) ile haftalık konular arasında, &#39;verilerin toplanması&#39; ve &#39;duyurulması&#39; gibi kısımların doğrudan işlendiğine dair bir kanıt bulunmamaktadır.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları (ilkeler, problem çözme, grafik çalışmaları) ile dersin genel amacı (veri toplama, yorumlama, duyurma) arasında bir bağlantı kurulamamıştır.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Ad–içerik uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders içeriği, haftalık konuların odaklandığı temel kavramlar ve ilkelerden daha çok teknik araçlara odaklanmaktadır.</div><div class="text-xs text-slate-500 mt-1">Ders içeriği &#39;Grafik Tasarım ile ilgili uygulamalar için gerekli teknik ve modern araçları kullanabilme becerisini sağlamaya yöneliktir.&#39; derken, haftalık konular &#39;Görsel İletişimde Temel Kavramlar&#39; ve &#39;Grafik Tasarımının Temel İlkeleri&#39; gibi teorik temellere odaklanmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Grafik Tasarım ile ilgili uygulamalar için gerekli teknik ve modern araçları kullanabilme becerisini sağlamaya yöneliktir.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “Görsel İletişimde Temel Kavramlar”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Ders içeriğinin, haftalık konularla daha uyumlu hale getirilmesi için, teknik araçların kullanımının temel ilkelerle ilişkilendirilmesi gerekmektedir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin amacında belirtilen &#39;verilerin toplanması, yorumlanması ve duyurulması&#39; gibi süreçler, haftalık konular başlıklarında doğrudan ele alınmamaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaç, &#39;Grafik Tasarım ile ilgili verilerin toplanması, yorumlanması, duyurulması ve uygulanmasına yönelik bilginin kazandırılması amaçlanmaktadır.&#39; derken, haftalık konular daha çok &#39;ilkeler&#39; ve &#39;çözümleme&#39; gibi tasarım süreçlerine odaklanmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Grafik Tasarım ile ilgili verilerin toplanması, yorumlanması, duyurulması ve uygulanmasına yönelik bilginin kazandırılması amaçlanmaktadır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:4</code> “Problem Çözümleme Teknikleri”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin amacını desteklemek amacıyla, haftalık konulara &#39;Veri Görselleştirme&#39; veya &#39;Bilgi Sunumu&#39; gibi veri odaklı konular eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları, dersin amacında belirtilen &#39;veri toplama, yorumlama, duyurma&#39; gibi çıktıları kapsamamaktadır.</div><div class="text-xs text-slate-500 mt-1">Amaç, &#39;Grafik Tasarım ile ilgili verilerin toplanması, yorumlanması, duyurulması ve uygulanmasına yönelik bilginin kazandırılması amaçlanmaktadır.&#39; iken, çıktılar &#39;ilkeleri bilmek&#39;, &#39;teknik geliştirmek&#39; ve &#39;çalışma yapmak&#39; gibi daha sınırlı becerilere odaklanmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Grafik Tasarım ile ilgili verilerin toplanması, yorumlanması, duyurulması ve uygulanmasına yönelik bilginin kazandırılması amaçlanmaktadır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:1</code> “Grafik Tasarımın temel ilkelerini bilir.”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Öğrenme çıktılarına, dersin amacını yansıtacak şekilde &#39;Grafik Tasarım aracılığıyla veriyi yorumlayabilir&#39; gibi çıktılar eklenmelidir.</div>
+ </div>
+</div>
+
+<div class="card" id="modul-c"><h3 class="font-semibold mb-1">Öğrenme çıktıları <span class="text-xs font-normal text-slate-500">(Modül C)</span><span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></h3>
+ 
+ <p class="text-sm text-slate-600 mb-3">Ölçülebilir: %67 · haftalarda karşılığı olan: %100 · amaç uyumu 2/3 — Dersin amacı &#39;bilgi kazandırmak&#39; ve &#39;beceri sağlamak&#39; iken, çıktılar bu hedeflere ulaşmaya yönelik temel becerileri (ilkeleri bilme, teknikleri geliştirme, uygulama yapma) ölçmeye çalışmaktadır. Ancak, &#39;bilir&#39; gibi zayıf bir ifade (cikti:1) ve genel bir &#39;yapabilir&#39; ifadesi (cikti:2) nedeniyle tam uyum sağlanamamıştır.<br>
+  Bloom dağılımı: anlama 1, uygulama 2</p>
+ <table class="tbl w-full text-sm"><thead><tr><th>#</th><th>Özgün çıktı</th><th>Bloom<span class="ihelp" title="Bilişsel düzey: hatırlama &lt; anlama &lt; uygulama &lt; analiz &lt; değerlendirme &lt; yaratma.">i</span></th><th>Ölçülebilir<span class="ihelp" title="Çıktı gözlenebilir bir fiil içeriyor (açıklar, hesaplar, tasarlar). “Bilir, kavrar, anlar” ölçülebilir değildir.">i</span></th><th>Haftalar</th><th>YZ önerisi (özgün metin değiştirilmez)</th></tr></thead><tbody>
+ 
+ <tr><td>1</td><td>Grafik Tasarımın temel ilkelerini bilir.<div class="text-xs text-amber-700">belirsiz: bilir</div></td><td>anlama</td>
+ <td><span class="pill st-fail">hayır</span></td><td>2, 3</td>
+ <td class="text-blue-800">Grafik Tasarımın temel ilkelerini açıklayabilir.</td></tr>
+ <tr><td>2</td><td>Problem çözümleme tekniklerini geliştirebilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>4, 5</td>
+ <td class="text-blue-800"></td></tr>
+ <tr><td>3</td><td>Çeşitli malzemeler ile grafik çalışmaları yapabilir.</td><td>uygulama</td>
+ <td><span class="pill st-pass">evet</span></td><td>10, 11, 12, 13, 14</td>
+ <td class="text-blue-800"></td></tr>
+ </tbody></table>
+</div>
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Grafik Tasarımın Temelleri / Paul Harris , Gavin Ambrose<div class="text-xs text-slate-500">Kitap, grafik tasarımın temellerini içerdiği için doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>İletişim ve Grafik Tasarım / Emre Becer<div class="text-xs text-slate-500">Kitap, iletişim ve grafik tasarımı ele aldığı için doğrudan ilgilidir.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 100</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:1 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel ilkeler bilgisi, etik kurallarla ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel ilkeler, proje geliştirme sürecinin bir parçası olarak desteklenmektedir.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP3 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tasarım ilkeleri, görsel iletişimi geliştirme amacına hizmet eder.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP4 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel ilkeler, sektör deneyimiyle ilişkilendirme potansiyeli taşır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel ilkeler, modern araçların kullanımını gerektiren bir alandır.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel ilkeler, kuram ve kuramcıları bilme amacına doğrudan katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tasarım bilgisi, portfolyo oluşturmanın temelini oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel ilkeler, eleştirel inceleme yetkinliğine zemin hazırlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP9 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Temel ilkeler, görsel ifadeler oluşturma amacına doğrudan katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Problem çözme, etik standartlarla ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Problem çözme, araştırma ve proje geliştirme becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP3 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Problem çözme, iletişim becerilerini geliştirir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Problem çözme, sektör deneyimiyle ilişkilendirme potansiyeli taşır.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Problem çözme, güncel teknolojik gelişmeleri kullanma becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Problem çözme, temel ilke ve kuramları anlamayı gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Çözümleme, portfolyo oluşturma sürecine dolaylı katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP8 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Problem çözme, eleştirel inceleme yetkinliğine doğrudan katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP9 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Problem çözme, görsel ifadeler oluşturma sürecinin bir parçasıdır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP1 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Malzeme kullanımı, etik kurallarla ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP2 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Uygulamalar, proje geliştirme becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP3 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Grafik çalışmaları, görsel iletişim becerilerini geliştirir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP4 = 5</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Uygulamalar, sektör deneyimiyle ilişkilendirme potansiyeli taşır.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP5 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Teknik uygulamalar, güncel yazılımsal gelişmeleri kullanma amacına hizmet eder.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP6 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Uygulamalar, temel ilke ve kuramların pratiğe dökülmesini sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP7 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Grafik çalışmaları, portfolyo oluşturmanın temelini oluşturur.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP8 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Yapılan çalışmalar, eleştirel inceleme nesnesi olabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP9 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Grafik çalışmaları, görsel ifadeler oluşturma amacına doğrudan katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:1 → ÖP10 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Tasarım süreçleri, takım çalışması gerektirebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:2 → ÖP10 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Problem çözme, ekip çalışması gerektiren görevlerle ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:3 → ÖP10 = 4</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Uygulamalar, takım çalışması gerektiren projelerle ilişkilendirilebilir.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">2 kaynak · 0 tanesinde yıl var · en yeni — · 10 yıldan eski 0</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">—</td><td>Grafik Tasarımın Temelleri / Paul Harris , Gavin Ambrose</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>İletişim ve Grafik Tasarım / Emre Becer</td><td class="text-xs text-slate-500">kaynaklar</td></tr></tbody></table></div>
+
+
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/iletisim/İTY201">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/iletisim/İTY201/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Grafik Tasarımı</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Grafik Tasarım ile ilgili verilerin toplanması, yorumlanması, duyurulması ve uygulanmasına yönelik bilginin kazandırılması amaçlanmaktadır.</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Grafik Tasarım ile ilgili uygulamalar için gerekli teknik ve modern araçları kullanabilme becerisini sağlamaya yöneliktir.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Grafik Tasarımın temel ilkelerini bilir.</li><li>Problem çözümleme tekniklerini geliştirebilir.</li><li>Çeşitli malzemeler ile grafik çalışmaları yapabilir.</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%20</td></tr><tr><td>Ödev</td><td>1</td><td>%20</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (168 saat → tabloda 6 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Ödevler</td><td>14 × 3</td><td>42 saat</td></tr><tr><td>Sunum/Seminer Hazırlama</td><td>6 × 3</td><td>18 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 3</td><td>3 saat</td></tr><tr><td>Uygulama</td><td>6 × 3</td><td>18 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 3</td><td>3 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Görsel İletişimde Temel Kavramlar</td></tr><tr><td class="w-10">2</td><td>Grafik Tasarımının Temel İlkeleri</td></tr><tr><td class="w-10">3</td><td>Grafik Tasarımının Temel İlkeleri</td></tr><tr><td class="w-10">4</td><td>Problem Çözümleme Teknikleri</td></tr><tr><td class="w-10">5</td><td>Problem Çözümleme Teknikleri</td></tr><tr><td class="w-10">6</td><td>Görsel Çözümleme Konuları</td></tr><tr><td class="w-10">7</td><td>Görsel Çözümleme Konuları</td></tr><tr><td class="w-10">8</td><td>Görsel Çözümleme Konuları</td></tr><tr><td class="w-10">9</td><td>Ara Sınav</td></tr><tr><td class="w-10">10</td><td>Grafik Resim Çalışmaları</td></tr><tr><td class="w-10">11</td><td>Grafik resim çalışmaları</td></tr><tr><td class="w-10">12</td><td>Grafik resim çalışmaları</td></tr><tr><td class="w-10">13</td><td>Grafik resim çalışmaları</td></tr><tr><td class="w-10">14</td><td>Grafik resim çalışmaları</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

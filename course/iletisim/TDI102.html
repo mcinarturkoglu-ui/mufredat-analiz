@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müfredat Analiz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<style>
+ body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+ .card{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:1.25rem}
+ .tbl th{font-weight:600;color:#4b5563;text-align:left;padding:.45rem .6rem;background:#f9fafb;border-bottom:1px solid #e5e7eb;font-size:.78rem;text-transform:uppercase;letter-spacing:.02em}
+ .tbl td{padding:.45rem .6rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+ .tbl tr:hover td{background:#fafafa}
+ .pill{display:inline-block;border-radius:9999px;padding:.05rem .55rem;font-size:.72rem;font-weight:600;white-space:nowrap}
+ .s-critical,.s-high{background:#fee2e2;color:#991b1b}.s-medium{background:#fef3c7;color:#92400e}.s-low{background:#e0f2fe;color:#075985}.s-info{background:#f3f4f6;color:#374151}
+ .st-pass{background:#dcfce7;color:#166534}.st-fail{background:#fee2e2;color:#991b1b}.st-not_applicable,.st-not_evaluable{background:#f3f4f6;color:#4b5563}
+ .btn{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.5rem;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+ .btn:hover{background:#1e40af}.btn-ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe}.btn-ghost:hover{background:#eff6ff}
+ a.lnk{color:#1d4ed8}a.lnk:hover{text-decoration:underline}
+ .score{font-variant-numeric:tabular-nums;font-weight:700}
+ .ihelp{display:inline-flex;align-items:center;justify-content:center;width:.95rem;height:.95rem;border-radius:9999px;border:1px solid #94a3b8;color:#64748b;font-size:.62rem;font-weight:700;font-style:italic;font-family:Georgia,serif;cursor:help;margin-left:.25rem;vertical-align:middle}
+ .ihelp:hover{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+<div class="flex min-h-screen">
+ <aside class="w-60 shrink-0 bg-slate-900 text-slate-200 hidden md:block">
+  <div class="px-5 py-5 border-b border-slate-800">
+   <div class="text-white font-bold leading-tight">Müfredat Analiz</div>
+   <div class="text-xs text-slate-400 mt-1">Yerel ön demo</div>
+  </div>
+  <nav class="p-3 space-y-0.5 text-sm">
+   
+   <a href="/mufredat-analiz/" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">◎</span>Bölümler</a>
+   
+    
+    <a href="/mufredat-analiz/p/yazilim" class="block rounded-md px-3 py-1.5 pl-9 text-[13px] text-slate-400 hover:bg-slate-800 hover:text-white">Yazılım Mühendisliği</a>
+    
+   
+    
+    <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">İletişim Tasarımı ve Yönetimi</div>
+    <a href="/mufredat-analiz/p/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▣</span>Genel Bakış</a>
+    <a href="/mufredat-analiz/status/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">▦</span>Ders Durum Tablosu</a>
+    <a href="/mufredat-analiz/program/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">☰</span>Müfredat</a>
+    <a href="/mufredat-analiz/program/iletisim/overlap" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⇄</span>Konu Örtüşmeleri</a>
+    <a href="/mufredat-analiz/ai/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">✦</span>Yapay Zekâ Analizleri</a>
+    <a href="/mufredat-analiz/update/iletisim" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">↻</span>Bilgileri Güncelle</a>
+    
+   
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Sistem</div>
+   <a href="/mufredat-analiz/data" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⤓</span>Veri Kaynakları</a>
+   <a href="/mufredat-analiz/reports" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⎙</span>Raporlar</a>
+   <a href="/mufredat-analiz/settings" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">⚙</span>Kural Ayarları</a>
+   <div class="px-3 pt-4 pb-1 text-[11px] uppercase tracking-wider text-slate-500">Yardım</div>
+   <a href="/mufredat-analiz/kilavuz" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">?</span>Kullanım Kılavuzu</a>
+   <a href="/mufredat-analiz/tanimlar" class="flex items-center gap-2.5 rounded-md px-3 py-2 text-slate-300 hover:bg-slate-800 hover:text-white"><span class="w-4 text-center opacity-70">Aa</span>Tanımlar</a>
+  </nav>
+ </aside>
+ <main class="flex-1 min-w-0 p-4 md:p-8 space-y-6">
+  <div class="rounded-lg border border-blue-200 bg-blue-50 text-blue-900 text-sm px-4 py-3">
+   <b>İnceleme sürümü (salt okunur).</b> Veriler 18.11.2026 23:41 itibarıyla dondurulmuştur. Yapay zekâ bulguları yerel küçük model (Gemma 4 E4B) ile üretilmiş ön sonuçlardır ve uzman değerlendirmesi beklemektedir. Analiz başlatma ve ayar değiştirme bu sürümde kapalıdır.</div>
+  
+<div class="flex flex-wrap items-start justify-between gap-3">
+ <div><div class="text-sm text-slate-500"><a class="lnk" href="/mufredat-analiz/program/iletisim">İletişim Tasarımı ve Yönetimi</a> / 2. yarıyıl</div>
+ <h1 class="text-2xl font-bold">TDI102 · Türk Dili II</h1>
+ <div class="text-sm text-slate-600 mt-1">T+U+L<span class="ihelp" title="Haftalık Teorik + Uygulama + Laboratuvar ders saati (ör. 2+2+0).">i</span> 2+0+0 · Kredi 2 · AKTS<span class="ihelp" title="Avrupa Kredi Transfer Sistemi kredisi. 1 AKTS ≈ 25–30 saat öğrenci iş yükü.">i</span> 2 (müfredatta 2) · Zorunlu · kategori: regular · sitede son güncelleme 31.08.2026</div>
+ <div class="text-xs text-slate-500 mt-1">Kaynak: <a class="lnk" href="https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377433&amp;lang=tr" target="_blank">https://obs.samsun.edu.tr/oibs/bologna/progCourseDetails.aspx?curCourse=377433&amp;lang=tr</a> · toplandı 18.11.2026 18:20</div></div>
+ 
+</div>
+
+<div class="card !p-4"><div class="flex items-center justify-between mb-3"><h3 class="font-semibold text-sm">Bölüm durumu</h3><a class="lnk text-xs" href="/mufredat-analiz/status/iletisim">Tüm dersler →</a></div>
+ <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2">
+  <a href="#modul-e" title="YZ (E): 82973. öğrenme çıktısının ÖP10 çıktısına verilen katkısı içerikle desteklenmiyor.&amp;#10;YZ (E): 82974. öğrenme çıktısının ÖP9 çıktısına verilen katkısı içerikle desteklenmiyor." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">ÖP çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#modul-a" title="YZ (A): Ders içeriğinde belirtilen &#39;temel eserler&#39; konusu, haftalık konular başlıklarında açıkça yer almamaktadır.&amp;#10;YZ (A): Ders amacında belirtilen &#39;Türkçe´nin özelliklerini bilme&#39; hedefi, haftalık konuların tamamında yeterince kapsanmamıştır.&amp;#10;YZ (A): Dersin Lisans düzeyi göz önüne alındığında, bazı konuların (örneğin sadece &#39;Cümle bilgisi&#39;) derinliğinin yetersiz kalabileceği izlenimi oluşmaktadır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ders içeriği</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#paket" title="Haftalık plan: Bazı haftaların konusu boş. (mevcut: 2 boş hafta ([15, 16]); beklenen: 0 boş hafta)" class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Haftalık plan</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#modul-c" title="YZ (A): Öğrenme çıktıları arasında, haftalık konuların odaklandığı &#39;Resmî yazılar&#39; ile doğrudan ilişkilendirilemeyen bir çıktı bulunmaktadır." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Öğrenme çıktıları</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Ölçme-değerlendirme</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">AKTS ve iş yükü</div><div class="text-sm font-semibold">Tamamlandı</div></a>
+  <a href="#modul-e" title="Kaynaklar: Yılı belirtilen kaynakların en yenisi bile eski. (mevcut: en yeni kaynak 2011 (15 yıl önce); beklenen: en çok 10 yıl önce)&amp;#10;YZ (E): 2. kaynak satırı bir kaynak künyesi değil: “Yok”." class="border rounded-lg px-3 py-2 bg-amber-50 text-amber-700 border-amber-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">Kaynaklar</div><div class="text-sm font-semibold">İyileştirilmeli</div></a>
+  <a href="#kurallar" title="Önemli sorun yok" class="border rounded-lg px-3 py-2 bg-emerald-50 text-emerald-700 border-emerald-200 hover:shadow-sm">
+   <div class="text-[11px] opacity-80">İngilizce paket</div><div class="text-sm font-semibold">Tamamlandı</div></a></div></div>
+
+
+
+<div class="grid lg:grid-cols-4 gap-4">
+ <div class="card"><div class="text-xs text-slate-500">Kural denetimi<span class="ihelp" title="Kontrol sağlandı / sağlanmadı.">i</span></div>
+  <div class="mt-2 flex gap-2 flex-wrap"><span class="pill st-pass">geçti: 36</span><span class="pill st-fail">kaldı: 6</span><span class="pill st-not_applicable">muaf: 0</span><span class="pill st-not_evaluable">değerlendirilemedi: 0</span></div></div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">İçerik uyumu (YZ)<span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></div>
+  <div class="text-3xl score mt-1">73.3<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #222 · 18.11 19:12 · 1 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Öğrenme çıktıları (YZ)<span class="ihelp" title="Her çıktının Bloom düzeyi, ölçülebilirliği ve haftalık planda karşılığı; ölçülebilir olmayanlar için yeniden yazım önerisi.">i</span></div>
+  <div class="text-sm text-red-700 mt-2">Başarısız: 3 denemede geçerli çıktı alınamadı.</div>
+  </div>
+ 
+ <div class="card"><div class="text-xs text-slate-500">Kaynak ve ÖP uyumu (YZ)<span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></div>
+  <div class="text-3xl score mt-1">67.5<span class="text-sm text-slate-500 font-normal"> / 100</span></div>
+   <div class="text-xs text-slate-500">iş #224 · 18.11 19:14 · 2 deneme · uzman incelemesi gerekli</div>
+  </div>
+ 
+</div>
+
+<div class="card" id="kurallar"><h3 class="font-semibold mb-3">Kural denetimi: geçmeyen kontroller (6)</h3>
+<table class="tbl w-full text-sm"><thead><tr><th>Kural</th><th>Alan</th><th>Önem</th><th>Gerekçe</th><th>Mevcut</th><th>Beklenen</th><th>Öneri</th></tr></thead><tbody>
+<tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · tr</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R1 Zorunlu alanlar<div class="text-xs text-slate-500">filled · en</div></td><td>teaching_methods</td>
+<td><span class="pill s-low">düşük</span></td><td>&#39;Yöntem ve teknikler&#39; alanı boş ya da yetersiz.</td><td>boş</td><td>dolu</td><td class="text-slate-600">&#39;Yöntem ve teknikler&#39; alanını doldurun.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">empty_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-medium">orta</span></td><td>Bazı haftaların konusu boş.</td><td>2 boş hafta ([15, 16])</td><td>0 boş hafta</td><td class="text-slate-600">Boş haftaların konusunu yazın.</td></tr><tr><td class="whitespace-nowrap">R2 Haftalık plan<div class="text-xs text-slate-500">duplicate_topics · tr</div></td><td>weekly_topics</td>
+<td><span class="pill s-low">düşük</span></td><td>Aynı konu metni birden fazla haftada birebir tekrarlanıyor.</td><td>4 tekrar: &#39;konuşmaya dayalı (sözlü) anlatım türleri&#39; x2; &#39;yazılı anlatım türleri&#39; x2; &#39;resmî yazılar (öz geçmiş, dilekçe, rapor)&#39; x2; &#39;anlatım bozuklukları&#39; x2</td><td>en çok 0 tekrar</td><td class="text-slate-600">Tekrarlanan haftaların konusunu ayrıştırın ya da alt başlık ekleyin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">newest_year · tr</div></td><td>references</td>
+<td><span class="pill s-medium">orta</span></td><td>Yılı belirtilen kaynakların en yenisi bile eski.</td><td>en yeni kaynak 2011 (15 yıl önce)</td><td>en çok 10 yıl önce</td><td class="text-slate-600">Kaynak listesine güncel baskı ya da güncel kaynak ekleyin.</td></tr><tr><td class="whitespace-nowrap">R7 Kaynaklar<div class="text-xs text-slate-500">bibliographic_form · tr</div></td><td>references</td>
+<td><span class="pill s-low">düşük</span></td><td>Bazı kaynak satırları künye olamayacak kadar kısa (yazar, eser adı, yıl eksik).</td><td>1 yetersiz künye: [&#39;Yok&#39;]</td><td>0 yetersiz künye</td><td class="text-slate-600">Kaynakları yazar, eser adı, yayınevi ve yıl içerecek şekilde yazın.</td></tr>
+</tbody></table></div>
+
+<div class="card" id="modul-a"><h3 class="font-semibold mb-3">İçerik uyumu <span class="text-xs font-normal text-slate-500">(Modül A)</span><span class="ihelp" title="Ders adı, amaç, haftalık konular ve öğrenme çıktıları birbiriyle tutarlı mı; kapsam dışı konu, düzey uyumsuzluğu var mı.">i</span></h3>
+ 
+ <table class="tbl w-full text-sm mb-4"><thead><tr><th>Ölçüt</th><th>Düzey</th><th>Gerekçe</th></tr></thead><tbody>
+ <tr><td class="whitespace-nowrap">Düzey uygunluğu</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Dersin &#39;Lisans&#39; düzeyi ve &#39;Türk Dili II&#39; olması göz önüne alındığında, haftalık konuların bazıları (örneğin, sadece &#39;Cümle bilgisi&#39; veya &#39;Paragraf bilgisi&#39;) daha temel düzeyde kalmış gibi görünmektedir, bu da konuların derinliğinin seviyeyle tam uyumlu olmadığını düşündürmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad kapsamı uygun</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Ders adı, içerik ve konular arasındaki kapsam, genel olarak uygun görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Kapsam dışı konu yok</td>
+ <td class="score whitespace-nowrap">3/3 </td><td>Haftalık konuların tamamı, dersin genel amacı ve içeriği dahilinde görünmektedir.</td></tr><tr><td class="whitespace-nowrap">Ad ↔ içerik/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Ders adı (&#39;Türk Dili II&#39;) ile içerik (&#39;Türkçe´nin yapı ve anlam bakımından özellikleri, temel eserler, toplum içinde kendini ifade etme, dili doğru ve etkili kullanmanın yolları&#39;) arasında bir uyum olsa da, haftalık konuların (Cümle bilgisi, Paragraf bilgisi, Resmî yazılar vb.) &#39;temel eserler&#39; kısmını yeterince kapsamadığı görülmektedir.</td></tr><tr><td class="whitespace-nowrap">Amaç ↔ haftalık konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Amaçta belirtilen &#39;toplum içinde kendini daha iyi ifade edebilmesini sağlamak&#39; ifadesi, haftalık konuların (özellikle sözlü ve yazılı anlatım türleri) işlenmesiyle kısmen desteklenmektedir, ancak &#39;Türkçe&#39;nin özelliklerini bilme&#39; kısmı, haftalık konuların tamamında yeterince ele alınmamıştır.</td></tr><tr><td class="whitespace-nowrap">Çıktılar ↔ amaç/konular</td>
+ <td class="score whitespace-nowrap">2/3 </td><td>Öğrenme çıktıları, amaç ve haftalık konularla tam olarak örtüşmemektedir. Özellikle &#39;Edebî ve bilimsel metinleri inceleyip not çıkarma becerisi kazanır&#39; çıktısı, haftalık konuların odaklandığı &#39;Resmî yazılar&#39; gibi konularla doğrudan ilişkilendirilememektedir.</td></tr></tbody></table>
+ <div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders içeriğinde belirtilen &#39;temel eserler&#39; konusu, haftalık konular başlıklarında açıkça yer almamaktadır.</div><div class="text-xs text-slate-500 mt-1">İçerik tanımında &#39;temel eserler&#39; ifadesi varken, haftalık konular (Cümle bilgisi, Paragraf bilgisi vb.) bu eserlere odaklanmaktan ziyade dilbilgisi ve yazım becerilerine odaklanmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">icerik</code> “Türkçe´nin yapı ve anlam bakımından özellikleri, temel eserler, toplum içinde kendini ifade etme, dili doğru ve etkili kullanmanın yolları.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:1</code> “Cümle bilgisi”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Eğer &#39;temel eserler&#39; dersin bir parçası ise, haftalık konulara bu eserlerin incelenmesine dair bir başlık eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Amaç–konu uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Ders amacında belirtilen &#39;Türkçe´nin özelliklerini bilme&#39; hedefi, haftalık konuların tamamında yeterince kapsanmamıştır.</div><div class="text-xs text-slate-500 mt-1">Amaç, dilin yapısal özelliklerini bilmeyi gerektirirken, haftalık konular daha çok anlatım türleri ve yazım becerilerine odaklanmıştır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">amac</code> “Öğrencinin Türkçe´nin özelliklerini bilmesini, dili doğru ve etkili kullanabilmesini ve toplum içinde kendini daha iyi ifade edebilmesini sağlamak”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:13</code> “Anlatım Bozuklukları”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Dersin amacını desteklemek için, dilin yapısal özelliklerini (örneğin ses, şekil bilgisi) kapsayan haftalık konular eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-medium">orta</span> <b>Çıktı uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Öğrenme çıktıları arasında, haftalık konuların odaklandığı &#39;Resmî yazılar&#39; ile doğrudan ilişkilendirilemeyen bir çıktı bulunmaktadır.</div><div class="text-xs text-slate-500 mt-1">Çıktı 82974, &#39;Edebî ve bilimsel metinleri inceleyip not çıkarma becerisi kazanır&#39; derken, haftalık konuların büyük bir kısmı (özellikle 11. ve 12. haftalar) &#39;Resmî yazılar&#39; üzerine yoğunlaşmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">cikti:82974</code> “Edebî ve bilimsel metinleri inceleyip not çıkarma becerisi kazanır.”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:11</code> “Resmî yazılar (öz geçmiş, dilekçe, rapor)”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Eğer bu çıktı korunacaksa, haftalık konulara edebî ve bilimsel metin incelemelerine ayrılmış bir zaman dilimi eklenmelidir.</div>
+ </div><div class="border-l-4 border-amber-400 pl-3 mb-3">
+  <div class="text-sm"><span class="pill s-low">düşük</span> <b>Düzey uyumsuzluğu</b> · <span class="text-slate-500">olası sorun</span></div>
+  <div class="text-sm mt-1">Dersin Lisans düzeyi göz önüne alındığında, bazı konuların (örneğin sadece &#39;Cümle bilgisi&#39;) derinliğinin yetersiz kalabileceği izlenimi oluşmaktadır.</div><div class="text-xs text-slate-500 mt-1">Dersin Lisans seviyesinde olması, konuların daha ileri düzeyde ele alınmasını gerektirebilir; ancak mevcut başlıklar (Cümle bilgisi, Paragraf bilgisi) genel bir giriş seviyesini andırmaktadır.</div>
+  <div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">ad</code> “Türk Dili II”</div><div class="text-xs mt-1">✓ <code class="bg-slate-100 px-1 rounded">hafta:2</code> “Cümle çeşitleri”</div>
+  <div class="text-xs mt-1 text-blue-800">Öneri: Konuların derinliğini artırmak için, ilgili konuların (örneğin Cümle bilgisi) daha ileri düzey dilbilgisi konularını içerecek şekilde güncellenmesi önerilir.</div>
+ </div>
+</div>
+
+
+
+
+<div class="card" id="modul-e"><h3 class="font-semibold mb-1">Kaynak ve ÖP uyumu <span class="text-xs font-normal text-slate-500">(Modül E)</span><span class="ihelp" title="Kaynaklar gerçek künye mi ve derse uygun mu; girilmiş ÖP katkıları içerikle destekleniyor mu; katkı girilmemişse öneri.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Kaynağın gerçekten var olup olmadığı ya da baskı bilgisinin doğruluğu bu modelle doğrulanamaz; yalnızca satırın künye olup olmadığı ve dersin konusuyla ilgisi değerlendirilir.</p>
+ <div class="grid lg:grid-cols-2 gap-6">
+ <div><h4 class="text-sm font-semibold mb-1">Kaynaklar · puan 50</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td>Aksan,D. (1990). Her Yönüyle Dil Ana Çizgileriyle Dilbilim, TDK, Ankara, Aktaş, Ş.; Gündüz, O. (2011) Yazılı ve Sözlü Anlatım Kompozisyon Sanatı, Akçağ Yayınları, Ankara, 330 s. Atasoy, F.O. (2010). Türkçede Noktalama, Özel Kitaplar, İstanbul, 530 s. Ateş, K. (2011). Türk Dili, İmge Kitabevi, 10. Bsk, İstanbul, 419 s. Demir, N.; Yılmaz, E. (2009). Türk Dili El Kitabı, Grafiker Yayınları, 4. Bsk. Ankara, 269 s. Eker, S. (2009). Çağdaş Türk Dili, 5. Bsk, İstanbul, 584 s. Ergin, M. (1972). Türk Dil Bilgisi, Ergüzel, M.; Gülsevin, G.; Boz, E.; Yaman, E. (2011). Üniversiteler İçin Türk Dili (Yazılı ve Sözlü Anlatım), Savaş Yayınevi, Ankara, 408 s. Özkan, M.; Sevinçli, V. (2008). Türkiye Türkçesi Söz Dizimi, 3F Yayınevi, İstanbul, 279 s. Özkan, Mustafa. Yüksek Öğretimde Türk Dili Yazılı ve Sözlü Anlatım, Filiz Kitabevi, İstanbul 2001. Paçacıoğlu, B. (2010). Türk Dili ve Kompozisyon, Hat Yayınevi, 368 s. Yılmaz, Y. (2010). Türkçede Dil Yanlışları, Özel Kitaplar, İstanbul, 320 s.<div class="text-xs text-slate-500">Kitaplar dilbilim, yazılı ve sözlü anlatım konularını içeriyor.</div></td>
+  <td class="whitespace-nowrap"><span class="pill s-info">akademik</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-pass">ilgili</span></td></tr><tr><td>Yok<div class="text-xs text-slate-500">Kaynak bilgisi yok.</div></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">künye değil</span></td>
+  <td class="whitespace-nowrap"><span class="pill st-fail">ilgisiz</span></td></tr></tbody></table></div>
+ <div><h4 class="text-sm font-semibold mb-1">Sayfadaki ÖP katkıları · puan 85</h4>
+  <table class="tbl w-full text-sm"><tbody><tr><td class="whitespace-nowrap">cikti:82973 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dilin yapısal özelliklerini ve dilbilimsel temelleri içeren kaynaklar var.</td></tr><tr><td class="whitespace-nowrap">cikti:82973 → ÖP2 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Yazılı ve sözlü anlatım becerileri, araştırma ve uygulama gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:82973 → ÖP3 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dili doğru kullanma ve kendini ifade etme amacı ile örtüşüyor.</td></tr><tr><td class="whitespace-nowrap">cikti:82973 → ÖP4 = 2</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Ders içeriği daha çok dil bilgisi ve anlatım odaklı, sektör deneyimi vurgusu zayıf.</td></tr><tr><td class="whitespace-nowrap">cikti:82973 → ÖP5 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dilin kurallarını bilmek, dilin güncel kullanımını anlamayı gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:82973 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Dilbilim ve dil bilgisi temelleri (kuramlar) kaynaklarda mevcuttur.</td></tr><tr><td class="whitespace-nowrap">cikti:82973 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Resmî yazılar (öz geçmiş) ile ilişkilendirilebilir.</td></tr><tr><td class="whitespace-nowrap">cikti:82973 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Anlatım bozuklukları ve dil hatalarını inceleme becerisi gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:82973 → ÖP9 = 3</td><td><span class="pill s-medium">zayif</span></td><td class="text-xs text-slate-600">Bu çıktı görsel/tipografik tasarım odaklıdır, dil bilgisi ile doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:82974 → ÖP1 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metin inceleme, dilin kurallarına uygunluk gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:82974 → ÖP2 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metin inceleme, eleştirel okuma ve analiz becerisi gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:82974 → ÖP3 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metin inceleme ve özet çıkarma, kendini ifade etme becerisine katkı sağlar.</td></tr><tr><td class="whitespace-nowrap">cikti:82974 → ÖP4 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Kompozisyon ve yazılı anlatım, akademik bilgi ile ilişkilidir.</td></tr><tr><td class="whitespace-nowrap">cikti:82974 → ÖP5 = 2</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metinleri doğru ve etkili kullanma becerisi, dilin güncel kullanımını içerir.</td></tr><tr><td class="whitespace-nowrap">cikti:82974 → ÖP6 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metinlerin yapısını ve türlerini bilmek, dilin temel kuramlarını anlamayı gerektirir.</td></tr><tr><td class="whitespace-nowrap">cikti:82974 → ÖP7 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metin inceleme ve not çıkarma, portfolyo oluşturma sürecinin bir parçası olabilir.</td></tr><tr><td class="whitespace-nowrap">cikti:82974 → ÖP8 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">Metinleri eleştirel bir yaklaşımla inceleme becerisi doğrudan hedeftir.</td></tr><tr><td class="whitespace-nowrap">cikti:82974 → ÖP9 = 2</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Bu çıktı görsel tasarım odaklıdır, metin inceleme ile doğrudan ilgili değildir.</td></tr><tr><td class="whitespace-nowrap">cikti:82973 → ÖP10 = 2</td><td><span class="pill st-fail">desteklenmiyor</span></td><td class="text-xs text-slate-600">Dersin içeriği sosyal becerilerden ziyade dil becerilerine odaklanmıştır.</td></tr><tr><td class="whitespace-nowrap">cikti:82974 → ÖP10 = 3</td><td><span class="pill st-pass">destekleniyor</span></td><td class="text-xs text-slate-600">İyi bir metin yazma becerisi, takım çalışmasına uygun iletişim gerektirir.</td></tr></tbody></table>
+ </div>
+ </div></div>
+<div class="card" id="modul-d"><h3 class="font-semibold mb-1">Kaynak güncelliği <span class="text-xs font-normal text-slate-500">(Modül D)</span><span class="ihelp" title="Kaynakların yayın yıllarına göre güncelliği. İçeriğin alanın güncel durumuna uygunluğu referans doküman olmadan değerlendirilmez.">i</span></h3>
+ <p class="text-xs text-slate-500 mb-3">Yalnızca sayfadaki yayın yıllarından hesaplanır. İçeriğin alanın güncel kapsamıyla karşılaştırılması güvenilir referans doküman gerektirdiği için <b>değerlendirilemedi</b>; model bilgisine dayalı güncellik iddiası üretilmez.</p>
+ <div class="text-sm mb-2">2 kaynak · 1 tanesinde yıl var · en yeni 2011 (15 yıl önce) · 10 yıldan eski 1</div>
+ <table class="tbl w-full text-sm"><tbody><tr><td class="w-16">2011</td><td>Aksan,D. (1990). Her Yönüyle Dil Ana Çizgileriyle Dilbilim, TDK, Ankara, Aktaş, Ş.; Gündüz, O. (2011) Yazılı ve Sözlü Anlatım Kompozisyon Sanatı, Akçağ Yayınları, Ankara, 330 s. Atasoy, F.O. (2010). Türkçede Noktalama, Özel Kitaplar, İstanbul, 530 s. Ateş, K. (2011). Türk Dili, İmge Kitabevi, 10. Bsk, İstanbul, 419 s. Demir, N.; Yılmaz, E. (2009). Türk Dili El Kitabı, Grafiker Yayınları, 4. Bsk. Ankara, 269 s. Eker, S. (2009). Çağdaş Türk Dili, 5. Bsk, İstanbul, 584 s. Ergin, M. (1972). Türk Dil Bilgisi, Ergüzel, M.; Gülsevin, G.; Boz, E.; Yaman, E. (2011). Üniversiteler İçin Türk Dili (Yazılı ve Sözlü Anlatım), Savaş Yayınevi, Ankara, 408 s. Özkan, M.; Sevinçli, V. (2008). Türkiye Türkçesi Söz Dizimi, 3F Yayınevi, İstanbul, 279 s. Özkan, Mustafa. Yüksek Öğretimde Türk Dili Yazılı ve Sözlü Anlatım, Filiz Kitabevi, İstanbul 2001. Paçacıoğlu, B. (2010). Türk Dili ve Kompozisyon, Hat Yayınevi, 368 s. Yılmaz, Y. (2010). Türkçede Dil Yanlışları, Özel Kitaplar, İstanbul, 320 s.</td><td class="text-xs text-slate-500">kaynaklar</td></tr><tr><td class="w-16">—</td><td>Yok</td><td class="text-xs text-slate-500">ders notları</td></tr></tbody></table></div>
+
+<div class="card"><h3 class="font-semibold mb-2">Diğer derslerle konu benzerliği <span class="text-xs font-normal text-slate-500">(Modül B)</span><span class="ihelp" title="Farklı derslerin haftalık konuları arasındaki benzerlik. Aynı yarıyılda olası tekrar, farklı yarıyılda tekrar ya da derinleşme olabilir.">i</span></h3>
+ <div class="text-sm mb-2"><a class="lnk" href="/mufredat-analiz/course/iletisim/TDI101">TDI101 Türk Dili I</a> · 1. yarıyıl · 1 benzer konu (en yüksek 0.907)</div></div>
+
+<div class="card" id="paket"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Orijinal bilgi paketi</h3>
+ <div class="text-sm"><a class="font-bold" href="/mufredat-analiz/course/iletisim/TDI102">Türkçe</a> · <a class="lnk" href="/mufredat-analiz/course/iletisim/TDI102/en">English</a></div></div>
+ <dl class="grid md:grid-cols-4 gap-x-4 gap-y-2 text-sm">
+ 
+  <dt class="text-slate-500">Ad</dt><dd class="md:col-span-3 whitespace-pre-line">Türk Dili II</dd>
+  <dt class="text-slate-500">Amaç</dt><dd class="md:col-span-3 whitespace-pre-line">Öğrencinin Türkçe´nin özelliklerini bilmesini, dili doğru ve etkili kullanabilmesini ve toplum içinde kendini daha iyi ifade edebilmesini sağlamak</dd>
+  <dt class="text-slate-500">İçerik</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe´nin yapı ve anlam bakımından özellikleri, temel eserler, toplum içinde kendini ifade etme, dili doğru ve etkili kullanmanın yolları.</dd>
+  <dt class="text-slate-500">Yöntem ve teknikler</dt><dd class="md:col-span-3 whitespace-pre-line">—</dd>
+  <dt class="text-slate-500">Ön koşul</dt><dd class="md:col-span-3 whitespace-pre-line">Yok</dd>
+  <dt class="text-slate-500">Öğretim dili</dt><dd class="md:col-span-3 whitespace-pre-line">Türkçe</dd></dl>
+ <div class="grid lg:grid-cols-2 gap-6 mt-4">
+  <div><h4 class="text-sm font-semibold mb-1">Öğrenme çıktıları</h4><ol class="text-sm list-decimal pl-5 space-y-1"><li>Türkçenin şekil yapısını bilir, imlâ-noktalama işaretlerini yerinde kullanır.</li><li>Edebî ve bilimsel metinleri inceleyip not çıkarma becerisi kazanır.</li><li>None</li><li>None</li><li>None</li></ol>
+   <h4 class="text-sm font-semibold mt-4 mb-1">Değerlendirme</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ara Sınav</td><td>1</td><td>%40</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1</td><td>%60</td></tr></tbody></table>
+   <h4 class="text-sm font-semibold mt-4 mb-1">AKTS iş yükü (58 saat → tabloda 2 AKTS)</h4><table class="tbl w-full text-sm"><tbody><tr><td>Ders Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Sınıf Dışı Ç. Süresi</td><td>14 × 2</td><td>28 saat</td></tr><tr><td>Ara Sınavlar</td><td>1 × 1</td><td>1 saat</td></tr><tr><td>Yarıyıl Sonu Sınavı</td><td>1 × 1</td><td>1 saat</td></tr></tbody></table></div>
+  <div><h4 class="text-sm font-semibold mb-1">Haftalık konular</h4><table class="tbl w-full text-sm"><tbody><tr><td class="w-10">1</td><td>Cümle bilgisi</td></tr><tr><td class="w-10">2</td><td>Cümle çeşitleri</td></tr><tr><td class="w-10">3</td><td>Paragraf bilgisi, paragraf çeşitleri, paragrafın yapısı</td></tr><tr><td class="w-10">4</td><td>Kompozisyon bilgileri</td></tr><tr><td class="w-10">5</td><td>Konuşmaya dayalı (sözlü) anlatım türleri</td></tr><tr><td class="w-10">6</td><td>Konuşmaya dayalı (sözlü) anlatım türleri</td></tr><tr><td class="w-10">7</td><td>Yazılı anlatım türleri</td></tr><tr><td class="w-10">8</td><td>Yazılı anlatım türleri</td></tr><tr><td class="w-10">9</td><td>Güzel konuşma kuralları ve örnekleri</td></tr><tr><td class="w-10">10</td><td>Ara Sınav</td></tr><tr><td class="w-10">11</td><td>Resmî yazılar (öz geçmiş, dilekçe, rapor)</td></tr><tr><td class="w-10">12</td><td>Resmî yazılar (öz geçmiş, dilekçe, rapor)</td></tr><tr><td class="w-10">13</td><td>Anlatım Bozuklukları</td></tr><tr><td class="w-10">14</td><td>Anlatım Bozuklukları</td></tr><tr><td class="w-10">15</td><td>None</td></tr><tr><td class="w-10">16</td><td>None</td></tr></tbody></table></div>
+ </div></div>
+
+ </main>
+</div>
+</body>
+</html>

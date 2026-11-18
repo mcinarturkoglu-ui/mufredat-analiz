@@ -1,0 +1,137 @@
+﻿kod,ad,yarıyıl,AKTS,kural yüksek,kural orta,kural düşük,Modül A puanı,Modül C puanı
+ATI101,Atatürk İlkeleri ve İnkılap Tarihi I,1,2,1,1,3,,
+TDI101,Türk Dili I,1,2,0,1,2,76.7,61.3
+YDİ101,Yabancı Dil I,1,2,0,1,2,91.7,66.7
+İSG111,İş Sağlığı ve Güvenliği I,1,2,2,0,2,,
+İTY101,Temel Ekonomi,1,5,0,0,3,85,53.3
+İTY103,Sosyolojiye Giriş,1,4,3,1,2,93.3,53.3
+İTY105,İletişime Giriş,1,6,0,0,2,76.7,43.3
+İTY107,Psikoloji,1,4,0,0,0,93.3,76
+İTY109,İletişim Kuramları,1,5,0,0,2,73.3,86.7
+İTY111,İletişimde Anlatım Teknikleri,1,4,0,1,2,85,
+ATI102,Atatürk İlkeleri ve İnkılapları Tarihi II,2,2,1,1,3,81.7,80
+OBDE102,Bilimin Doğası ve Eleştirel Düşünce,2,2,0,0,4,100,76
+TDI102,Türk Dili II,2,2,0,2,4,73.3,
+YDİ102,Yabancı Dil II,2,2,1,2,3,36.7,93.3
+İSG112,İş Sağlığı ve Güvenliği II,2,2,2,0,4,,
+İTY102,Medya ve İletişim,2,6,0,0,2,76.7,53.3
+İTY104,Temel Tasarım,2,6,0,0,3,76.7,53.3
+İTY106,Dijitalleşme ve Toplum,2,5,1,1,3,76.7,100
+İTY108,İletişim Teknolojileri,2,4,0,2,3,85,100
+İTY112,Yeni Medya Kuramları,2,5,0,0,2,85,83.3
+OYDİ201,Akademik İngilizce I,3,3,0,0,4,80,86.7
+İTY201,Grafik Tasarımı,3,6,0,0,4,76.7,80
+İTY203,Web Tasarımı,3,6,0,1,2,73.3,73.3
+İTY205,Örgütsel Davranış,3,4,1,1,2,76.7,
+İTY207,Göstergebilim,3,3,0,1,3,93.3,73.3
+OYDİ202,Akademik İngilizce II,4,3,0,2,2,100,
+İTY202,Arayüz Tasarımı,4,6,0,2,3,100,68
+İTY206,Reklamcılığa Giriş,4,4,0,0,4,76.7,53.3
+İTY210,Araştırma Yöntemleri ve Etik,4,5,0,1,2,76.7,100
+İTY212,Tipografi,4,4,1,1,3,85,61.3
+OYDİ301,Akademik İngilizce III,5,3,0,1,4,80,86.7
+İTY303,3 Boyutlu Animasyon Teknikleri I,5,5,0,1,3,85,86.7
+İTY305,Yaratıcı Yazarlık,5,4,0,0,3,58.3,23.3
+İTY307,Marka İletişimi,5,3,0,1,2,70,53.3
+İTY311,Liderlik Yöneticilik,5,3,0,1,3,76.7,100
+OYDİ302,Akademik İngilizce IV,6,3,0,2,2,,
+STJ300,Staj,6,8,1,1,0,65,86.7
+İTY302,Video Kurgu,6,4,0,0,3,73.3,93.3
+İTY304,3 Boyutlu Animasyon Teknikleri II,6,5,0,1,3,76.7,53.3
+İTY306,İletişim Etiği,6,3,2,2,2,85,68
+İTY310,İstatistik,6,3,0,0,3,85,77.3
+İTY401,İletişim Hukuku,7,4,0,1,2,85,53.3
+İTY403,Bitirme Projesi Planlama ve Geliştirme,7,7,0,0,2,100,73.3
+İTY405,Reklam Tasarım ve Uygulamaları,7,4,1,0,3,70,93.3
+İTY404,Bitirme Projesi Yürütme,8,7,0,0,2,93.3,73.3
+İTY408,Masaüstü Yayıncılığı,8,5,0,0,3,13.3,26.7
+İTY410,Portfolyo Tasarımı ve Sunu Teknikleri,8,3,2,0,3,76.7,66.7
+OSD101,Finansal Okuryazarlık,seçmeli,3,1,0,3,,
+OSD102,Uygarlık Tarihi,seçmeli,3,2,0,2,,
+OSD103,Kozmolojiye Giriş,seçmeli,3,0,1,2,,
+OSD104,Kent Kültürü,seçmeli,3,0,1,2,,
+OSD105,Demokrasi Tarihi,seçmeli,3,1,0,4,,
+OSD106,Kültürel Çalışmalar,seçmeli,3,0,1,3,,
+OSD107,Düşünce Tarihi,seçmeli,3,2,1,2,,
+OSD108,İslam Bilim Tarihi,seçmeli,3,2,0,2,,
+OSD109,İslam Felsefesi,seçmeli,3,1,2,2,,
+OSD110,Sanat Felsefesi,seçmeli,3,0,0,4,,
+OSD111,Yapay Zeka,seçmeli,3,0,0,3,,
+OSD112,"Sağlıklı Yaşam, Beslenme ve Spor",seçmeli,3,0,0,2,,
+OSD113,Değerler Eğitimi,seçmeli,3,1,3,4,,
+OSD114,Ahlak Felsefesi,seçmeli,3,2,1,4,,
+OSD115,Sanat Tarihi,seçmeli,3,0,0,3,,
+OSD116,Gönüllülük Dersi,seçmeli,4,2,4,3,,
+OSD117,Kariyer Planlama,seçmeli,2,0,0,3,,
+OSD118,İş Sağlığı ve Güvenliği I,seçmeli,3,0,0,4,,
+OSD119,İş Sağlığı Ve Güvenliği II,seçmeli,3,0,0,4,,
+OSD120,Küreselleşme,seçmeli,3,2,1,0,,
+OSD121,Arkeolojiye Giriş,seçmeli,3,1,2,3,,
+OSD122,İnovasyon,seçmeli,3,2,0,4,,
+OSD123,Toplumsal Duyarlılık Projeleri,seçmeli,3,0,1,3,,
+OSD124,Hukuk ve Etik,seçmeli,3,1,2,3,,
+OSD125,Psikososyal Yaşam Becerileri,seçmeli,3,0,0,0,,
+PFD101,Eğitime Gİriş,seçmeli,4,2,1,2,,
+PFD102,Eğitim Psikolojisi,seçmeli,4,2,1,0,,
+PFD103,Öğretim İlke ve Yöntemleri,seçmeli,4,2,0,2,,
+PFD104,Özel Öğretim Yöntemleri,seçmeli,4,1,1,1,,
+PFD105,Sınıf Yönetimi,seçmeli,3,2,1,0,,
+PFD106,Öğretim Teknolojileri,seçmeli,3,2,1,0,,
+PFD201,Eğitimde Ölçme ve Değerlendirme,seçmeli,4,2,1,2,,
+PFD202,Öğretmenlik Uygulaması,seçmeli,10,5,0,4,,
+PFD203,Rehberlik ve Özel Eğitim,seçmeli,4,2,0,1,,
+İTY251,Dijital Kültür,seçmeli,4,0,1,2,,
+İTY252,Medya ve İnsan Hakları,seçmeli,4,0,0,3,,
+İTY253,Uluslararası Örgütler ve İletişim,seçmeli,4,0,0,3,,
+İTY255,Örgütsel Değişim Yönetimi,seçmeli,4,0,1,2,,
+İTY256,Haber Toplama,seçmeli,4,0,1,3,,
+İTY257,Medya Okuryazarlığı,seçmeli,4,0,1,2,,
+İTY258,Röportaj Teknikleri,seçmeli,4,1,1,2,,
+İTY259,Etkili İletişim ve Beden Dili,seçmeli,4,1,0,2,,
+İTY260,Diksiyon,seçmeli,4,0,1,2,,
+İTY261,İletişim Sosyolojisi,seçmeli,4,0,1,3,,
+İTY262,"Medya, Teknoloji ve Aile",seçmeli,4,0,1,5,,
+İTY263,Sinema ve Edebiyat,seçmeli,4,1,2,2,,
+İTY264,Kurumsal İletişim,seçmeli,4,0,0,2,,
+İTY265,Üretken Yapay Zeka,seçmeli,4,0,0,2,,
+İTY266,Pazarlama İletişimi,seçmeli,4,1,1,2,,
+İTY351,Radyo ve Televizyon Haberciliği,seçmeli,4,0,2,4,,
+İTY352,Fotoğrafçılık,seçmeli,4,0,0,3,,
+İTY353,Sanat Tarihi,seçmeli,4,0,1,2,,
+İTY354,Tasarım Tarihi,seçmeli,4,0,1,2,,
+İTY355,Medya ve Edebiyat,seçmeli,4,1,1,3,,
+İTY356,Medya ve Siyaset,seçmeli,4,1,1,2,,
+İTY357,E-Ticaret,seçmeli,4,0,0,4,,
+İTY358,Tasarım Araştırmaları ve Görselleştirme,seçmeli,4,1,0,2,,
+İTY359,Yönetimde Yeni Eğilimler,seçmeli,4,0,1,3,,
+İTY360,Çağdaş Toplumsal Hareketler,seçmeli,4,1,1,2,,
+İTY361,Türkiye'nin Sosyal Sorunları,seçmeli,4,0,1,3,,
+İTY362,Bilim İletişimi,seçmeli,4,0,0,3,,
+İTY363,Sinematografi,seçmeli,4,0,0,3,,
+İTY364,Senaryo Yazımı,seçmeli,4,0,1,2,,
+İTY365,Nitel Araştırma Yöntemleri,seçmeli,4,0,0,2,,
+İTY380,Drama,seçmeli,4,0,0,2,,
+İTY382,Sivil Toplum ve Demokrasi,seçmeli,4,1,0,3,,
+İTY384,Afet ve Kriz Yönetimi,seçmeli,4,0,1,2,,
+İTY386,Mitoloji,seçmeli,4,0,1,3,,
+İTY388,İspanyolca,seçmeli,4,1,0,4,,
+İTY390,Gönüllülük Çalışmaları,seçmeli,4,0,0,4,,
+İTY392,Kariyer Planlama,seçmeli,4,0,0,3,,
+İTY451,Kısa Film Uygulamaları,seçmeli,5,0,0,3,,
+İTY452,Film Eleştirisi,seçmeli,5,2,0,2,,
+İTY453,Görsel Sanat,seçmeli,5,0,0,2,,
+İTY454,Dergi Tasarımı ve Üretimi,seçmeli,5,2,1,3,,
+İTY455,Sunuculuk ve Spikerlik,seçmeli,5,0,1,2,,
+İTY457,Stratejik Pazarlama Yönetimi,seçmeli,5,0,0,3,,
+İTY458,Biyomimikri,seçmeli,5,2,1,3,,
+İTY459,Medya ve Tüketim Toplumu,seçmeli,5,0,0,2,,
+İTY460,Sanat ve Estetik,seçmeli,5,0,1,2,,
+İTY462,Sosyal Medya Yönetimi,seçmeli,5,0,1,3,,
+İTY463,Ambalaj Tasarımı,seçmeli,5,0,0,3,,
+İTY464,Avrupa Birliği ve Medya Politikaları,seçmeli,5,0,1,2,,
+İTY466,Sosyal İnovasyon ve Sürdürülebilirlik,seçmeli,5,0,1,2,,
+İTY467,İşletmede Mesleki Eğitim,seçmeli,15,0,0,3,,
+İTY468,Uluslararası İletişim,seçmeli,5,0,1,2,,
+İTY469,Medya Analizi,seçmeli,5,0,1,2,,
+İTY471,Fikri Haklar,seçmeli,5,2,0,2,,
+İTY472,İşletmede Mesleki Eğitim,seçmeli,15,0,1,3,,
